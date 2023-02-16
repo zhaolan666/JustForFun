@@ -1,0 +1,17 @@
+{
+  "name": "justforfun",
+  "version": "0.0.1",
+  "description": "",
+  "main": "index.js",
+  "private": "true",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "pnpm --filter @justforfun/components build:vite",
+    "docs:dev": "pnpm --filter @justforfun/docs docs:dev",
+    "docs:build": "pnpm --filter @justforfun/docs docs:build",
+    "docs:serve": "pnpm --filter @justforfun/docs docs:serve"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}

@@ -1,0 +1,12 @@
+{
+  "name": "@justforfun/components",
+  "version": "0.0.1",
+  "description": "all componets are settle here",
+  "main": "index.ts",
+  "module":"index.ts",
+  "peerDependencies": {
+    "vue": ">=3.0.0 < 4.0.0",
+    "types":"index.d.ts",
+    "sideEffects":"false" 
+  }
+}
