@@ -1,9 +1,9 @@
 <script setup lang="ts">
-
+import Button from './button/index'
 </script>
 
 <template>
   <div id="app">
-    xxx
+    <Button />
   </div>
 </template>
