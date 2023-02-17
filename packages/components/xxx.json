@@ -3,7 +3,12 @@
   "version": "0.0.1",
   "description": "all componets are settle here",
   "main": "src/index.ts",
-  "module": "index.ts",
+  "module":"index.ts",
+  "peerDependencies": {
+    "vue": ">=3.2.0 < 4.0.0",
+    "types":"index.d.ts",
+    "sideEffects":"false" 
+  },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
@@ -12,8 +17,5 @@
   "license": "ISC",
   "devDependencies": {
     "@justforfun-ui/utils": "^1.0.0"
-  },
-  "dependencies": {
-    "esno": "^0.16.3"
   }
 }

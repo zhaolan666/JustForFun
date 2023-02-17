@@ -1,10 +1,11 @@
 /// <reference types="vitest" />
-
 import path from 'path'
 import { defineConfig } from 'vite'
 import Vue from '@vitejs/plugin-vue'
+import Pages from 'vite-plugin-pages'
 import Components from 'unplugin-vue-components/vite'
 import AutoImport from 'unplugin-auto-import/vite'
+
 
 export default defineConfig({
   resolve: {
@@ -13,7 +14,10 @@ export default defineConfig({
     },
   },
   plugins: [
-    Vue(),
+    Vue({
+      reactivityTransform: true,
+    }),
+    Pages(),
     AutoImport({
       imports: [
         'vue',
@@ -26,17 +30,7 @@ export default defineConfig({
       dts: true,
     }),
   ],
-  css: {
-    preprocessorOptions: {
-      less: {
-        charset: true,
-        math: 'always', // 括号内才使用数学计算
-        mainColor: '#ff4400', // 全局变量
-      },
-    },
-  },
   test: {
-    environment: 'js-dom',
+    environment: 'jsdom',
   },
-
 })

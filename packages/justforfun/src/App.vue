@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import Button from './button/index'
+import { Button } from 'justforfun-ui'
 </script>
 
 <template>
