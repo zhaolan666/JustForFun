@@ -1,4 +1,10 @@
 //script/build/gulpfile.ts
+
+import {resolve} from 'path'
+
+// 组件库根目录
+ const componentPath = resolve(__dirname,'../../')
+
 import { spawn } from 'child_process'
 import { series, src, dest, task } from 'gulp'
 import { componentPath } from './utils/paths'

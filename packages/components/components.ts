@@ -1,2 +1,0 @@
-
-export { JffButton } from './button'
