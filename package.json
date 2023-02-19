@@ -10,6 +10,7 @@
   ],
   "scripts": {
     "test": "vitest",
+    "commit": "git-cz",
     "dev": "pnpm -C example dev",
     "build:justforfun": "gulp -f packages/components/build/gulpfile.ts",
     "build": "pnpm --filter @justforfun-ui/components build:vite",
@@ -54,6 +55,7 @@
     "concurrently": "^7.6.0",
     "consola": "^2.15.3",
     "csstype": "^3.1.1",
+    "cz-conventional-changelog": "^3.3.0",
     "cz-git": "^1.4.1",
     "czg": "^1.4.1",
     "eslint": "^8.34.0",
@@ -86,6 +88,11 @@
   },
   "engines": {
     "node": ">= 16"
+  },
+  "config": {
+    "commitizen": {
+      "path": "cz-conventional-changelog"
+    }
   },
   "pnpm": {
     "peerDependencyRules": {
