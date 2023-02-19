@@ -3,7 +3,7 @@ const handlerClick = (evt: MouseEvent): void => {
   console.log(evt)
 }
 
-
+console.log('testing...')
 </script>
 
 <template>
