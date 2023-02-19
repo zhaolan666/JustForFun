@@ -13,6 +13,7 @@
     "dev": "pnpm -C example dev",
     "build:justforfun": "gulp -f packages/components/build/gulpfile.ts",
     "build": "pnpm --filter @justforfun-ui/components build:vite",
+    "format": "prettier --write --cache .",
     "lint": "eslint . --ext .vue,.js,.ts,.jsx,.tsx,.md,.json --max-warnings 0 --cache",
     "lint:fix": "pnpm run lint --fix",
     "lint:commit": "commitlint --from $(git merge-base origin/dev HEAD) --to HEAD > ./commit-lint.txt",
