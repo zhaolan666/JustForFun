@@ -10,9 +10,9 @@
     "internal/**/*",
     "internal/**/*.json",
     "scripts/**/*",
-    "packages/theme/*",
+    "packages/theme/chalk*",
     "packages/justforfun/version.ts",
-    "packages/justforfun/package.json"
+    "example/package.json"
   ],
   "exclude": ["**/__tests__/**", "**/tests/**", "**/dist"]
 }

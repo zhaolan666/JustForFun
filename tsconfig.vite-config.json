@@ -7,3 +7,5 @@
   "include": ["**/vite.config.*", "**/vitest.config.*", "**/vite.init.*", "packages/justforfun/xx.js"],
   "exclude": ["docs"]
 }
+
+

@@ -16,7 +16,7 @@
     "rootDir": ".",
     "types": [],
     "paths": {
-      "@justforfun/*": ["packages/*"]
+      "@justforfun-ui/*": ["packages/*"]
     }
   }
 }

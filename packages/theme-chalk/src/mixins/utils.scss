@@ -1,0 +1,30 @@
+// 当前dom设置不允许复制user-select
+@mixin utils-user-select($value) {
+  -moz-user-select: $value;
+  -webkit-user-select: $value;
+  -ms-user-select: $value;
+}
+
+
+@mixin button-size($padding-vertical,$padding-horizontal,$font-size,$border-radius) {
+  padding: $padding-vertical,$padding-horizontal;
+  font-size: $font-size;
+  border-radius: $border-radius;
+  &.is-round {
+    padding:$padding-vertical,$padding-horizontal;
+  }
+  &[class*="-icon-"] {
+    & + span {
+      margin-left: 5px;
+    }
+  }
+}
+
+@mixin when($state) {
+  @at-root {
+    &.#{$state-prefix + $state} {
+      @content;
+    }
+  }
+}
+

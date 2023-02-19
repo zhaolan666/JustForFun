@@ -1,7 +1,15 @@
-// export * from './button'
+import type {}  from 'vue';
+import * as components from './components';
+import { version } from  './package.json';
 
-import { multi }  from '@justforfun-ui/utils'
 
-const result = multi(1,1)
+const install = function (app: App) {
+  Object.entries(component).forEach(([key,value]) => {
+    app.component(key,value)
+  }) 
+}
 
-console.log(result)
+export default {
+  install,
+  version
+}

@@ -1,14 +1,9 @@
 {
   "name": "@justforfun-ui/utils",
-  "version": "1.0.0",
-  "description": "test",
+  "private": true,
+  "license": "MIT",
   "main": "index.ts",
-  "repository": "https://github.com/zhaolan666/JustForFun.git",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
   "peerDependencies": {
-    "vue": ">=3.2.0 < 4.0.0"
-  },
-  "license": "ISC"
+    "vue": ">=3.2.0"
+  }
 }
