@@ -2,7 +2,7 @@ import { ExtractPropTypes, PropType } from 'vue'
 import type { ButtonNativeType, ButtonSizeType, ButtonType } from './interface'
 
 
-export const Props = {
+export const buttonProps = {
   type: {
     type: String as PropType<ButtonType>,
     default: (): ButtonType => 'default',
@@ -57,4 +57,4 @@ export const Emits = {
   click: (evt: MouseEvent): MouseEvent => evt
 }
 
-export type ButtonProps = ExtractPropTypes<typeof Props>
+export type ButtonProps = ExtractPropTypes<typeof buttonProps>

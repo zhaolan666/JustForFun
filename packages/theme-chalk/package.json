@@ -1,6 +1,6 @@
 {
   "name": "@justforfun-ui/theme-chalk",
-  "version": "0.0.1",
+  "version": "1.0.0",
   "description": "loading ...",
   "keywords": [
     "justforfun-ui"
@@ -30,5 +30,14 @@
     "gulp-sass": "^5.1.0",
     "path": "^0.12.7",
     "sass": "^1.58.3"
-  }
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/zhaolan666/JustForFun.git#dev"
+  },
+  "author": "mingdu",
+  "bugs": {
+    "url": "https://github.com/zhaolan666/JustForFun/issues"
+  },
+  "homepage": "https://github.com/zhaolan666/JustForFun/tree/dev#readme"
 }

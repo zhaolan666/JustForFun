@@ -9,7 +9,11 @@
     "docs"
   ],
   "scripts": {
-    "test": "vitest",
+    "cz": "czg",
+    "test": "pnpm --filter components test",
+    "test:coverage": "pnpm --filter components coverage",
+    "test:ssr": "vitest --config ./ssr-testing/vitest.config.ts",
+    "prepare:e2e": "if [ ! -d \"docs/.vitepress/dist\" ]; then pnpm run docs:build; fi;",
     "commit": "git-cz",
     "dev": "pnpm -C example dev",
     "build:justforfun": "gulp -f packages/components/build/gulpfile.ts",
@@ -18,22 +22,31 @@
     "lint": "eslint . --ext .vue,.js,.ts,.jsx,.tsx,.md,.json --max-warnings 0 --cache",
     "lint:fix": "pnpm run lint --fix",
     "lint:commit": "commitlint --from $(git merge-base origin/dev HEAD) --to HEAD > ./commit-lint.txt",
-    "docs:dev": "pnpm --filter @justforfun-ui/docs docs:dev",
-    "docs:build": "pnpm --filter @justforfun-ui/docs docs:build",
-    "docs:serve": "pnpm --filter @justforfun-ui/docs docs:serve"
+    "docs:dev": "vitepress dev docs",
+    "docs:build": "vitepress build docs",
+    "docs:serve": "pnpm --filter @justforfun-ui/docs docs:serve",
+    "docs:preview": "vitepress preview docs --port 8989",
+    "prepare": "husky install"
   },
   "peerDenpendencies": {
     "vue": ">= 3.2.0"
   },
   "dependencies": {
+    "@jridgewell/sourcemap-codec": "^1.4.14",
+    "@justforfun-ui/components": "workspace:^1.0.0",
+    "@justforfun-ui/constants": "workspace:^1.0.0",
+    "@justforfun-ui/theme-chalk": "workspace:^1.0.0",
+    "@justforfun-ui/utils": "workspace:^1.0.0",
     "@vueuse/core": "^9.12.0",
-    "dayjs": "^1.11.7"
+    "dayjs": "^1.11.7",
+    "lodash": "^4.17.21",
+    "lodash-es": "^4.17.21",
+    "lodash-unified": "^1.0.2"
   },
   "devDependencies": {
     "@commitlint/cli": "^17.4.4",
     "@commitlint/config-conventional": "^17.4.4",
     "@esbuild-kit/cjs-loader": "^2.4.2",
-    "@jridgewell/sourcemap-codec": "^1.4.14",
     "@pnpm/find-workspace-packages": "^5.0.34",
     "@pnpm/logger": "^5.0.0",
     "@pnpm/types": "^8.10.0",
@@ -78,6 +91,7 @@
     "typescript": "^4.9.5",
     "unplugin-element-plus": "^0.7.0",
     "unplugin-vue-macros": "^1.8.1",
+    "vitepress": "^1.0.0-alpha.47",
     "vitest": "0.28.5",
     "vue": "^3.2.47",
     "vue-router": "^4.1.6",

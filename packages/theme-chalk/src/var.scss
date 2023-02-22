@@ -2,16 +2,13 @@
 
 // CSS3 var
 @use 'common/var' as *;
-@use 'mixins/var' as *;
-@use 'mixins/mixins';
-// for better performance do not dynamically change the root variable if you really
-// do not need that, since this could introduce recalculation overhead for rendering.
-// https://lisilinhart.info/posts/css-variables-performance/
+@use 'mixins/mixins-var' as *;
+@use 'mixins/mixins' as *;
 
 // common
 :root {
-  @include mixins.set-css-var-value('color-white', $color-white);
-  @include  mixins.set-css-var-value('color-black', $color-black);
+  @include set-css-var-value('color-white', $color-white);
+  @include set-css-var-value('color-black', $color-black);
 
   // get rgb
   @each $type in (primary, success, warning, danger, error, info) {
@@ -19,36 +16,33 @@
   }
 
   // Typography
-  @include mixins.set-component-css-var('font-size', $font-size);
-  @include mixins.set-component-css-var('font-family', $font-family);
+  // @include set-component-css-var('font-size', $font-size);
+  // @include set-component-css-var('font-family', $font-family);
 
-  @include  mixins.set-css-var-value('font-weight-primary', 500);
-  @include  mixins.set-css-var-value('font-line-height-primary', 24px);
+  @include set-css-var-value('font-weight-primary', 500);
+  @include set-css-var-value('font-line-height-primary', 24px);
 
   // z-index --el-index-#{$type}
-  @include mixins.set-component-css-var('index', $z-index);
+  // @include set-component-css-var('index', $z-index);
 
-  // --el-border-radius-#{$type}
-  @include mixins.set-component-css-var('border-radius', $border-radius);
+  // // --el-border-radius-#{$type}
+  // @include set-component-css-var('border-radius', $border-radius);
 
-  // Transition
-  // refer to this website to get the bezier motion function detail
-  // https://cubic-bezier.com/#p1,p2,p3,p4 (change px as your function parameter)
-  @include mixins.set-component-css-var('transition-duration', $transition-duration);
+  // @include set-component-css-var('transition-duration', $transition-duration);
 
-  @include mixins.set-component-css-var('transition-function', $transition-function);
-  @include mixins.set-component-css-var('transition', $transition);
+  // @include set-component-css-var('transition-function', $transition-function);
+  // @include set-component-css-var('transition', $transition);
 
-  // common component size
-  @include mixins.set-component-css-var('component-size', $common-component-size);
+  // // common component size
+  // @include set-component-css-var('component-size', $common-component-size);
 }
 
 // for light
 :root {
   color-scheme: light;
 
-  @include  mixins.set-css-var-value('color-white', $color-white);
-  @include  mixins.set-css-var-value('color-black', $color-black);
+  @include set-css-var-value('color-white', $color-white);
+  @include set-css-var-value('color-black', $color-black);
 
   // --el-color-#{$type}
   // --el-color-#{$type}-light-{$i}
@@ -58,23 +52,23 @@
 
   // color-scheme
   // Background --el-bg-color-#{$type}
-  @include mixins.set-component-css-var('bg-color', $bg-color);
-  // --el-text-color-#{$type}
-  @include mixins.set-component-css-var('text-color', $text-color);
-  // --el-border-color-#{$type}
-  @include mixins.set-component-css-var('border-color', $border-color);
-  // Fill --el-fill-color-#{$type}
-  @include mixins.set-component-css-var('fill-color', $fill-color);
+  // @include set-component-css-var('bg-color', $bg-color);
+  // // --el-text-color-#{$type}
+  // @include set-component-css-var('text-color', $text-color);
+  // // --el-border-color-#{$type}
+  // @include set-component-css-var('border-color', $border-color);
+  // // Fill --el-fill-color-#{$type}
+  // @include set-component-css-var('fill-color', $fill-color);
 
-  // Box-shadow
-  // --el-box-shadow-#{$type}
-  @include mixins.set-component-css-var('box-shadow', $box-shadow);
-  // Disable base
-  @include mixins.set-component-css-var('disabled', $disabled);
+  // // Box-shadow
+  // // --el-box-shadow-#{$type}
+  // @include set-component-css-var('box-shadow', $box-shadow);
+  // // Disable base
+  // @include set-component-css-var('disabled', $disabled);
 
-  // overlay & mask
-  @include mixins.set-component-css-var('overlay-color', $overlay-color);
-  @include mixins.set-component-css-var('mask-color', $mask-color);
+  // // overlay & mask
+  // @include set-component-css-var('overlay-color', $overlay-color);
+  // @include set-component-css-var('mask-color', $mask-color);
 
   // Border
   @include set-css-var-value('border-width', $border-width);

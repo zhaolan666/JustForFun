@@ -1,19 +1,43 @@
 {
-  "name": "@justforfun-ui/componets",
-  "version": "0.0.1",
+  "name": "@justforfun-ui/components",
+  "version": "1.0.0",
   "description": "all componets are settle here",
-  "main": "src/index.ts",
+  "main": "index.ts",
   "module": "index.ts",
+  "unpkg": "index.js",
   "devDependencies": {
-    "@justforfun-ui/utils": "^1.0.0",
-    "unplugin-vue-define-options": "^1.2.1"
+    "@vitest/coverage-c8": "^0.28.5"
   },
-  "dependencies": {
-    "esno": "^0.16.3"
+  "scripts": {
+    "test": "vitest",
+    "coverage": "vitest run --coverage",
+    "build": "vite build"
   },
+  "files": [
+    "es",
+    "lib"
+  ],
   "peerDependencies": {
     "vue": ">=3.2.0"
   },
   "types": "index.d.ts",
-  "sideEffects": false
+  "sideEffects": false,
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/zhaolan666/JustForFun.git#dev"
+  },
+  "keywords": [
+    "UI",
+    "component",
+    "justforfun-ui"
+  ],
+  "author": "mingdu",
+  "license": "MIT",
+  "dependencies": {
+    "@justforfun-ui/utils": "workspace:^1.0.0"
+  },
+  "bugs": {
+    "url": "https://github.com/zhaolan666/JustForFun/issues"
+  },
+  "homepage": "https://github.com/zhaolan666/JustForFun/tree/dev#readme"
 }

@@ -1,8 +1,9 @@
+import { buttonProps } from './button'
 
-export interface ButtonGroup {
-  "type": "button-group",
-  "name": "button-group",
-  "value": any,
-  "disabled": boolean,
-  "color": "primary",
-}
+import type { ExtractPropTypes} from 'vue'
+
+export const buttonGroupProps = {
+  size: buttonProps.size,
+  type: buttonProps.type
+} as const 
+export type ButtonGroupProps = ExtractPropTypes<typeof buttonGroupProps>

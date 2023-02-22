@@ -6,7 +6,7 @@ const app = createApp(App)
 
 
 import '@justforfun-ui/theme-chalk/src/index.scss'
-import { JffButton } from '@justforfun-ui/componets'
+import { JffButton } from '@justforfun-ui/components'
 app.use(JffButton)
 
 

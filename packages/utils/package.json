@@ -1,9 +1,33 @@
 {
   "name": "@justforfun-ui/utils",
-  "private": true,
+  "version": "1.0.2",
   "license": "MIT",
-  "main": "index.ts",
+  "main": "./index.ts",
+  "module": "./index.ts",
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "build": "vite build"
+  },
   "peerDependencies": {
-    "vue": ">=3.2.0"
+    "vue": ">= 3.2.0"
+  },
+  "description": "一个UI 组件库",
+  "devDependencies": {
+    "@vue/shared": "^3.2.47",
+    "lodash-unified": "^1.0.3"
+  },
+  "author": "mingdu",
+  "bugs": {
+    "url": "https://github.com/zhaolan666/JustForFun/issues"
+  },
+  "homepage": "https://github.com/zhaolan666/JustForFun/tree/dev#readme",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/zhaolan666/JustForFun.git#dev"
+  },
+  "publishConfig": {
+    "registry": "https://npm.pkg.github.com/"
   }
 }

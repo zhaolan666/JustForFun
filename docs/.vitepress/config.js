@@ -7,12 +7,12 @@ const pkg = require('vitepress/package.json')
 export default defineConfig({
   lang: 'en-US',
   title: 'JustForFun',
-  theme: 'my-theme',
-  description: 'Vite & Vue powered static site generator.',
+  description: 'JustForFun is a simple UI framework',
+
   lastUpdated: true,
   cleanUrls: true,
 
-  head: [['meta', { name: 'theme-color', content: '#845EC2' }]],
+  head: [['link', { rel: 'icon', href: '/docs/public/images/logo-justforfun.jpg' }]],
 
   markdown: {
     headers: {
@@ -21,6 +21,7 @@ export default defineConfig({
   },
 
   themeConfig: {
+    logo: '/docs/public/images/logo-justforfun.jpg',
     nav: nav(),
 
     sidebar: {
@@ -47,8 +48,8 @@ export default defineConfig({
 
 function nav() {
   return [
-    { text: 'Guide', link: '/guide/what-is-vitepress', activeMatch: '/guide/' },
-    { text: 'Configs', link: '/config/introduction', activeMatch: '/config/' },
+    { text: 'Guide', link: '/guide/example', activeMatch: '/guide/' },
+    { text: 'Configs', link: '/config/cofig', activeMatch: '/config/' },
     {
       text: pkg.version,
       items: [
@@ -68,63 +69,121 @@ function nav() {
 function sidebarGuide() {
   return [
     {
-      text: 'Introduction',
-      collapsed: false,
-      items: [
-        { text: 'What is VitePress?', link: '/guide/what-is-vitepress' },
-        { text: 'Getting Started', link: '/guide/getting-started' },
-        { text: 'Configuration', link: '/guide/configuration' },
-        { text: 'Routing', link: '/guide/routing' },
-        { text: 'Deploying', link: '/guide/deploying' },
-        { text: 'Internationalization', link: '/guide/i18n' }
-      ]
-    },
-    {
-      text: 'Writing',
-      collapsed: false,
-      items: [
-        { text: 'Markdown', link: '/guide/markdown' },
-        { text: 'Asset Handling', link: '/guide/asset-handling' },
-        { text: 'Frontmatter', link: '/guide/frontmatter' },
-        { text: 'Using Vue in Markdown', link: '/guide/using-vue' },
-        { text: 'API Reference', link: '/guide/api' }
-      ]
-    },
-    {
-      text: 'Theme',
-      collapsed: false,
-      items: [
-        { text: 'Introduction', link: '/guide/theme-introduction' },
-        { text: 'Nav', link: '/guide/theme-nav' },
-        { text: 'Sidebar', link: '/guide/theme-sidebar' },
-        { text: 'Prev Next Link', link: '/guide/theme-prev-next-link' },
-        { text: 'Edit Link', link: '/guide/theme-edit-link' },
-        { text: 'Last Updated', link: '/guide/theme-last-updated' },
-        { text: 'Layout', link: '/guide/theme-layout' },
-        { text: 'Home Page', link: '/guide/theme-home-page' },
-        { text: 'Team Page', link: '/guide/theme-team-page' },
-        { text: 'Badge', link: '/guide/theme-badge' },
-        { text: 'Footer', link: '/guide/theme-footer' },
-        { text: 'Search', link: '/guide/theme-search' },
-        { text: 'Carbon Ads', link: '/guide/theme-carbon-ads' }
-      ]
-    },
-    {
-      text: 'Migrations',
+      text: 'Basic',
       collapsed: false,
       items: [
         {
-          text: 'Migration from VuePress',
+          text: 'Button',
+          link: '/guide/example',
+        },
+        { text: 'Border', link: '/guide/getting-started' },
+        { text: 'Color', link: '/guide/configuration' },
+        { text: 'Icon', link: '/guide/deploying' },
+        { text: 'Layout', link: '/guide/i18n' }
+      ]
+    },
+    {
+      text: 'Configuration',
+      collapsed: false,
+      items: [
+        { text: 'Config Provider', link: '/guide/markdown' }
+      ]
+    },
+    {
+      text: 'From',
+      collapsed: false,
+      items: [
+        { text: 'Checkbox', link: '/guide/theme-introduction' },
+        { text: 'Color Picker', link: '/guide/theme-nav' },
+        { text: 'Date Picker', link: '/guide/theme-sidebar' },
+        { text: 'Date Time Picker', link: '/guide/theme-prev-next-link' },
+        { text: 'From', link: '/guide/theme-edit-link' },
+        { text: 'Input', link: '/guide/theme-last-updated' },
+        { text: 'Rido', link: '/guide/theme-layout' },
+        { text: 'Select', link: '/guide/theme-home-page' },
+        { text: 'Switch', link: '/guide/theme-team-page' },
+        { text: 'Upload', link: '/guide/theme-badge' },
+      ]
+    },
+    {
+      text: 'Data',
+      collapsed: false,
+      items: [
+        {
+          text: 'Avatar',
           link: '/guide/migration-from-vuepress'
         },
         {
-          text: 'Migration from VitePress 0.x',
+          text: 'Card',
+          link: '/guide/migration-from-vuepress'
+        },
+        {
+          text: 'Image',
           link: '/guide/migration-from-vitepress-0'
+        },
+        {
+          text: 'Tag',
+          link: '/guide/migration-from-vitepress-0'
+        }
+      ]
+    },
+    {
+      text: 'Navigation',
+      collapsed: false,
+      items: [
+        {
+          text: 'Dropdown',
+          link: '/guide/migration-from-vuepress'
+        },
+        {
+          text: 'Menu',
+          link: '/guide/migration-from-vuepress'
+        },
+        {
+          text: 'Steps',
+          link: '/guide/migration-from-vitepress-0'
+        },
+        {
+          text: 'Tabs',
+          link: '/guide/migration-from-vitepress-0'
+        }
+      ]
+    },
+    {
+      text: 'Feedback',
+      collapsed: false,
+      items: [
+        {
+          text: 'Alert',
+          link: '/guide/migration-from-vuepress'
+        },
+        {
+          text: 'Dialog',
+          link: '/guide/migration-from-vuepress'
+        },
+        {
+          text: 'Loading',
+          link: '/guide/migration-from-vitepress-0'
+        },
+        {
+          text: 'Message',
+          link: '/guide/migration-from-vitepress-0'
+        }
+      ]
+    },
+    {
+      text: 'Others',
+      collapsed: false,
+      items: [
+        {
+          text: 'Diver',
+          link: '/guide/migration-from-vuepress'
         }
       ]
     }
   ]
 }
+
 
 function sidebarConfig() {
   return [

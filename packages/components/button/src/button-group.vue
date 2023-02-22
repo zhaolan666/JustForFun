@@ -1,7 +1,7 @@
-<script setup lang="ts">
-
+<script setup lang="ts" name="JustforfunButtonGroup">
+import '../style/index'
 </script>
 
 <template>
-  <button-group></button-group>
+  <div class="jff-button-group"></div>
 </template>
