@@ -6,7 +6,7 @@ hero:
   text: UI component library
   tagline: JustForFun is a simple, quick and easy to use Vue3 combined UI framework.
   image:
-    - src: /public/images/logo-justforfun.jpg
+    - src: https://i.328888.xyz/2023/02/20/XGsVU.jpeg
       alt: justforfun-ui
   actions: 
     - theme: brand

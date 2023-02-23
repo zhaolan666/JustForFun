@@ -8,7 +8,7 @@ export default defineConfig({
   lang: 'en-US',
   title: 'JustForFun',
   description: 'JustForFun is a simple UI framework',
-  base:'https://github.com/zhaolan666/JustForFun/tree/dev/document/',
+  base:'https://github.com/zhaolan666/JustForFun/tree/dev/doc/',
 
   lastUpdated: true,
   cleanUrls: true,
