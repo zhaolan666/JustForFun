@@ -6,6 +6,7 @@
   "module": "index.ts",
   "unpkg": "index.js",
   "devDependencies": {
+    "@types/node": "^18.13.0",
     "@vitest/coverage-c8": "^0.28.5"
   },
   "scripts": {
