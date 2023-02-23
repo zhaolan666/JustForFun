@@ -1,4 +1,4 @@
-<script lang="ts" setup>
+<!-- <script lang="ts" setup>
 import { computed } from 'vue'
 import { addUnit, isUndefined } from '@justforfun-ui/utils'
 // import { useNamespace } from '@justforfun-ui/hooks'
@@ -23,4 +23,4 @@ const style = computed<CSSProperties>(() => {
   <i :class="iconProps" :style="style" v-bind="$attrs">
     <slot />
   </i>
-</template>
+</template> -->

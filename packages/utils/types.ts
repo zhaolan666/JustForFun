@@ -1,4 +1,6 @@
 import { isArray, isObject, isString } from '@vue/shared'
+// import { isNil } from 'lodash-unified'
+
 export {
   isArray,
   isFunction,
@@ -23,7 +25,9 @@ export const isElement = (e: unknown): e is Element => {
   return e instanceof Element
 }
 
-
+// export const isPropAbsent = (prop: unknown): prop is null | undefined => {
+//   return isNil(prop)
+// }
 
 export const isStringNumber = (val: string): boolean => {
   if (!isString(val)) {

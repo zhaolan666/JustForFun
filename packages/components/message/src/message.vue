@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import '../style/'
 import { computed, onMounted, onUnmounted, ref } from 'vue'
-import { JffIcon } from '../../icon'
+// import { JffIcon } from '../../icon'
 import { MessageProps } from './message'
 
 const iconMaps: any = {
