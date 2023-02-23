@@ -3,7 +3,7 @@
   "private": true,
   "license": "MIT",
   "main": "index.ts",
-  "version": "1.0.1",
+  "version": "1.0.0",
   "author": "mingdu",
   "description": "memory constant",
   "repository": {

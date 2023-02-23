@@ -1,6 +1,6 @@
 {
   "name": "@justforfun-ui/components",
-  "version": "1.0.0",
+  "version": "1.0.2",
   "description": "all componets are settle here",
   "main": "index.ts",
   "module": "index.ts",
