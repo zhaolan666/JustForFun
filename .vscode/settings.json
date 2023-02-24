@@ -46,6 +46,17 @@
   "terminal.integrated.fontWeight": "300",
   "terminal.integrated.persistentSessionReviveProcess": "never",
   "terminal.integrated.tabs.enabled": true,
+  "terminal.integrated.profiles.windows": {
+    "bash": {
+      "path": "D:\\system_app\\Git\\bin\\bash.exe",
+      "args": [
+        "-l",
+        "-i"
+      ]
+    }
+  },
+  "terminal.integrated.defaultProfile.windows": "bash",
+  "terminal.external.windowsExec": "D:\\system_app\\Git\\bin\\bash.exe",
   "scm.diffDecorationsGutterWidth": 2,
   "debug.onTaskErrors": "debugAnyway",
   "diffEditor.ignoreTrimWhitespace": false,
@@ -67,7 +78,6 @@
     "**/tmp": true,
     "**/yarn.lock": true
   },
-
   // Extension configs
   "emmet.showSuggestionsAsSnippets": true,
   "emmet.triggerExpansionOnTab": false,
@@ -169,7 +179,6 @@
   "prettier.printWidth": 200,
   "prettier.semi": false,
   "prettier.singleQuote": true,
-
   // File Nesting
   // this might not be up to date with the repo, please check yourself
   // updated 2022-07-12 03:35
