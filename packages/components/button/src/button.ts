@@ -1,60 +1,53 @@
-import { ExtractPropTypes, PropType } from 'vue'
-import type { ButtonNativeType, ButtonSizeType, ButtonType } from './interface'
+import { Loading } from '@element-plus/icons-vue'
+import type { ExtractPropTypes, PropType } from 'vue'
+import type Button from './button.vue'
 
+// 点击事件
+export const buttonEmits = {
+  click: (evt: MouseEvent) => evt instanceof MouseEvent,
+}
 
+export type ButtonEmits = typeof buttonEmits
+// 使用 type 来定义按钮的样式
+export type ButtonType =
+  | ''
+  | 'default'
+  | 'primary'
+  | 'success'
+  | 'warning'
+  | 'info'
+  | 'danger'
+  | 'text'
+// type 原始类型
+export type ButtonNativeType = 'button' | 'submit' | 'reset'
+// size 组件大小
+export type ButtonSize = '' | 'default' | 'small' | 'large'
+// 定义 props
 export const buttonProps = {
+  size: String as PropType<ButtonSize>,
   type: {
     type: String as PropType<ButtonType>,
-    default: (): ButtonType => 'default',
-    validator(value: ButtonType) {
-      return (['default', 'primary', 'success', 'info', 'danger', 'warning'] as const).includes(value)
-    }
-  },
-  size: {
-    type: String as PropType<ButtonSizeType>,
-    validator(value: ButtonSizeType) {
-      return (['default', 'medium', 'small', 'mini', 'tiny'] as const).includes(value)
-    }
-  },
-  plain: {
-    type: Boolean,
-    default: (): Boolean => false
-  },
-  round: {
-    type: Boolean,
-    default: (): Boolean => false
-  },
-  circle: {
-    type: Boolean,
-    default: (): Boolean => false
-  },
-  loading: {
-    type: Boolean,
-    default: (): Boolean => false
-  },
-  disabled: {
-    type: Boolean,
-    default: (): Boolean => false
-  },
-  icon: {
-    type: String,
-    default: (): String => ""
-  },
-  autoFocus: {
-    type: Boolean,
-    default: (): Boolean => false
   },
   nativeType: {
     type: String as PropType<ButtonNativeType>,
-    default: (): ButtonNativeType => 'button',
-    validator(value:any){
-      return (['button', 'submit', 'reset'] as const).includes(value) 
-    }
+    default: 'button',
   },
-}
-
-export const Emits = {
-  click: (evt: MouseEvent): MouseEvent => evt
-}
-
+  icon: {
+    type: [Object, String] as PropType<object | string>,
+    default: '',
+  },
+  loading: Boolean,
+  loadingIcon: {
+    type: [Object, String] as PropType<object | string>,
+    default: () => Loading,
+  },
+  disabled: Boolean,
+  autofocus: Boolean,
+  round: Boolean,
+  plain: Boolean,
+  circle: Boolean,
+} as const
+// Props 类型
 export type ButtonProps = ExtractPropTypes<typeof buttonProps>
+// Button 组件实例类型
+export type ButtonInstance = InstanceType<typeof Button>

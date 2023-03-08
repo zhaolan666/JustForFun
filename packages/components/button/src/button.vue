@@ -1,45 +1,56 @@
-<script setup lang="ts" name="JustforfunButton">
-import '../style/index'
-import { computed, defineEmits } from 'vue'
-import { buttonProps, Emits } from './button'
-
-const props = defineProps(buttonProps)
-const emits = defineEmits(Emits)
-
-const classList = computed(() => {
-  const { type, size, round, circle, disabled, plain, loading } = props
-  return [
-    {
-      [`jff-button-${type}`]: type,
-      [`jff-button-${size}`]: size,
-      [`is-disabled`]: disabled,
-      [`is-loading`]: loading,
-      [`is-round`]: round,
-      [`is-plain`]: plain,
-      [`is-circle`]: circle,
-    }
-  ]
-})
-
-function handlerClick(evt: MouseEvent): void {
-  emits('click', evt)
-}
-
-// 1. import icon
-// 2. import hooks
-// 3. import  status mananger library from  data
-// 4. import  button type and button event
-// 5. import  custom button style
-
-
-
-</script>
-
 <template>
-  <button class="jff-button" :class="classList" :type="nativeType" :autofocus="autoFocus" :disabled="disabled || loading"
-    @click="handlerClick">
-    <i v-if="props.loading" class="jff-icon-loading"></i>
-    <i v-if="props.icon && !props.loading" :class="props.icon"></i>
-    <slot></slot>
+  <button ref="_ref" :class="[
+    ns.b(),
+    ns.m(_type),
+    ns.m(_size),
+    ns.is('disabled', disabled),
+    ns.is('plain', plain),
+    ns.is('round', round),
+    ns.is('circle', circle),
+  ]" :disabled="disabled" :autofocus="autofocus" :type="nativeType" @click="handleClick">
+    <template v-if="loading">
+      <slot v-if="$slots.loading" name="loading" />
+      <jff-icon v-else :class="ns.is('loading')">
+        <component :is="loadingIcon" />
+      </jff-icon>
+    </template>
+    <jff-icon v-else-if="icon || $slots.icon">
+      <component :is="icon" v-if="icon" />
+      <slot v-else name="icon" />
+    </jff-icon>
+    <slot />
   </button>
 </template>
+<script lang="ts" setup>
+import { computed, inject, ref } from 'vue'
+import { useNamespace } from '@justforfun-ui/hooks'
+import { buttonGroupContextKey } from '@justforfun-ui/tokens'
+import { buttonEmits, buttonProps } from './button'
+// 定义组件名称
+defineOptions({
+  name: 'JffButton',
+})
+// 定义 Props
+const props = defineProps(buttonProps)
+// 定义 emit
+const emit = defineEmits(buttonEmits)
+
+const buttonGroupContext = inject(buttonGroupContextKey, undefined)
+const _size = computed(() => props.type || buttonGroupContext?.size)
+const _type = computed(() => props.type || buttonGroupContext?.type || '')
+// classname 的 BEM 命名
+const ns = useNamespace('button')
+// 按钮 html 元素
+const _ref = ref<HTMLButtonElement>()
+// 点击事件函数
+const handleClick = (evt: MouseEvent) => {
+  emit('click', evt)
+}
+
+// 组件暴露自己的属性以及方法，去供外部使用
+defineExpose({
+  ref: _ref,
+  size: _size,
+  type: _type,
+})
+</script>

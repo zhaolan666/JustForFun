@@ -1,2 +1,3 @@
-export * from './vue/index'
-export * from './error'
+export * from './vue'
+export * from './dom'
+export * from './types'

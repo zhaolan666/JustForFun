@@ -7,10 +7,10 @@ import autoprefixer from 'gulp-autoprefixer'
 import cleanCSS from 'gulp-clean-css'
 import rename from 'gulp-rename'
 import consola from 'consola'
-// import { epOutput } from '@element-plus/build-utils'
+import { epOutput } from '@justforfun-ui/build-utils'
 
 const distFolder = path.resolve(__dirname, 'dist')
-// const distBundle = path.resolve(epOutput, 'theme-chalk')
+const distBundle = path.resolve(epOutput, 'theme-chalk')
 
 
 /**
@@ -23,7 +23,7 @@ function buildThemeChalk() {
   const sass = gulpSass(dartSass)
   const noElPrefixFile = /(index|base|display)/
   return src(path.resolve(__dirname, 'src/*.scss'))
-    .pipe(sass.sync)
+    .pipe(sass.sync())
     .pipe(autoprefixer({ cascade: false }))
     .pipe(
       cleanCSS({}, (details) => {
@@ -51,7 +51,7 @@ function buildThemeChalk() {
 function buildDarkCssVars() {
   const sass = gulpSass(dartSass)
   return src(path.resolve(__dirname, 'src/dark/css-vars.scss'))
-    .pipe(sass.sync)
+    .pipe(sass.sync())
     .pipe(autoprefixer({ cascade: false }))
     .pipe(
       cleanCSS({}, (details) => {
@@ -64,6 +64,7 @@ function buildDarkCssVars() {
     )
     .pipe(dest(`${distFolder}/dark`))
 }
+
 
 /**
  * copy from packages/theme-chalk/dist to dist/justforfun-ui/theme-chalk

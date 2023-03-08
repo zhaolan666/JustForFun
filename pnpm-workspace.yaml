@@ -1,5 +1,5 @@
-# packages:
-#   - packages/*
-#   - docs
-#   - play
-#   - internal/*
+packages:
+  - packages/* # 组件包
+  - docs  # 组件文档
+  - play  # 组件测试代码
+  - internal/*

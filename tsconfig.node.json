@@ -10,8 +10,8 @@
     "internal/**/*.json",
     "scripts/**/*",
     "packages/theme/chalk*",
-    "packages/justforfun/version.ts",
-    "example/package.json"
+    "packages/justforfun-ui/version.ts",
+    "packages/justforfun-ui/packages.json"
   ],
   "exclude": ["**/__tests__/**", "**/tests/**", "**/dist"]
 }

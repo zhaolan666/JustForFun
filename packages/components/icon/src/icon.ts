@@ -1,20 +1,9 @@
-// import { buildProps, definePropType } from '@justforfun-ui/utils'
-// import type { ExtractPropTypes } from 'vue'
-// import type Icon from './icon.vue'
+import type { ExtractPropTypes, PropType } from 'vue'
+import type Icon from './icon.vue'
+export const iconProps = {
+  color: String,
+  size: [Number, String] as PropType<number | string>,
+} as const
 
-// export const iconProps = buildProps({
-//   /**
-//    * @description SVG icon size, size x size
-//    */
-//   size: {
-//     type: definePropType<number | string>([Number, String]),
-//   },
-//   /**
-//    * @description SVG tag's fill attribute
-//    */
-//   color: {
-//     type: String,
-//   },
-// } as const)
-// export type IconProps = ExtractPropTypes<typeof iconProps>
-// export type IconInstance = InstanceType<typeof Icon>
+export type Props = ExtractPropTypes<typeof iconProps>
+export type IconInstance = InstanceType<typeof Icon>

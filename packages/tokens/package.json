@@ -1,0 +1,13 @@
+{
+  "name": "@justforfun-ui/tokens",
+  "version": "0.0.1",
+  "main": "index.ts",
+  "module": "index.ts",
+  "unpkg": "index.js",
+  "jsdelivr": "index.js",
+  "peerDependencies": {
+    "vue": ">= 3.2.0"
+  },
+  "types": "index.d.js",
+  "license": "MIT"
+}

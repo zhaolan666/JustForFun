@@ -1,26 +1,27 @@
-<!-- <script lang="ts" setup>
+<template>
+  <i :class="bem.b()" :style="style" v-bind="$attrs">
+    <slot />
+  </i>
+</template>
+
+<script setup lang="ts">
 import { computed } from 'vue'
 import { addUnit, isUndefined } from '@justforfun-ui/utils'
-// import { useNamespace } from '@justforfun-ui/hooks'
+import { useNamespace } from '@justforfun-ui/hooks'
 import { iconProps } from './icon'
 import type { CSSProperties } from 'vue'
-// defineOptions({
-//   name: 'ElIcon',
-//   inheritAttrs: false,
-// })
+defineOptions({
+  name: 'ElIcon',
+})
+const bem = useNamespace('icon')
 const props = defineProps(iconProps)
-// const ns = useNamespace('icon')
+
 const style = computed<CSSProperties>(() => {
-  const { size, color } = props
-  if (!size && !color) return {}
+  if (!props.size && !props.color) return {}
+
   return {
-    fontSize: isUndefined(size) ? undefined : addUnit(size),
-    '--color': color,
+    fontSize: isUndefined(props.size) ? undefined : addUnit(props.size),
+    '--color': props.color,
   }
 })
 </script>
-<template>
-  <i :class="iconProps" :style="style" v-bind="$attrs">
-    <slot />
-  </i>
-</template> -->
