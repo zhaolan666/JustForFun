@@ -5,8 +5,8 @@ import Message from './message'
 
 
 const install = (app: App) => {
-  Object.entries(components).forEach(([key,value]) => {
-    app.component(key,value)
+  Object.entries(components).forEach(([key, value]) => {
+    app.component(key, value)
     app.config.globalProperties.$message = Message
   })
 }

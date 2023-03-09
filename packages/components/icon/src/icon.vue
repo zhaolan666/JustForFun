@@ -11,17 +11,18 @@ import { useNamespace } from '@justforfun-ui/hooks'
 import { iconProps } from './icon'
 import type { CSSProperties } from 'vue'
 defineOptions({
-  name: 'ElIcon',
+  name: 'JffIcon',
 })
 const bem = useNamespace('icon')
 const props = defineProps(iconProps)
 
 const style = computed<CSSProperties>(() => {
-  if (!props.size && !props.color) return {}
+  const { size, color } = props
+  if (!size && !color) return {}
 
   return {
-    fontSize: isUndefined(props.size) ? undefined : addUnit(props.size),
-    '--color': props.color,
+    fontSize: isUndefined(size) ? undefined : addUnit(size),
+    '--color': color,
   }
 })
 </script>

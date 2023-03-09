@@ -3,7 +3,7 @@
     <jff-input v-model="state" />
   </div>
   <jff-button v-model="btnState" type="primary" size="large" is-loading="loading" />
-  <jff-icon size="large" />
+  <jff-icon size="small" color="'green'" type="error" />
 </template>
 
 <script lang="ts" setup>
