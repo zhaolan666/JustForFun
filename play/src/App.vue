@@ -2,15 +2,53 @@
   <div style="padding-top: 50px">
     <jff-input v-model="state" />
   </div>
-  <jff-button v-model="btnState" type="primary" size="large" is-loading="loading" />
-  <jff-icon size="small" color="'green'" type="error" />
+  <jff-button v-model="btnState" type="danger" size="large" disabled is-loading="loading">Danger</jff-button>
+  <jff-icon size="large" color="'green'" type="error">
+    <EditIcon />
+  </jff-icon>
+  <div>---------------------------------------------</div>
+  <div id="btn1" style="cursor:pointer;" @click="btnDom">去掘金1</div>
+  <select>
+    <option>Vue.js</option>
+    <option>React.js</option>
+    <option>Solid.js</option>
+    <option>svelte.js</option>
+  </select>
+  <form>
+    <input type="text" name="username">
+    <button type="reset">重置</button>
+    <button type="submit" value="submitState" :disabled="isUse">提交</button>
+  </form>
+  <button id="btn2" type="button">按钮</button>
+  <div>----------------------------------------------</div>
+  <jff-button type="primary">Primary</jff-button>
+  <jff-button type="success" plain>Success</jff-button>
+  <jff-button type="info" round>Info</jff-button>
+  <jff-button type="warning" circle>Warning</jff-button>
+  <jff-button type="danger" disabled>Danger</jff-button>
+  <jff-button size="large">按钮</jff-button>
+  <jff-button size="small">按钮</jff-button>
+  <h1>h1</h1>
+  <h2>h2</h2>
+  <h3>h3</h3>
+  <h4>h4</h4>
+  <h5>h5</h5>
+  <h6>h6</h6>
 </template>
 
 <script lang="ts" setup>
-import { ref, watch } from 'vue'
+import { ref, watch, computed } from 'vue'
+import EditIcon from './EditIcon.vue'
 
 const state = ref('')
 const btnState = ref('')
+
+const useSubmitState = computed(() => {
+  return submitState
+})
+
+console.log(useSubmitState)
+
 watch(
   () => {
     return state.value, btnState.value;
@@ -19,5 +57,13 @@ watch(
     console.log('state值：', newVal)
   }
 )
-</script>
+// ................................................
+const isUse = ref(false)
+const submitState = ref('')
 
+const btnDom = () => {
+  alert('按回车键1')
+}
+// ................................................
+
+</script>
