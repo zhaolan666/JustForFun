@@ -1,23 +1,29 @@
 {
-  "hash": "fecb2dec",
-  "browserHash": "2e7b8da3",
+  "hash": "75bc2c7c",
+  "browserHash": "6c448029",
   "optimized": {
     "vue": {
       "src": "../../../../node_modules/.pnpm/vue@3.2.47/node_modules/vue/dist/vue.runtime.esm-bundler.js",
       "file": "vue.js",
-      "fileHash": "0a4fd3b2",
+      "fileHash": "6f84fbc8",
+      "needsInterop": false
+    },
+    "@element-plus/icons-vue": {
+      "src": "../../../../node_modules/.pnpm/@element-plus+icons-vue@2.1.0_vue@3.2.47/node_modules/@element-plus/icons-vue/dist/index.js",
+      "file": "@element-plus_icons-vue.js",
+      "fileHash": "7460ec3b",
       "needsInterop": false
     },
     "@vue/shared": {
       "src": "../../../../node_modules/.pnpm/@vue+shared@3.2.47/node_modules/@vue/shared/dist/shared.esm-bundler.js",
       "file": "@vue_shared.js",
-      "fileHash": "bd55d80d",
+      "fileHash": "52932ad1",
       "needsInterop": false
     },
     "@vueuse/core": {
-      "src": "../../../../node_modules/.pnpm/@vueuse+core@9.12.0_vue@3.2.47/node_modules/@vueuse/core/index.mjs",
+      "src": "../../../../node_modules/.pnpm/@vueuse+core@9.13.0_vue@3.2.47/node_modules/@vueuse/core/index.mjs",
       "file": "@vueuse_core.js",
-      "fileHash": "076d53cc",
+      "fileHash": "53acc119",
       "needsInterop": false
     }
   },

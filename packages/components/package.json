@@ -5,19 +5,7 @@
   "main": "index.ts",
   "module": "index.ts",
   "unpkg": "index.js",
-  "devDependencies": {
-    "@types/node": "^18.13.0",
-    "@vitest/coverage-c8": "^0.28.5"
-  },
-  "scripts": {
-    "test": "vitest",
-    "coverage": "vitest run --coverage",
-    "build": "vite build"
-  },
-  "files": [
-    "es",
-    "lib"
-  ],
+  "jsdelivr": "index.js",
   "peerDependencies": {
     "vue": ">=3.2.0"
   },
@@ -34,9 +22,6 @@
   ],
   "author": "mingdu",
   "license": "MIT",
-  "dependencies": {
-    "@justforfun-ui/utils": "workspace:^1.0.0"
-  },
   "bugs": {
     "url": "https://github.com/zhaolan666/JustForFun/issues"
   },

@@ -8,7 +8,7 @@
     <EditIcon />
   </jff-icon>
   <div>---------------------------------------------</div>
-  <div id="btn1" style="cursor:pointer;" @click="btnDom">去掘金1</div>
+  <div id="btn1" style="cursor:pointer;" @click="btnDom">go to sky</div>
   <select>
     <option>Vue.js</option>
     <option>React.js</option>
@@ -17,10 +17,10 @@
   </select>
   <form>
     <input type="text" name="username">
-    <button type="reset">重置</button>
-    <button type="submit" value="submitState" :disabled="isUse">提交</button>
+    <button type="reset">Rest</button>
+    <button type="submit" value="submitState" :disabled="isUse">Submit</button>
   </form>
-  <button id="btn2" type="button">按钮</button>
+  <button id="btn2" type="button">Button</button>
   <div>----------------------------------------------</div>
   <jff-button type="primary">Primary</jff-button>
   <jff-button type="success" plain>Success</jff-button>
@@ -53,12 +53,20 @@
       <slot v-else name="icon" />
     </jff-icon>
   </div>
+  <div>----------------------------------------------</div>
+  <jff-button is-loading="true" type="primary">
+    <jff-icon color="white">
+      <Loading />
+    </jff-icon>
+    <span>加载中...</span>
+  </jff-button>
+  <jff-button is-plain type="danger">xx</jff-button>
 </template>
 
 <script lang="ts" setup>
 import { ref, watch, computed } from 'vue'
 import EditIcon from './EditIcon.vue'
-import { Edit } from '@element-plus/icons-vue'
+import { Edit, Loading } from '@element-plus/icons-vue'
 
 const state = ref('')
 const btnState = ref('')
@@ -83,7 +91,7 @@ const isUse = ref(false)
 const submitState = ref('')
 
 const btnDom = () => {
-  alert('按回车键1')
+  alert('press enter 1')
 }
 // ................................................
 
