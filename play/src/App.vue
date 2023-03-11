@@ -26,7 +26,7 @@
   <jff-button type="info" round>Info</jff-button>
   <jff-button type="warning" circle>Warning</jff-button>
   <jff-button type="danger" disabled>Danger</jff-button>
-  <jff-button size="large">按钮</jff-button>
+  <jff-button aria-setsize="small">按钮</jff-button>
   <jff-button size="small">按钮</jff-button>
   <h1>h1</h1>
   <h2>h2</h2>
@@ -34,14 +34,33 @@
   <h4>h4</h4>
   <h5>h5</h5>
   <h6>h6</h6>
+  <div>
+    <jff-button type="primary" :icon="Edit" />
+  </div>
+  <div>
+    <jff-button type="danger">
+      <template #icon>
+        <Edit />
+      </template>
+    </jff-button>
+    <slot />
+  </div>
+  <div style="background-color: #ccc; border: 1px solid #ccc">
+    <jff-icon v-if="icon || $slots.icon">
+      <component :is="icon" v-if="icon" />
+      <slot v-else name="icon" />
+    </jff-icon>
+  </div>
 </template>
 
 <script lang="ts" setup>
 import { ref, watch, computed } from 'vue'
 import EditIcon from './EditIcon.vue'
+import { Edit } from '@element-plus/icons-vue'
 
 const state = ref('')
 const btnState = ref('')
+const icon = ref(true)
 
 const useSubmitState = computed(() => {
   return submitState

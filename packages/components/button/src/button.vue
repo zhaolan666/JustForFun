@@ -34,9 +34,10 @@ defineOptions({
 const props = defineProps(buttonProps)
 // 定义 emit
 const emit = defineEmits(buttonEmits)
-
+// 使用 inject 取出祖先组件提供的依赖
 const buttonGroupContext = inject(buttonGroupContextKey, undefined)
-const _size = computed(() => props.type || buttonGroupContext?.size)
+// 使用 computed 进行缓存计算
+const _size = computed(() => props.size || buttonGroupContext?.size)
 const _type = computed(() => props.type || buttonGroupContext?.type || '')
 // classname 的 BEM 命名
 const ns = useNamespace('button')
