@@ -1,7 +1,9 @@
+@use 'function' as *;
+
+// forward mixins
 @forward 'config';
 @forward 'function';
 @use 'config' as *;
-@use 'function' as *;
 
 // 定义 Block
 @mixin b($block) {
@@ -60,10 +62,77 @@
   }
 }
 
+
+@mixin configurable-m($modifier, $E-flag: false) {
+  $selector: &;
+  $interpolation: '';
+
+  @if $E-flag {
+    $interpolation: $element-separator + $E-flag;
+  }
+
+  @at-root {
+    #{$selector} {
+      .#{$B + $interpolation + $modifier-separator + $modifier} {
+        @content;
+      }
+    }
+  }
+}
+
+@mixin spec-selector(
+  $specSelector: '',
+  $element: $E,
+  $modifier: false,
+  $block: $B
+) {
+  $modifierCombo: '';
+
+  @if $modifier {
+    $modifierCombo: $modifier-separator + $modifier;
+  }
+
+  @at-root {
+    #{&}#{$specSelector}.#{$block
+      + $element-separator
+      + $element
+      + $modifierCombo} {
+      @content;
+    }
+  }
+}
+
+@mixin meb($modifier: false, $element: $E, $block: $B) {
+  $selector: &;
+  $modifierCombo: '';
+
+  @if $modifier {
+    $modifierCombo: $modifier-separator + $modifier;
+  }
+
+  @at-root {
+    #{$selector} {
+      .#{$block + $element-separator + $element + $modifierCombo} {
+        @content;
+      }
+    }
+  }
+}
+
 // 状态 is-checked
 @mixin when($state) {
   @at-root {
     &.#{$state-prefix + $state} {
+      @content;
+    }
+  }
+}
+
+
+// dark
+@mixin dark($block) {
+  html.dark {
+    @include b($block) {
       @content;
     }
   }

@@ -3,7 +3,8 @@
     <jff-input v-model="state" />
   </div>
   <jff-button v-model="btnState" type="danger" size="large" disabled is-loading="loading">Danger</jff-button>
-  <jff-icon size="large" color="'green'" type="error">
+  <jff-button type="danger"></jff-button>
+  <jff-icon size="large" color="'green'" type="danger">
     <EditIcon />
   </jff-icon>
   <div>---------------------------------------------</div>
@@ -26,8 +27,9 @@
   <jff-button type="info" round>Info</jff-button>
   <jff-button type="warning" circle>Warning</jff-button>
   <jff-button type="danger" disabled>Danger</jff-button>
-  <jff-button aria-setsize="small">按钮</jff-button>
-  <jff-button size="small">按钮</jff-button>
+  <jff-button size="large">Large</jff-button>
+  <jff-button size="small">Small</jff-button>
+  <jff-button>Default</jff-button>
   <h1>h1</h1>
   <h2>h2</h2>
   <h3>h3</h3>
@@ -45,9 +47,9 @@
     </jff-button>
     <slot />
   </div>
-  <div style="background-color: #ccc; border: 1px solid #ccc">
-    <jff-icon v-if="icon || $slots.icon">
-      <component :is="icon" v-if="icon" />
+  <div style="color: greenyellow; border: 1px solid #ccc">
+    <jff-icon v-if="icon || $slots.icon" color="green" size="30px">
+      <Edit :is="icon" v-if="icon" />
       <slot v-else name="icon" />
     </jff-icon>
   </div>
