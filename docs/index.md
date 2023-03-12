@@ -18,17 +18,13 @@ hero:
       link: https://github.com/zhaolan666/JustForFun/tree/dev
 
 features:
-    - title: foo
-      details: i don't know meaning for this foo
-    - title: bar
-      details: i don't know meaning for this bar
-    - title: alice
-      details: i don't know meaning for this alice
-    - title: tony
-      details: i don't know meaning for this tony
-    - icon:
-        src: /public/jffLogo.png
-        alt: jffLogo
+    - title: Vue3 based
+      details: Popular easy to use and expansibility strong SFC writing
+    - title: TypeScript based
+      details: Source code uses Typescript type constraints
+    - title: Code simplicity
+      details: The source code for each component is extremely clean and concise
 
 ---      
-<iframe src="https://github.com/"></iframe>
+
+<iframe src="https://stackblitz.com/edit/vue-lbh1hk?file=src%2Fmain.js" style="width:100%; margin:50px auto; padding: 10px; height: 700px; border: 0; border-radius: 4px; overflow: hidden;" title="justforfun-ui"></iframe>
