@@ -1,16 +1,28 @@
 {
   "name": "@justforfun-ui/components",
-  "version": "1.0.2",
+  "version": "1.0.4",
   "description": "all componets are settle here",
   "main": "index.ts",
   "module": "index.ts",
+  "types": "index.d.ts",
   "unpkg": "index.js",
   "jsdelivr": "index.js",
+  "sideEffects": false,
+  "dependencies": {
+    "@justforfun-ui/constants": "workspace:^1.0.0",
+    "@justforfun-ui/hooks": "workspace:^1.0.0",
+    "@justforfun-ui/theme-chalk": "workspace:^1.0.2",
+    "@justforfun-ui/tokens": "workspace:^0.0.1",
+    "@justforfun-ui/utils": "workspace:^1.0.1",
+    "@popperjs/core": "^2.11.6",
+    "async-validator": "^4.2.5",
+    "dayjs": "^1.11.7",
+    "loadsh": "^0.0.4",
+    "mitt": "^3.0.0"
+  },
   "peerDependencies": {
     "vue": ">=3.2.0"
   },
-  "types": "index.d.ts",
-  "sideEffects": false,
   "repository": {
     "type": "git",
     "url": "git+https://github.com/zhaolan666/JustForFun.git#dev"

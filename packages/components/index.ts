@@ -1,6 +1,8 @@
-export * from './button'
-export * from './icon'
-export * from './input'
+// import JffButton from './button'
+
+export * as JffButton from './button'
+export * as JffIcon from './icon'
+export * as JffInput from './input'
 
 
 

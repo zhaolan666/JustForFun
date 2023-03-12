@@ -64,7 +64,7 @@ importers:
       typescript: ^4.9.5
       unplugin-vue-define-options: ^1.2.3
       unplugin-vue-macros: ^1.9.0
-      vitepress: ^1.0.0-alpha.47
+      vitepress: 1.0.0-alpha.47
       vitest: 0.28.5
       vue: ^3.2.47
       vue-router: ^4.1.6
@@ -173,7 +173,28 @@ importers:
       eslint: 8.35.0
 
   packages/components:
-    specifiers: {}
+    specifiers:
+      '@justforfun-ui/constants': workspace:^1.0.0
+      '@justforfun-ui/hooks': workspace:^1.0.0
+      '@justforfun-ui/theme-chalk': workspace:^1.0.2
+      '@justforfun-ui/tokens': workspace:^0.0.1
+      '@justforfun-ui/utils': workspace:^1.0.1
+      '@popperjs/core': ^2.11.6
+      async-validator: ^4.2.5
+      dayjs: ^1.11.7
+      loadsh: ^0.0.4
+      mitt: ^3.0.0
+    dependencies:
+      '@justforfun-ui/constants': link:../constants
+      '@justforfun-ui/hooks': link:../hooks
+      '@justforfun-ui/theme-chalk': link:../theme-chalk
+      '@justforfun-ui/tokens': link:../tokens
+      '@justforfun-ui/utils': link:../utils
+      '@popperjs/core': 2.11.6
+      async-validator: 4.2.5
+      dayjs: 1.11.7
+      loadsh: 0.0.4
+      mitt: 3.0.0
 
   packages/constants:
     specifiers: {}
@@ -2551,6 +2572,10 @@ packages:
     resolution: {integrity: sha512-a5Sab1C4/icpTZVzZc5Ghpz88yQtGOyNqYXcZgOssB2uuAr+wF/MvN6bgtW32q7HHrvBki+BsZ0OuNv6EV3K9g==}
     dev: true
 
+  /@popperjs/core/2.11.6:
+    resolution: {integrity: sha512-50/17A98tWUfQ176raKiOGXuYpLyyVMkxxG6oylzL3BPOlA6ADGdK7EYunSa4I064xerltq9TGXs8HmOk5E+vw==}
+    dev: false
+
   /@rollup/pluginutils/5.0.2:
     resolution: {integrity: sha512-pTd9rIsP92h+B6wWwFbW8RkZv4hiR/xKsqre4SIuAOaOEQRxi0lqLke9k2/7WegC85GgUs9pjmOjCUi3In4vwA==}
     engines: {node: '>=14.0.0'}
@@ -3020,7 +3045,7 @@ packages:
       vite:
         optional: true
     dependencies:
-      vite: 4.1.4
+      vite: 4.1.4_hlkwzk2izwsolfmdrejei4vrty
       vue: 3.2.47
     dev: true
 
@@ -4119,6 +4144,10 @@ packages:
     dependencies:
       async-done: 1.3.2
     dev: true
+
+  /async-validator/4.2.5:
+    resolution: {integrity: sha512-7HhHjtERjqlNbZtqNqy2rckN/SpOOlmDliet+lP7k+eKZEjPk3DgyeU9lIXLdeLz0uBbbVp+9Qdow9wJWgwwfg==}
+    dev: false
 
   /asynckit/0.4.0:
     resolution: {integrity: sha512-Oei9OH4tRh0YqU3GxhX79dM/mwVgvbZJaSNaRk+bshkj0S5cfHcgYakreBjrHwatXKbz+IoIdYLxrKim2MjW0Q==}
@@ -7883,6 +7912,11 @@ packages:
       type-fest: 0.6.0
     dev: true
 
+  /loadsh/0.0.4:
+    resolution: {integrity: sha512-U+wLL8InpfRalWrr+0SuhWgGt10M4OyAk6G8xCYo2rwpiHtxZkWiFpjei0vO463ghW8LPCdhqQxXlMy2qicAEw==}
+    deprecated: This is a typosquat on the popular Lodash package. This is not maintained nor is the original Lodash package.
+    dev: false
+
   /local-pkg/0.4.3:
     resolution: {integrity: sha512-SFppqq5p42fe2qcZQqqEOiVRXl+WCP1MdT6k7BDEW1j++sp5fIY+/fdRQitvKgB5BrBcmrs5m/L0v2FrU5MY1g==}
     engines: {node: '>=14'}
@@ -8359,7 +8393,6 @@ packages:
 
   /mitt/3.0.0:
     resolution: {integrity: sha512-7dX2/10ITVyqh4aOSVI9gdape+t9l2/8QxHrFmUXu4EEUpdlxl6RudZUPZoc+zuY2hk1j7XxVroIVIan/pD/SQ==}
-    dev: true
 
   /mixin-deep/1.3.2:
     resolution: {integrity: sha512-WRoDn//mXBiJ1H40rqa3vH0toePwSsGb45iInWlTySa+Uu4k3tYUSxa2v1KqAiLtvlrSzaExqS1gtk96A9zvEA==}

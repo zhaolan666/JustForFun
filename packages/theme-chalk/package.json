@@ -1,9 +1,11 @@
 {
   "name": "@justforfun-ui/theme-chalk",
-  "version": "1.0.0",
+  "version": "1.0.2",
   "description": "loading ...",
   "keywords": [
-    "justforfun-ui"
+    "justforfun-ui",
+    "theme-chalk",
+    "jff-components"
   ],
   "license": "MIT",
   "main": "index.css",
