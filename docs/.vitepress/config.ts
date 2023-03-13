@@ -12,7 +12,7 @@ const pkg = require('vitepress/package.json')
 export default defineConfig({
   lang: 'en-US',
   title: 'JustForFun',
-  base: 'https://github.com/zhaolan666/JustForFun/tree/dev',
+  base: 'JustForFun',
   description: 'JustForFun is a simple UI framework',
 
   lastUpdated: true,
@@ -22,7 +22,8 @@ export default defineConfig({
     ['meta', { name: 'theme-color', content: '#845EC2' }],
     ['link', {
       rel: 'icon',
-      href: '/docs/public/images/jffLogo.png'
+      href: '/docs/public/images/jffLogo.png',
+      type: 'image/png+xml'
     }]
   ],
 
@@ -35,6 +36,7 @@ export default defineConfig({
   themeConfig: {
     nav: nav(),
 
+    // sidebar以对象的形式配置的话每个sidebar都是独立的 如果以数组的形式配置那么侧边栏是公共的 进入其他子页面都可以看到
     sidebar: {
       '/guide/': sidebarGuide(),
       '/config/': sidebarConfig()

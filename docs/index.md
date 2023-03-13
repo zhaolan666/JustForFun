@@ -9,32 +9,32 @@ hero:
   text: UI component library
   tagline: JustForFun is a simple, quick and easy to use Vue3 combined UI framework.
   image:
-      src: /docs/public/jffTitle.png
+      src: jffTitle.png
       alt: justforfun-ui
       
   actions: 
     - theme: brand
       text: Get Started
-      link: /docs/guide/example
+      link: /guide/example
     - theme: alt
       text: View on GitHub
       link: https://github.com/zhaolan666/JustForFun/tree/dev
 
 features:
     - icon: 
-        src: /docs/public/vue.svg
+        src: vue.svg
         width: 10
         height: 10
       title: Vue3 based
       details: Popular easy to use and expansibility strong SFC writing
     - icon: 
-        src: /docs/public/typescript.svg
+        src: typescript.svg
         width: 10
         height: 10
       title: TypeScript based
       details: Source code uses Typescript type constraints
     - icon: 
-        src: /docs/public/tidy.svg
+        src: tidy.svg
         width: 10
         height: 10
       title: Code simplicity
