@@ -12,7 +12,7 @@ const pkg = require('vitepress/package.json')
 export default defineConfig({
   lang: 'en-US',
   title: 'JustForFun',
-  base: 'JustForFun',
+  base: '/JustForFun/',
   description: 'JustForFun is a simple UI framework',
 
   lastUpdated: true,
