@@ -12,7 +12,7 @@ git add -A
 git commit -m 'deploy'
 
 # 如果部署到 https://<USERNAME>.github.io
-git push -f git@github.com:zhaolan666/JustForFun.git main   #提交到这个分支
+git push -f git@github.com:zhaolan666/JustForFun.git main:mian   #提交到这个分支
 
 cd -
 
