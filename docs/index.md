@@ -3,19 +3,21 @@ layout: home
 
 title: Justforfun-UI
 titleTemplate: UI component library
+editLink: true
+lastUpdated: true
 
 hero:
   name: JustForFun-UI
   text: UI component library
   tagline: JustForFun is a simple, quick and easy to use Vue3 combined UI framework.
   image:
-      src: jffTitle.png
+      src: /jffTitle.png
       alt: justforfun-ui
       
   actions: 
     - theme: brand
       text: Get Started
-      link: /guide/example
+      link: /guide/
     - theme: alt
       text: View on GitHub
       link: https://github.com/zhaolan666/JustForFun/tree/dev
@@ -51,8 +53,9 @@ features:
      --vp-home-hero-name-color: transparent;
   --vp-home-hero-name-background: -webkit-linear-gradient(120deg, #BE93FD, #4FFBDF);
   --vp-c-brand: #845EC2;
-  --vp-button-brand-border: #BE93FD;
-  --vp-button-brand-hover-border: #DCB0FF;
-  --vp-button-brand-hover-bg: #593796;
+  --vp-c-brand-lighter: #DCB0FF;
+  --vp-c-brand-light:  #BE93FD;
+  --vp-c-brand-dark: #593796;
+  --vp-c-brand-darker: #8A2BE2;
   }
 </style>

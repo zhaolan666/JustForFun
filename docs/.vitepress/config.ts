@@ -34,12 +34,16 @@ export default defineConfig({
   },
 
   themeConfig: {
+    logo: '/jffLogo.png',
+    siteTitle: 'JustForFun',
+    outline: 3,
+
     nav: nav(),
 
     // sidebar以对象的形式配置的话每个sidebar都是独立的 如果以数组的形式配置那么侧边栏是公共的 进入其他子页面都可以看到
     sidebar: {
-      '/guide/': sidebarGuide(),
-      '/config/': sidebarConfig()
+      '/guide': sidebarGuide(),
+      '/components': sidebarComponents()
     },
 
     editLink: {
@@ -72,13 +76,13 @@ export default defineConfig({
 function nav() {
   return [{
     text: 'Guide',
-    link: '/guide/example/',
+    link: '/guide/',
     activeMatch: '/guide/'
   },
   {
-    text: 'Configs',
-    link: '/config/cofig/',
-    activeMatch: '/config/'
+    text: 'Components',
+    link: '/components/basic1',
+    activeMatch: '/components/'
   },
   {
     text: pkg.version,
@@ -95,29 +99,29 @@ function nav() {
   ]
 }
 
-function sidebarGuide() {
+function sidebarComponents() {
   return [{
     text: 'Basic',
     collapsed: false,
     items: [{
       text: 'Button',
-      link: '/guide/example/',
+      link: '/components/button',
     },
     {
       text: 'Border',
-      link: '/guide/getting-started/'
+      link: '/components/border'
     },
     {
       text: 'Color',
-      link: '/guide/configuration/'
+      link: '/components/color'
     },
     {
       text: 'Icon',
-      link: '/guide/deploying/'
+      link: '/components/icon'
     },
     {
       text: 'Layout',
-      link: '/guide/i18n/'
+      link: '/components/layout'
     }
     ]
   },
@@ -126,7 +130,7 @@ function sidebarGuide() {
     collapsed: false,
     items: [{
       text: 'Config Provider',
-      link: '/guide/markdown/'
+      link: '/components/markdown/'
     }]
   },
   {
@@ -134,43 +138,43 @@ function sidebarGuide() {
     collapsed: false,
     items: [{
       text: 'Checkbox',
-      link: '/guide/theme-introduction/'
+      link: '/components/theme-introduction/'
     },
     {
       text: 'Color Picker',
-      link: '/guide/theme-nav/'
+      link: '/components/theme-nav/'
     },
     {
       text: 'Date Picker',
-      link: '/guide/theme-sidebar/'
+      link: '/components/theme-sidebar/'
     },
     {
       text: 'Date Time Picker',
-      link: '/guide/theme-prev-next-link/'
+      link: '/components/theme-prev-next-link/'
     },
     {
       text: 'From',
-      link: '/guide/theme-edit-link/'
+      link: '/components/theme-edit-link/'
     },
     {
       text: 'Input',
-      link: '/guide/theme-last-updated/'
+      link: '/components/theme-last-updated/'
     },
     {
       text: 'Rido',
-      link: '/guide/theme-layout/'
+      link: '/components/theme-layout/'
     },
     {
       text: 'Select',
-      link: '/guide/theme-home-page/'
+      link: '/components/theme-home-page/'
     },
     {
       text: 'Switch',
-      link: '/guide/theme-team-page/'
+      link: '/components/theme-team-page/'
     },
     {
       text: 'Upload',
-      link: '/guide/theme-badge/'
+      link: '/components/theme-badge'
     },
     ]
   },
@@ -179,19 +183,19 @@ function sidebarGuide() {
     collapsed: false,
     items: [{
       text: 'Avatar',
-      link: '/guide/migration-from-vuepress'
+      link: '/components/migration-from-vuepress'
     },
     {
       text: 'Card',
-      link: '/guide/migration-from-vuepress'
+      link: '/components/migration-from-vuepress'
     },
     {
       text: 'Image',
-      link: '/guide/migration-from-vitepress-0'
+      link: '/components/migration-from-vitepress-0'
     },
     {
       text: 'Tag',
-      link: '/guide/migration-from-vitepress-0'
+      link: '/components/migration-from-vitepress-0'
     }
     ]
   },
@@ -200,19 +204,19 @@ function sidebarGuide() {
     collapsed: false,
     items: [{
       text: 'Dropdown',
-      link: '/guide/migration-from-vuepress'
+      link: '/components/migration-from-vuepress'
     },
     {
       text: 'Menu',
-      link: '/guide/migration-from-vuepress'
+      link: '/components/migration-from-vuepress'
     },
     {
       text: 'Steps',
-      link: '/guide/migration-from-vitepress-0'
+      link: '/components/migration-from-vitepress-0'
     },
     {
       text: 'Tabs',
-      link: '/guide/migration-from-vitepress-0'
+      link: '/components/migration-from-vitepress-0'
     }
     ]
   },
@@ -221,19 +225,19 @@ function sidebarGuide() {
     collapsed: false,
     items: [{
       text: 'Alert',
-      link: '/guide/migration-from-vuepress'
+      link: '/components/migration-from-vuepress'
     },
     {
       text: 'Dialog',
-      link: '/guide/migration-from-vuepress'
+      link: '/components/migration-from-vuepress'
     },
     {
       text: 'Loading',
-      link: '/guide/migration-from-vitepress-0'
+      link: '/components/migration-from-vitepress-0'
     },
     {
       text: 'Message',
-      link: '/guide/migration-from-vitepress-0'
+      link: '/components/migration-from-vitepress-0'
     }
     ]
   },
@@ -242,32 +246,23 @@ function sidebarGuide() {
     collapsed: false,
     items: [{
       text: 'Diver',
-      link: '/guide/migration-from-vuepress'
+      link: '/components/migration-from-vuepress'
     }]
   }
   ]
 }
 
 
-function sidebarConfig() {
+function sidebarGuide() {
   return [{
-    text: 'Config',
+    text: 'Guide',
     items: [{
       text: 'Introduction',
-      link: '/config/introduction'
+      link: '/guide/'
     },
     {
-      text: 'App Configs',
-      link: '/config/app-configs'
-    },
-    {
-      text: 'Theme Configs',
-      link: '/config/theme-configs'
-    },
-    {
-      text: 'Frontmatter Configs',
-      link: '/config/frontmatter-configs'
-    }
-    ]
+      text: 'Quick Start',
+      link: '/guide/quickstart'
+    }]
   }]
 }

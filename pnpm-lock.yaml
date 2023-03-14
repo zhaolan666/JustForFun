@@ -137,6 +137,12 @@ importers:
       vue-router: 4.1.6_vue@3.2.47
       vue-tsc: 1.1.7_typescript@4.9.5
 
+  docs:
+    specifiers:
+      vitepress: 1.0.0-alpha.56
+    devDependencies:
+      vitepress: 1.0.0-alpha.56
+
   internal/eslint-config:
     specifiers:
       '@typescript-eslint/eslint-plugin': ^5.54.1
@@ -3045,7 +3051,7 @@ packages:
       vite:
         optional: true
     dependencies:
-      vite: 4.1.4_hlkwzk2izwsolfmdrejei4vrty
+      vite: 4.1.4
       vue: 3.2.47
     dev: true
 
@@ -11369,6 +11375,33 @@ packages:
       body-scroll-lock: 4.0.0-beta.0
       shiki: 0.14.1
       vite: 4.1.4_hlkwzk2izwsolfmdrejei4vrty
+      vue: 3.2.47
+    transitivePeerDependencies:
+      - '@algolia/client-search'
+      - '@types/node'
+      - '@types/react'
+      - '@vue/composition-api'
+      - less
+      - react
+      - react-dom
+      - sass
+      - stylus
+      - sugarss
+      - terser
+    dev: true
+
+  /vitepress/1.0.0-alpha.56:
+    resolution: {integrity: sha512-FNoanHwmgWn4xZZcc8D34VKWcEs0F7e39xiVUahI7VzzI4VeiB+R/euYtPIUcTxIC2pRDhclw7/DO0JFYSGIpw==}
+    hasBin: true
+    dependencies:
+      '@docsearch/css': 3.3.3
+      '@docsearch/js': 3.3.3
+      '@vitejs/plugin-vue': 4.0.0_vite@4.1.4+vue@3.2.47
+      '@vue/devtools-api': 6.5.0
+      '@vueuse/core': 9.13.0_vue@3.2.47
+      body-scroll-lock: 4.0.0-beta.0
+      shiki: 0.14.1
+      vite: 4.1.4
       vue: 3.2.47
     transitivePeerDependencies:
       - '@algolia/client-search'
