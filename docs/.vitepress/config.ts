@@ -22,7 +22,7 @@ export default defineConfig({
     ['meta', { name: 'theme-color', content: '#845EC2' }],
     ['link', {
       rel: 'icon',
-      href: '/docs/public/images/jffLogo.png',
+      href: 'jffLogo.png',
       type: 'image/png+xml'
     }]
   ],
@@ -72,12 +72,12 @@ export default defineConfig({
 function nav() {
   return [{
     text: 'Guide',
-    link: '/guide/example',
+    link: '/guide/example/',
     activeMatch: '/guide/'
   },
   {
     text: 'Configs',
-    link: '/config/cofig',
+    link: '/config/cofig/',
     activeMatch: '/config/'
   },
   {
@@ -101,23 +101,23 @@ function sidebarGuide() {
     collapsed: false,
     items: [{
       text: 'Button',
-      link: '/guide/example',
+      link: '/guide/example/',
     },
     {
       text: 'Border',
-      link: '/guide/getting-started'
+      link: '/guide/getting-started/'
     },
     {
       text: 'Color',
-      link: '/guide/configuration'
+      link: '/guide/configuration/'
     },
     {
       text: 'Icon',
-      link: '/guide/deploying'
+      link: '/guide/deploying/'
     },
     {
       text: 'Layout',
-      link: '/guide/i18n'
+      link: '/guide/i18n/'
     }
     ]
   },
@@ -126,7 +126,7 @@ function sidebarGuide() {
     collapsed: false,
     items: [{
       text: 'Config Provider',
-      link: '/guide/markdown'
+      link: '/guide/markdown/'
     }]
   },
   {
@@ -134,43 +134,43 @@ function sidebarGuide() {
     collapsed: false,
     items: [{
       text: 'Checkbox',
-      link: '/guide/theme-introduction'
+      link: '/guide/theme-introduction/'
     },
     {
       text: 'Color Picker',
-      link: '/guide/theme-nav'
+      link: '/guide/theme-nav/'
     },
     {
       text: 'Date Picker',
-      link: '/guide/theme-sidebar'
+      link: '/guide/theme-sidebar/'
     },
     {
       text: 'Date Time Picker',
-      link: '/guide/theme-prev-next-link'
+      link: '/guide/theme-prev-next-link/'
     },
     {
       text: 'From',
-      link: '/guide/theme-edit-link'
+      link: '/guide/theme-edit-link/'
     },
     {
       text: 'Input',
-      link: '/guide/theme-last-updated'
+      link: '/guide/theme-last-updated/'
     },
     {
       text: 'Rido',
-      link: '/guide/theme-layout'
+      link: '/guide/theme-layout/'
     },
     {
       text: 'Select',
-      link: '/guide/theme-home-page'
+      link: '/guide/theme-home-page/'
     },
     {
       text: 'Switch',
-      link: '/guide/theme-team-page'
+      link: '/guide/theme-team-page/'
     },
     {
       text: 'Upload',
-      link: '/guide/theme-badge'
+      link: '/guide/theme-badge/'
     },
     ]
   },
