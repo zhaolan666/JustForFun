@@ -1,0 +1,1 @@
+import{_ as e,c as t,o as a,a as s}from"./app.7a4fadac.js";const m=JSON.parse('{"title":"Button","description":"","frontmatter":{},"headers":[],"relativePath":"guide/example.md","lastUpdated":1677135764000}'),o={name:"guide/example.md"},c=s("",7),n=[c];function i(d,r,l,p,u,_){return a(),t("div",null,n)}const b=e(o,[["render",i]]);export{m as __pageData,b as default};
