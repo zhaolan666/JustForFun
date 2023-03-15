@@ -50,12 +50,12 @@ features:
 
 <style>
   :root {
-     --vp-home-hero-name-color: transparent;
+     --vp-home-hero-name-color:  transparent;
   --vp-home-hero-name-background: -webkit-linear-gradient(120deg, #BE93FD, #4FFBDF);
-  --vp-c-brand: #845EC2;
-  --vp-c-brand-lighter: #DCB0FF;
-  --vp-c-brand-light:  #BE93FD;
-  --vp-c-brand-dark: #593796;
-  --vp-c-brand-darker: #8A2BE2;
+  --vp-c-brand:  #845EC2;
+  --vp-c-brand-lighter:   #DCB0FF;
+  --vp-c-brand-light:    #BE93FD;
+  --vp-c-brand-dark:   #593796;
+  --vp-c-brand-darker:   #8A2BE2;
   }
 </style>

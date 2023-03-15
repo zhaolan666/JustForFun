@@ -19,6 +19,7 @@ export default defineConfig({
   cleanUrls: true,
 
   head: [
+    ['meta', { name: 'viewport', content: 'width=device-width,initial-scale=1,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no' }],
     ['meta', { name: 'theme-color', content: '#845EC2' }],
     ['link', {
       rel: 'icon',
@@ -81,7 +82,7 @@ function nav() {
   },
   {
     text: 'Components',
-    link: '/components/basic1',
+    link: '/components/button',
     activeMatch: '/components/'
   },
   {
@@ -266,3 +267,6 @@ function sidebarGuide() {
     }]
   }]
 }
+
+
+
