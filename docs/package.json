@@ -2,6 +2,11 @@
   "private": true,
   "type": "module",
   "devDependencies": {
-    "vitepress": "1.0.0-alpha.56"
+    "@vitejs/plugin-vue-jsx": "^3.0.1",
+    "unocss": "^0.50.6",
+    "unplugin-vue-components": "^0.24.1",
+    "vite": "^4.1.0",
+    "vitepress": "1.0.0-alpha.56",
+    "vitepress-theme-demoblock": "^2.0.2"
   }
 }

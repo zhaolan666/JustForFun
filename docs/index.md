@@ -6,6 +6,8 @@ titleTemplate: UI component library
 editLink: true
 lastUpdated: true
 
+
+
 hero:
   name: JustForFun-UI
   text: UI component library
@@ -42,20 +44,36 @@ features:
       title: Code simplicity
       details: The source code for each component is extremely clean and concise
 
+footer: MIT Licensed | Copyright ©2023-present mingdu
 ---      
 
 <iframe src="https://stackblitz.com/edit/vue-lbh1hk?file=src%2Fmain.js" style="width:100%; margin:50px auto; padding: 10px; height: 700px; border: 0; border-radius: 4px; overflow: hidden;" title="justforfun-ui"></iframe>
 
 
-
 <style>
+  :root {
+  --demoblock-border: var(--vp-c-divider-light);
+  --demoblock-control: #d3dce6;
+  --demoblock-control-bg: var(--vp-c-bg);
+  --demoblock-control-bg-hover: #f9fafc;
+  --demoblock-description-bg: var(--vp-c-bg);
+}
+
+html.dark {
+  --demoblock-control: #8b9eb0;
+  --demoblock-control-bg-hover: var(--vp-c-bg);
+  --demoblock-description-bg: var(--vp-code-bg-color);
+}
   :root {
      --vp-home-hero-name-color:  transparent;
   --vp-home-hero-name-background: -webkit-linear-gradient(120deg, #BE93FD, #4FFBDF);
   --vp-c-brand:  #845EC2;
-  --vp-c-brand-lighter:   #DCB0FF;
   --vp-c-brand-light:    #BE93FD;
+  --vp-c-brand-lighter:   #DCB0FF;
+  --vp-c-brand-lightest: #bcc0ff;
   --vp-c-brand-dark:   #593796;
   --vp-c-brand-darker:   #8A2BE2;
   }
+
 </style>
+

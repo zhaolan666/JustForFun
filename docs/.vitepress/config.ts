@@ -4,15 +4,18 @@ import {
 import {
   defineConfig
 } from 'vitepress'
-
 const require = createRequire(
   import.meta.url)
-const pkg = require('vitepress/package.json')
+export const pkg = require('vitepress/package.json')
+const base = process.env.BASE || '/'
+
+import nav from './configs/nav'
+import sidebar from './configs/sidebar'
 
 export default defineConfig({
   lang: 'en-US',
   title: 'JustForFun',
-  base: '/JustForFun/',
+  base: base,
   description: 'JustForFun is a simple UI framework',
 
   lastUpdated: true,
@@ -31,6 +34,24 @@ export default defineConfig({
   markdown: {
     headers: {
       level: [0, 0]
+    },
+    config: (md) => {
+      // 添加DemoBlock插槽
+      const { demoBlockPlugin } = require('vitepress-theme-demoblock')
+      md.use(demoBlockPlugin, {
+        customClass: 'demoblock-custom'
+      })
+    }
+  },
+  locales: {
+    roots: {
+      label: 'English',
+      lang: 'en'
+    },
+    zh: {
+      label: '中文',
+      lang: 'zh', // optional, will be added  as `lang` attribute on `html` tag
+      link: '/fr/guide'
     }
   },
 
@@ -42,10 +63,7 @@ export default defineConfig({
     nav: nav(),
 
     // sidebar以对象的形式配置的话每个sidebar都是独立的 如果以数组的形式配置那么侧边栏是公共的 进入其他子页面都可以看到
-    sidebar: {
-      '/guide': sidebarGuide(),
-      '/components': sidebarComponents()
-    },
+    sidebar: sidebar(),
 
     editLink: {
       pattern: 'https://github.com/zhaolan666/JustForFun/issues',
@@ -73,200 +91,4 @@ export default defineConfig({
     }
   }
 })
-
-function nav() {
-  return [{
-    text: 'Guide',
-    link: '/guide/',
-    activeMatch: '/guide/'
-  },
-  {
-    text: 'Components',
-    link: '/components/button',
-    activeMatch: '/components/'
-  },
-  {
-    text: pkg.version,
-    items: [{
-      text: '中文文档',
-      link: 'https://github.com/zhaolan666/JustForFun/blob/dev/README.zh-CN.md'
-    },
-    {
-      text: '英文文档',
-      link: 'https://github.com/zhaolan666/JustForFun/blob/dev/README.md'
-    }
-    ]
-  }
-  ]
-}
-
-function sidebarComponents() {
-  return [{
-    text: 'Basic',
-    collapsed: false,
-    items: [{
-      text: 'Button',
-      link: '/components/button',
-    },
-    {
-      text: 'Border',
-      link: '/components/border'
-    },
-    {
-      text: 'Color',
-      link: '/components/color'
-    },
-    {
-      text: 'Icon',
-      link: '/components/icon'
-    },
-    {
-      text: 'Layout',
-      link: '/components/layout'
-    }
-    ]
-  },
-  {
-    text: 'Configuration',
-    collapsed: false,
-    items: [{
-      text: 'Config Provider',
-      link: '/components/markdown/'
-    }]
-  },
-  {
-    text: 'From',
-    collapsed: false,
-    items: [{
-      text: 'Checkbox',
-      link: '/components/theme-introduction/'
-    },
-    {
-      text: 'Color Picker',
-      link: '/components/theme-nav/'
-    },
-    {
-      text: 'Date Picker',
-      link: '/components/theme-sidebar/'
-    },
-    {
-      text: 'Date Time Picker',
-      link: '/components/theme-prev-next-link/'
-    },
-    {
-      text: 'From',
-      link: '/components/theme-edit-link/'
-    },
-    {
-      text: 'Input',
-      link: '/components/theme-last-updated/'
-    },
-    {
-      text: 'Rido',
-      link: '/components/theme-layout/'
-    },
-    {
-      text: 'Select',
-      link: '/components/theme-home-page/'
-    },
-    {
-      text: 'Switch',
-      link: '/components/theme-team-page/'
-    },
-    {
-      text: 'Upload',
-      link: '/components/theme-badge'
-    },
-    ]
-  },
-  {
-    text: 'Data',
-    collapsed: false,
-    items: [{
-      text: 'Avatar',
-      link: '/components/migration-from-vuepress'
-    },
-    {
-      text: 'Card',
-      link: '/components/migration-from-vuepress'
-    },
-    {
-      text: 'Image',
-      link: '/components/migration-from-vitepress-0'
-    },
-    {
-      text: 'Tag',
-      link: '/components/migration-from-vitepress-0'
-    }
-    ]
-  },
-  {
-    text: 'Navigation',
-    collapsed: false,
-    items: [{
-      text: 'Dropdown',
-      link: '/components/migration-from-vuepress'
-    },
-    {
-      text: 'Menu',
-      link: '/components/migration-from-vuepress'
-    },
-    {
-      text: 'Steps',
-      link: '/components/migration-from-vitepress-0'
-    },
-    {
-      text: 'Tabs',
-      link: '/components/migration-from-vitepress-0'
-    }
-    ]
-  },
-  {
-    text: 'Feedback',
-    collapsed: false,
-    items: [{
-      text: 'Alert',
-      link: '/components/migration-from-vuepress'
-    },
-    {
-      text: 'Dialog',
-      link: '/components/migration-from-vuepress'
-    },
-    {
-      text: 'Loading',
-      link: '/components/migration-from-vitepress-0'
-    },
-    {
-      text: 'Message',
-      link: '/components/migration-from-vitepress-0'
-    }
-    ]
-  },
-  {
-    text: 'Others',
-    collapsed: false,
-    items: [{
-      text: 'Diver',
-      link: '/components/migration-from-vuepress'
-    }]
-  }
-  ]
-}
-
-
-function sidebarGuide() {
-  return [{
-    text: 'Guide',
-    items: [{
-      text: 'Introduction',
-      link: '/guide/'
-    },
-    {
-      text: 'Quick Start',
-      link: '/guide/quickstart'
-    }]
-  }]
-}
-
-
 
