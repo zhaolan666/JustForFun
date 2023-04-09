@@ -7,7 +7,7 @@ import {
 const require = createRequire(
   import.meta.url)
 export const pkg = require('vitepress/package.json')
-const base = process.env.BASE || '/'
+// const base = process.env.BASE || '/'
 
 import nav from './configs/nav'
 import sidebar from './configs/sidebar'
@@ -15,7 +15,8 @@ import sidebar from './configs/sidebar'
 export default defineConfig({
   lang: 'en-US',
   title: 'JustForFun',
-  base: base,
+  // base: base,
+  base: '/JustForFun/',
   description: 'JustForFun is a simple UI framework',
 
   lastUpdated: true,
@@ -51,7 +52,7 @@ export default defineConfig({
     zh: {
       label: '中文',
       lang: 'zh', // optional, will be added  as `lang` attribute on `html` tag
-      link: '/fr/guide'
+      link: '/zh/guide'
     }
   },
 

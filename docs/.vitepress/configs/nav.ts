@@ -3,7 +3,7 @@ import pkg from '../config'
 export default function nav() {
   return [{
     text: 'Guide',
-    link: '/guide/install/',
+    link: '/guide/introduction',
     activeMatch: '^/guide/'
   },
   {

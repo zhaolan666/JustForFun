@@ -19,10 +19,10 @@ hero:
   actions: 
     - theme: brand
       text: Get Started
-      link: /guide/
+      link: /guide/install
     - theme: alt
       text: View on GitHub
-      link: https://github.com/zhaolan666/JustForFun/tree/dev
+      link: https://github.com/zhaolan666/JustForFun/
 
 features:
     - icon: 

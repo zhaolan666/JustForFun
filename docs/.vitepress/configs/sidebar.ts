@@ -165,7 +165,11 @@ function sidebarGuide() {
     text: 'Guide',
     items: [{
       text: 'Introduction',
-      link: '/guide/'
+      link: '/guide/introduction'
+    },
+    {
+      text: 'Install',
+      link: '/guide/install'
     },
     {
       text: 'Quick Start',
