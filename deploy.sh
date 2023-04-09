@@ -17,4 +17,4 @@ git push -f git@github.com:zhaolan666/JustForFun.git master:gh-pages   #提交�
 cd -
 
 
-rm -rf docs/.vitepress/dist  #提交到这个分支
+# rm -rf docs/.vitepress/dist  #提交到这个分支

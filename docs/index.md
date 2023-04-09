@@ -6,20 +6,18 @@ titleTemplate: UI component library
 editLink: true
 lastUpdated: true
 
-
-
 hero:
   name: JustForFun-UI
   text: UI component library
   tagline: JustForFun is a simple, quick and easy to use Vue3 combined UI framework.
   image:
-      src: /jffTitle.png
+      src: jffTitle.png
       alt: justforfun-ui
       
   actions: 
     - theme: brand
       text: Get Started
-      link: /guide/install
+      link: guide/install
     - theme: alt
       text: View on GitHub
       link: https://github.com/zhaolan666/JustForFun/
@@ -46,6 +44,15 @@ features:
 
 footer: MIT Licensed | Copyright ©2023-present mingdu
 ---      
+``` js
+<h1>ceshi</h1>
+```
+---
+ceshi
+
+- 列表1
+-- fdkak
+<script setup>alert('welcome')</script>
 
 <iframe src="https://stackblitz.com/edit/vue-lbh1hk?file=src%2Fmain.js" style="width:100%; margin:50px auto; padding: 10px; height: 700px; border: 0; border-radius: 4px; overflow: hidden;" title="justforfun-ui"></iframe>
 
