@@ -44,15 +44,7 @@ features:
 
 footer: MIT Licensed | Copyright ©2023-present mingdu
 ---      
-``` js
-<h1>ceshi</h1>
-```
----
-ceshi
 
-- 列表1
--- fdkak
-<script setup>alert('welcome')</script>
 
 <iframe src="https://stackblitz.com/edit/vue-lbh1hk?file=src%2Fmain.js" style="width:100%; margin:50px auto; padding: 10px; height: 700px; border: 0; border-radius: 4px; overflow: hidden;" title="justforfun-ui"></iframe>
 
