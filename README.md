@@ -33,14 +33,14 @@ JustForFun-UI is because of interest, and there is no special reason
 ### Install
 ---
 ``` bash
-$ npm i @justforfun-ui -D
+$ npm i justforfun-ui -D
 
 ```
 ### Quick Start
 ---
 ``` ts
 import Vue from 'vue'
-import JffUI from '@justforfun-ui'
+import JffUI from 'justforfun-ui'
 
 Vue.use(JffUI)
 
@@ -49,7 +49,7 @@ import {
   Button,
   Tab
   // ...
-} from '@justforfun-ui'
+} from 'justforfun-ui'
 
 Vue.component(Button.name, Button)
 Vue.component(Tab.name, Tab)

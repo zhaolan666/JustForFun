@@ -33,14 +33,14 @@ JustForFun-UI 是因为兴趣使然，没有什么特别的原因。
 ### 下载
 ---
 ``` bash
-$ npm i @justforfun-ui -D
+$ npm i justforfun-ui -D
 
 ```
 ### 快速上手
 ---
 ``` ts
 import Vue from 'vue'
-import JffUI from '@justforfun-ui'
+import JffUI from 'justforfun-ui'
 
 Vue.use(JffUI)
 
@@ -49,7 +49,7 @@ import {
   Button,
   Tab
   // ...
-} from '@justforfun-ui'
+} from 'justforfun-ui'
 
 Vue.component(Button.name, Button)
 Vue.component(Tab.name, Tab)
