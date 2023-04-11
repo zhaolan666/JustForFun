@@ -1,26 +1,23 @@
-# 流程名称
+# .github > workflows > deploy.yml
 name: Deploy
 
-# 监听事件
 on:
-   push: # 监听push事件，在main分支发生push事件时触发。
+   push:
       branches:
          - main
-      tags:
-         - 'v*'
 
-jobs: # 工作流
-   deploy: # 自定义名称
-      runs-on: ubuntu-latest  # 运行在虚拟机环境ubuntu-latest
-      steps: # 步骤
-         - uses: actions/checkout@v3 # 检出仓库，获取源码
+jobs:
+   deploy:
+      runs-on: ubuntu-latest
+      steps:
+         - uses: actions/checkout@v3
            with:
               fetch-depth: 0
-         - uses: actions/setup-node@v3 # 作用：安装nodejs环境
+         - uses: actions/setup-node@v3
            with:
               node-version: 16
               cache: npm
-         - run: npm install --frozen-lockfile # 安装依赖
+         - run: npm install --frozen-lockfile
 
          - name: Build
            run: npm run docs:build
@@ -38,9 +35,3 @@ jobs: # 工作流
               # 默认发布到 gh-pages 分支上，可以指定特定的发布分支（不能选拉取代码的分支）
               publish_branch: gh-pages
               full_commit_message: ${{ github.event.head_commit.message }}
-         - name: Publish to NPM  # 推送到 NPM 上
-           run: |
-             npm config set //registry.npmjs.org/:_authToken=$NPM_TOKEN
-             npm publish
-           env:
-             NPM_TOKEN: ${{ secrets.NPM_PUBLISH }}
