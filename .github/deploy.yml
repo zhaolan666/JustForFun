@@ -6,6 +6,8 @@ on:
   push:
     tags:
       - 'v*'
+    branches:
+      - main
 
 # jobs 也就是任务的意思
 jobs:
