@@ -2,16 +2,16 @@
 ## Notice before use
 1. install 
 ``` shell
-npm install @justforfun-ui --save-dev
+npm install justforfun-ui --save-dev
 ```
 2. Single mounted
 ``` js
 // main.js
-import JffUI from '@justforfun-ui'
+import JffUI from 'justforfun-ui'
 ```
 3. Mount on demand  as vue
 ``` js
-import JffUI from '@justforfun-ui'
+import JffUI from 'justforfun-ui'
 import AutoImport from 'unplugin-auto-import'
 import Componetnt from 'unplugin-vue-components'
 ```
