@@ -1,12 +1,19 @@
 {
   "private": true,
   "type": "module",
-  "devDependencies": {
+  "main": "index.js",
+  "dependencies": {
     "@vitejs/plugin-vue-jsx": "^3.0.1",
     "unocss": "^0.50.6",
+    "unplugin-auto-import": "^0.15.2",
     "unplugin-vue-components": "^0.24.1",
-    "vite": "^4.1.0",
-    "vitepress": "1.0.0-alpha.56",
+    "vite": "^4.1.4",
+    "vitepress": "^1.0.0-alpha.56",
     "vitepress-theme-demoblock": "^2.0.2"
-  }
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "mingdu",
+  "license": "MIT"
 }
