@@ -1,0 +1,1 @@
+import{_ as s,c as a,o as n,b as l}from"./app.35181fce.js";const A=JSON.parse('{"title":"Install","description":"","frontmatter":{},"headers":[],"relativePath":"guide/install.md","lastUpdated":1680963278000}'),e={name:"guide/install.md"},o=l("",11),p=[o];function t(r,c,i,C,y,d){return n(),a("div",null,p)}const D=s(e,[["render",t]]);export{A as __pageData,D as default};
