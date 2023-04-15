@@ -1,13 +1,17 @@
 <template>
-  <button ref="_ref" :class="[
+  <component :is="tag" ref="_ref" v-bind="_props" :class="[
     ns.b(),
     ns.m(_type),
     ns.m(_size),
-    ns.is('disabled', disabled),
+    ns.is('disabled', _disabled),
+    ns.is('loading', loading),
     ns.is('plain', plain),
     ns.is('round', round),
     ns.is('circle', circle),
-  ]" :disabled="disabled" :autofocus="autofocus" :type="nativeType" @click="handleClick">
+    ns.is('text', text),
+    ns.is('link', link),
+    ns.is('has-bg', bg),
+  ]" :style="buttonStyle" @click="handleClick">
     <template v-if="loading">
       <slot v-if="$slots.loading" name="loading" />
       <jff-icon v-else :class="ns.is('loading')">
@@ -18,40 +22,32 @@
       <component :is="icon" v-if="icon" />
       <slot v-else name="icon" />
     </jff-icon>
-    <slot />
-  </button>
+    <span v-if="$slots.default" :class="{ [ns.em('text', 'expand')]: shouldAddSpace }">
+      <slot />
+    </span>
+  </component>
 </template>
-<script lang="ts" setup>
-import { computed, inject, ref } from 'vue'
-import { useNamespace } from '@justforfun-ui/hooks'
-import { buttonGroupContextKey } from '@justforfun-ui/tokens'
-import { buttonEmits, buttonProps } from './button'
-// 定义组件名称
-defineOptions({
-  name: 'JffButton',
-})
-// 定义 Props
-const props = defineProps(buttonProps)
-// 定义 emit
-const emit = defineEmits(buttonEmits)
-// 使用 inject 取出祖先组件提供的依赖
-const buttonGroupContext = inject(buttonGroupContextKey, undefined)
-// 使用 computed 进行缓存计算
-const _size = computed(() => props.size || buttonGroupContext?.size)
-const _type = computed(() => props.type || buttonGroupContext?.type || '')
-// classname 的 BEM 命名
-const ns = useNamespace('button')
-// 按钮 html 元素
-const _ref = ref<HTMLButtonElement>()
-// 点击事件函数
-const handleClick = (evt: MouseEvent) => {
-  emit('click', evt)
-}
 
-// 组件暴露自己的属性以及方法，去供外部使用
+<script lang="ts" setup>
+import { JffIcon } from '@justforfun-ui/components/icon'
+import { useNamespace } from '@justforfun-ui/hooks'
+import { useButton } from './use-button'
+import { buttonEmits, buttonProps } from './button'
+import { useButtonCustomStyle } from './button-custom'
+defineOptions({
+  name: 'ElButton',
+})
+const props = defineProps(buttonProps)
+const emit = defineEmits(buttonEmits)
+const buttonStyle = useButtonCustomStyle(props)
+const ns = useNamespace('button')
+const { _ref, _size, _type, _disabled, _props, shouldAddSpace, handleClick } =
+  useButton(props, emit)
 defineExpose({
   ref: _ref,
   size: _size,
   type: _type,
+  disabled: _disabled,
+  shouldAddSpace,
 })
 </script>

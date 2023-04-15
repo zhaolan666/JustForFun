@@ -6,9 +6,8 @@
 <script lang="ts" setup>
 import { provide, reactive, toRef } from 'vue'
 import { useNamespace } from '@justforfun-ui/hooks'
-import { buttonGroupContextKey } from '@justforfun-ui/tokens'
 import { buttonGroupProps } from './button-group'
-
+import { buttonGroupContextKey } from './constants'
 defineOptions({
   name: 'JffButtonGroup',
 })

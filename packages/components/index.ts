@@ -1,4 +1,3 @@
-// import JffButton from './button'
 
 export * as JffButton from './button'
 export * as JffIcon from './icon'

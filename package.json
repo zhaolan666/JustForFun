@@ -42,12 +42,12 @@
   },
   "dependencies": {
     "@element-plus/icons-vue": "^2.1.0",
-    "@justforfun-ui/components": "workspace:^1.0.2",
+    "@justforfun-ui/components": "workspace:*",
     "@justforfun-ui/constants": "workspace:*",
-    "@justforfun-ui/eslint-config": "workspace:^0.0.1",
-    "@justforfun-ui/theme-chalk": "workspace:^1.0.0",
-    "@justforfun-ui/tokens": "workspace:^0.0.1",
-    "@justforfun-ui/utils": "workspace:^1.0.0",
+    "@justforfun-ui/theme-chalk": "workspace:*",
+    "@justforfun-ui/locale": "workspace:*",
+    "@justforfun-ui/tokens": "workspace:*",
+    "@justforfun-ui/utils": "workspace:*",
     "@vueuse/core": "^9.13.0",
     "dayjs": "^1.11.7",
     "json": "^11.0.0",
@@ -56,6 +56,7 @@
     "lodash-unified": "^1.0.2"
   },
   "devDependencies": {
+    "@justforfun-ui/eslint-config": "workspace:*",
     "@commitlint/cli": "^17.4.4",
     "@commitlint/config-conventional": "^17.4.4",
     "@esbuild-kit/cjs-loader": "^2.4.2",

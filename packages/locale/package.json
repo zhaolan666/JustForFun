@@ -1,0 +1,11 @@
+{
+  "name": "@justforfun-ui/locale",
+  "version": "0.0.1",
+  "description": "JustForFun UI locale",
+  "license": "MIT",
+  "main": "index.ts",
+  "module": "index.ts",
+  "unpkg": "index.js",
+  "jsdelivr": "index.js",
+  "types": "index.d.ts"
+}

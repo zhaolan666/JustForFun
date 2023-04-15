@@ -12,3 +12,5 @@ export default JffButton
 
 
 export * from './src/button'
+export * from './src/constants'
+export type { ButtonInstance, ButtonGroupInstance } from './src/instance'

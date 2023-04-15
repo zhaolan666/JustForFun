@@ -13,7 +13,7 @@
     "@justforfun-ui/hooks": "workspace:^1.0.0",
     "@justforfun-ui/theme-chalk": "workspace:^1.0.2",
     "@justforfun-ui/tokens": "workspace:^0.0.1",
-    "@justforfun-ui/utils": "workspace:^1.0.1",
+    "@justforfun-ui/utils": "workspace:^1.0.2",
     "@popperjs/core": "^2.11.6",
     "async-validator": "^4.2.5",
     "dayjs": "^1.11.7",
@@ -37,5 +37,8 @@
   "bugs": {
     "url": "https://github.com/zhaolan666/JustForFun/issues"
   },
-  "homepage": "https://github.com/zhaolan666/JustForFun/tree/dev#readme"
+  "homepage": "https://github.com/zhaolan666/JustForFun/tree/dev#readme",
+  "devDependencies": {
+    "vite-plugin-dts": "^2.2.0"
+  }
 }

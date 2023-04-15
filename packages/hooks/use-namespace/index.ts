@@ -1,4 +1,7 @@
-import { computed, unref } from 'vue';
+import { computed, inject, ref, unref } from 'vue'
+
+import type { InjectionKey, Ref } from 'vue'
+
 export const defaultNamespace = 'jff'
 const statePrefix = 'is-'
 
@@ -27,9 +30,24 @@ const _bem = (
   return cls
 }
 
-export const useNamespace = (block: string) => {
+
+export const namespaceContextKey: InjectionKey<Ref<string | undefined>> =
+  Symbol('namespaceContextKey')
+
+export const useGetDerivedNamespace = (
+  namespaceOverrides?: Ref<string | undefined>
+) => {
+  const derivedNamespace =
+    namespaceOverrides || inject(namespaceContextKey, ref(defaultNamespace))
+  const namespace = computed(() => {
+    return unref(derivedNamespace) || defaultNamespace
+  })
+  return namespace
+}
+
+export const useNamespace = (block: string, namespaceOverrides?: Ref<string | undefined>) => {
   // 命名前缀也就是命名空间
-  const namespace = computed(() => defaultNamespace)
+  const namespace = useGetDerivedNamespace(namespaceOverrides)
   // 创建块 例如：el-form
   const b = (blockSuffix = '') =>
     _bem(unref(namespace), block, blockSuffix, '', '')
