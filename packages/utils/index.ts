@@ -1,5 +1,5 @@
-export * from './dom'
 export * from './vue'
+export * from './dom'
 export * from './arrays'
 export * from './browser'
 export * from './error'
@@ -11,3 +11,6 @@ export * from './rand'
 export * from './strings'
 export * from './types'
 export * from './typescript'
+
+
+export { obtainAllFocusableElements } from './dom'

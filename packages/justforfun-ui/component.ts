@@ -2,7 +2,7 @@ import { JffButton, JffButtonGroup } from "@justforfun-ui/components/button";
 import { JffInput } from "@justforfun-ui/components/input";
 import { JffIcon } from "@justforfun-ui/components/icon";
 import { JffBadge } from "@justforfun-ui/components/badge";
-import { JffForm, JffFormItem } from "packages/components/form";
+import { JffForm, JffFormItem } from "@justforfun-ui/components/form";
 import { JffConfigProvider } from "@justforfun-ui/components/config-provider";
 
 

@@ -1,20 +1,30 @@
 ---
-lang: zh-CN
-data: 2023-3-4 22:34:48
-head:
-  - - meta
-    - name: description
-      content: hello
-  - - meta
-    - name: keywords
-      content: super duper SEO
-      markdown.toc: 
-      - items: 
-        - name: dfs
-        - text: fdsf
+title: Button
 ---
 
-<script setup>
-  
+# 按钮
+<script>
+export default {
+  data() {
+    return {
+      button: '默认'
+    }
+  }
+}
 </script>
 
+<template>
+  <jff-button>{{button}}</jff-button>
+  <jff-button type="primary">主色</jff-button>
+  <jff-button type="success">成功</jff-button>
+  <jff-button type="info">提示</jff-button>
+</template>
+
+
+### 使用
+```html
+<jff-button>默认</jff-button>
+<jff-button type="primary">主色</jff-button>
+<jff-button type="success">成功</jff-button>
+<jff-button type="info">提示</jff-button>
+```

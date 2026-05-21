@@ -35,7 +35,7 @@ import { useButton } from './use-button'
 import { buttonEmits, buttonProps } from './button'
 import { useButtonCustomStyle } from './button-custom'
 defineOptions({
-  name: 'ElButton',
+  name: 'JffButton',
 })
 const props = defineProps(buttonProps)
 const emit = defineEmits(buttonEmits)

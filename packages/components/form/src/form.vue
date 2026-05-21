@@ -21,10 +21,10 @@ import type {
   FormValidationResult,
 } from './types'
 import type { FormItemProp } from './form-item'
-const COMPONENT_NAME = 'ElForm'
 defineOptions({
-  name: COMPONENT_NAME,
+  name: 'JffForm',
 })
+const COMPONENT_NAME = 'JffForm'
 const props = defineProps(formProps)
 const emit = defineEmits(formEmits)
 const fields: FormItemContext[] = []

@@ -1,14 +1,20 @@
 import path from 'path'
 import Inspect from 'vite-plugin-inspect'
 import { defineConfig, loadEnv } from 'vite'
-import Vuemacros from 'unplugin-vue-macros/dist/vite'
+import VueMacros from 'unplugin-vue-macros/dist/vite'
 import UnoCSS from 'unocss/vite'
-// import mkcert from 'vite-plugin-mkcert'
+import mkcert from 'vite-plugin-mkcert'
+import glob from 'fast-glob'
 import vueJsx from '@vitejs/plugin-vue-jsx'
 import Components from 'unplugin-vue-components/vite'
 import Icons from 'unplugin-icons/vite'
 import IconsResolver from 'unplugin-icons/resolver'
-
+import {
+  docPackage,
+  epPackage,
+  getPackageDependencies,
+  projRoot,
+} from '@justforfun-ui/build-utils'
 import { MarkdownTransform } from './.vitepress/plugins/markdown-transform'
 
 import type { Alias } from 'vite'
@@ -23,32 +29,54 @@ if (process.env.DOC_ENV !== 'production') {
   alias.push(
     {
       find: /^justforfun-ui(\/(es|lib))?$/,
-      replacement: path.resolve(__dirname, 'packages/justforfun/index.ts'),
+      replacement: path.resolve(projRoot, 'packages/justforfun-ui/index.ts'),
     },
     {
       find: /^justforfun-ui\/(es|lib)\/(.*)$/,
-      replacement: `${path.resolve(__dirname, 'packages')}/$2`,
+      replacement: `${path.resolve(projRoot, 'packages')}/$2`,
     }
   )
 }
 
-
 export default defineConfig(async ({ mode }) => {
   const env = loadEnv(mode, process.cwd(), '')
 
+  const { dependencies: epDeps } = getPackageDependencies(epPackage)
+  const { dependencies: docsDeps } = getPackageDependencies(docPackage)
+
+  const optimizeDeps = [...new Set([...epDeps, ...docsDeps])].filter(
+    (dep) =>
+      !dep.startsWith('@types/') &&
+      !['@justforfun-ui/metadata', 'justforfun-ui'].includes(dep)
+  )
+
+  optimizeDeps.push(
+    ...(await glob(['dayjs/plugin/*.js'], {
+      cwd: path.resolve(projRoot, 'node_modules'),
+      onlyFiles: true,
+    }))
+  )
 
   return {
+    server: {
+      host: true,
+      https: !!env.HTTPS,
+      fs: {
+        allow: [projRoot],
+      },
+    },
     resolve: {
-      alias: "@"
+      alias,
     },
     plugins: [
-      Vuemacros({
+      VueMacros({
         setupComponent: false,
         setupSFC: false,
         plugins: {
-          vueJsx: vueJsx()
-        }
+          vueJsx: vueJsx(),
+        },
       }),
+
       // https://github.com/antfu/unplugin-vue-components
       Components({
         dirs: ['.vitepress/vitepress/components'],
@@ -71,11 +99,12 @@ export default defineConfig(async ({ mode }) => {
         autoInstall: true,
       }),
       UnoCSS(),
+      MarkdownTransform(),
       Inspect(),
-      // mkcert(),
-    ]
-
+      mkcert(),
+    ],
+    optimizeDeps: {
+      include: optimizeDeps,
+    },
   }
 })
-
-

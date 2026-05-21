@@ -1,0 +1,24 @@
+{
+  "guide": {
+    "text": "Guide",
+    "link": "/guide/introduction",
+    "activeMatch": "^/guide/"
+  },
+  "components": {
+    "text": "Components",
+    "link": "/components/basic/button",
+    "activeMatch": "^/components/"
+  },
+  "version": {
+    "text": "0.0.1",
+    "items": [{
+        "text": "中文文档",
+        "link": "https://github.com/zhaolan666/JustForFun/blob/dev/README.zh-CN.md"
+      },
+      {
+        "text": "英文文档",
+        "link": "https://github.com/zhaolan666/JustForFun/blob/dev/README.md"
+      }
+    ]
+  }
+}

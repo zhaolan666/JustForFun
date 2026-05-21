@@ -12,6 +12,15 @@
     "esModuleInterop": true,
     "lib": ["ESNext", "DOM"],
     "skipLibCheck": true,
+    "baseUrl": ".",
+    "paths": {
+      "@justforfun-ui/components/*": ["../packages/components/*"],
+      "@justforfun-ui/theme-chalk/*": ["../packages/theme-chalk/*"],
+      "@justforfun-ui/utils/*": ["../packages/utils/*"],
+      "@justforfun-ui/hooks/*": ["../packages/hooks/*"],
+      "@justforfun-ui/constants/*": ["../packages/constants/*"],
+      "@justforfun-ui/locale/*": ["../packages/locale/*"]
+    }
   },
   "include": ["src/**/*.ts", "src/**/*.d.ts", "src/**/*.tsx", "src/**/*.vue"],
   "references": [{ "path": "./tsconfig.node.json" }]

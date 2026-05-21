@@ -11,10 +11,10 @@ describe('Button.vue', () => {
     // Assert the rendered text of the component
     expect(wrapper.classes()).toContain('jff-button--primary');
   });
-  it('icon', () => {
+  it('nativeType', () => {
     const wrapper = mount(() => <Button nativeType='submit' />);
 
-    expect(wrapper.attributes()).toBe('submit');
+    expect(wrapper.attributes('type')).toBe('submit');
   });
 
   it('size', () => {

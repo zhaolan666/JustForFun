@@ -12,7 +12,7 @@
     "skipLibCheck": true,
     "lib": ["WebWorker"],
     "paths": {
-      "element-plus": ["../packages/element-plus"],
+      "justforfun-ui": ["../packages/justforfun-ui"],
       "~/*": ["./.vitepress/vitepress/*"]
     },
     "types": ["../typings/components"],

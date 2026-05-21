@@ -24,8 +24,8 @@
 //   }
 // })
 
-import { JffButton } from "@justforfun-ui/components";
-import '@justforfun-ui/theme-chalk/src'
+import { JffButton } from "justforfun-ui";
+import '@justforfun-ui/theme-chalk'
 
 export default ({
   Vue, options, router

@@ -17,7 +17,7 @@ import { formContextKey, formItemContextKey } from './constants'
 
 import type { CSSProperties } from 'vue'
 
-const COMPONENT_NAME = 'JffLabelWrap'
+const COMPONENT_NAME = 'JffFormLabelWrap'
 export default defineComponent({
   name: COMPONENT_NAME,
   props: {
@@ -31,7 +31,7 @@ export default defineComponent({
     if (!formItemContext)
       throwError(
         COMPONENT_NAME,
-        'usage: <jff-form-item><label-wrap /></jff-form-item>'
+        'usage: <jff-form-item><jff-form-label-wrap /></jff-form-item>'
       )
 
     const ns = useNamespace('form')

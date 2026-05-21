@@ -13,6 +13,7 @@
     "allowSyntheticDefaultImports": true, // 是否允许从没有默认导出的模块中默认导入， 默认： false
     "esModuleInterop": true, // 是否通过为所有导入模块创建命名空间对象，允许CommonJS和ES模块之间的互操作性，开启改选项时，也自动开启allowSyntheDefaultImports选项，默认： false
     "removeComments": false, // 删除注释
+    "preserveSymlinks": true,
     "rootDir": ".", // 指定输出文件目录(用于输出),用于控制输出目录结构
     "type": [],
     "paths": {

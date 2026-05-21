@@ -1,0 +1,5 @@
+export const PKG_PREFIX = '@justforfun-ui'
+export const PKG_NAME = 'justforfun-ui'
+export const PKG_CAMELCASE_NAME = 'JustForFunUI'
+export const PKG_CAMELCASE_LOCAL_NAME = 'JustForFunUILocale'
+export const PKG_BRAND_NAME = 'JustForFun UI'

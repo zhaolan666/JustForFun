@@ -10,7 +10,7 @@ declare module '@vue/runtime-core' { // Vue 3
     JffIcon: typeof import('../packages/justforfun-ui')['JffIcon']
     JffButton: typeof import('../packages/justforfun-ui')['JffButton']
     JffButtonGroup: typeof import('../packages/justforfun-ui')['JffButtonGroup']
-    JffInput: typeof import('../packages/justforfun-ui')['JffIcon']
+    JffInput: typeof import('../packages/justforfun-ui')['JffInput']
     JffBadge: typeof import('../packages/justforfun-ui')['JffBadge']
     JffConfigProvider: typeof import('../packages/justforfun-ui')['JffConfigProvider']
     JffForm: typeof import('../packages/justforfun-ui')['JffForm']
