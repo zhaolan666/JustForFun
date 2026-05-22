@@ -1,5 +1,5 @@
 <p align='center'>
-  <img src='https://i.328888.xyz/2023/02/20/XGsVU.jpeg' alt='Vitesse - Opinionated Vite Starter Template' width='600'/>
+  <img src='https://neeko-copilot.bytedance.net/api/text_to_image?prompt=JustForFun%20UI%20Logo%20minimalist%20gray%20geometric%20J%20letter%20design%20modern%20clean&image_size=square' alt='JustForFun UI Logo' width='200'/>
 </p>
 
 <p align='center'>
