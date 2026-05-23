@@ -1,6 +1,6 @@
 {
   "name": "@justforfun-ui/components",
-  "version": "1.0.4",
+  "version": "1.0.5",
   "description": "all componets are settle here",
   "main": "index.ts",
   "module": "index.ts",
@@ -8,6 +8,9 @@
   "unpkg": "index.js",
   "jsdelivr": "index.js",
   "sideEffects": false,
+  "scripts": {
+    "build:vite": "vite build"
+  },
   "dependencies": {
     "@justforfun-ui/constants": "workspace:^1.0.0",
     "@justforfun-ui/hooks": "workspace:^1.0.0",
