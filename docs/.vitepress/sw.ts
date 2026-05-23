@@ -1,5 +1,9 @@
 import { cacheNames, clientsClaim } from 'workbox-core'
-import type { ManifestEntry } from 'workbox-build'
+interface ManifestEntry {
+  url: string
+  revision: string | null
+  size?: number
+}
 
 declare let self: ServiceWorkerGlobalScope & {
   __WB_MANIFEST: ManifestEntry[]

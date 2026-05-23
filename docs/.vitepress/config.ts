@@ -1,23 +1,10 @@
-import {
-  createRequire
-} from 'module'
-import {
-  defineConfig
-} from 'vitepress'
-const require = createRequire(
-  import.meta.url)
-export const pkg = require('vitepress/package.json')
-// const base = process.env.BASE || '/'
-
-import nav from './configs/nav'
-import sidebar from './configs/sidebar'
+import { defineConfig } from 'vitepress'
 
 export default defineConfig({
-  lang: 'en-US',
+  lang: 'zh-CN',
   title: 'JustForFun',
-  // base: base,
-  base: '/JustForFun/',
-  description: 'JustForFun is a simple UI framework',
+  base: '/',
+  description: 'JustForFun UI 组件库文档',
 
   lastUpdated: true,
   cleanUrls: true,
@@ -32,43 +19,79 @@ export default defineConfig({
     }]
   ],
 
-  markdown: {
-    headers: {
-      level: [0, 0]
-    },
-    config: (md) => {
-      // 添加DemoBlock插槽
-      const { demoBlockPlugin } = require('vitepress-theme-demoblock')
-      md.use(demoBlockPlugin, {
-        customClass: 'demoblock-custom'
-      })
-    }
-  },
-  locales: {
-    roots: {
-      label: 'English',
-      lang: 'en'
-    },
-    zh: {
-      label: '中文',
-      lang: 'zh', // optional, will be added  as `lang` attribute on `html` tag
-      link: '/zh/guide'
-    }
-  },
-
   themeConfig: {
     logo: '/jffLogo.png',
     siteTitle: 'JustForFun',
     outline: 3,
 
-    nav: nav(),
+    nav: [
+      { text: '指南', link: '/guide/introduction' },
+      { text: '组件', link: '/components/basic/button' },
+      { text: 'GitHub', link: 'https://github.com/zhaolan666/JustForFun' }
+    ],
 
-    // sidebar以对象的形式配置的话每个sidebar都是独立的 如果以数组的形式配置那么侧边栏是公共的 进入其他子页面都可以看到
-    sidebar: sidebar(),
+    sidebar: {
+      '/guide/': [
+        {
+          text: '指南',
+          items: [
+            { text: '介绍', link: '/guide/introduction' },
+            { text: '安装', link: '/guide/install' },
+            { text: '快速开始', link: '/guide/quickstart' }
+          ]
+        }
+      ],
+      '/components/': [
+        {
+          text: '基础组件',
+          items: [
+            { text: 'Button', link: '/components/basic/button' },
+            { text: 'Border', link: '/components/border' },
+            { text: 'Color', link: '/components/color' },
+            { text: 'Icon', link: '/components/icon' },
+            { text: 'Layout', link: '/components/layout' }
+          ]
+        },
+        {
+          text: '表单组件',
+          items: [
+            { text: 'Form', link: '/components/form/' },
+            { text: 'Checkbox', link: '/components/form/checkbox' },
+            { text: 'Radio', link: '/components/form/radio' },
+            { text: 'Select', link: '/components/form/select' },
+            { text: 'Switch', link: '/components/form/switch' }
+          ]
+        },
+        {
+          text: '数据展示',
+          items: [
+            { text: 'Badge', link: '/components/data/' },
+            { text: 'Avatar', link: '/components/data/avatar' },
+            { text: 'Card', link: '/components/data/card' },
+            { text: 'Tag', link: '/components/data/tag' }
+          ]
+        },
+        {
+          text: '导航组件',
+          items: [
+            { text: 'Tabs', link: '/components/nav/' },
+            { text: 'Dropdown', link: '/components/nav/dropdown' }
+          ]
+        },
+        {
+          text: '反馈组件',
+          items: [
+            { text: 'Message', link: '/components/feedback/' },
+            { text: 'Dialog', link: '/components/feedback/dialog' },
+            { text: 'Alert', link: '/components/feedback/alert' }
+          ]
+        }
+      ]
+    },
 
     editLink: {
       pattern: 'https://github.com/zhaolan666/JustForFun/issues',
-      text: 'Edit this page on GitHub'
+      text: '在 GitHub 上编辑此页面'
     },
 
     socialLinks: [{
@@ -78,18 +101,7 @@ export default defineConfig({
 
     footer: {
       message: 'Released under the MIT License.',
-      copyright: 'Copyright © 2023-present  mingdu'
-    },
-    algolia: {
-      appId: '8J64VVRP8K',
-      apiKey: 'a18e2f4cc5665f6602c5631fd868adfd',
-      indexName: 'vitepress'
-    },
-
-    carbonAds: {
-      code: 'CEBDT27Y',
-      placement: 'vuejsorg'
+      copyright: 'Copyright © 2023-present mingdu'
     }
   }
 })
-

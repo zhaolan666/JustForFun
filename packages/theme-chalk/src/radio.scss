@@ -1,0 +1,96 @@
+@use 'common/var' as *;
+@use 'mixins/mixins' as *;
+@use 'mixins/var' as *;
+
+@include b(radio) {
+  display: inline-flex;
+  align-items: center;
+  cursor: pointer;
+  font-size: 14px;
+  color: getCssVar('text-color', 'primary');
+  
+  @include e(input) {
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 18px;
+    height: 18px;
+    
+    @include e(inner) {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      border: 2px solid getCssVar('border-color');
+      border-radius: 50%;
+      background-color: getCssVar('bg-color');
+      transition: all 0.2s ease;
+    }
+    
+    @include e(original) {
+      opacity: 0;
+      width: 0;
+      height: 0;
+      margin: 0;
+      padding: 0;
+    }
+  }
+  
+  @include e(label) {
+    margin-left: 8px;
+    user-select: none;
+  }
+  
+  &:hover {
+    @include e(input) {
+      @include e(inner) {
+        border-color: getCssVar('color', 'primary');
+      }
+    }
+  }
+  
+  @include m(checked) {
+    @include e(input) {
+      @include e(inner) {
+        border-color: getCssVar('color', 'primary');
+        
+        &::after {
+          content: '';
+          position: absolute;
+          width: 8px;
+          height: 8px;
+          border-radius: 50%;
+          background-color: getCssVar('color', 'primary');
+        }
+      }
+    }
+  }
+  
+  @include m(disabled) {
+    cursor: not-allowed;
+    color: getCssVar('text-color', 'placeholder');
+    
+    @include e(input) {
+      @include e(inner) {
+        border-color: getCssVar('border-color', 'light');
+        background-color: getCssVar('bg-color', 'disabled');
+      }
+    }
+  }
+  
+  @include m(border) {
+    @include e(input) {
+      @include e(inner) {
+        border-width: 2px;
+      }
+    }
+  }
+}
+
+@include b(radio-group) {
+  display: inline-flex;
+  flex-wrap: wrap;
+  gap: 16px;
+}

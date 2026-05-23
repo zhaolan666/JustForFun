@@ -41,47 +41,43 @@ function sidebarComponents() {
     }]
   },
   {
-    text: 'From',
+    text: 'Form',
     collapsed: false,
     items: [{
-      text: 'Checkbox',
-      link: '/components/theme-introduction/'
-    },
-    {
-      text: 'Color Picker',
-      link: '/components/theme-nav/'
-    },
-    {
-      text: 'Date Picker',
-      link: '/components/theme-sidebar/'
-    },
-    {
-      text: 'Date Time Picker',
-      link: '/components/theme-prev-next-link/'
-    },
-    {
-      text: 'From',
-      link: '/components/theme-edit-link/'
+      text: 'Form',
+      link: '/components/form/'
     },
     {
       text: 'Input',
-      link: '/components/theme-last-updated/'
+      link: '/components/basic/input'
     },
     {
-      text: 'Rido',
-      link: '/components/theme-layout/'
+      text: 'Checkbox',
+      link: '/components/form/checkbox'
+    },
+    {
+      text: 'Radio',
+      link: '/components/form/radio'
     },
     {
       text: 'Select',
-      link: '/components/theme-home-page/'
+      link: '/components/form/select'
     },
     {
       text: 'Switch',
-      link: '/components/theme-team-page/'
+      link: '/components/form/switch'
+    },
+    {
+      text: 'Date Picker',
+      link: '/components/form/date-picker'
+    },
+    {
+      text: 'Color Picker',
+      link: '/components/form/color-picker'
     },
     {
       text: 'Upload',
-      link: '/components/theme-badge'
+      link: '/components/form/upload'
     },
     ]
   },
@@ -89,20 +85,24 @@ function sidebarComponents() {
     text: 'Data',
     collapsed: false,
     items: [{
+      text: 'Badge',
+      link: '/components/data/'
+    },
+    {
       text: 'Avatar',
-      link: '/components/migration-from-vuepress'
+      link: '/components/data/avatar'
     },
     {
       text: 'Card',
-      link: '/components/migration-from-vuepress'
+      link: '/components/data/card'
     },
     {
       text: 'Image',
-      link: '/components/migration-from-vitepress-0'
+      link: '/components/data/image'
     },
     {
       text: 'Tag',
-      link: '/components/migration-from-vitepress-0'
+      link: '/components/data/tag'
     }
     ]
   },
@@ -110,20 +110,20 @@ function sidebarComponents() {
     text: 'Navigation',
     collapsed: false,
     items: [{
-      text: 'Dropdown',
-      link: '/components/migration-from-vuepress'
+      text: 'Tabs',
+      link: '/components/nav/'
     },
     {
       text: 'Menu',
-      link: '/components/migration-from-vuepress'
+      link: '/components/nav/menu'
+    },
+    {
+      text: 'Dropdown',
+      link: '/components/nav/dropdown'
     },
     {
       text: 'Steps',
-      link: '/components/migration-from-vitepress-0'
-    },
-    {
-      text: 'Tabs',
-      link: '/components/migration-from-vitepress-0'
+      link: '/components/nav/steps'
     }
     ]
   },
@@ -131,20 +131,20 @@ function sidebarComponents() {
     text: 'Feedback',
     collapsed: false,
     items: [{
-      text: 'Alert',
-      link: '/components/migration-from-vuepress'
-    },
-    {
-      text: 'Dialog',
-      link: '/components/migration-from-vuepress'
+      text: 'Message',
+      link: '/components/feedback/'
     },
     {
       text: 'Loading',
-      link: '/components/migration-from-vitepress-0'
+      link: '/components/feedback/loading'
     },
     {
-      text: 'Message',
-      link: '/components/migration-from-vitepress-0'
+      text: 'Dialog',
+      link: '/components/feedback/dialog'
+    },
+    {
+      text: 'Alert',
+      link: '/components/feedback/alert'
     }
     ]
   },

@@ -1376,6 +1376,43 @@ $footer: map.merge(
   $footer
 );
 
+// Layout
+$row-gutter: () !default;
+$row-gutter: map.merge(
+  (
+    'default': 0,
+    'small': 8px,
+    'medium': 16px,
+    'large': 24px,
+  ),
+  $row-gutter
+);
+
+// Border
+$border-color: () !default;
+$border-color: map.merge(
+  (
+    '': #d9d9d9,
+    'primary': getCssVar('color-primary'),
+    'success': getCssVar('color-success'),
+    'warning': getCssVar('color-warning'),
+    'danger': getCssVar('color-danger'),
+    'info': getCssVar('color-info'),
+  ),
+  $border-color
+);
+
+$border-radius: () !default;
+$border-radius: map.merge(
+  (
+    'base': 4px,
+    'small': 2px,
+    'round': 20px,
+    'circle': 100%,
+  ),
+  $border-radius
+);
+
 // Break-point
 $sm: 768px !default;
 $md: 992px !default;

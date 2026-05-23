@@ -50,7 +50,7 @@ function buildThemeChalk() {
  */
 function buildDarkCssVars() {
   const sass = gulpSass(dartSass)
-  return src(path.resolve(__dirname, 'src/dark/css-vars.scss'))
+  return src(path.resolve(__dirname, 'src/drak/css-vars.scss'))
     .pipe(sass.sync())
     .pipe(autoprefixer({ cascade: false }))
     .pipe(

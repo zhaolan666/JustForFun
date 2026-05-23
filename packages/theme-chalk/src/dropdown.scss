@@ -1,0 +1,54 @@
+@use 'common/var' as *;
+@use 'mixins/mixins' as *;
+@use 'mixins/var' as *;
+
+@include b(dropdown) {
+  display: inline-block;
+  position: relative;
+  
+  @include e(trigger) {
+    cursor: pointer;
+  }
+  
+  @include e(menu) {
+    position: absolute;
+    top: calc(100% + 4px);
+    left: 0;
+    min-width: 160px;
+    background-color: getCssVar('bg-color');
+    border: 1px solid getCssVar('border-color');
+    border-radius: 4px;
+    box-shadow: getCssVar('dropdown', 'menu-box-shadow');
+    z-index: 10;
+    padding: 4px 0;
+  }
+}
+
+@include b(dropdown-item) {
+  padding: 8px 16px;
+  font-size: 14px;
+  color: getCssVar('text-color', 'primary');
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+  
+  &:hover {
+    background-color: getCssVar('dropdown', 'menuItem-hover-fill');
+    color: getCssVar('dropdown', 'menuItem-hover-color');
+  }
+  
+  &.jff-dropdown-item-disabled {
+    cursor: not-allowed;
+    color: getCssVar('text-color', 'placeholder');
+    
+    &:hover {
+      background-color: transparent;
+      color: getCssVar('text-color', 'placeholder');
+    }
+  }
+  
+  &.jff-dropdown-item-divided {
+    border-top: 1px solid getCssVar('border-color', 'light');
+    margin-top: 4px;
+    padding-top: 12px;
+  }
+}

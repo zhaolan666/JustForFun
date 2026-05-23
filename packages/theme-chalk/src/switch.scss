@@ -1,0 +1,68 @@
+@use 'common/var' as *;
+@use 'mixins/mixins' as *;
+@use 'mixins/var' as *;
+
+@include b(switch) {
+  display: inline-flex;
+  align-items: center;
+  cursor: pointer;
+  position: relative;
+  border: none;
+  outline: none;
+  background: transparent;
+  padding: 0;
+  
+  @include e(core) {
+    display: inline-flex;
+    align-items: center;
+    width: 40px;
+    height: 22px;
+    border-radius: 11px;
+    background-color: getCssVar('border-color');
+    transition: all 0.3s ease;
+    
+    @include e(action) {
+      width: 18px;
+      height: 18px;
+      margin-left: 2px;
+      border-radius: 50%;
+      background-color: getCssVar('bg-color');
+      transition: all 0.3s ease;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    }
+  }
+  
+  @include e(label) {
+    margin-left: 8px;
+    font-size: 14px;
+    color: getCssVar('text-color', 'primary');
+  }
+  
+  &:hover:not(:disabled) {
+    @include e(core) {
+      background-color: getCssVar('border-color', 'lighter');
+    }
+  }
+  
+  @include m(checked) {
+    @include e(core) {
+      background-color: getCssVar('color', 'primary');
+      
+      @include e(action) {
+        margin-left: 20px;
+      }
+    }
+  }
+  
+  @include m(disabled) {
+    cursor: not-allowed;
+    
+    @include e(core) {
+      background-color: getCssVar('border-color', 'light');
+      
+      @include e(action) {
+        background-color: getCssVar('bg-color', 'disabled');
+      }
+    }
+  }
+}

@@ -1,0 +1,105 @@
+@use 'common/var' as *;
+@use 'mixins/mixins' as *;
+@use 'mixins/var' as *;
+
+@include b(alert) {
+  position: relative;
+  padding: getCssVar('alert', 'padding');
+  border-radius: getCssVar('alert', 'border-radius-base');
+  border-left: 4px solid getCssVar('color', 'info');
+  background-color: getCssVar('color', 'info', 'light-9');
+  display: flex;
+  align-items: flex-start;
+  
+  @include e(icon) {
+    font-size: getCssVar('alert', 'icon-size');
+    margin-right: 12px;
+    flex-shrink: 0;
+  }
+  
+  @include e(content) {
+    flex: 1;
+    min-width: 0;
+  }
+  
+  @include e(title) {
+    font-size: getCssVar('alert', 'title-font-size');
+    font-weight: 600;
+    color: getCssVar('text-color', 'primary');
+    display: block;
+    margin-bottom: 4px;
+  }
+  
+  @include e(message) {
+    font-size: getCssVar('alert', 'description-font-size');
+    color: getCssVar('text-color', 'regular');
+    line-height: 1.5;
+  }
+  
+  @include e(close) {
+    font-size: getCssVar('alert', 'close-font-size');
+    color: getCssVar('text-color', 'placeholder');
+    cursor: pointer;
+    margin-left: 12px;
+    flex-shrink: 0;
+    transition: color 0.2s ease;
+    
+    &:hover {
+      color: getCssVar('text-color', 'primary');
+    }
+  }
+  
+  @include m(success) {
+    border-left-color: getCssVar('color', 'success');
+    background-color: getCssVar('color', 'success', 'light-9');
+    
+    @include e(icon) {
+      color: getCssVar('color', 'success');
+    }
+  }
+  
+  @include m(warning) {
+    border-left-color: getCssVar('color', 'warning');
+    background-color: getCssVar('color', 'warning', 'light-9');
+    
+    @include e(icon) {
+      color: getCssVar('color', 'warning');
+    }
+  }
+  
+  @include m(danger) {
+    border-left-color: getCssVar('color', 'danger');
+    background-color: getCssVar('color', 'danger', 'light-9');
+    
+    @include e(icon) {
+      color: getCssVar('color', 'danger');
+    }
+  }
+  
+  @include m(info) {
+    border-left-color: getCssVar('color', 'info');
+    background-color: getCssVar('color', 'info', 'light-9');
+    
+    @include e(icon) {
+      color: getCssVar('color', 'info');
+    }
+  }
+  
+  @include m(dark) {
+    @include m(success) {
+      background-color: rgba(getCssVar('color', 'success'), 0.1);
+    }
+    
+    @include m(warning) {
+      background-color: rgba(getCssVar('color', 'warning'), 0.1);
+    }
+    
+    @include m(danger) {
+      background-color: rgba(getCssVar('color', 'danger'), 0.1);
+    }
+    
+    @include m(info) {
+      background-color: rgba(getCssVar('color', 'info'), 0.1);
+    }
+  }
+}

@@ -1,0 +1,71 @@
+@use 'common/var' as *;
+@use 'mixins/mixins' as *;
+@use 'mixins/var' as *;
+
+@include b(dialog) {
+  position: fixed;
+  left: 50%;
+  top: 15vh;
+  transform: translateX(-50%);
+  width: getCssVar('dialog', 'width');
+  background-color: getCssVar('dialog', 'bg-color');
+  border-radius: getCssVar('dialog', 'border-radius');
+  box-shadow: getCssVar('dialog', 'box-shadow');
+  z-index: 2000;
+  max-height: 80vh;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  
+  @include e(mask) {
+    position: fixed;
+    left: 0;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 1999;
+  }
+  
+  @include e(header) {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: getCssVar('dialog', 'padding-primary');
+    border-bottom: 1px solid getCssVar('border-color', 'light');
+    
+    @include e(title) {
+      font-size: getCssVar('font-size', 'large');
+      font-weight: 600;
+      color: getCssVar('text-color', 'primary');
+    }
+    
+    @include e(close) {
+      font-size: 16px;
+      color: getCssVar('text-color', 'placeholder');
+      cursor: pointer;
+      transition: color 0.2s ease;
+      
+      &:hover {
+        color: getCssVar('text-color', 'primary');
+      }
+    }
+  }
+  
+  @include e(body) {
+    padding: getCssVar('dialog', 'padding-primary');
+    flex: 1;
+    overflow-y: auto;
+    font-size: getCssVar('dialog', 'content-font-size');
+    line-height: getCssVar('dialog', 'font-line-height');
+  }
+  
+  @include e(footer) {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    padding: getCssVar('dialog', 'padding-primary');
+    border-top: 1px solid getCssVar('border-color', 'light');
+    gap: 12px;
+  }
+}

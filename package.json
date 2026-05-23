@@ -4,8 +4,7 @@
   "license": "MIT",
   "workspaces": [
     "packages/*",
-    "example",
-    "docs"
+    "example"
   ],
   "scripts": {
     "cz": "czg",
@@ -118,15 +117,6 @@
   "config": {
     "commitizen": {
       "path": "cz-conventional-changelog"
-    }
-  },
-  "pnpm": {
-    "peerDependencyRules": {
-      "ignoreMissing": [
-        "vite",
-        "react",
-        "react-dom"
-      ]
     }
   },
   "lint-staged": {

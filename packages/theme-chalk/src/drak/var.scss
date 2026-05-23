@@ -3,7 +3,7 @@
 
 @use '../common/var.scss' as common;
 @use '../mixins/mixins.scss' as *;
-@use '../color/index.scss' as *;
+@use '../color/var.scss' as *;
 
 $colors: () !default;
 @each $type in common.$types {

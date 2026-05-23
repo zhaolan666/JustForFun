@@ -19,9 +19,9 @@
     "dev": "DEV=1 pnpm run build"
   },
   "devDependencies": {
-    "@justforfun-ui/build": "^0.0.1",
-    "@justforfun-ui/build-constants": "^0.0.1",
-    "@justforfun-ui/build-utils": "^0.0.1",
+    "@justforfun-ui/build": "workspace:*",
+    "@justforfun-ui/build-constants": "workspace:*",
+    "@justforfun-ui/build-utils": "workspace:*",
     "@types/lodash-es": "^4.17.6",
     "chalk": "^5.0.1",
     "consola": "^2.15.3",

@@ -1,0 +1,59 @@
+@use 'sass:map';
+
+@use 'common/var' as *;
+@use 'mixins/mixins' as *;
+@use 'mixins/var' as *;
+
+@include b(avatar) {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background-color: getCssVar('avatar', 'bg-color');
+  color: getCssVar('avatar', 'text-color');
+  font-weight: bold;
+  overflow: hidden;
+  
+  @include e(img) {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+  
+  @include e(icon) {
+    font-size: getCssVar('avatar', 'icon-size');
+  }
+  
+  @include e(text) {
+    text-align: center;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    font-size: getCssVar('avatar', 'text-size');
+  }
+  
+  @include m(circle) {
+    border-radius: 50%;
+  }
+  
+  @include m(square) {
+    border-radius: getCssVar('avatar', 'border-radius');
+  }
+  
+  @include m(large) {
+    width: map.get($avatar-size, 'large');
+    height: map.get($avatar-size, 'large');
+    line-height: map.get($avatar-size, 'large');
+  }
+  
+  @include m(default) {
+    width: map.get($avatar-size, 'default');
+    height: map.get($avatar-size, 'default');
+    line-height: map.get($avatar-size, 'default');
+  }
+  
+  @include m(small) {
+    width: map.get($avatar-size, 'small');
+    height: map.get($avatar-size, 'small');
+    line-height: map.get($avatar-size, 'small');
+  }
+}

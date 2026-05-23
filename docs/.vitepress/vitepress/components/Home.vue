@@ -1,12 +1,11 @@
 <script setup lang="ts">
-const props = defineProps<{
-  modelValue?: boolean,
-}>()
+import DefaultTheme from 'vitepress/theme'
 
+const { Layout } = DefaultTheme
 </script>
 
 <template>
-  <div>
-    <h1>Home Page</h1>
-  </div>
+  <Layout>
+    <Content />
+  </Layout>
 </template>

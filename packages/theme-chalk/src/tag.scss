@@ -1,0 +1,73 @@
+@use 'sass:map';
+
+@use 'common/var' as *;
+@use 'mixins/mixins' as *;
+@use 'mixins/var' as *;
+
+@include b(tag) {
+  display: inline-flex;
+  align-items: center;
+  padding: 0 map.get($tag-padding, 'default');
+  height: map.get($tag-height, 'default');
+  font-size: getCssVar('tag', 'font-size');
+  border-radius: getCssVar('tag', 'border-radius');
+  background-color: getCssVar('bg-color', 'page');
+  color: getCssVar('text-color', 'primary');
+  box-sizing: border-box;
+  white-space: nowrap;
+  
+  @include e(close) {
+    margin-left: 8px;
+    cursor: pointer;
+    transition: color 0.2s ease;
+    border-radius: 50%;
+    
+    &:hover {
+      color: getCssVar('text-color', 'primary');
+      background-color: rgba(getCssVar('text-color', 'placeholder'), 0.1);
+    }
+  }
+  
+  @include m(primary) {
+    background-color: getCssVar('color', 'primary', 'light-9');
+    color: getCssVar('color', 'primary');
+  }
+  
+  @include m(success) {
+    background-color: getCssVar('color', 'success', 'light-9');
+    color: getCssVar('color', 'success');
+  }
+  
+  @include m(warning) {
+    background-color: getCssVar('color', 'warning', 'light-9');
+    color: getCssVar('color', 'warning');
+  }
+  
+  @include m(danger) {
+    background-color: getCssVar('color', 'danger', 'light-9');
+    color: getCssVar('color', 'danger');
+  }
+  
+  @include m(info) {
+    background-color: getCssVar('color', 'info', 'light-9');
+    color: getCssVar('color', 'info');
+  }
+  
+  @include m(hit) {
+    box-shadow: 0 0 0 2px rgba(getCssVar('color', 'primary'), 0.2);
+  }
+  
+  @include m(round) {
+    border-radius: getCssVar('tag', 'border-radius-rounded');
+  }
+  
+  @include m(large) {
+    height: map.get($tag-height, 'large');
+    padding: 0 map.get($tag-padding, 'large');
+  }
+  
+  @include m(small) {
+    height: map.get($tag-height, 'small');
+    padding: 0 map.get($tag-padding, 'small');
+  }
+}

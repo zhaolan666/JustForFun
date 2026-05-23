@@ -1,11 +1,12 @@
 {
   "name": "@justforfun-ui/constants",
   "private": true,
+  "version": "1.0.0",
+  "description": "memory constant",
+  "keywords": ["utils"],
   "license": "MIT",
   "main": "index.ts",
-  "version": "1.0.0",
   "author": "mingdu",
-  "description": "memory constant",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/zhaolan666/JustForFun.git#dev"
@@ -13,11 +14,5 @@
   "bugs": {
     "url": "https://github.com/zhaolan666/JustForFun/issues"
   },
-  "homepage": "https://github.com/zhaolan666/JustForFun/tree/dev#readme",
-  "scripts": {
-    "test": "npm run test"
-  },
-  "keywords": [
-    "utils"
-  ]
+  "homepage": "https://github.com/zhaolan666/JustForFun/tree/dev#readme"
 }

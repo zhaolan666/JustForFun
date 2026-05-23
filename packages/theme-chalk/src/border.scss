@@ -1,0 +1,53 @@
+@use 'sass:map';
+
+@use 'common/var' as *;
+@use 'mixins/mixins' as *;
+@use 'mixins/utils' as *;
+
+@include b(border) {
+  box-sizing: border-box;
+
+  @include m(type-solid) {
+    border-style: solid;
+  }
+
+  @include m(type-dashed) {
+    border-style: dashed;
+  }
+
+  @include m(type-dotted) {
+    border-style: dotted;
+  }
+
+  @include m(type-double) {
+    border-style: double;
+  }
+
+  @include m(direction-all) {
+    border-width: getCssVar('border-width');
+  }
+
+  @include m(direction-top) {
+    border-width: getCssVar('border-width') 0 0 0;
+  }
+
+  @include m(direction-right) {
+    border-width: 0 getCssVar('border-width') 0 0;
+  }
+
+  @include m(direction-bottom) {
+    border-width: 0 0 getCssVar('border-width') 0;
+  }
+
+  @include m(direction-left) {
+    border-width: 0 0 0 getCssVar('border-width');
+  }
+
+  @include m(direction-horizontal) {
+    border-width: getCssVar('border-width') 0;
+  }
+
+  @include m(direction-vertical) {
+    border-width: 0 getCssVar('border-width');
+  }
+}

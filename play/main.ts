@@ -2,30 +2,31 @@ import { createApp } from 'vue'
 import JffIcon from '@justforfun-ui/components/icon'
 import JffButton, { JffButtonGroup } from '@justforfun-ui/components/button'
 import JffInput from '@justforfun-ui/components/input'
+import { JffContainer, JffHeader, JffMain, JffFooter, JffRow, JffCol } from '@justforfun-ui/components/layout'
+import JffBorder from '@justforfun-ui/components/border'
 import '@justforfun-ui/theme-chalk/src/index.scss'
+console.log('Styles loaded')
 import App from './src/App.vue'
 
 // console.log('JffButton', JffButton.ButtonGroup);
 
-// 组件库
-const components = [JffIcon, JffButton, JffButtonGroup, JffInput]
-// 是否已安装标识
-const INSTALLED_KEY = Symbol('INSTALLED_KEY')
-// 组件库插件
-const JffUI = {
-  install(app: any) {
-    // 如果该组件库已经安装过了，则不进行安装
-    if (app[INSTALLED_KEY]) return
-    // 将标识值设置为 true，表示已经安装了
-    app[INSTALLED_KEY] = true
-    // 循环组件库中的每个组件进行安装
-    components.forEach((c) => app.use(c))
-  },
-}
-
 const app = createApp(App)
-// 安装组件库
-app.use(JffUI)
+
+// 直接注册组件
+app.use(JffIcon)
+app.use(JffButton)
+app.use(JffButtonGroup)
+app.use(JffInput)
+app.component('JffContainer', JffContainer)
+app.component('JffHeader', JffHeader)
+app.component('JffMain', JffMain)
+app.component('JffFooter', JffFooter)
+app.component('JffRow', JffRow)
+app.component('JffCol', JffCol)
+app.use(JffBorder)
+
+console.log('Components registered:', app._componentMap)
+
 app.mount('#app')
 
 

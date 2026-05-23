@@ -1,0 +1,44 @@
+@use 'common/var' as *;
+@use 'mixins/mixins' as *;
+@use 'mixins/var' as *;
+
+@include b(card) {
+  background-color: getCssVar('card', 'bg-color');
+  border-radius: getCssVar('card', 'border-radius');
+  overflow: hidden;
+  
+  @include e(header) {
+    padding: getCssVar('card', 'padding');
+    border-bottom: 1px solid getCssVar('card', 'border-color');
+    font-size: 16px;
+    font-weight: 600;
+    color: getCssVar('text-color', 'primary');
+  }
+  
+  @include e(body) {
+    padding: getCssVar('card', 'padding');
+  }
+  
+  @include e(footer) {
+    padding: getCssVar('card', 'padding');
+    border-top: 1px solid getCssVar('card', 'border-color');
+  }
+  
+  @include m(bordered) {
+    border: 1px solid getCssVar('card', 'border-color');
+  }
+  
+  @include m(shadow-always) {
+    box-shadow: getCssVar('box-shadow');
+  }
+  
+  @include m(shadow-hover) {
+    &:hover {
+      box-shadow: getCssVar('box-shadow');
+    }
+  }
+  
+  @include m(shadow-never) {
+    box-shadow: none;
+  }
+}

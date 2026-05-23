@@ -55,8 +55,11 @@ export const useNamespace = (block: string, namespaceOverrides?: Ref<string | un
   const e = (element?: string) =>
     element ? _bem(unref(namespace), block, '', element, '') : ''
   // 创建块修改器 例如：el-form--default
-  const m = (modifier?: string) =>
-    modifier ? _bem(unref(namespace), block, '', '', modifier) : ''
+  const m = (modifier?: string, value?: string | number) => {
+    if (!modifier) return ''
+    const fullModifier = value !== undefined ? `${modifier}-${value}` : modifier
+    return _bem(unref(namespace), block, '', '', fullModifier)
+  }
   // 创建后缀块元素 例如：el-form-item
   const be = (blockSuffix?: string, element?: string) =>
     blockSuffix && element

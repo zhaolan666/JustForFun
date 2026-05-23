@@ -1,0 +1,9 @@
+# pnpm 配置文件
+# peerDependencyRules 配置（替代 package.json 中的 pnpm.peerDependencyRules）
+
+# 忽略缺失的 peer 依赖警告
+peerDependencyRules.ignoreMissing = [
+  "vite",
+  "react",
+  "react-dom"
+]

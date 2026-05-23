@@ -15,14 +15,14 @@
   "bugs": {
     "url": "https://github.com/element-plus/element-plus/issues"
   },
-  "main": "lib/index.js",
-  "module": "es/index.mjs",
-  "types": "es/index.d.ts",
+  "main": "index.ts",
+  "module": "index.ts",
+  "types": "index.ts",
   "exports": {
     ".": {
-      "types": "./es/index.d.ts",
-      "import": "./es/index.mjs",
-      "require": "./lib/index.js"
+      "types": "./index.ts",
+      "import": "./index.ts",
+      "require": "./index.ts"
     },
     "./es": "./es/index.mjs",
     "./lib": "./lib/index.js",

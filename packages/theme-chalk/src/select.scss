@@ -1,0 +1,112 @@
+@use 'common/var' as *;
+@use 'mixins/mixins' as *;
+@use 'mixins/var' as *;
+
+@include b(select) {
+  display: inline-flex;
+  position: relative;
+  font-size: 14px;
+  
+  @include e(input) {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 8px 12px;
+    width: 200px;
+    height: 40px;
+    border: 1px solid getCssVar('border-color');
+    border-radius: 4px;
+    background-color: getCssVar('bg-color');
+    cursor: pointer;
+    transition: all 0.2s ease;
+    
+    &:hover {
+      border-color: getCssVar('color', 'primary');
+    }
+  }
+  
+  @include e(selected) {
+    color: getCssVar('text-color', 'primary');
+  }
+  
+  @include e(placeholder) {
+    color: getCssVar('text-color', 'placeholder');
+  }
+  
+  @include e(clear) {
+    margin-right: 8px;
+    color: getCssVar('text-color', 'placeholder');
+    cursor: pointer;
+    transition: color 0.2s ease;
+    
+    &:hover {
+      color: getCssVar('text-color', 'primary');
+    }
+  }
+  
+  @include e(arrow) {
+    color: getCssVar('text-color', 'placeholder');
+    transition: transform 0.2s ease;
+  }
+  
+  @include e(dropdown) {
+    position: absolute;
+    top: calc(100% + 4px);
+    left: 0;
+    right: 0;
+    min-width: 100%;
+    max-height: 200px;
+    overflow-y: auto;
+    background-color: getCssVar('bg-color');
+    border: 1px solid getCssVar('border-color');
+    border-radius: 4px;
+    box-shadow: 0 2px 12px rgba(0, 0, 0, 0.1);
+    z-index: 1000;
+  }
+  
+  &.jff-select-option {
+    padding: 8px 12px;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+    
+    &:hover {
+      background-color: getCssVar('fill-color', 'light');
+    }
+    
+    &.jff-select-option-disabled {
+      cursor: not-allowed;
+      color: getCssVar('text-color', 'placeholder');
+    }
+    
+    &.jff-select-option-selected {
+      background-color: getCssVar('color', 'primary', 'light-5');
+      color: getCssVar('color', 'primary');
+    }
+  }
+  
+  @include m(opened) {
+    @include e(input) {
+      border-color: getCssVar('color', 'primary');
+      border-radius: 4px 4px 0 0;
+    }
+    
+    @include e(arrow) {
+      transform: rotate(180deg);
+    }
+  }
+  
+  @include m(clearable) {
+    @include e(arrow) {
+      margin-left: auto;
+    }
+  }
+  
+  @include m(disabled) {
+    cursor: not-allowed;
+    
+    @include e(input) {
+      background-color: getCssVar('bg-color', 'disabled');
+      border-color: getCssVar('border-color', 'light');
+    }
+  }
+}
