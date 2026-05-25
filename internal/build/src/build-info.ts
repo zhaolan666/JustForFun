@@ -5,7 +5,7 @@ import { epOutput } from '@justforfun-ui/build-utils'
 import type { ModuleFormat } from 'rollup'
 
 export const modules = ['esm', 'cjs'] as const
-export type Module = typeof modules[number]
+export type Module = (typeof modules)[number]
 export interface BuildInfo {
   module: 'ESNext' | 'CommonJS'
   format: ModuleFormat
@@ -50,7 +50,7 @@ export const buildConfig: Record<Module, BuildInfo> = {
   },
 }
 export const buildConfigEntries = Object.entries(
-  buildConfig
+  buildConfig,
 ) as BuildConfigEntries
 
 export type BuildConfig = typeof buildConfig

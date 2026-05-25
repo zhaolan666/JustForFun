@@ -57,17 +57,18 @@ interface ContributorInfo {
 }
 
 const fetchCommits = async (
-  options: FetchOption[]
+  options: FetchOption[],
 ): Promise<Record<string, ApiResult>> => {
   const query = `{
     repository(owner: "${REPO_OWNER}", name: "${REPO_NAME}") {
       object(expression: "${REPO_BRANCH}") {
         ... on Commit {
           ${options
-      .map(({ path, after }, index) => {
-        return `
-              path${index}: history(path: "${path}"${after ? `, after: "${after}"` : ''
-          }) {
+            .map(({ path, after }, index) => {
+              return `
+              path${index}: history(path: "${path}"${
+                after ? `, after: "${after}"` : ''
+              }) {
                 nodes {
                   oid
                   author {
@@ -85,8 +86,8 @@ const fetchCommits = async (
                   endCursor
                 }
               }`
-      })
-      .join('\n')}
+            })
+            .join('\n')}
         }
       }
     }
@@ -96,7 +97,7 @@ const fetchCommits = async (
     Object.entries(response).map(([key, result]) => {
       const index = +key.replace('path', '')
       return [index, result]
-    })
+    }),
   )
 }
 
@@ -147,7 +148,7 @@ const getContributorsByComponents = async (components: string[]) => {
   } while (options.length > 0)
 
   return mapValues(commits, (commits) =>
-    calcContributors(uniqBy(commits, 'oid'))
+    calcContributors(uniqBy(commits, 'oid')),
   )
 }
 
@@ -167,7 +168,7 @@ async function getContributors() {
       ...(await getContributorsByComponents(chunkComponents)),
     }
     consola.success(
-      chalk.green(`Fetched contributors: ${chunkComponents.join(', ')}`)
+      chalk.green(`Fetched contributors: ${chunkComponents.join(', ')}`),
     )
   }
   return contributors

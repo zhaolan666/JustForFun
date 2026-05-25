@@ -12,7 +12,7 @@ export const generateExternal = async (options: { full: boolean }) => {
     }
 
     return [...new Set(packages)].some(
-      (pkg) => id === pkg || id.startsWith(`${pkg}/`)
+      (pkg) => id === pkg || id.startsWith(`${pkg}/`),
     )
   }
 }
@@ -24,7 +24,7 @@ export function writeBundles(bundle: RollupBuild, options: OutputOptions[]) {
 export function formatBundleFilename(
   name: string,
   minify: boolean,
-  ext: string
+  ext: string,
 ) {
   return `${name}${minify ? '.min' : ''}.${ext}`
 }

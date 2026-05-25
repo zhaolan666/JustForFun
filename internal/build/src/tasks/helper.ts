@@ -95,10 +95,10 @@ const reAttribute: ReAttribute = (value, key) => {
   } else if (key === 'Subtags') {
     return str
       ? `jff-${str
-        .replaceAll(/\s*\/\s*/g, '/jff-')
-        .replaceAll(/\B([A-Z])/g, '-$1')
-        .replaceAll(/\s+/g, '-')
-        .toLowerCase()}`
+          .replaceAll(/\s*\/\s*/g, '/jff-')
+          .replaceAll(/\B([A-Z])/g, '-$1')
+          .replaceAll(/\s+/g, '-')
+          .toLowerCase()}`
       : undefined
   } else {
     return str
@@ -204,7 +204,7 @@ export const buildHelper: TaskFunction = (done) => {
     version: _version,
     entry: `${path.resolve(
       projRoot,
-      'docs/en-US/component'
+      'docs/en-US/component',
     )}/!(datetime-picker|message-box|message).md`,
     outDir: epOutput,
     reComponentName,

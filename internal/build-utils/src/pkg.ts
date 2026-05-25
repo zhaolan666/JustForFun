@@ -18,7 +18,7 @@ export const getPackageManifest = (pkgPath: string) => {
 }
 
 export const getPackageDependencies = (
-  pkgPath: string
+  pkgPath: string,
 ): Record<'dependencies' | 'peerDependencies', string[]> => {
   const manifest = getPackageManifest(pkgPath)
   const { dependencies = {}, peerDependencies = {} } = manifest
@@ -32,6 +32,6 @@ export const getPackageDependencies = (
 export const excludeFiles = (files: string[]) => {
   const excludes = ['node_modules', 'test', 'mock', 'gulpfile', 'dist']
   return files.filter(
-    (path) => !excludes.some((exclude) => path.includes(exclude))
+    (path) => !excludes.some((exclude) => path.includes(exclude)),
   )
 }

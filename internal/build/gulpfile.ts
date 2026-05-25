@@ -17,11 +17,11 @@ export const copyFiles = () =>
     copyFile(epPackage, path.join(epOutput, 'package.json')),
     copyFile(
       path.resolve(projRoot, 'README.md'),
-      path.resolve(epOutput, 'README.md')
+      path.resolve(epOutput, 'README.md'),
     ),
     copyFile(
       path.resolve(projRoot, 'global.d.ts'),
-      path.resolve(epOutput, 'global.d.ts')
+      path.resolve(epOutput, 'global.d.ts'),
     ),
   ])
 
@@ -30,7 +30,7 @@ export const copyTypesDefinitions: TaskFunction = (done) => {
   const copyTypes = (module: Module) =>
     withTaskName(`copyTypes:${module}`, () =>
       // @ts-ignore
-      copy(src, buildConfig[module].output.path, { recursive: true })
+      copy(src, buildConfig[module].output.path, { recursive: true }),
     )
 
   return parallel(copyTypes('esm'), copyTypes('cjs'))(done)
@@ -40,7 +40,7 @@ export const copyFullStyle = async () => {
   await mkdir(path.resolve(epOutput, 'dist'), { recursive: true })
   await copyFile(
     path.resolve(epOutput, 'theme-chalk/index.css'),
-    path.resolve(epOutput, 'dist/index.css')
+    path.resolve(epOutput, 'dist/index.css'),
   )
 }
 
@@ -55,13 +55,13 @@ export default series(
     runTask('buildHelper'),
     series(
       withTaskName('buildThemeChalk', () =>
-        run('pnpm run -C packages/theme-chalk build')
+        run('pnpm run -C packages/theme-chalk build'),
       ),
-      copyFullStyle
-    )
+      copyFullStyle,
+    ),
   ),
 
-  parallel(copyTypesDefinitions, copyFiles)
+  parallel(copyTypesDefinitions, copyFiles),
 )
 
 export * from './src'

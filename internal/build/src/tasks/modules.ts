@@ -19,7 +19,7 @@ export const buildModules = async () => {
       cwd: pkgRoot,
       absolute: true,
       onlyFiles: true,
-    })
+    }),
   )
   const bundle = await rollup({
     input,
@@ -63,6 +63,6 @@ export const buildModules = async () => {
         sourcemap: true,
         entryFileNames: `[name].${config.ext}`,
       }
-    })
+    }),
   )
 }

@@ -1,6 +1,4 @@
-const {
-  defineConfig
-} = require('eslint-define-config')
+const { defineConfig } = require('eslint-define-config')
 
 module.exports = defineConfig({
   env: {
@@ -24,12 +22,13 @@ module.exports = defineConfig({
   settings: {
     'import/resolver': {
       node: {
-        extensions: ['.js', '.mjs', '.ts', '.d.ts', '.tsx']
+        extensions: ['.js', '.mjs', '.ts', '.d.ts', '.tsx'],
       },
     },
   },
   // overrides，外侧配置的 rule 一般都是全局生效，通过 overrides，我们可以针对一些文件覆盖一些规则
-  overrides: [{
+  overrides: [
+    {
       files: ['*.json', '*.json5', '*.jsonc'],
       parser: 'jsonc-eslint-parser',
     },
@@ -98,7 +97,7 @@ module.exports = defineConfig({
           {
             pathPattern: '^(?:dev|peer|optional|bundled)?[Dd]ependencies$',
             order: {
-              type: 'asc'
+              type: 'asc',
             },
           },
         ],
@@ -143,34 +142,46 @@ module.exports = defineConfig({
   ],
   rules: {
     // js/ts
-    camelcase: ['error', {
-      properties: 'never'
-    }],
-    'no-console': ['warn', {
-      allow: ['error']
-    }],
+    camelcase: [
+      'error',
+      {
+        properties: 'never',
+      },
+    ],
+    'no-console': [
+      'warn',
+      {
+        allow: ['error'],
+      },
+    ],
     'no-debugger': 'warn',
-    'no-constant-condition': ['error', {
-      checkLoops: false
-    }],
+    'no-constant-condition': [
+      'error',
+      {
+        checkLoops: false,
+      },
+    ],
     'no-restricted-syntax': ['error', 'LabeledStatement', 'WithStatement'],
     'no-return-await': 'error',
     'no-var': 'error',
-    'no-empty': ['error', {
-      allowEmptyCatch: true
-    }],
+    'no-empty': [
+      'error',
+      {
+        allowEmptyCatch: true,
+      },
+    ],
     'prefer-const': [
       'warn',
       {
         destructuring: 'all',
-        ignoreReadBeforeAssign: true
+        ignoreReadBeforeAssign: true,
       },
     ],
     'prefer-arrow-callback': [
       'error',
       {
         allowNamedFunctions: false,
-        allowUnboundThis: true
+        allowUnboundThis: true,
       },
     ],
     'object-shorthand': [
@@ -178,7 +189,7 @@ module.exports = defineConfig({
       'always',
       {
         ignoreConstructors: false,
-        avoidQuotes: true
+        avoidQuotes: true,
       },
     ],
     'prefer-rest-params': 'error',
@@ -219,12 +230,15 @@ module.exports = defineConfig({
     '@typescript-eslint/consistent-type-imports': [
       'error',
       {
-        disallowTypeAnnotations: false
+        disallowTypeAnnotations: false,
       },
     ],
-    '@typescript-eslint/ban-ts-comment': ['off', {
-      'ts-ignore': false
-    }],
+    '@typescript-eslint/ban-ts-comment': [
+      'off',
+      {
+        'ts-ignore': false,
+      },
+    ],
 
     // vue
     'vue/no-v-html': 'off',
@@ -266,7 +280,8 @@ module.exports = defineConfig({
           'type',
         ],
 
-        pathGroups: [{
+        pathGroups: [
+          {
             pattern: 'vue',
             group: 'external',
             position: 'before',
@@ -292,9 +307,12 @@ module.exports = defineConfig({
     'import/named': 'off',
 
     // eslint-plugin-eslint-comments
-    'eslint-comments/disable-enable-pair': ['error', {
-      allowWholeFile: true
-    }],
+    'eslint-comments/disable-enable-pair': [
+      'error',
+      {
+        allowWholeFile: true,
+      },
+    ],
 
     // unicorn
     'unicorn/custom-error-definition': 'error',

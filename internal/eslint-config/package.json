@@ -8,22 +8,22 @@
   ],
   "license": "MIT",
   "dependencies": {
-    "@typescript-eslint/eslint-plugin": "^5.54.1",
-    "@typescript-eslint/parser": "^5.54.1",
-    "eslint-config-prettier": "^8.7.0",
-    "eslint-define-config": "^1.15.0",
+    "@typescript-eslint/eslint-plugin": "^8.59.4",
+    "@typescript-eslint/parser": "^8.59.4",
+    "eslint-config-prettier": "^10.1.8",
+    "eslint-define-config": "^2.1.0",
     "eslint-plugin-eslint-comments": "^3.2.0",
-    "eslint-plugin-import": "^2.27.5",
-    "eslint-plugin-jsonc": "^2.6.0",
-    "eslint-plugin-markdown": "^3.0.0",
-    "eslint-plugin-unicorn": "^46.0.0",
-    "eslint-plugin-vue": "^9.9.0",
-    "jsonc-eslint-parser": "^2.1.0",
-    "prettier": "^2.8.4",
-    "typescript": "^4.9.3",
-    "yaml-eslint-parser": "^1.1.0"
+    "eslint-plugin-import": "^2.32.0",
+    "eslint-plugin-jsonc": "^3.1.2",
+    "eslint-plugin-markdown": "^5.1.0",
+    "eslint-plugin-unicorn": "^64.0.0",
+    "eslint-plugin-vue": "^10.9.1",
+    "jsonc-eslint-parser": "^3.1.0",
+    "prettier": "^3.8.3",
+    "typescript": "^6.0.3",
+    "yaml-eslint-parser": "^2.0.0"
   },
   "devDependencies": {
-    "eslint": "^8.35.0"
+    "eslint": "^10.4.0"
   }
 }

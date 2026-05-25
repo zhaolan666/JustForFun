@@ -51,8 +51,8 @@ export const generateTypesDefinitions = async () => {
     const relativePath = path.relative(pkgRoot, sourceFile.getFilePath())
     consola.trace(
       chalk.yellow(
-        `Generating definition for file: ${chalk.bold(relativePath)}`
-      )
+        `Generating definition for file: ${chalk.bold(relativePath)}`,
+      ),
     )
 
     const emitOutput = sourceFile.getEmitOutput()
@@ -70,13 +70,13 @@ export const generateTypesDefinitions = async () => {
       await writeFile(
         filepath,
         pathRewriter('esm')(outputFile.getText()),
-        'utf8'
+        'utf8',
       )
 
       consola.success(
         chalk.green(
-          `Definition for file: ${chalk.bold(relativePath)} generated`
-        )
+          `Definition for file: ${chalk.bold(relativePath)} generated`,
+        ),
       )
     })
 
@@ -95,13 +95,13 @@ async function addSourceFiles(project: Project) {
       cwd: pkgRoot,
       absolute: true,
       onlyFiles: true,
-    })
+    }),
   )
   const epPaths = excludeFiles(
     await glob(globSourceFile, {
       cwd: epRoot,
       onlyFiles: true,
-    })
+    }),
   )
 
   const sourceFiles: SourceFile[] = []
@@ -127,7 +127,7 @@ async function addSourceFiles(project: Project) {
           const lang = scriptSetup?.lang || script?.lang || 'js'
           const sourceFile = project.createSourceFile(
             `${path.relative(process.cwd(), file)}.${lang}`,
-            content
+            content,
           )
           sourceFiles.push(sourceFile)
         }
@@ -139,7 +139,7 @@ async function addSourceFiles(project: Project) {
     ...epPaths.map(async (file: any) => {
       const content = await readFile(path.resolve(epRoot, file), 'utf-8')
       sourceFiles.push(
-        project.createSourceFile(path.resolve(pkgRoot, file), content)
+        project.createSourceFile(path.resolve(pkgRoot, file), content),
       )
     }),
   ])

@@ -1,1 +1,1 @@
-declare module '@justforfun-ui/build' 
+declare module '@justforfun-ui/build'
