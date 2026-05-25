@@ -1,5 +1,11 @@
 packages:
   - packages/* # 组件包
-  - docs  # 组件文档
-  - play  # 组件测试代码
+  - docs # 组件文档
+  - play # 组件测试代码
   - internal/*
+allowBuilds:
+  '@parcel/watcher': true
+  es5-ext: set this to true or false
+  esbuild: true
+  puppeteer: true
+  vue-demi: set this to true or false
