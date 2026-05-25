@@ -1,9 +1,13 @@
-@use 'function' as *;
+@use './function.scss' as *;
 
 // forward mixins
-@forward 'config';
-@forward 'function';
-@use 'config' as *;
+@forward './config.scss';
+@forward './function.scss';
+@use './config.scss' as *;
+
+// 预声明变量以避免 !global 警告
+$B: null;
+$E: null;
 
 // 定义 Block
 @mixin b($block) {
