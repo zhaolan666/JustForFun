@@ -30,4 +30,9 @@ declare module '@vue/runtime-core' {
   }
 }
 
+// Augment vue module to include runtime-dom exports
+declare module 'vue' {
+  export * from '@vue/runtime-dom'
+}
+
 export {}
