@@ -49,10 +49,7 @@
   "terminal.integrated.profiles.windows": {
     "bash": {
       "path": "D:\\system_app\\Git\\bin\\bash.exe",
-      "args": [
-        "-l",
-        "-i"
-      ]
+      "args": ["-l", "-i"]
     }
   },
   "terminal.integrated.defaultProfile.windows": "bash",
@@ -81,15 +78,8 @@
   // Extension configs
   "emmet.showSuggestionsAsSnippets": true,
   "emmet.triggerExpansionOnTab": false,
-  "errorLens.enabledDiagnosticLevels": [
-    "warning",
-    "error"
-  ],
-  "errorLens.excludeBySource": [
-    "cSpell",
-    "Grammarly",
-    "eslint"
-  ],
+  "errorLens.enabledDiagnosticLevels": ["warning", "error"],
+  "errorLens.excludeBySource": ["cSpell", "Grammarly", "eslint"],
   // ESLint config: https://github.com/antfu/eslint-config
   "eslint.codeAction.showDocumentation": {
     "enable": true
