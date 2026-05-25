@@ -1,8 +1,11 @@
 {
+  "$schema": "https://json.schemastore.org/tsconfig",
   "extends": "./tsconfig.node.json",
   "compilerOptions": {
+    "ignoreDeprecations": "5.0",
     "composite": true,
-    "types": ["node"]
+    "types": ["node"],
+    "moduleResolution": "bundler"
   },
   "include": ["**/vite.config.*", "**/vitest.config.*", "**/vite.init.*"],
   "exclude": ["docs"]
