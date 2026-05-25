@@ -1,10 +1,10 @@
 {
+  "$schema": "https://json.schemastore.org/tsconfig.json",
   "extends": "./tsconfig.web.json",
   "compilerOptions": {
     "composite": true,
     "allowJs": true,
     "lib": ["ESNext", "DOM", "DOM.Iterable"],
-    "ignoreDeprecations": "6.0",
     "skipLibCheck": false,
     "moduleResolution": "Node"
   },

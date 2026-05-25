@@ -1,4 +1,5 @@
 {
+  "$schema": "https://json.schemastore.org/package.json",
   "private": true,
   "packageManager": "pnpm@11.1.2",
   "license": "MIT",

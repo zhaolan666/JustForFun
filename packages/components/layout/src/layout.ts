@@ -1,5 +1,5 @@
 import { buildProps } from '@justforfun-ui/utils'
-import type { ExtractPropTypes } from 'vue'
+import type { ExtractPropTypes } from '@vue/runtime-core'
 import type Container from './container.vue'
 import type Row from './row.vue'
 import type Col from './col.vue'

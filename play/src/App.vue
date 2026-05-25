@@ -53,7 +53,7 @@
       <h2>布局组件</h2>
 
       <h3>Container 布局容器</h3>
-      <JffContainer class="demo-container" direction="vertical">
+      <JffContainer class="demo-container" direction="ltr">
         <JffHeader class="demo-header">Header</JffHeader>
         <JffMain class="demo-main">
           <h4>水平对齐方式</h4>
