@@ -12,5 +12,4 @@ export * from './strings'
 export * from './types'
 export * from './typescript'
 
-
 export { obtainAllFocusableElements } from './dom'

@@ -11,7 +11,7 @@ export { hasOwn } from '@vue/shared'
 export const getProp = <T = any>(
   obj: Record<string, any>,
   path: Arrayable<string>,
-  defaultValue?: any
+  defaultValue?: any,
 ): { value: T } => {
   return {
     get value() {
