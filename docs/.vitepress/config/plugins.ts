@@ -12,11 +12,11 @@ export const mdPlugin = (md: MarkdownIt) => {
       const description = m && m.length > 1 ? m[1] : ''
 
       if (tokens[idx].nesting === 1) {
-        // 容器开始 - 使用 Vue 组件的 v-slot 语法
-        return `<JffDemoContainer code-title="${description || 'Example Code'}">\n<template #demo>`
+        // 容器开始
+        return `<JffDemoContainer code-title="${description || 'Example Code'}">`
       } else {
         // 容器结束
-        return '</template>\n</JffDemoContainer>'
+        return '</JffDemoContainer>'
       }
     },
   })
