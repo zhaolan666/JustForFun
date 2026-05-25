@@ -8,19 +8,82 @@ declare module '@vue/runtime-core' {
 
   // GlobalComponents for Volar
   export interface GlobalComponents {
-    JffIcon: (typeof import('../packages/justforfun-ui'))['JffIcon']
-    JffButton: (typeof import('../packages/justforfun-ui'))['JffButton']
-    JffButtonGroup: (typeof import('../packages/justforfun-ui'))['JffButtonGroup']
-    JffInput: (typeof import('../packages/justforfun-ui'))['JffInput']
-    JffBadge: (typeof import('../packages/justforfun-ui'))['JffBadge']
-    JffConfigProvider: (typeof import('../packages/justforfun-ui'))['JffConfigProvider']
-    JffForm: (typeof import('../packages/justforfun-ui'))['JffForm']
-    JffFormItem: (typeof import('../packages/justforfun-ui'))['JffFormItem']
+    JffIcon: {
+      new (): {
+        $props: {
+          name?: string
+          size?: string | number
+        }
+      }
+    }
+    JffButton: {
+      new (): {
+        $props: {
+          size?: string
+          type?: string
+          disabled?: boolean
+        }
+      }
+    }
+    JffButtonGroup: {
+      new (): {
+        $props: {
+          size?: string
+          type?: string
+        }
+      }
+    }
+    JffInput: {
+      new (): {
+        $props: {
+          modelValue?: string | number
+          placeholder?: string
+          disabled?: boolean
+        }
+      }
+    }
+    JffBadge: {
+      new (): {
+        $props: {
+          value?: string | number
+        }
+      }
+    }
+    JffConfigProvider: {
+      new (): {
+        $props: {
+          locale?: any
+        }
+      }
+    }
+    JffForm: {
+      new (): {
+        $props: {
+          model?: Record<string, any>
+        }
+      }
+    }
+    JffFormItem: {
+      new (): {
+        $props: {
+          label?: string
+          prop?: string
+        }
+      }
+    }
   }
 
   interface ComponentCustomProperties {
-    $message: (typeof import('../packages/justforfun-ui'))['JffMessage']
-    $loading: (typeof import('../packages/justforfun-ui'))['JffLoadingService']
+    $message: {
+      (options: any): any
+    } & {
+      success(msg: string): void
+      error(msg: string): void
+      warning(msg: string): void
+    }
+    $loading: {
+      (options: any): { close: () => void }
+    }
   }
 }
 

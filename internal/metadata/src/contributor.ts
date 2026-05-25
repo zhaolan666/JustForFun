@@ -93,12 +93,12 @@ const fetchCommits = async (
     }
   }`
   const response = (await octokit.graphql<ApiResponse>(query)).repository.object
-  return Object.fromEntries(
-    Object.entries(response).map(([key, result]) => {
-      const index = +key.replace('path', '')
-      return [index, result]
-    }),
-  )
+  const resultMap: Record<string, ApiResult> = {}
+  Object.entries(response).forEach(([key, result]) => {
+    const index = +key.replace('path', '')
+    resultMap[index] = result as ApiResult
+  })
+  return resultMap
 }
 
 const calcContributors = (commits: ApiResult['nodes']) => {

@@ -5,8 +5,7 @@
     "composite": true,
     "allowJs": true,
     "lib": ["ESNext", "DOM", "DOM.Iterable"],
-    "skipLibCheck": false,
-    "moduleResolution": "Node"
+    "skipLibCheck": false
   },
   "include": [
     "packages/components/**/src/**/*",

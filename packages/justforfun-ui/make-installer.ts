@@ -2,7 +2,7 @@ import { provideGlobalConfig } from '@justforfun-ui/components/config-provider'
 import { INSTALLED_KEY } from '@justforfun-ui/constants'
 import { version } from 'vue'
 
-import type { App, Plugin } from '@vue/runtime-core'
+import type { App, Plugin } from 'vue'
 import type { ConfigProviderContext } from '@justforfun-ui/components/config-provider'
 
 export const makeInstaller = (component: Plugin[] = []) => {

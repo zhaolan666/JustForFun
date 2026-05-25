@@ -12,7 +12,7 @@ export function JustForFunUIAlias(): Plugin {
     resolveId(id) {
       if (!id.startsWith(sourceThemeChalk)) return
       return {
-        id: id.replaceAll(sourceThemeChalk, bundleThemeChalk),
+        id: id.replace(sourceThemeChalk, bundleThemeChalk),
         external: 'absolute',
       }
     },

@@ -28,7 +28,7 @@ const typeMap = {
 }
 
 const removeTag = (str: string) => {
-  return str.replaceAll(/\^\([^)]*\)/g, '').trim()
+  return str.replace(/\^\([^)]*\)/g, '').trim()
 }
 
 const reComponentName: ReComponentName = (title) => {
@@ -38,7 +38,7 @@ const reComponentName: ReComponentName = (title) => {
 const reDocUrl: ReDocUrl = (fileName, header) => {
   const docs = 'https://justforfun-ui.org/en-US/component/'
   const _header = header
-    ? removeTag(header).replaceAll(/\s+/g, '-').toLowerCase()
+    ? removeTag(header).replace(/\s+/g, '-').toLowerCase()
     : ''
 
   return `${docs}${fileName}.html${_header ? '#' : ''}${_header}`
@@ -46,8 +46,8 @@ const reDocUrl: ReDocUrl = (fileName, header) => {
 
 const reWebTypesSource: ReWebTypesSource = (title) => {
   const symbol = `El${removeTag(title)
-    .replaceAll(/-/g, ' ')
-    .replaceAll(/^\w|\s+\w/g, (item) => {
+    .replace(/-/g, ' ')
+    .replace(/^\w|\s+\w/g, (item: string) => {
       return item.trim().toUpperCase()
     })}`
 
@@ -56,7 +56,7 @@ const reWebTypesSource: ReWebTypesSource = (title) => {
 
 const reAttribute: ReAttribute = (value, key) => {
   const str = removeTag(value)
-    .replaceAll(/<del>.*<\/del>/g, '')
+    .replace(/<del>.*<\/del>/g, '')
     .replace(/^\*\*(.*)\*\*$/, '$1')
     .replace(/^`(.*)`$/, '$1')
     .replace(/^~~(.*)~~$/, '')
@@ -72,32 +72,32 @@ const reAttribute: ReAttribute = (value, key) => {
     return 'model-value'
   } else if (key === 'Name') {
     return str
-      .replaceAll(/\s*[\\*]\s*/g, '')
-      .replaceAll(/\s*<.*>\s*/g, '')
-      .replaceAll(/\s*\(.*\)\s*/g, '')
-      .replaceAll(/\B([A-Z])/g, '-$1')
+      .replace(/\s*[\\*]\s*/g, '')
+      .replace(/\s*<.*>\s*/g, '')
+      .replace(/\s*\(.*\)\s*/g, '')
+      .replace(/\B([A-Z])/g, '-$1')
       .toLowerCase()
   } else if (key === 'Type') {
     return rewriteType(str)
-      .replaceAll(/\bfunction(\(.*\))?(:\s*\w+)?\b/gi, 'Function')
-      .replaceAll(/\bdate\b/g, 'Date')
-      .replaceAll(/\([^)]*\)(?!\s*=>)/g, '')
-      .replaceAll(/(<[^>]*>|\{[^}]*}|\([^)]*\))/g, (item) => {
-        return item.replaceAll(/(\/|\|)/g, '=_0!')
+      .replace(/\bfunction(\(.*\))?(:\s*\w+)?\b/gi, 'Function')
+      .replace(/\bdate\b/g, 'Date')
+      .replace(/\([^)]*\)(?!\s*=>)/g, '')
+      .replace(/(<[^>]*>|\{[^}]*}|\([^)]*\))/g, (item: string) => {
+        return item.replace(/(\/|\|)/g, '=_0!')
       })
-      .replaceAll(/(\b\w+)\s*\|/g, '$1 /')
-      .replaceAll(/\|\s*(\b\w+)/g, '/ $1')
-      .replaceAll(/=_0!/g, '|')
+      .replace(/(\b\w+)\s*\|/g, '$1 /')
+      .replace(/\|\s*(\b\w+)/g, '/ $1')
+      .replace(/=_0!/g, '|')
   } else if (key === 'Accepted Values') {
     return /\[.+\]\(.+\)/.test(str) || /^\*$/.test(str)
       ? undefined
-      : str.replaceAll(/`/g, '').replaceAll(/\([^)]*\)(?!\s*=>)/g, '')
+      : str.replace(/`/g, '').replace(/\([^)]*\)(?!\s*=>)/g, '')
   } else if (key === 'Subtags') {
     return str
       ? `jff-${str
-          .replaceAll(/\s*\/\s*/g, '/jff-')
-          .replaceAll(/\B([A-Z])/g, '-$1')
-          .replaceAll(/\s+/g, '-')
+          .replace(/\s*\/\s*/g, '/jff-')
+          .replace(/\B([A-Z])/g, '-$1')
+          .replace(/\s+/g, '-')
           .toLowerCase()}`
       : undefined
   } else {
@@ -136,14 +136,14 @@ const findModule = (type: string): string | undefined => {
 const rewriteType = (str: string): string => {
   if (/\^\[([^\]]*)\](`[^`]*`)?/.test(str)) {
     return str
-      .replaceAll(/\^\[([^\]]*)\](`[^`]*`)?/g, (_, type, details) => {
+      .replace(/\^\[([^\]]*)\](`[^`]*`)?/g, (_: string, type: string, details: string) => {
         return details ? details.replace(/^`(.*)`$/, '$1') : type
       })
-      .replaceAll(/\[[^\]]*\]\([^)]*\)/g, '')
+      .replace(/\[[^\]]*\]\([^)]*\)/g, '')
   } else if (/<.*>/.test(str)) {
     const list = str.matchAll(/<(\w+)Type\s([^>]*)>/g)
 
-    return Array.from(list, (item) => {
+    return Array.from(list, (item: RegExpMatchArray | null) => {
       const type = item ? item[1] : ''
       const params = item ? item[2] : ''
 
@@ -167,29 +167,27 @@ const rewriteType = (str: string): string => {
 
 const transformEnum = (str: string) => {
   const result = str.match(/:values="\[([^\]]*)\]/)
-  return result ? result[1].replaceAll(/,\s*/g, ' | ') : 'string'
+  return result ? result[1].replace(/,\s*/g, ' | ') : 'string'
 }
 
 const transformFunction = (str: string) => {
   const paramsStr = str.match(/:params="\[(.*)\]"/)
   const returnsStr = str.match(/:returns="(.*)"/)
   let params = ''
-  let returns = ''
+  const returns = returnsStr ? returnsStr[1] : 'void'
 
   if (paramsStr) {
     const list = paramsStr[0].matchAll(/\['([^\]]*)'\]/g)
 
-    params = Array.from(list, (item) => {
-      return item[1].replaceAll(/',\s*'/g, ': ')
+    params = Array.from(list, (item: RegExpMatchArray | null) => {
+      return (item ? item[1] : '').replace(/',\s*'/g, ': ')
     }).join(', ')
   }
-
-  returns = returnsStr ? returnsStr[1] : 'void'
 
   return `(${params}) => ${returns}`
 }
 
-export const buildHelper: TaskFunction = (done) => {
+export const buildHelper: TaskFunction = (done: () => void) => {
   const { name, version } = getPackageManifest(epPackage)
 
   const tagVer = process.env.TAG_VERSION

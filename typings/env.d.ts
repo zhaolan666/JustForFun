@@ -2,12 +2,6 @@ import type { vShow } from 'vue'
 import type { INSTALLED_KEY } from '@justforfun-ui/constants'
 
 declare global {
-  const process: {
-    env: {
-      NODE_ENV: string
-    }
-  }
-
   namespace JSX {
     interface IntrinsicAttributes {
       class?: any
@@ -28,11 +22,6 @@ declare module '@vue/runtime-core' {
   export interface ComponentCustomProperties {
     vShow: typeof vShow
   }
-}
-
-// Augment vue module to include runtime-dom exports
-declare module 'vue' {
-  export * from '@vue/runtime-dom'
 }
 
 export {}

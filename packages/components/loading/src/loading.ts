@@ -37,17 +37,17 @@ export function createLoadingComponent(options: LoadingOptionsResolved) {
   function destroySelf() {
     const target = data.parent
     const ns = (vm as any).ns as UseNamespaceReturn
-    if (!target.vLoadingAddClassList) {
+    if (!(target as any).vLoadingAddClassList) {
       let loadingNumber: number | string | null =
-        target.getAttribute('loading-number')
+        (target as any).getAttribute('loading-number')
       loadingNumber = Number.parseInt(loadingNumber as any) - 1
       if (!loadingNumber) {
-        removeClass(target, ns.bm('parent', 'relative'))
-        target.removeAttribute('loading-number')
+        removeClass(target as unknown as Element, ns.bm('parent', 'relative'))
+        ;(target as any).removeAttribute('loading-number')
       } else {
-        target.setAttribute('loading-number', loadingNumber.toString())
+        ;(target as any).setAttribute('loading-number', loadingNumber.toString())
       }
-      removeClass(target, ns.bm('parent', 'hidden'))
+      removeClass(target as unknown as Element, ns.bm('parent', 'hidden'))
     }
     removeJffLoadingChild()
     loadingInstance.unmount()

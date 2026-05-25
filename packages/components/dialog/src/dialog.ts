@@ -7,6 +7,10 @@ export const dialogProps = buildProps({
     type: Boolean,
     default: false,
   },
+  modelValue: {
+    type: Boolean,
+    default: false,
+  },
   title: {
     type: String,
     default: '',

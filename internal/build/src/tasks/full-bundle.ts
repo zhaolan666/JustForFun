@@ -6,7 +6,6 @@ import vue from '@vitejs/plugin-vue'
 import VueMacros from 'unplugin-vue-macros/vite'
 import vueJsx from '@vitejs/plugin-vue-jsx'
 import esbuild, { minify as minifyPlugin } from 'rollup-plugin-esbuild'
-import { parallel } from 'gulp'
 import glob from 'fast-glob'
 import { camelCase, upperFirst } from 'lodash'
 import {
@@ -156,7 +155,8 @@ async function buildFullLocale(minify: boolean) {
 export const buildFull = (minify: boolean) => async () =>
   Promise.all([buildFullEntry(minify), buildFullLocale(minify)])
 
-export const buildFullBundle = parallel(
-  withTaskName('buildFullMinified', buildFull(true)),
-  withTaskName('buildFull', buildFull(false)),
-)
+export const buildFullBundle = () =>
+  Promise.all([
+    withTaskName('buildFullMinified', buildFull(true))(),
+    withTaskName('buildFull', buildFull(false))(),
+  ]).then(() => undefined)

@@ -12,8 +12,8 @@ import { buildConfig, run, runTask, withTaskName } from './src'
 import type { TaskFunction } from 'gulp'
 import type { Module } from './src'
 
-export const copyFiles = () =>
-  Promise.all([
+export const copyFiles = async () => {
+  await Promise.all([
     copyFile(epPackage, path.join(epOutput, 'package.json')),
     copyFile(
       path.resolve(projRoot, 'README.md'),
@@ -24,6 +24,7 @@ export const copyFiles = () =>
       path.resolve(epOutput, 'global.d.ts'),
     ),
   ])
+}
 
 export const copyTypesDefinitions: TaskFunction = (done) => {
   const src = path.resolve(buildOutput, 'types', 'packages')
