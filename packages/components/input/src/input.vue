@@ -1,7 +1,15 @@
 <template>
-  <div :class="nsInput.b()">
-    <input ref="input" :type="type" @compositionstart="handleCompositionStart"
-      @compositionupdate="handleCompositionUpdate" @compositionend="handleCompositionEnd" @input="handleInput" />
+  <div :class="[nsInput.b(), nsInput.is('disabled', disabled)]">
+    <input
+      ref="input"
+      :type="type"
+      :disabled="disabled"
+      :placeholder="placeholder"
+      @compositionstart="handleCompositionStart"
+      @compositionupdate="handleCompositionUpdate"
+      @compositionend="handleCompositionEnd"
+      @input="handleInput"
+    />
   </div>
 </template>
 
@@ -20,6 +28,7 @@ const props = defineProps(inputProps)
 const emit = defineEmits(inputEmits)
 
 const nsInput = useNamespace('input')
+const { disabled, placeholder, type } = props
 
 const input = shallowRef<HTMLInputElement>()
 
@@ -27,7 +36,7 @@ const isComposing = ref(false)
 
 const _ref = computed(() => input.value)
 const nativeInputValue = computed(() =>
-  !props.modelValue ? '' : String(props.modelValue)
+  !props.modelValue ? '' : String(props.modelValue),
 )
 
 const setNativeInputValue = () => {

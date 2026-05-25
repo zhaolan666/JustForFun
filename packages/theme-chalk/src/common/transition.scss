@@ -1,5 +1,5 @@
-@use '../mixins/config' as *;
-@use '../mixins/mixins' as *;
+@use '../mixins/config.scss' as *;
+@use '../mixins/mixins.scss' as *;
 
 .fade-in-linear-enter-active,
 .fade-in-linear-leave-active {

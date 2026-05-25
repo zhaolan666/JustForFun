@@ -1,11 +1,11 @@
-import { mount } from "@vue/test-utils";
-import { describe, test, expect } from "vitest";
+import { mount } from '@vue/test-utils'
+import { describe, test, expect } from 'vitest'
 
 import Icon from '../src/icon.vue'
 
-describe("Icon", () => {
+describe('Icon', () => {
   test('render', () => {
-    const wrapper = mount(() => <Icon color="#000000" size={18} />);
+    const wrapper = mount(() => <Icon color="#000000" size={18} />)
     expect(wrapper.element.getAttribute('style')).toContain(`--color: #000000`)
     expect(wrapper.element.getAttribute('style')).toContain(`font--size: 18px`)
   })

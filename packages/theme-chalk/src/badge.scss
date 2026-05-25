@@ -1,0 +1,54 @@
+@use './common/var.scss' as *;
+@use './mixins/mixins.scss' as *;
+@use './mixins/_var.scss' as *;
+
+@include b(badge) {
+  position: relative;
+  display: inline-block;
+  vertical-align: middle;
+
+  @include e(content) {
+    display: inline-block;
+    padding: getCssVar('badge', 'padding');
+    min-width: getCssVar('badge', 'size');
+    height: getCssVar('badge', 'size');
+    line-height: getCssVar('badge', 'size');
+    font-size: getCssVar('badge', 'font-size');
+    color: getCssVar('color', 'white');
+    background-color: getCssVar('badge', 'bg-color');
+    border-radius: getCssVar('badge', 'radius');
+    white-space: nowrap;
+    text-align: center;
+
+    @include when(dot) {
+      width: 8px;
+      height: 8px;
+      min-width: 0;
+      padding: 0;
+      border-radius: 50%;
+    }
+
+    @include when(fixed) {
+      position: absolute;
+      top: 0;
+      right: calc(50% + 5px);
+      transform: translateY(-50%);
+    }
+
+    @include m(success) {
+      background-color: getCssVar('color', 'success');
+    }
+
+    @include m(warning) {
+      background-color: getCssVar('color', 'warning');
+    }
+
+    @include m(danger) {
+      background-color: getCssVar('color', 'danger');
+    }
+
+    @include m(info) {
+      background-color: getCssVar('color', 'info');
+    }
+  }
+}

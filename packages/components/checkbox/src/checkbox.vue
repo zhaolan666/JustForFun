@@ -16,16 +16,6 @@
     <span :class="[ns.e('input')]">
       <span :class="[ns.e('inner')]" />
       <input
-        v-if="trueValue || falseValue"
-        type="checkbox"
-        :class="[ns.e('original')]"
-        :disabled="isDisabled"
-        :value="label"
-        :name="name"
-        @change="handleChange"
-      />
-      <input
-        v-else
         type="checkbox"
         :class="[ns.e('original')]"
         :disabled="isDisabled"
@@ -41,7 +31,7 @@
 </template>
 
 <script lang="ts" setup>
-import { computed, inject, watch } from 'vue'
+import { computed, inject } from 'vue'
 import { useNamespace } from '@justforfun-ui/hooks'
 import { checkboxProps } from './checkbox'
 
@@ -60,7 +50,7 @@ const ns = useNamespace('checkbox')
 const checkboxGroup = inject<{
   props: any
   emit: any
-}>('JFF_CHECKBOX_GROUP', null)
+} | null>('JFF_CHECKBOX_GROUP', null)
 
 const isDisabled = computed(() => {
   return checkboxGroup?.props.disabled || props.disabled

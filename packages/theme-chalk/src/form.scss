@@ -1,0 +1,193 @@
+@use 'sass:map';
+@use './common/var.scss' as *;
+@use './mixins/mixins.scss' as *;
+@use './mixins/_var.scss' as *;
+
+$form-label-width: () !default;
+$form-label-width: map.merge(
+  (
+    'large': 140px,
+    'default': 120px,
+    'small': 100px,
+  ),
+  $form-label-width
+);
+
+@include b(form) {
+  width: 100%;
+  @include set-component-css-var('form', $form);
+
+  @include m(label-top) {
+    @include b(form-item) {
+      @include e(label) {
+        float: none;
+        display: inline-block;
+        text-align: left;
+        padding: 0 0 8px 0;
+      }
+
+      @include e(content) {
+        margin-left: 0;
+      }
+    }
+  }
+
+  @include m(label-left) {
+    @include b(form-item) {
+      @include e(label) {
+        float: left;
+        display: inline-block;
+        text-align: right;
+        padding: 0 12px 0 0;
+      }
+
+      @include e(content) {
+        margin-left: calc(#{map.get($form-label-width, 'default')} + 12px);
+      }
+    }
+  }
+
+  @include m(label-right) {
+    @include b(form-item) {
+      @include e(label) {
+        float: right;
+        display: inline-block;
+        text-align: left;
+        padding: 0 0 0 12px;
+      }
+
+      @include e(content) {
+        margin-right: calc(#{map.get($form-label-width, 'default')} + 12px);
+      }
+    }
+  }
+
+  @include m(inline) {
+    @include b(form-item) {
+      display: inline-flex;
+      margin-right: 16px;
+      vertical-align: top;
+
+      @include e(label) {
+        float: none;
+        display: inline-flex;
+        align-items: center;
+        text-align: left;
+        padding: 0 8px 0 0;
+      }
+
+      @include e(content) {
+        display: inline-flex;
+        margin-left: 0;
+      }
+    }
+  }
+
+  @include m(small) {
+    @include b(form-item) {
+      @include e(label) {
+        font-size: 12px;
+      }
+    }
+  }
+
+  @include m(large) {
+    @include b(form-item) {
+      @include e(label) {
+        font-size: 16px;
+      }
+    }
+  }
+}
+
+@include b(form-item) {
+  display: flex;
+  margin-bottom: 16px;
+  vertical-align: top;
+
+  @include e(label) {
+    display: inline-flex;
+    align-items: center;
+    justify-content: flex-end;
+    min-width: 80px;
+    height: 40px;
+    line-height: 40px;
+    font-size: 14px;
+    color: getCssVar('text-color', 'primary');
+    transition: all 0.2s ease;
+
+    &::before {
+      content: '*';
+      color: getCssVar('color', 'danger');
+      margin-right: 4px;
+    }
+  }
+
+  @include e(content) {
+    flex: 1;
+    min-width: 0;
+    display: flex;
+    align-items: center;
+  }
+
+  @include e(error) {
+    color: getCssVar('color', 'danger');
+    font-size: 12px;
+    line-height: 1.5;
+    margin-top: 4px;
+
+    @include when(inline) {
+      display: inline-block;
+      margin-left: 8px;
+      margin-top: 0;
+    }
+  }
+
+  @include when(error) {
+    @include e(label) {
+      color: getCssVar('color', 'danger');
+    }
+  }
+
+  @include when(success) {
+    @include e(label) {
+      color: getCssVar('color', 'success');
+    }
+  }
+
+  @include when(required) {
+    @include e(label) {
+      &::before {
+        content: '*';
+        color: getCssVar('color', 'danger');
+        margin-right: 4px;
+      }
+    }
+  }
+
+  @include m(feedback) {
+    @include e(content) {
+      position: relative;
+    }
+  }
+
+  @include m(small) {
+    margin-bottom: 12px;
+
+    @include e(label) {
+      height: 32px;
+      line-height: 32px;
+      font-size: 12px;
+    }
+  }
+
+  @include m(large) {
+    margin-bottom: 20px;
+
+    @include e(label) {
+      height: 48px;
+      line-height: 48px;
+      font-size: 16px;
+    }
+  }
+}

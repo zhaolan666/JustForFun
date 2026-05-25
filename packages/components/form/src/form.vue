@@ -78,10 +78,10 @@ const obtainValidateFields = (props: Arrayable<FormItemProp>) => {
   return filteredFields
 }
 const validate = async (
-  callback?: FormValidateCallback
+  callback?: FormValidateCallback,
 ): FormValidationResult => validateField(undefined, callback)
 const doValidateField = async (
-  props: Arrayable<FormItemProp> = []
+  props: Arrayable<FormItemProp> = [],
 ): Promise<boolean> => {
   if (!isValidatable.value) return false
   const fields = obtainValidateFields(props)
@@ -102,7 +102,7 @@ const doValidateField = async (
 }
 const validateField: FormContext['validateField'] = async (
   modelProps = [],
-  callback
+  callback,
 ) => {
   const shouldThrow = !isFunction(callback)
   try {
@@ -135,7 +135,7 @@ watch(
       validate().catch((err) => debugWarn(err))
     }
   },
-  { deep: true }
+  { deep: true },
 )
 provide(
   formContextKey,
@@ -148,7 +148,7 @@ provide(
     addField,
     removeField,
     ...useFormLabelWidth(),
-  })
+  }),
 )
 defineExpose({
   validate,

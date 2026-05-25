@@ -13,7 +13,7 @@ import type { ButtonEmits, ButtonProps } from './button'
 
 export const useButton = (
   props: ButtonProps,
-  emit: SetupContext<ButtonEmits>['emit']
+  emit: SetupContext<ButtonEmits>['emit'],
 ) => {
   useDeprecated(
     {
@@ -23,7 +23,7 @@ export const useButton = (
       scope: 'props',
       ref: 'https://justforfun-ui.org/en-US/component/button.html#button-attributes',
     },
-    computed(() => props.type === 'text')
+    computed(() => props.type === 'text'),
   )
 
   const buttonGroupContext = inject(buttonGroupContextKey, undefined)
@@ -36,7 +36,7 @@ export const useButton = (
 
   const _type = computed(() => props.type || buttonGroupContext?.type || '')
   const autoInsertSpace = computed(
-    () => props.autoInsertSpace ?? globalConfig.value?.autoInsertSpace ?? false
+    () => props.autoInsertSpace ?? globalConfig.value?.autoInsertSpace ?? false,
   )
 
   const _props = computed(() => {

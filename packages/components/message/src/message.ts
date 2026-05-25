@@ -11,7 +11,7 @@ import type MessageConstructor from './message.vue'
 
 export const messageTypes = ['success', 'info', 'warning', 'error'] as const
 
-export type messageType = typeof messageTypes[number]
+export type messageType = (typeof messageTypes)[number]
 
 export interface MessageConfigContext {
   max?: number
@@ -181,7 +181,7 @@ export type MessageFn = {
 }
 export type MessageTypedFn = (
   options?: MessageParamsWithType,
-  appContext?: null | AppContext
+  appContext?: null | AppContext,
 ) => MessageHandler
 
 export interface Message extends MessageFn {

@@ -1,10 +1,10 @@
 <template>
   <div
     :class="[
-      ns.b('select-option'),
+      ns.b(),
       {
-        [ns.m('select-option', 'disabled')]: disabled,
-        [ns.m('select-option', 'selected')]: isSelected,
+        [ns.m('disabled')]: disabled,
+        [ns.m('selected')]: isSelected,
       },
     ]"
     @click="handleClick"
@@ -24,12 +24,12 @@ defineOptions({
 
 const props = defineProps(optionProps)
 
-const ns = useNamespace('select')
+const ns = useNamespace('select-option')
 
 const select = inject<{
   props: any
   selectOption: (value: any, label: string) => void
-}>('JFF_SELECT', null)
+} | null>('JFF_SELECT', null)
 
 const isSelected = computed(() => {
   return select?.props.modelValue === props.value

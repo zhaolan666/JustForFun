@@ -14,7 +14,7 @@ import type { CSSProperties } from 'vue'
 let fullscreenInstance: LoadingInstance | undefined = undefined
 
 export const Loading = function (
-  options: LoadingOptions = {}
+  options: LoadingOptions = {},
 ): LoadingInstance {
   if (!isClient) return undefined as any
 
@@ -92,7 +92,7 @@ const resolveOptions = (options: LoadingOptions): LoadingOptionsResolved => {
 const addStyle = async (
   options: LoadingOptionsResolved,
   parent: HTMLElement,
-  instance: LoadingInstance
+  instance: LoadingInstance,
 ) => {
   const { nextZIndex } = (instance.vm as any).zIndex as UseZIndexReturn
 
@@ -111,15 +111,17 @@ const addStyle = async (
     await nextTick()
     for (const property of ['top', 'left']) {
       const scroll = property === 'top' ? 'scrollTop' : 'scrollLeft'
-      maskStyle[property] = `${(options.target as HTMLElement).getBoundingClientRect()[property] +
+      maskStyle[property] = `${
+        (options.target as HTMLElement).getBoundingClientRect()[property] +
         document.body[scroll] +
         document.documentElement[scroll] -
         Number.parseInt(getStyle(document.body, `margin-${property}`), 10)
-        }px`
+      }px`
     }
     for (const property of ['height', 'width']) {
-      maskStyle[property] = `${(options.target as HTMLElement).getBoundingClientRect()[property]
-        }px`
+      maskStyle[property] = `${
+        (options.target as HTMLElement).getBoundingClientRect()[property]
+      }px`
     }
   } else {
     instance.originalPosition.value = getStyle(parent, 'position')
@@ -132,7 +134,7 @@ const addStyle = async (
 const addClassList = (
   options: LoadingOptions,
   parent: HTMLElement,
-  instance: LoadingInstance
+  instance: LoadingInstance,
 ) => {
   const ns = (instance.vm as any).ns as UseNamespaceReturn
 

@@ -37,7 +37,7 @@ export const useFormItemInputId = (
     formItemContext?: FormItemContext
     disableIdGeneration?: ComputedRef<boolean> | Ref<boolean>
     disableIdManagement?: ComputedRef<boolean> | Ref<boolean>
-  }
+  },
 ) => {
   if (!disableIdGeneration) {
     disableIdGeneration = ref<boolean>(false)
@@ -74,7 +74,7 @@ export const useFormItemInputId = (
           inputId.value = newId
         }
       },
-      { immediate: true }
+      { immediate: true },
     )
   })
 

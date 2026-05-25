@@ -1,9 +1,22 @@
 <template>
-  <div ref="formItemRef" :class="formItemClasses" :role="isGroup ? 'group' : undefined"
-    :aria-labelledby="isGroup ? labelId : undefined">
-    <form-label-wrap :is-auto-width="labelStyle.width === 'auto'" :update-all="formContext?.labelWidth === 'auto'">
-      <component :is="labelFor ? 'label' : 'div'" v-if="hasLabel" :id="labelId" :for="labelFor" :class="ns.e('label')"
-        :style="labelStyle">
+  <div
+    ref="formItemRef"
+    :class="formItemClasses"
+    :role="isGroup ? 'group' : undefined"
+    :aria-labelledby="isGroup ? labelId : undefined"
+  >
+    <form-label-wrap
+      :is-auto-width="labelStyle.width === 'auto'"
+      :update-all="formContext?.labelWidth === 'auto'"
+    >
+      <component
+        :is="labelFor ? 'label' : 'div'"
+        v-if="hasLabel"
+        :id="labelId"
+        :for="labelFor"
+        :class="ns.e('label')"
+        :style="labelStyle"
+      >
         <slot name="label" :label="currentLabel">
           {{ currentLabel }}
         </slot>
@@ -115,7 +128,7 @@ const formItemClasses = computed(() => [
 const _inlineMessage = computed(() =>
   isBoolean(props.inlineMessage)
     ? props.inlineMessage
-    : formContext?.inlineMessage || false
+    : formContext?.inlineMessage || false,
 )
 const validateClasses = computed(() => [
   ns.e('error'),
@@ -154,7 +167,7 @@ const normalizedRules = computed(() => {
   if (formRules && props.prop) {
     const _rules = getProp<Arrayable<FormItemRule> | undefined>(
       formRules,
-      props.prop
+      props.prop,
     ).value
     if (_rules) {
       rules.push(...ensureArray(_rules))
@@ -194,16 +207,16 @@ const getFilteredRule = (trigger: string) => {
   )
 }
 const isRequired = computed(() =>
-  normalizedRules.value.some((rule) => rule.required)
+  normalizedRules.value.some((rule) => rule.required),
 )
 const shouldShowError = computed(
   () =>
     validateStateDebounced.value === 'error' &&
     props.showMessage &&
-    (formContext?.showMessage ?? true)
+    (formContext?.showMessage ?? true),
 )
 const currentLabel = computed(
-  () => `${props.label || ''}${formContext?.labelSuffix || ''}`
+  () => `${props.label || ''}${formContext?.labelSuffix || ''}`,
 )
 const setValidationState = (state: FormItemValidateState) => {
   validateState.value = state
@@ -215,7 +228,7 @@ const onValidationFailed = (error: FormValidateFailure) => {
   }
   setValidationState('error')
   validateMessage.value = errors
-    ? errors?.[0]?.message ?? `${props.prop} is required`
+    ? (errors?.[0]?.message ?? `${props.prop} is required`)
     : ''
   formContext?.emit('validate', props.prop!, false, validateMessage.value)
 }
@@ -296,11 +309,11 @@ watch(
     validateMessage.value = val || ''
     setValidationState(val ? 'error' : '')
   },
-  { immediate: true }
+  { immediate: true },
 )
 watch(
   () => props.validateStatus,
-  (val) => setValidationState(val || '')
+  (val) => setValidationState(val || ''),
 )
 const context: FormItemContext = reactive({
   ...toRefs(props),

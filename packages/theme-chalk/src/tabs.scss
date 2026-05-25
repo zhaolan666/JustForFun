@@ -1,8 +1,8 @@
 @use 'sass:map';
 
-@use 'common/var' as *;
-@use 'mixins/mixins' as *;
-@use 'mixins/var' as *;
+@use './common/var.scss' as *;
+@use './mixins/mixins.scss' as *;
+@use './mixins/_var.scss' as *;
 
 @include b(tabs) {
   display: flex;
@@ -23,9 +23,25 @@
     color: getCssVar('text-color', 'regular');
     cursor: pointer;
     transition: all 0.2s ease;
+    margin-right: 32px;
     
     &:hover {
       color: getCssVar('color', 'primary');
+    }
+    
+    &.jff-tabs--active {
+      color: getCssVar('color', 'primary');
+      font-weight: 500;
+      
+      &::after {
+        content: '';
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        height: 2px;
+        background-color: getCssVar('color', 'primary');
+      }
     }
   }
   
@@ -46,21 +62,6 @@
   
   @include e(content) {
     padding: 20px 0;
-  }
-  
-  @include m(active) {
-    color: getCssVar('color', 'primary');
-    font-weight: 500;
-    
-    &::after {
-      content: '';
-      position: absolute;
-      bottom: 0;
-      left: 0;
-      right: 0;
-      height: 2px;
-      background-color: getCssVar('color', 'primary');
-    }
   }
   
   @include m(card) {

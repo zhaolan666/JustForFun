@@ -3,7 +3,7 @@ import { useGlobalSize, useProp } from '@justforfun-ui/hooks'
 import { formContextKey, formItemContextKey } from '../constants'
 
 import type { ComponentSize } from '@justforfun-ui/constants'
-import type { MaybeRef } from '@vueuse/core'
+import type { MaybeRef } from 'vue'
 
 export const useFormSize = (
   fallback?: MaybeRef<ComponentSize | undefined>,

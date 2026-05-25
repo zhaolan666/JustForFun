@@ -1,10 +1,26 @@
 @use 'sass:map';
+@use 'sass:color';
+@use 'sass:math';
 
-@use '../mixins/var' as *;
-@use '../mixins/function' as *;
-@use '../common/var' as *;
+@use './_var.scss' as *;
+@use './function.scss' as *;
+@use '../common/var.scss' as *;
 
 @mixin button-plain($type) {
+  // 获取颜色值并计算亮度
+  $color-value: map.get($colors, $type, 'base');
+  // 计算相对亮度 (使用新的 color.channel API)
+  $r: math.div(color.channel($color-value, "red", $space: rgb), 255);
+  $g: math.div(color.channel($color-value, "green", $space: rgb), 255);
+  $b: math.div(color.channel($color-value, "blue", $space: rgb), 255);
+  $luminance: 0.2126 * $r + 0.7152 * $g + 0.0722 * $b;
+  // 亮度 > 0.5 使用黑色文字，否则使用白色文字
+  $is-light-bg: $luminance > 0.5;
+  $hover-text-color: ('color', 'white');
+  @if $is-light-bg {
+    $hover-text-color: ('color', 'black');
+  }
+
   $button-color-types: (
     '': (
       'text-color': (
@@ -23,10 +39,7 @@
       ),
     ),
     'hover': (
-      'text-color': (
-        'color',
-        'white',
-      ),
+      'text-color': $hover-text-color,
       'bg-color': (
         'color',
         $type,
@@ -37,10 +50,7 @@
       ),
     ),
     'active': (
-      'text-color': (
-        'color',
-        'white',
-      ),
+      'text-color': $hover-text-color,
     ),
   );
 
@@ -63,12 +73,25 @@
 }
 
 @mixin button-variant($type) {
+  // 获取颜色值并计算亮度
+  $color-value: map.get($colors, $type, 'base');
+  // 计算相对亮度 (Y = 0.2126R + 0.7152G + 0.0722B，使用新的 color.channel API)
+  $r: math.div(color.channel($color-value, "red", $space: rgb), 255);
+  $g: math.div(color.channel($color-value, "green", $space: rgb), 255);
+  $b: math.div(color.channel($color-value, "blue", $space: rgb), 255);
+  // 简化亮度计算
+  $luminance: 0.2126 * $r + 0.7152 * $g + 0.0722 * $b;
+  // 亮度 > 0.5 使用黑色文字，否则使用白色文字
+  $is-light-bg: $luminance > 0.5;
+  $text-color: ('color', 'white');
+  @if $is-light-bg {
+    $text-color: ('color', 'black');
+  }
+  $hover-text-color: $text-color;
+
   $button-color-types: (
     '': (
-      'text-color': (
-        'color',
-        'white',
-      ),
+      'text-color': $text-color,
       'bg-color': (
         'color',
         $type,
@@ -89,10 +112,7 @@
       ),
     ),
     'hover': (
-      'text-color': (
-        'color',
-        'white',
-      ),
+      'text-color': $hover-text-color,
       'link-text-color': (
         'color',
         $type,
@@ -101,12 +121,12 @@
       'bg-color': (
         'color',
         $type,
-        'light-3',
+        'light-2',
       ),
       'border-color': (
         'color',
         $type,
-        'light-3',
+        'light-2',
       ),
     ),
     'active': (
@@ -122,10 +142,7 @@
       ),
     ),
     'disabled': (
-      'text-color': (
-        'color',
-        'white',
-      ),
+      'text-color': $text-color,
       'bg-color': (
         'color',
         $type,

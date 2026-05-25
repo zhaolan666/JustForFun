@@ -1,4 +1,4 @@
-import { buildProps, definePropType } from '@justforfun-ui/utils'
+import { buildProps } from '@justforfun-ui/utils'
 import type { ExtractPropTypes } from 'vue'
 import type Border from './border.vue'
 

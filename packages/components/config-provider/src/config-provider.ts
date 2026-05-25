@@ -16,7 +16,7 @@ const ConfigProvider = defineComponent({
       (val) => {
         Object.assign(messageConfig, val ?? {})
       },
-      { immediate: true, deep: true }
+      { immediate: true, deep: true },
     )
     const config = provideGlobalConfig(props)
     return () => renderSlot(slots, 'default', { config: config?.value })

@@ -1,6 +1,7 @@
 /* Element Chalk Variables */
 @use 'sass:math';
 @use 'sass:map';
+@use 'sass:color';
 
 @use '../mixins/function.scss' as *;
 
@@ -11,29 +12,29 @@
 // types
 $types: primary, success, warning, danger, error, info;
 
-// Color
+// Color - JustForFun UI Brand Colors
 $colors: () !default;
 $colors: map.deep-merge(
   (
     'white': #ffffff,
     'black': #000000,
     'primary': (
-      'base': #409eff,
+      'base': #845EC2,
     ),
     'success': (
-      'base': #67c23a,
+      'base': #6BCB77,
     ),
     'warning': (
-      'base': #e6a23c,
+      'base': #FFE66D,
     ),
     'danger': (
-      'base': #f56c6c,
+      'base': #FF6B6B,
     ),
     'error': (
-      'base': #f56c6c,
+      'base': #FF6B6B,
     ),
     'info': (
-      'base': #909399,
+      'base': #4FFBDF,
     ),
   ),
   $colors
@@ -59,8 +60,7 @@ $color-info: map.get($colors, 'info', 'base') !default;
   $colors: map.deep-merge(
     (
       $type: (
-        '#{$mode}-#{$number}':
-          mix(
+        '#{$mode}-#{$number}': color.mix(
             $mix-color,
             map.get($colors, $type, 'base'),
             math.percentage(math.div($number, 10))
@@ -181,13 +181,20 @@ $box-shadow: map.merge(
   $box-shadow
 );
 
-// Typography
+// Typography - JustForFun UI Font System
+// 使用系统字体栈，确保最佳性能和原生体验
 $font-family: () !default;
 $font-family: map.merge(
   (
-    // default family
+    // 正文/UI字体 - 现代、清晰、跨平台
     '':
-      "'Helvetica Neue', Helvetica, 'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei', '微软雅黑', Arial, sans-serif"
+      "-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, 'Noto Sans', 'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei', sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji'",
+    // 标题字体 - 更有力量感
+    'display':
+      "'SF Pro Display', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif",
+    // 代码字体 - 等宽、清晰
+    'mono':
+      "'SF Mono', Monaco, 'Cascadia Code', 'Roboto Mono', 'Fira Code', Consolas, 'Courier New', monospace"
   ),
   $font-family
 );
@@ -195,6 +202,11 @@ $font-family: map.merge(
 $font-size: () !default;
 $font-size: map.merge(
   (
+    // 标题层级
+    'display-1': 48px,
+    'display-2': 36px,
+    'display-3': 28px,
+    // 正文层级
     'extra-large': 20px,
     'large': 18px,
     'medium': 16px,
@@ -203,6 +215,47 @@ $font-size: map.merge(
     'extra-small': 12px,
   ),
   $font-size
+);
+
+// 行高 - 舒适的阅读体验
+$line-height: () !default;
+$line-height: map.merge(
+  (
+    'none': 1,
+    'tight': 1.25,
+    'snug': 1.375,
+    'normal': 1.5,
+    'relaxed': 1.625,
+    'loose': 2,
+  ),
+  $line-height
+);
+
+// 字重 - 精细的层级控制
+$font-weight: () !default;
+$font-weight: map.merge(
+  (
+    'thin': 100,
+    'light': 300,
+    'regular': 400,
+    'medium': 500,
+    'semibold': 600,
+    'bold': 700,
+  ),
+  $font-weight
+);
+
+// 字间距 - 呼吸感
+$letter-spacing: () !default;
+$letter-spacing: map.merge(
+  (
+    'tighter': -0.05em,
+    'tight': -0.025em,
+    'normal': 0,
+    'wide': 0.025em,
+    'wider': 0.05em,
+  ),
+  $letter-spacing
 );
 
 // zIndex
@@ -469,6 +522,7 @@ $alert: map.merge(
     'close-customed-font-size': 13px,
     'icon-size': 16px,
     'icon-large-size': 28px,
+    'icon-line-height': 1.5,
   ),
   $alert
 );
@@ -516,8 +570,7 @@ $notification: map.merge(
     'shadow': getCssVar('box-shadow-light'),
     'border-color': getCssVar('border-color-lighter'),
     'icon-size': 24px,
-    'close-font-size':
-      var(
+    'close-font-size': var(
         #{getCssVarName('message-close-size')},
         map.get($message, 'close-size')
       ),
@@ -627,7 +680,7 @@ $cascader: map.merge(
 $button: () !default;
 $button: map.merge(
   (
-    'font-weight': getCssVar('font-weight-primary'),
+    'font-weight': getCssVar('font-weight-medium'),
     'border-color': getCssVar('border-color'),
     'bg-color': getCssVar('fill-color', 'blank'),
     'text-color': getCssVar('text-color', 'regular'),
@@ -935,8 +988,10 @@ $dropdown: map.merge(
 $drawer: () !default;
 $drawer: map.merge(
   (
-    'bg-color':
-      var(#{getCssVarName('dialog', 'bg-color')}, #{getCssVar('bg-color')}),
+    'bg-color': var(
+        #{getCssVarName('dialog', 'bg-color')},
+        #{getCssVar('bg-color')}
+      ),
     'padding-primary': var(#{getCssVarName('dialog', 'padding-primary')}, 20px),
   ),
   $drawer
@@ -963,7 +1018,7 @@ $card: map.merge(
     'border-color': getCssVar('border-color', 'light'),
     'border-radius': 4px,
     'padding': 20px,
-    'bg-color': getCssVar('fill-color', 'blank'),
+    'bg-color': #ffffff,
   ),
   $card
 );
@@ -1200,8 +1255,7 @@ $link-text-color: () !default;
 $calendar: () !default;
 $calendar: map.merge(
   (
-    'border':
-      var(
+    'border': var(
         #{getCssVarName('table-border')},
         1px solid #{getCssVar('border-color-lighter')}
       ),
@@ -1239,9 +1293,9 @@ $avatar: map.merge(
 $avatar-size: () !default;
 $avatar-size: map.merge(
   (
-    'large': 56px,
-    'default': 40px,
-    'small': 24px,
+    'large': 72px,
+    'default': 56px,
+    'small': 40px,
   ),
   $avatar-size
 );

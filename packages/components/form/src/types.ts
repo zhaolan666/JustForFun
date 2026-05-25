@@ -24,7 +24,7 @@ export type FormRules = Partial<Record<string, Arrayable<FormItemRule>>>
 export type FormValidationResult = Promise<boolean>
 export type FormValidateCallback = (
   isValid: boolean,
-  invalidFields?: ValidateFieldsError
+  invalidFields?: ValidateFieldsError,
 ) => void
 export interface FormValidateFailure {
   errors: ValidateError[] | null
@@ -42,7 +42,7 @@ export type FormContext = FormProps &
     clearValidate: (props?: Arrayable<FormItemProp>) => void
     validateField: (
       props?: Arrayable<FormItemProp>,
-      callback?: FormValidateCallback
+      callback?: FormValidateCallback,
     ) => FormValidationResult
   }
 
@@ -58,7 +58,7 @@ export interface FormItemContext extends FormItemProps {
   removeInputId: (id: string) => void
   validate: (
     trigger: string,
-    callback?: FormValidateCallback
+    callback?: FormValidateCallback,
   ) => FormValidationResult
   resetField(): void
   clearValidate(): void

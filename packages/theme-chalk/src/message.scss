@@ -1,0 +1,126 @@
+@use './common/var.scss' as *;
+@use './mixins/mixins.scss' as *;
+@use './mixins/_var.scss' as *;
+
+@include b(message) {
+  min-width: 380px;
+  padding: 14px 16px;
+  border-radius: 4px;
+  background-color: getCssVar('bg-color');
+  box-shadow: getCssVar('shadow', 'light');
+  position: fixed;
+  top: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  align-items: center;
+  transition: all 0.3s ease;
+  z-index: 9999;
+  
+  & + & {
+    margin-top: 16px;
+  }
+  
+  @include e(badge) {
+    margin-right: 8px;
+  }
+  
+  @include e(icon) {
+    margin-right: 12px;
+    font-size: 18px;
+    
+    &.jff-message__icon--success {
+      color: getCssVar('color', 'success');
+    }
+    
+    &.jff-message__icon--warning {
+      color: getCssVar('color', 'warning');
+    }
+    
+    &.jff-message__icon--danger {
+      color: getCssVar('color', 'danger');
+    }
+    
+    &.jff-message__icon--info {
+      color: getCssVar('color', 'info');
+    }
+  }
+  
+  @include e(content) {
+    flex: 1;
+    font-size: 14px;
+    color: getCssVar('text-color', 'primary');
+    line-height: 1.5;
+  }
+  
+  @include e(closeBtn) {
+    margin-left: 12px;
+    color: getCssVar('text-color', 'placeholder');
+    cursor: pointer;
+    transition: color 0.2s ease;
+    
+    &:hover {
+      color: getCssVar('text-color', 'primary');
+    }
+  }
+  
+  @include m(success) {
+    background-color: getCssVar('color', 'success', 'light-9');
+    border: 1px solid getCssVar('color', 'success', 'light-8');
+    
+    @include e(content) {
+      color: getCssVar('color', 'success');
+    }
+  }
+  
+  @include m(warning) {
+    background-color: getCssVar('color', 'warning', 'light-9');
+    border: 1px solid getCssVar('color', 'warning', 'light-8');
+    
+    @include e(content) {
+      color: getCssVar('color', 'warning');
+    }
+  }
+  
+  @include m(danger) {
+    background-color: getCssVar('color', 'danger', 'light-9');
+    border: 1px solid getCssVar('color', 'danger', 'light-8');
+    
+    @include e(content) {
+      color: getCssVar('color', 'danger');
+    }
+  }
+  
+  @include m(info) {
+    background-color: getCssVar('color', 'info', 'light-9');
+    border: 1px solid getCssVar('color', 'info', 'light-8');
+    
+    @include e(content) {
+      color: getCssVar('color', 'info');
+    }
+  }
+  
+  @include when(center) {
+    text-align: center;
+    
+    @include e(content) {
+      flex: none;
+    }
+  }
+}
+
+// Transition animations
+.jff-message-fade-enter-active,
+.jff-message-fade-leave-active {
+  transition: all 0.3s ease;
+}
+
+.jff-message-fade-enter-from {
+  opacity: 0;
+  transform: translateX(-50%) translateY(-20px);
+}
+
+.jff-message-fade-leave-to {
+  opacity: 0;
+  transform: translateX(-50%) translateY(-10px);
+}

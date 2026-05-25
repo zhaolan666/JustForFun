@@ -26,6 +26,11 @@ export function useButtonCustomStyle(props: ButtonProps) {
         : darken(color, 20)
 
       if (props.plain) {
+        // 使用亮度判断 hover/active 时的文字颜色
+        const luminance = color.getLuminance()
+        const hoverTextColor = luminance < 0.5
+          ? `var(${ns.cssVarName('color-white')})`
+          : `var(${ns.cssVarName('color-black')})`
         styles = ns.cssVarBlock({
           'bg-color': props.dark
             ? darken(color, 90)
@@ -34,11 +39,11 @@ export function useButtonCustomStyle(props: ButtonProps) {
           'border-color': props.dark
             ? darken(color, 50)
             : color.tint(50).toString(),
-          'hover-text-color': `var(${ns.cssVarName('color-white')})`,
+          'hover-text-color': hoverTextColor,
           'hover-bg-color': buttonColor,
           'hover-border-color': buttonColor,
           'active-bg-color': activeBgColor,
-          'active-text-color': `var(${ns.cssVarName('color-white')})`,
+          'active-text-color': hoverTextColor,
           'active-border-color': activeBgColor,
         })
 
@@ -57,7 +62,9 @@ export function useButtonCustomStyle(props: ButtonProps) {
         const hoverBgColor = props.dark
           ? darken(color, 30)
           : color.tint(30).toString()
-        const textColor = color.isDark()
+        // 使用亮度判断文字颜色：亮度 < 128 为深色背景，使用白色文字
+        const luminance = color.getLuminance()
+        const textColor = luminance < 0.5
           ? `var(${ns.cssVarName('color-white')})`
           : `var(${ns.cssVarName('color-black')})`
         styles = ns.cssVarBlock({

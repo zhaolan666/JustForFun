@@ -1,5 +1,4 @@
 import {
-  Fragment,
   computed,
   defineComponent,
   inject,
@@ -107,7 +106,7 @@ export default defineComponent({
           </div>
         )
       } else {
-        return <Fragment ref={el}>{slots.default?.()}</Fragment>
+        return slots.default?.() as any
       }
     }
   },

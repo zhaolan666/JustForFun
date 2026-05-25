@@ -14,14 +14,14 @@
         @click="handleClick(pane.name)"
       >
         <span :class="[ns.e('label')]">{{ pane.label }}</span>
-        <jff-icon
+        <JffIcon
           v-if="closable || pane.closable"
           :class="[ns.e('close')]"
           @click.stop="handleClose(pane.name)"
-        ><X /></jff-icon>
+        ><Close /></JffIcon>
       </div>
     </div>
-    
+
     <div :class="[ns.e('content')]">
       <slot />
     </div>
@@ -33,7 +33,7 @@ import { ref, provide } from 'vue'
 import { useNamespace } from '@justforfun-ui/hooks'
 import { tabsProps } from './tabs'
 import JffIcon from '@justforfun-ui/components/icon'
-import { X } from '@element-plus/icons-vue'
+import { Close } from '@element-plus/icons-vue'
 
 defineOptions({
   name: 'JffTabs',

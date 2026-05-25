@@ -3,7 +3,6 @@ import { buildProps, definePropType, iconPropType } from '@justforfun-ui/utils'
 import { Loading } from '@element-plus/icons-vue'
 import type { ExtractPropTypes, Component } from 'vue'
 
-
 // 使用 type 来定义按钮的样式
 export const buttonTypes = [
   'default',
@@ -17,15 +16,13 @@ export const buttonTypes = [
 ] as const
 export const buttonNativeTypes = ['button', 'submit', 'reset'] as const
 
-
-
 // 定义 props
 export const buttonProps = buildProps({
   size: useSizeProp,
   type: {
     type: String,
     values: buttonTypes,
-    default: "",
+    default: '',
   },
   nativeType: {
     type: String,
@@ -33,7 +30,7 @@ export const buttonProps = buildProps({
     default: 'button',
   },
   icon: {
-    type: iconPropType
+    type: iconPropType,
   },
   loading: Boolean,
   loadingIcon: {
@@ -57,7 +54,7 @@ export const buttonProps = buildProps({
   tag: {
     type: definePropType<string | Component>([String, Object]),
     default: 'button',
-  }
+  },
 } as const)
 
 // 事件
@@ -68,12 +65,9 @@ export type ButtonEmits = typeof buttonEmits
 // Props 类型
 export type ButtonProps = ExtractPropTypes<typeof buttonProps>
 
-
 export type ButtonType = ButtonProps['type']
 export type ButtonNativeType = ButtonProps['nativeType']
 
 export interface ButtonConfigContext {
   autoInsertSpace?: boolean
 }
-
-

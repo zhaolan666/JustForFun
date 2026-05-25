@@ -1,9 +1,9 @@
 @use 'sass:map';
 
-@use 'common/var' as *;
-@use 'mixins/mixins' as *;
-@use 'mixins/utils' as *;
-@use 'mixins/var' as *;
+@use './common/var.scss' as *;
+@use './mixins/mixins.scss' as *;
+@use './mixins/utils.scss' as *;
+@use './mixins/_var.scss' as *;
 
 // Container
 @include b(container) {
@@ -11,8 +11,8 @@
 }
 @include b(container) {
   width: 100%;
-  padding-right: getCssVar('padding-right');
-  padding-left: getCssVar('padding-left');
+  padding-right: 20px;
+  padding-left: 20px;
   margin-right: auto;
   margin-left: auto;
 
@@ -70,22 +70,22 @@
 
   @each $size in 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24 {
     @include m(span-#{$size}) {
-      flex: 0 0 #{($size / 24) * 100}%;
-      max-width: #{($size / 24) * 100}%;
+      flex: 0 0 calc(#{$size} / 24 * 100%);
+      max-width: calc(#{$size} / 24 * 100%);
     }
 
     @include m(offset-#{$size}) {
-      margin-left: #{($size / 24) * 100}%;
+      margin-left: calc(#{$size} / 24 * 100%);
     }
 
     @include m(push-#{$size}) {
       position: relative;
-      left: #{($size / 24) * 100}%;
+      left: calc(#{$size} / 24 * 100%);
     }
 
     @include m(pull-#{$size}) {
       position: relative;
-      right: #{($size / 24) * 100}%;
+      right: calc(#{$size} / 24 * 100%);
     }
   }
 }

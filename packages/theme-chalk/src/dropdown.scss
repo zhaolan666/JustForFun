@@ -1,6 +1,6 @@
-@use 'common/var' as *;
-@use 'mixins/mixins' as *;
-@use 'mixins/var' as *;
+@use './common/var.scss' as *;
+@use './mixins/mixins.scss' as *;
+@use './mixins/_var.scss' as *;
 
 @include b(dropdown) {
   display: inline-block;
@@ -36,7 +36,7 @@
     color: getCssVar('dropdown', 'menuItem-hover-color');
   }
   
-  &.jff-dropdown-item-disabled {
+  &.jff-dropdown-item--disabled {
     cursor: not-allowed;
     color: getCssVar('text-color', 'placeholder');
     
@@ -46,7 +46,7 @@
     }
   }
   
-  &.jff-dropdown-item-divided {
+  &.jff-dropdown-item--divided {
     border-top: 1px solid getCssVar('border-color', 'light');
     margin-top: 4px;
     padding-top: 12px;

@@ -50,7 +50,7 @@ const ns = useNamespace('radio')
 const radioGroup = inject<{
   props: any
   emit: any
-}>('JFF_RADIO_GROUP', null)
+} | null>('JFF_RADIO_GROUP', null)
 
 const isDisabled = computed(() => {
   return radioGroup?.props.disabled || props.disabled

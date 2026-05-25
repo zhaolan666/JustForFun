@@ -1,7 +1,7 @@
 @use 'sass:map';
 
 @use 'common/var' as *;
-@use 'mixins/var' as *;
+@use 'mixins/_var' as *;
 @use 'mixins/mixins' as *;
 
 // common
@@ -12,7 +12,11 @@
   // Typography
   @include set-component-css-var('font-size', $font-size);
   @include set-component-css-var('font-family', $font-family);
+  @include set-component-css-var('line-height', $line-height);
+  @include set-component-css-var('font-weight', $font-weight);
+  @include set-component-css-var('letter-spacing', $letter-spacing);
 
+  // 兼容旧变量
   @include set-css-var-value('font-weight-primary', 500);
   @include set-css-var-value('font-line-height-primary', 24px);
 
@@ -31,6 +35,9 @@
     getCssVar('border-width') getCssVar('border-style')
       getCssVar('border-color')
   );
+
+  // Box-shadow --el-box-shadow-#{$type}
+  @include set-component-css-var('box-shadow', $box-shadow);
 }
 
 // for light

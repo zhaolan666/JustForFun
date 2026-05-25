@@ -13,8 +13,8 @@ import {
 } from '@justforfun-ui/hooks'
 import { configProviderContextKey } from '../constants'
 
-import type { MaybeRef } from '@vueuse/core'
 import type { App, Ref } from 'vue'
+import type { MaybeRef } from 'vue'
 import type { ConfigProviderContext } from '../constants'
 
 

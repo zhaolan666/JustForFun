@@ -1,18 +1,20 @@
-@use 'config';
+@use './config.scss';
+@use 'sass:string';
+@use 'sass:meta';
 
 // 该函数将选择器转化为字符串，并截取指定位置的字符
 @function selectorToString($selector) {
-  $selector: inspect(
+  $selector: meta.inspect(
     $selector
   ); // inspect(...) 表达式中的内容如果是正常会返回对应的内容，如果发生错误则会弹出一个错误提示。
-  $selector: str-slice($selector, 2, -2); // str-slice 截取指定字符
+  $selector: string.slice($selector, 2, -2); // str-slice 截取指定字符
   @return $selector;
 }
 // 判断父级选择器是否包含'--'
 @function containsModifier($selector) {
   $selector: selectorToString($selector);
 
-  @if str-index($selector, config.$modifier-separator) {
+  @if string.index($selector, config.$modifier-separator) {
     // str-index 返回字符串的第一个索引
     @return true;
   } @else {
@@ -23,7 +25,7 @@
 @function containWhenFlag($selector) {
   $selector: selectorToString($selector);
 
-  @if str-index($selector, '.' + config.$state-prefix) {
+  @if string.index($selector, '.' + config.$state-prefix) {
     @return true;
   } @else {
     @return false;
@@ -33,7 +35,7 @@
 @function containPseudoClass($selector) {
   $selector: selectorToString($selector);
 
-  @if str-index($selector, ':') {
+  @if string.index($selector, ':') {
     @return true;
   } @else {
     @return false;
@@ -67,7 +69,6 @@
   @return var(#{joinVarName($args)});
 }
 
-
 // getCssVarWithDefault(('button', 'text-color'), red) => var(--el-button-text-color, red)
 @function getCssVarWithDefault($args, $default) {
   @return var(#{joinVarName($args)}, #{$default});
@@ -87,4 +88,20 @@
 
   // @debug $name;
   @return $name;
+}
+
+// 计算垂直居中的行高
+// calcCenteredLineHeight($containerHeight, $fontSize) => 根据容器高度和字体大小计算行高
+@function calcCenteredLineHeight($containerHeight, $fontSize) {
+  @if $containerHeight <= $fontSize {
+    @return $fontSize;
+  }
+  @return $containerHeight;
+}
+
+// 计算垂直居中的 padding
+// calcCenteredPadding($containerHeight, $fontSize) => 返回上下 padding 值
+@function calcCenteredPadding($containerHeight, $fontSize) {
+  $padding: ($containerHeight - $fontSize) / 2;
+  @return $padding;
 }

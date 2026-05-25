@@ -18,19 +18,19 @@
       <span v-else :class="[ns.e('placeholder')]">
         {{ placeholder }}
       </span>
-      <JffIcon 
-        v-if="clearable && modelValue" 
+      <JffIcon
+        v-if="clearable && modelValue"
         :class="[ns.e('clear')]"
         @click.stop="handleClear"
-      ><X /></JffIcon>
-      <JffIcon 
+      ><Close /></JffIcon>
+      <JffIcon
         :class="[ns.e('arrow')]"
-      ><ChevronDown /></JffIcon>
+      ><ArrowDown /></JffIcon>
     </div>
-    
+
     <Transition name="slide">
-      <div 
-        v-show="visible" 
+      <div
+        v-show="visible"
         :class="[ns.e('dropdown')]"
         @click.stop
       >
@@ -45,7 +45,7 @@ import { ref, computed, onMounted, onUnmounted, provide } from 'vue'
 import { useNamespace } from '@justforfun-ui/hooks'
 import { selectProps } from './select'
 import JffIcon from '@justforfun-ui/components/icon'
-import { X, ChevronDown } from '@element-plus/icons-vue'
+import { Close, ArrowDown } from '@element-plus/icons-vue'
 
 defineOptions({
   name: 'JffSelect',

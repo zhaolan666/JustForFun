@@ -17,7 +17,7 @@ provide(
   reactive({
     size: toRef(props, 'size'),
     type: toRef(props, 'type'),
-  })
+  }),
 )
 const ns = useNamespace('button')
 </script>

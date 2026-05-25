@@ -11,12 +11,11 @@ export const formItemValidateStates = [
   'validating',
   'success',
 ] as const
-export type FormItemValidateState = typeof formItemValidateStates[number]
+export type FormItemValidateState = (typeof formItemValidateStates)[number]
 
 export type FormItemProp = Arrayable<string>
 
 export const formItemProps = buildProps({
-
   label: String,
 
   labelWidth: {

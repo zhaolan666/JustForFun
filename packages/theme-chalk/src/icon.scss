@@ -1,17 +1,56 @@
 @use 'sass:map';
 
-@use 'mixins/mixins' as *;
-@use 'common/var' as *;
+@use './mixins/mixins.scss' as *;
+@use './common/var.scss' as *;
 
-.#{$namespace}-icon-loading {
+// UnoCSS 图标基础样式
+// 这些样式会与 UnoCSS presetIcons 生成的样式配合使用
+
+@include b(icon) {
+  --color: inherit;
+  height: 1em;
+  width: 1em;
+  line-height: 1em;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  color: var(--color);
+  font-size: inherit;
+
+  @include when(loading) {
+    animation: rotating 2s linear infinite;
+  }
+
+  // SVG 图标支持
+  svg {
+    height: 1em;
+    width: 1em;
+    fill: currentColor;
+    color: inherit;
+  }
+}
+
+// UnoCSS 图标类基础样式 - 后备样式
+// 当 UnoCSS 没有生成图标时，显示为占位符
+[class*="i-"] {
+  display: inline-block;
+  width: 1em;
+  height: 1em;
+  vertical-align: middle;
+  background-color: currentColor;
+  mask-size: contain;
+  mask-repeat: no-repeat;
+  mask-position: center;
+  -webkit-mask-size: contain;
+  -webkit-mask-repeat: no-repeat;
+  -webkit-mask-position: center;
+}
+
+// 旋转动画
+.#{$namespace}-icon-loading,
+.i-loading {
   animation: rotating 2s linear infinite;
-}
-
-.#{$namespace}-icon--right {
-  margin-left: 5px;
-}
-.#{$namespace}-icon--left {
-  margin-right: 5px;
 }
 
 @keyframes rotating {
@@ -23,25 +62,10 @@
   }
 }
 
-@include b(icon) {
-  --color: inherit;
-  height: 1em;
-  width: 1em;
-  line-height: 1em;
-  display: inline-flex;
-  justify-content: center;
-  align-items: center;
-  position: relative;
-  fill: currentColor;
-  color: var(--color);
-  font-size: inherit;
-
-  @include when(loading) {
-    animation: rotating 2s linear infinite;
-  }
-
-  svg {
-    height: 1em;
-    width: 1em;
-  }
+// 图标位置
+.#{$namespace}-icon--right {
+  margin-left: 5px;
+}
+.#{$namespace}-icon--left {
+  margin-right: 5px;
 }

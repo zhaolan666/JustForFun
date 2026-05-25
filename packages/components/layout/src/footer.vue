@@ -5,15 +5,11 @@
 </template>
 
 <script lang="ts" setup>
-import { defineProps, computed } from 'vue'
-
-const props = defineProps({
+defineProps({
   direction: {
     type: String,
     values: ['ltr', 'rtl'],
     default: 'ltr',
   },
 })
-
-const direction = computed(() => props.direction)
 </script>

@@ -1,6 +1,6 @@
-@use 'common/var' as *;
-@use 'mixins/mixins' as *;
-@use 'mixins/var' as *;
+@use './common/var.scss' as *;
+@use './mixins/mixins.scss' as *;
+@use './mixins/_var.scss' as *;
 
 @include b(select) {
   display: inline-flex;
@@ -64,26 +64,6 @@
     z-index: 1000;
   }
   
-  &.jff-select-option {
-    padding: 8px 12px;
-    cursor: pointer;
-    transition: background-color 0.2s ease;
-    
-    &:hover {
-      background-color: getCssVar('fill-color', 'light');
-    }
-    
-    &.jff-select-option-disabled {
-      cursor: not-allowed;
-      color: getCssVar('text-color', 'placeholder');
-    }
-    
-    &.jff-select-option-selected {
-      background-color: getCssVar('color', 'primary', 'light-5');
-      color: getCssVar('color', 'primary');
-    }
-  }
-  
   @include m(opened) {
     @include e(input) {
       border-color: getCssVar('color', 'primary');
@@ -108,5 +88,25 @@
       background-color: getCssVar('bg-color', 'disabled');
       border-color: getCssVar('border-color', 'light');
     }
+  }
+}
+
+@include b(select-option) {
+  padding: 8px 12px;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+  
+  &:hover {
+    background-color: getCssVar('fill-color', 'light');
+  }
+  
+  &.jff-select-option--disabled {
+    cursor: not-allowed;
+    color: getCssVar('text-color', 'placeholder');
+  }
+  
+  &.jff-select-option--selected {
+    background-color: getCssVar('color', 'primary', 'light-5');
+    color: getCssVar('color', 'primary');
   }
 }

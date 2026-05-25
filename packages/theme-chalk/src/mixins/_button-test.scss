@@ -1,0 +1,52 @@
+@use 'sass:map';
+@use 'sass:color';
+@use 'sass:math';
+
+@use './_var.scss' as *;
+@use './function.scss' as *;
+@use '../common/var.scss' as *;
+
+// 测试版本：在黑暗模式下反转文字颜色
+@mixin button-variant-test($type) {
+  // 获取颜色值并计算亮度
+  $color-value: map.get($colors, $type, 'base');
+  // 计算相对亮度
+  $r: math.div(color.channel($color-value, "red", $space: rgb), 255);
+  $g: math.div(color.channel($color-value, "green", $space: rgb), 255);
+  $b: math.div(color.channel($color-value, "blue", $space: rgb), 255);
+  $luminance: 0.2126 * $r + 0.7152 * $g + 0.0722 * $b;
+  
+  // 白天模式：亮度 >= 0.5 使用黑色文字，否则使用白色文字
+  $is-light-bg: $luminance >= 0.5;
+  $text-color-light: ('color', 'white');
+  @if $is-light-bg {
+    $text-color-light: ('color', 'black');
+  }
+  
+  // 黑暗模式：反转逻辑 - 亮度 >= 0.5 使用白色文字，否则使用黑色文字
+  $text-color-dark: ('color', 'black');
+  @if $is-light-bg {
+    $text-color-dark: ('color', 'white');
+  }
+
+  // 白天模式变量
+  --jff-button-text-color: var(#{$text-color-light});
+  --jff-button-bg-color: #{getCssVar('color', $type)};
+  --jff-button-border-color: #{getCssVar('color', $type)};
+  --jff-button-outline-color: #{getCssVar('color', $type, 'light-5')};
+  --jff-button-active-color: #{getCssVar('color', $type, 'dark-2')};
+  --jff-button-hover-text-color: var(#{$text-color-light});
+  --jff-button-hover-link-text-color: #{getCssVar('color', $type, 'light-5')};
+  --jff-button-hover-bg-color: #{getCssVar('color', $type, 'light-2')};
+  --jff-button-hover-border-color: #{getCssVar('color', $type, 'light-2')};
+  --jff-button-active-bg-color: #{getCssVar('color', $type, 'dark-2')};
+  --jff-button-active-border-color: #{getCssVar('color', $type, 'dark-2')};
+  --jff-button-disabled-text-color: var(#{$text-color-light});
+  --jff-button-disabled-bg-color: #{getCssVar('color', $type, 'light-5')};
+  --jff-button-disabled-border-color: #{getCssVar('color', $type, 'light-5')};
+}
+
+// 导出测试 mixin
+@mixin button-test($type) {
+  @include button-variant-test($type);
+}

@@ -18,12 +18,12 @@ export interface ElementLoading extends HTMLElement {
 
 const createInstance = (
   el: ElementLoading,
-  binding: DirectiveBinding<LoadingBinding>
+  binding: DirectiveBinding<LoadingBinding>,
 ) => {
   const vm = binding.instance
 
   const getBindingProp = <K extends keyof LoadingOptions>(
-    key: K
+    key: K,
   ): LoadingOptions[K] =>
     isObject(binding.value) ? binding.value[key] : undefined
 
@@ -36,7 +36,7 @@ const createInstance = (
   const getProp = <K extends keyof LoadingOptions>(name: K) =>
     resolveExpression(
       getBindingProp(name) ||
-      el.getAttribute(`element-loading-${hyphenate(name)}`)
+        el.getAttribute(`element-loading-${hyphenate(name)}`),
     )
 
   const fullscreen =
@@ -62,7 +62,7 @@ const createInstance = (
 
 const updateOptions = (
   newOptions: UnwrapRef<LoadingOptions>,
-  originalOptions: LoadingOptions
+  originalOptions: LoadingOptions,
 ) => {
   for (const key of Object.keys(originalOptions)) {
     if (isRef(originalOptions[key]))

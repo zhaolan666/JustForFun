@@ -103,7 +103,7 @@ export function createLoadingComponent(options: LoadingOptionsResolved) {
               r: '20',
               fill: 'none',
             }),
-          ]
+          ],
         )
 
         const spinnerText = data.text
@@ -137,14 +137,14 @@ export function createLoadingComponent(options: LoadingOptionsResolved) {
                       {
                         class: ns.b('spinner'),
                       },
-                      [spinner, spinnerText]
+                      [spinner, spinnerText],
                     ),
-                  ]
+                  ],
                 ),
-                [[vShow, data.visible]]
+                [[vShow, data.visible]],
               ),
             ]),
-          }
+          },
         )
       }
     },

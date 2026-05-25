@@ -6,7 +6,6 @@ import type { Language } from '@justforfun-ui/locale'
 import type { ButtonConfigContext } from '@justforfun-ui/components/button'
 import type { MessageConfigContext } from '@justforfun-ui/components/message'
 
-
 export type ExperimentalFeatures = {
   // TO BE Defined
 }

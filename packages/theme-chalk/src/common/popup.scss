@@ -1,6 +1,6 @@
 @use './var' as *;
 @use '../mixins/mixins' as *;
-@use '../mixins/var' as *;
+@use '../mixins/_var' as *;
 
 :root {
   @include set-component-css-var('popup', $popup);

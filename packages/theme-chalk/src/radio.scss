@@ -1,6 +1,6 @@
-@use 'common/var' as *;
-@use 'mixins/mixins' as *;
-@use 'mixins/var' as *;
+@use './common/var.scss' as *;
+@use './mixins/mixins.scss' as *;
+@use './mixins/_var.scss' as *;
 
 @include b(radio) {
   display: inline-flex;
@@ -59,6 +59,9 @@
         &::after {
           content: '';
           position: absolute;
+          top: 50%;
+          left: 50%;
+          transform: translate(-50%, -50%);
           width: 8px;
           height: 8px;
           border-radius: 50%;

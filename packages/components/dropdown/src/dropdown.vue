@@ -10,7 +10,7 @@
       <slot name="trigger">
         <JffButton type="default">
           下拉菜单
-          <JffIcon><ChevronDown /></JffIcon>
+          <JffIcon><ArrowDown /></JffIcon>
         </JffButton>
       </slot>
     </span>
@@ -33,7 +33,7 @@ import { useNamespace } from '@justforfun-ui/hooks'
 import { dropdownProps } from './dropdown'
 import JffIcon from '@justforfun-ui/components/icon'
 import JffButton from '@justforfun-ui/components/button'
-import { ChevronDown } from '@element-plus/icons-vue'
+import { ArrowDown } from '@element-plus/icons-vue'
 
 defineOptions({
   name: 'JffDropdown',

@@ -48,7 +48,7 @@ export function useFormLabelWidth() {
 
 export const filterFields = (
   fields: FormItemContext[],
-  props: Arrayable<FormItemProp>
+  props: Arrayable<FormItemProp>,
 ) => {
   const normalized = ensureArray(props)
   return normalized.length > 0

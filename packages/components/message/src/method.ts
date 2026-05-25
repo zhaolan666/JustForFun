@@ -49,7 +49,7 @@ const normalizeOptions = (params?: MessageParams) => {
     if (!isElement(appendTo)) {
       debugWarn(
         'JffMessage',
-        'the appendTo option is not an HTMLElement. Falling back to document.body.'
+        'the appendTo option is not an HTMLElement. Falling back to document.body.',
       )
       appendTo = document.body
     }
@@ -71,7 +71,7 @@ const closeMessage = (instance: MessageContext) => {
 
 const createMessage = (
   { appendTo, ...options }: MessageParamsNormalized,
-  context?: AppContext | null
+  context?: AppContext | null,
 ): MessageContext => {
   const id = `message_${seed++}`
   const userOnClose = options.onClose
@@ -101,11 +101,11 @@ const createMessage = (
     props,
     isFunction(props.message) || isVNode(props.message)
       ? {
-        default: isFunction(props.message)
-          ? props.message
-          : () => props.message,
-      }
-      : null
+          default: isFunction(props.message)
+            ? props.message
+            : () => props.message,
+        }
+      : null,
   )
   vnode.appContext = context || message._context
 
@@ -136,33 +136,33 @@ const createMessage = (
 
 const message: MessageFn &
   Partial<Message> & { _context: AppContext | null } = (
-    options = {},
-    context
-  ) => {
-    if (!isClient) return { close: () => undefined }
+  options = {},
+  context,
+) => {
+  if (!isClient) return { close: () => undefined }
 
-    if (isNumber(messageConfig.max) && instances.length >= messageConfig.max) {
-      return { close: () => undefined }
-    }
-
-    const normalized = normalizeOptions(options)
-
-    if (normalized.grouping && instances.length) {
-      const instance = instances.find(
-        ({ vnode: vm }) => vm.props?.message === normalized.message
-      )
-      if (instance) {
-        instance.props.repeatNum += 1
-        instance.props.type = normalized.type
-        return instance.handler
-      }
-    }
-
-    const instance = createMessage(normalized, context)
-
-    instances.push(instance)
-    return instance.handler
+  if (isNumber(messageConfig.max) && instances.length >= messageConfig.max) {
+    return { close: () => undefined }
   }
+
+  const normalized = normalizeOptions(options)
+
+  if (normalized.grouping && instances.length) {
+    const instance = instances.find(
+      ({ vnode: vm }) => vm.props?.message === normalized.message,
+    )
+    if (instance) {
+      instance.props.repeatNum += 1
+      instance.props.type = normalized.type
+      return instance.handler
+    }
+  }
+
+  const instance = createMessage(normalized, context)
+
+  instances.push(instance)
+  return instance.handler
+}
 
 messageTypes.forEach((type) => {
   message[type] = (options = {}, appContext) => {

@@ -2,23 +2,20 @@
   <span
     :class="[
       ns.b(),
-      ns.m(size),
       ns.m(shape),
     ]"
     :style="avatarStyle"
   >
     <img
-      v-if="src"
+      v-if="src && !hasError"
       :src="src"
       :alt="alt"
       :class="[ns.e('img')]"
       @error="handleError"
     />
-    <jff-icon
-      v-else-if="icon"
-      :name="icon"
-      :class="[ns.e('icon')]"
-    />
+    <span v-else-if="$slots.icon" :class="[ns.e('icon')]">
+      <slot name="icon" />
+    </span>
     <span v-else-if="$slots.default" :class="[ns.e('text')]">
       <slot />
     </span>
@@ -29,10 +26,9 @@
 </template>
 
 <script lang="ts" setup>
-import { computed } from 'vue'
+import { computed, ref } from 'vue'
 import { useNamespace } from '@justforfun-ui/hooks'
 import { avatarProps } from './avatar'
-import JffIcon from '@justforfun-ui/components/icon'
 
 defineOptions({
   name: 'JffAvatar',
@@ -41,6 +37,7 @@ defineOptions({
 const props = defineProps(avatarProps)
 
 const ns = useNamespace('avatar')
+const hasError = ref(false)
 
 const sizeMap: Record<string, number> = {
   large: 48,
@@ -49,8 +46,8 @@ const sizeMap: Record<string, number> = {
 }
 
 const avatarStyle = computed(() => {
-  const size = typeof props.size === 'number' 
-    ? props.size 
+  const size = typeof props.size === 'number'
+    ? props.size
     : sizeMap[props.size] || sizeMap.default
   return {
     width: `${size}px`,
@@ -64,8 +61,7 @@ const defaultText = computed(() => {
   return '?'
 })
 
-const handleError = (e: Event) => {
-  const target = e.target as HTMLImageElement
-  target.style.display = 'none'
+const handleError = () => {
+  hasError.value = true
 }
 </script>

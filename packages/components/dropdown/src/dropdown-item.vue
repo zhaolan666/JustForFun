@@ -1,10 +1,10 @@
 <template>
   <div
     :class="[
-      ns.b('dropdown-item'),
+      ns.b(),
       {
-        [ns.m('dropdown-item', 'disabled')]: disabled,
-        [ns.m('dropdown-item', 'divided')]: divided,
+        [ns.m('disabled')]: disabled,
+        [ns.m('divided')]: divided,
       },
     ]"
     @click="handleClick"
@@ -24,11 +24,11 @@ defineOptions({
 
 const props = defineProps(dropdownItemProps)
 
-const ns = useNamespace('dropdown')
+const ns = useNamespace('dropdown-item')
 
 const dropdown = inject<{
   handleCommand: (command: any) => void
-}>('JFF_DROPDOWN', null)
+} | null>('JFF_DROPDOWN', null)
 
 const handleClick = () => {
   if (props.disabled) return

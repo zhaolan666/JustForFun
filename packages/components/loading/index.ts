@@ -14,6 +14,10 @@ export const JffLoading = {
 }
 
 export default JffLoading
-export { vLoading, vLoading as JffLoadingDirective, Loading as JffLoadingService }
+export {
+  vLoading,
+  vLoading as JffLoadingDirective,
+  Loading as JffLoadingService,
+}
 
 export * from './src/types'

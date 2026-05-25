@@ -1,36 +1,32 @@
 <template>
   <Teleport to="body">
-    <Transition name="fade">
+    <Transition name="dialog-fade">
       <div
-        v-if="visible && modal"
-        :class="[ns.e('mask')]"
+        v-if="isVisible"
+        :class="[`${ns.namespace.value}-overlay-dialog`]"
         @click="handleMaskClick"
-      />
-    </Transition>
-    
-    <Transition name="dialog">
-      <div
-        v-if="visible"
-        :class="[ns.b()]"
-        :style="dialogStyle"
-        tabindex="-1"
-        @keydown.esc="handleKeydown"
       >
-        <div :class="[ns.e('header')]">
-          <span :class="[ns.e('title')]">{{ title }}</span>
-          <jff-icon
-            v-if="showClose"
-            :class="[ns.e('close')]"
-            @click="handleClose"
-          ><X /></jff-icon>
-        </div>
-        
-        <div :class="[ns.e('body')]">
-          <slot />
-        </div>
-        
-        <div v-if="$slots.footer" :class="[ns.e('footer')]">
-          <slot name="footer" />
+        <div :class="[ns.e('wrapper')]" @click="handleWrapperClick">
+          <div :class="[ns.b()]" tabindex="-1" @keydown.esc="handleKeydown">
+            <div :class="[ns.e('header')]">
+              <span :class="[ns.e('title')]">{{ title }}</span>
+              <JffIcon
+                v-if="showClose"
+                :class="[ns.e('close')]"
+                @click="handleClose"
+              >
+                <Close />
+              </JffIcon>
+            </div>
+
+            <div :class="[ns.e('body')]">
+              <slot />
+            </div>
+
+            <div v-if="$slots.footer" :class="[ns.e('footer')]">
+              <slot name="footer" />
+            </div>
+          </div>
         </div>
       </div>
     </Transition>
@@ -42,7 +38,7 @@ import { computed, watch, onMounted, onUnmounted } from 'vue'
 import { useNamespace } from '@justforfun-ui/hooks'
 import { dialogProps } from './dialog'
 import JffIcon from '@justforfun-ui/components/icon'
-import { X } from '@element-plus/icons-vue'
+import { Close } from '@element-plus/icons-vue'
 
 defineOptions({
   name: 'JffDialog',
@@ -50,18 +46,18 @@ defineOptions({
 
 const props = defineProps(dialogProps)
 const emit = defineEmits<{
+  (e: 'update:modelValue', value: boolean): void
   (e: 'update:visible', value: boolean): void
   (e: 'close'): void
 }>()
 
+// Support both v-model and visible prop
+const isVisible = computed(() => props.modelValue || props.visible)
+
 const ns = useNamespace('dialog')
 
-const dialogStyle = computed(() => ({
-  width: typeof props.width === 'number' ? `${props.width}px` : props.width,
-  top: props.top,
-}))
-
 const handleClose = () => {
+  emit('update:modelValue', false)
   emit('update:visible', false)
   emit('close')
 }
@@ -72,6 +68,11 @@ const handleMaskClick = () => {
   }
 }
 
+const handleWrapperClick = (e: MouseEvent) => {
+  // Prevent event bubbling to mask
+  e.stopPropagation()
+}
+
 const handleKeydown = (e: KeyboardEvent) => {
   if (e.key === 'Escape' && props.closeOnPressEscape) {
     handleClose()
@@ -79,12 +80,12 @@ const handleKeydown = (e: KeyboardEvent) => {
 }
 
 const handleGlobalKeydown = (e: KeyboardEvent) => {
-  if (props.visible && e.key === 'Escape' && props.closeOnPressEscape) {
+  if (isVisible.value && e.key === 'Escape' && props.closeOnPressEscape) {
     handleClose()
   }
 }
 
-watch(() => props.visible, (val) => {
+watch(isVisible, (val) => {
   if (val) {
     document.body.style.overflow = 'hidden'
   } else {
@@ -101,26 +102,3 @@ onUnmounted(() => {
   document.body.style.overflow = ''
 })
 </script>
-
-<style scoped>
-.fade-enter-active,
-.fade-leave-active {
-  transition: opacity 0.3s ease;
-}
-
-.fade-enter-from,
-.fade-leave-to {
-  opacity: 0;
-}
-
-.dialog-enter-active,
-.dialog-leave-active {
-  transition: all 0.3s ease;
-}
-
-.dialog-enter-from,
-.dialog-leave-to {
-  opacity: 0;
-  transform: translateY(-20px);
-}
-</style>

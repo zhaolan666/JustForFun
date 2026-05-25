@@ -24,7 +24,7 @@ const tabs = inject<{
   props: any
   addPane: (pane: any) => void
   removePane: (name: string) => void
-}>('JFF_TABS', null)
+} | null>('JFF_TABS', null)
 
 const active = computed(() => {
   return tabs?.props.modelValue === props.name

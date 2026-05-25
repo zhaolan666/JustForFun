@@ -8,23 +8,23 @@
         ns.m(effect),
       ]"
     >
-      <jff-icon
+      <JffIcon
         v-if="showIcon"
         :class="[ns.e('icon')]"
-      ><component :is="iconName" /></jff-icon>
-      
+      ><component :is="iconName" /></JffIcon>
+
       <div :class="[ns.e('content')]">
         <span v-if="title" :class="[ns.e('title')]">{{ title }}</span>
         <span :class="[ns.e('message')]">
           <slot />
         </span>
       </div>
-      
-      <jff-icon
+
+      <JffIcon
         v-if="closable"
         :class="[ns.e('close')]"
         @click="handleClose"
-      ><X /></jff-icon>
+      ><Close /></JffIcon>
     </div>
   </Transition>
 </template>
@@ -34,7 +34,7 @@ import { ref, computed } from 'vue'
 import { useNamespace } from '@justforfun-ui/hooks'
 import { alertProps } from './alert'
 import JffIcon from '@justforfun-ui/components/icon'
-import { X, CheckCircle, Warning, Error, InfoFilled } from '@element-plus/icons-vue'
+import { Close, CircleCheck, WarningFilled, CircleCloseFilled, InfoFilled } from '@element-plus/icons-vue'
 
 defineOptions({
   name: 'JffAlert',
@@ -49,9 +49,9 @@ const ns = useNamespace('alert')
 const visible = ref(true)
 
 const iconMap: Record<string, any> = {
-  success: CheckCircle,
-  warning: Warning,
-  danger: Error,
+  success: CircleCheck,
+  warning: WarningFilled,
+  danger: CircleCloseFilled,
   info: InfoFilled,
 }
 

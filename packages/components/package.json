@@ -12,16 +12,16 @@
     "build:vite": "vite build"
   },
   "dependencies": {
-    "@justforfun-ui/constants": "workspace:^1.0.0",
-    "@justforfun-ui/hooks": "workspace:^1.0.0",
-    "@justforfun-ui/theme-chalk": "workspace:^1.0.2",
-    "@justforfun-ui/tokens": "workspace:^0.0.1",
-    "@justforfun-ui/utils": "workspace:^1.0.2",
-    "@popperjs/core": "^2.11.6",
+    "@justforfun-ui/constants": "workspace:^",
+    "@justforfun-ui/hooks": "workspace:^",
+    "@justforfun-ui/theme-chalk": "workspace:^",
+    "@justforfun-ui/tokens": "workspace:^",
+    "@justforfun-ui/utils": "workspace:^",
+    "@popperjs/core": "^2.11.8",
     "async-validator": "^4.2.5",
-    "dayjs": "^1.11.7",
+    "dayjs": "^1.11.20",
     "loadsh": "^0.0.4",
-    "mitt": "^3.0.0"
+    "mitt": "^3.0.1"
   },
   "peerDependencies": {
     "vue": ">=3.2.0"
@@ -42,6 +42,6 @@
   },
   "homepage": "https://github.com/zhaolan666/JustForFun/tree/dev#readme",
   "devDependencies": {
-    "vite-plugin-dts": "^2.2.0"
+    "vite-plugin-dts": "^5.0.1"
   }
 }

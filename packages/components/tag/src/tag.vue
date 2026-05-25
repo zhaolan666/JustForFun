@@ -1,7 +1,10 @@
 <template>
-  <Transition name="fade">
+  <Transition
+    name="fade"
+    @after-leave="onAfterLeave"
+  >
     <span
-      v-show="visible"
+      v-show="!isDestroyed"
       :class="[
         ns.b(),
         ns.m(type),
@@ -12,12 +15,11 @@
       ]"
     >
       <slot />
-      <jff-icon
+      <JffIcon
         v-if="closable"
-        name="X"
         :class="[ns.e('close')]"
-        @click="handleClose"
-      />
+        @click.stop="handleClose"
+      ><Close /></JffIcon>
     </span>
   </Transition>
 </template>
@@ -27,22 +29,28 @@ import { ref } from 'vue'
 import { useNamespace } from '@justforfun-ui/hooks'
 import { tagProps } from './tag'
 import JffIcon from '@justforfun-ui/components/icon'
+import { Close } from '@element-plus/icons-vue'
 
 defineOptions({
   name: 'JffTag',
 })
 
-const props = defineProps(tagProps)
+defineProps(tagProps)
 const emit = defineEmits<{
   (e: 'close'): void
 }>()
 
 const ns = useNamespace('tag')
 const visible = ref(true)
+const isDestroyed = ref(false)
 
 const handleClose = () => {
   visible.value = false
   emit('close')
+}
+
+const onAfterLeave = () => {
+  isDestroyed.value = true
 }
 </script>
 
