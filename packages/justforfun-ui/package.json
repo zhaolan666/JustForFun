@@ -24,13 +24,60 @@
       "import": "./index.ts",
       "require": "./index.ts"
     },
-    "./es": "./es/index.mjs",
-    "./lib": "./lib/index.js",
-    "./es/*.mjs": "./es/*.mjs",
-    "./es/*": "./es/*.mjs",
-    "./lib/*.js": "./lib/*.js",
-    "./lib/*": "./lib/*.js",
-    "./*": "./*"
+    "./es": {
+      "types": "./es/index.d.mts",
+      "import": "./es/index.mjs"
+    },
+    "./lib": {
+      "types": "./lib/index.d.ts",
+      "require": "./lib/index.js"
+    },
+    "./es/*": {
+      "types": "./es/*.d.mts",
+      "import": "./es/*.mjs"
+    },
+    "./lib/*": {
+      "types": "./lib/*.d.ts",
+      "require": "./lib/*.js"
+    },
+    "./theme-chalk/*": {
+      "types": "./theme-chalk/*.d.ts",
+      "import": "./theme-chalk/*.css",
+      "require": "./theme-chalk/*.css"
+    },
+    "./components/*": {
+      "types": "./es/components/*/index.d.mts",
+      "import": "./es/components/*/index.mjs",
+      "require": "./lib/components/*/index.js"
+    },
+    "./es/components/*": {
+      "types": "./es/components/*/index.d.mts",
+      "import": "./es/components/*/index.mjs"
+    },
+    "./lib/components/*": {
+      "types": "./lib/components/*/index.d.ts",
+      "require": "./lib/components/*/index.js"
+    },
+    "./components": {
+      "types": "./components.ts",
+      "import": "./components.ts",
+      "require": "./components.ts"
+    },
+    "./theme-chalk": {
+      "types": "./theme-chalk.ts",
+      "import": "./theme-chalk.ts",
+      "require": "./theme-chalk.ts"
+    },
+    "./resolver": {
+      "types": "./resolver.ts",
+      "import": "./resolver.ts",
+      "require": "./resolver.ts"
+    },
+    "./style-loader": {
+      "types": "./style-loader.ts",
+      "import": "./style-loader.ts",
+      "require": "./style-loader.ts"
+    }
   },
   "unpkg": "dist/index.full.js",
   "jsdelivr": "dist/index.full.js",
@@ -47,26 +94,28 @@
     "theme-chalk/**/*.css",
     "theme-chalk/src/**/*.scss",
     "es/components/*/style/*",
-    "lib/components/*/style/*"
+    "lib/components/*/style/*",
+    "**/*.css",
+    "**/*.scss"
   ],
   "peerDependencies": {
     "vue": ">=3.2.0"
   },
   "dependencies": {
-    "@element-plus/icons-vue": "^2.1.0",
-    "@types/lodash": "^4.14.194",
-    "@types/lodash-es": "^4.17.7",
-    "@vueuse/core": "^9.13.0",
+    "@element-plus/icons-vue": "^2.3.2",
+    "@types/lodash": "^4.17.24",
+    "@types/lodash-es": "^4.17.12",
+    "@vueuse/core": "^14.3.0",
     "async-validator": "^4.2.5",
-    "dayjs": "^1.11.7",
-    "lodash": "^4.17.21",
-    "lodash-es": "^4.17.21",
+    "dayjs": "^1.11.20",
+    "lodash": "^4.18.1",
+    "lodash-es": "^4.18.1",
     "normalize-wheel-es": "^1.2.0"
   },
   "devDependencies": {
-    "@types/node": "^18.15.11",
-    "vue": "^3.2.45",
-    "vue-router": "^4.1.6"
+    "@types/node": "^25.9.1",
+    "vue": "^3.5.34",
+    "vue-router": "^5.0.7"
   },
   "browserslist": [
     "> 1%",
