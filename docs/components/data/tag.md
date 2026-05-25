@@ -1,57 +1,102 @@
-# Tag 标签
+# Tag
 
-用于标记和分类。
+Used for marking and selection.
 
-## 基础用法
+## Basic Usage
 
-<demo-block>
-<template #demo>
-<jff-tag>默认标签</jff-tag>
-<jff-tag type="primary">主要标签</jff-tag>
-<jff-tag type="success">成功标签</jff-tag>
-<jff-tag type="warning">警告标签</jff-tag>
-<jff-tag type="danger">危险标签</jff-tag>
-</template>
-<template #code>
+:::demo
+
+<div class="flex gap-2">
+  <span class="jff-tag">Tag 1</span>
+  <span class="jff-tag jff-tag--success">Tag 2</span>
+  <span class="jff-tag jff-tag--info">Tag 3</span>
+  <span class="jff-tag jff-tag--warning">Tag 4</span>
+  <span class="jff-tag jff-tag--danger">Tag 5</span>
+</div>
+
 ```vue
-<jff-tag>默认标签</jff-tag>
-<jff-tag type="primary">主要标签</jff-tag>
-<jff-tag type="success">成功标签</jff-tag>
-<jff-tag type="warning">警告标签</jff-tag>
-<jff-tag type="danger">危险标签</jff-tag>
+<template>
+  <div class="flex gap-2">
+    <JffTag>Tag 1</JffTag>
+    <JffTag type="success">Tag 2</JffTag>
+    <JffTag type="info">Tag 3</JffTag>
+    <JffTag type="warning">Tag 4</JffTag>
+    <JffTag type="danger">Tag 5</JffTag>
+  </div>
+</template>
 ```
-</template>
-</demo-block>
+:::
 
-## 可关闭标签
+## Closable Tag
 
-<demo-block>
-<template #demo>
-<jff-tag closable @close="handleClose">可关闭标签</jff-tag>
-</template>
-<template #code>
+:::demo
+
+<div class="flex gap-2">
+  <span class="jff-tag jff-tag--closable">Tag 1 ✕</span>
+  <span class="jff-tag jff-tag--success jff-tag--closable">Tag 2 ✕</span>
+  <span class="jff-tag jff-tag--info jff-tag--closable">Tag 3 ✕</span>
+</div>
+
 ```vue
-<jff-tag closable @close="handleClose">可关闭标签</jff-tag>
-
-<script setup>
-const handleClose = () => {
-  console.log('标签已关闭')
-}
-</script>
-```
+<template>
+  <div class="flex gap-2">
+    <JffTag closable>Tag 1</JffTag>
+    <JffTag closable type="success">Tag 2</JffTag>
+    <JffTag closable type="info">Tag 3</JffTag>
+  </div>
 </template>
-</demo-block>
+```
+:::
 
-## Tag 属性
+## Different Sizes
 
-| 属性 | 类型 | 默认值 | 说明 |
+:::demo
+
+<div class="flex gap-2 items-center">
+  <span class="jff-tag jff-tag--large">Large</span>
+  <span class="jff-tag">Default</span>
+  <span class="jff-tag jff-tag--small">Small</span>
+</div>
+
+```vue
+<template>
+  <div class="flex gap-2 items-center">
+    <JffTag size="large">Large</JffTag>
+    <JffTag>Default</JffTag>
+    <JffTag size="small">Small</JffTag>
+  </div>
+</template>
+```
+:::
+
+## Round Tag
+
+:::demo
+
+<div class="flex gap-2">
+  <span class="jff-tag jff-tag--round">Round Tag</span>
+  <span class="jff-tag jff-tag--success jff-tag--round">Success Round</span>
+  <span class="jff-tag jff-tag--info jff-tag--round">Info Round</span>
+</div>
+
+```vue
+<template>
+  <div class="flex gap-2">
+    <JffTag round>Round Tag</JffTag>
+    <JffTag round type="success">Success Round</JffTag>
+    <JffTag round type="info">Info Round</JffTag>
+  </div>
+</template>
+```
+:::
+
+## Tag API
+
+### Tag Attributes
+
+| Attribute | Type | Default | Description |
 |------|------|--------|------|
-| type | string | info | 类型（primary/success/warning/danger/info） |
-| closable | boolean | false | 是否可关闭 |
-| hit | boolean | false | 是否有边框高亮 |
-
-## Tag 事件
-
-| 事件名 | 参数 | 说明 |
-|--------|------|------|
-| close | - | 关闭时触发 |
+| type | string | — | Type |
+| closable | boolean | false | Whether to be closable |
+| round | boolean | false | Whether to be round |
+| size | string | — | Size |

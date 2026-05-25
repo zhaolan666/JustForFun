@@ -1,69 +1,345 @@
-# Button 按钮
-常用操作按钮
+# Button
 
-## 基础用法
+Commonly used operation buttons.
 
-基础的函数用法
+## Basic Usage
 
-使用`size`、`color`、`pain`、`round`属性来定义 Button 的样式。
+Use `type`, `plain`, `round`, and `circle` attributes to define the button style.
 
 :::demo
-```vue
-<template>
- <div style="margin-bottom:20px;">
-  <JffButton color="blue">主要按钮</JffButton>
-  <JffButton color="green">绿色按钮</JffButton>
-  <JffButton color="gray">灰色按钮</JffButton>
-  <JffButton color="yellow">黄色按钮</JffButton>
-  <JffButton color="red">红色按钮</JffButton>
- </div>
- <div style="margin-bottom:20px;"
- >
-  <JffButton color="blue" plain>朴素按钮</JffButton>
-  <JffButton color="green" plain>绿色按钮</JffButton>
-  <JffButton color="gray" plain>灰色按钮</JffButton>
-  <JffButton color="yellow" plain>黄色按钮</JffButton>
-  <JffButton color="red" plain>红色按钮</JffButton>
- </div>
- <div style="margin-bottom:20px;">
-  <JffButton size="small" plain>小按钮</JffButton>
-  <JffButton size="medium" plain>中按钮</JffButton>
-  <JffButton size="large" plain>大按钮</JffButton>
- </div>
- <div style="margin-bottom:20px;">
-  <JffButton color="blue" round plain icon="search">搜索按钮</JffButton>
-  <JffButton color="green" round plain icon="edit">编辑按钮</JffButton>
-  <JffButton color="gray" round plain icon="check">成功按钮</JffButton>
-  <JffButton color="yellow" round plain icon="message">提示按钮</JffButton>
-  <JffButton color="red" round plain icon="delete">删除按钮</JffButton>
- </div>
- <div style="margin-bottom:20px;">
-  <JffButton color="blue" round plain icon="search"></JffButton>
-  <JffButton color="green" round plain icon="edit"></JffButton>
-  <JffButton color="gray" round plain icon="check"></JffButton>
-  <JffButton color="yellow" round plain icon="message"></JffButton>
-  <JffButton color="red" round plain icon="delete"></JffButton>
- </div>
-</template>
-```
-:::
 
-## 图标按钮
-
-带图标的按钮可增强辨识度（有文字）或节省空间（无文字）。
-
-:::demo 设置 icon 属性即可，icon 的列表可以参考 Element 的 icon 组件，也可以设置在文字右边的 icon ，只要使用 i 标签即可，可以使用自定义图标。
+<div class="flex gap-4 flex-wrap">
+  <JffButton>Default</JffButton>
+  <JffButton type="primary">Primary</JffButton>
+  <JffButton type="success">Success</JffButton>
+  <JffButton type="warning">Warning</JffButton>
+  <JffButton type="danger">Danger</JffButton>
+  <JffButton type="info">Info</JffButton>
+</div>
 
 ```vue
 <template>
- <div class="flex flex-row">
-  <JffButton icon="edit" plain></JffButton>
-  <JffButton icon="delete" plain></JffButton>
-  <JffButton icon="share" plain></JffButton>
-  <JffButton round plain icon="search">搜索</JffButton>
- </div>
+  <div class="flex gap-4 flex-wrap">
+    <JffButton>Default</JffButton>
+    <JffButton type="primary">Primary</JffButton>
+    <JffButton type="success">Success</JffButton>
+    <JffButton type="warning">Warning</JffButton>
+    <JffButton type="danger">Danger</JffButton>
+    <JffButton type="info">Info</JffButton>
+  </div>
 </template>
 ```
+
 :::
 
+## Plain Button
 
+Plain buttons also have different types.
+
+:::demo
+
+<div class="flex gap-4 flex-wrap">
+  <JffButton plain>Plain</JffButton>
+  <JffButton type="primary" plain>Primary</JffButton>
+  <JffButton type="success" plain>Success</JffButton>
+  <JffButton type="warning" plain>Warning</JffButton>
+  <JffButton type="danger" plain>Danger</JffButton>
+  <JffButton type="info" plain>Info</JffButton>
+</div>
+
+```vue
+<template>
+  <div class="flex gap-4 flex-wrap">
+    <JffButton plain>Plain</JffButton>
+    <JffButton type="primary" plain>Primary</JffButton>
+    <JffButton type="success" plain>Success</JffButton>
+    <JffButton type="warning" plain>Warning</JffButton>
+    <JffButton type="danger" plain>Danger</JffButton>
+    <JffButton type="info" plain>Info</JffButton>
+  </div>
+</template>
+```
+
+:::
+
+## Round Button
+
+Round buttons also have different types.
+
+:::demo
+
+<div class="flex gap-4 flex-wrap">
+  <JffButton round>Round</JffButton>
+  <JffButton type="primary" round>Primary</JffButton>
+  <JffButton type="success" round>Success</JffButton>
+  <JffButton type="warning" round>Warning</JffButton>
+  <JffButton type="danger" round>Danger</JffButton>
+  <JffButton type="info" round>Info</JffButton>
+</div>
+
+```vue
+<template>
+  <div class="flex gap-4 flex-wrap">
+    <JffButton round>Round</JffButton>
+    <JffButton type="primary" round>Primary</JffButton>
+    <JffButton type="success" round>Success</JffButton>
+    <JffButton type="warning" round>Warning</JffButton>
+    <JffButton type="danger" round>Danger</JffButton>
+    <JffButton type="info" round>Info</JffButton>
+  </div>
+</template>
+```
+
+:::
+
+## Circle Button
+
+Use the `circle` attribute to define a circular button.
+
+:::demo
+
+<div class="flex gap-4">
+  <JffButton circle><span class="i-ri-search" /></JffButton>
+  <JffButton type="primary" circle><span class="i-ri-edit-line" /></JffButton>
+  <JffButton type="success" circle><span class="i-ri-check-line" /></JffButton>
+  <JffButton type="warning" circle><span class="i-ri-star-line" /></JffButton>
+  <JffButton type="danger" circle><span class="i-ri-delete-bin-line" /></JffButton>
+</div>
+
+```vue
+<template>
+  <div class="flex gap-4">
+    <JffButton circle><span class="i-ri-search" /></JffButton>
+    <JffButton type="primary" circle><span class="i-ri-edit-line" /></JffButton>
+    <JffButton type="success" circle><span class="i-ri-check-line" /></JffButton>
+    <JffButton type="warning" circle><span class="i-ri-star-line" /></JffButton>
+    <JffButton type="danger" circle><span class="i-ri-delete-bin-line" /></JffButton>
+  </div>
+</template>
+```
+
+:::
+
+## Disabled State
+
+Use the `disabled` attribute to define whether the button is disabled.
+
+:::demo
+
+<div class="flex flex-col gap-4">
+  <div class="flex gap-4 flex-wrap">
+    <JffButton disabled>Default</JffButton>
+    <JffButton type="primary" disabled>Primary</JffButton>
+    <JffButton type="success" disabled>Success</JffButton>
+    <JffButton type="warning" disabled>Warning</JffButton>
+    <JffButton type="danger" disabled>Danger</JffButton>
+  </div>
+  <div class="flex gap-4 flex-wrap">
+    <JffButton plain disabled>Plain</JffButton>
+    <JffButton type="primary" plain disabled>Primary</JffButton>
+    <JffButton type="success" plain disabled>Success</JffButton>
+    <JffButton type="warning" plain disabled>Warning</JffButton>
+    <JffButton type="danger" plain disabled>Danger</JffButton>
+  </div>
+</div>
+
+```vue
+<template>
+  <div class="flex flex-col gap-4">
+    <div class="flex gap-4 flex-wrap">
+      <JffButton disabled>Default</JffButton>
+      <JffButton type="primary" disabled>Primary</JffButton>
+      <JffButton type="success" disabled>Success</JffButton>
+      <JffButton type="warning" disabled>Warning</JffButton>
+      <JffButton type="danger" disabled>Danger</JffButton>
+    </div>
+    <div class="flex gap-4 flex-wrap">
+      <JffButton plain disabled>Plain</JffButton>
+      <JffButton type="primary" plain disabled>Primary</JffButton>
+      <JffButton type="success" plain disabled>Success</JffButton>
+      <JffButton type="warning" plain disabled>Warning</JffButton>
+      <JffButton type="danger" plain disabled>Danger</JffButton>
+    </div>
+  </div>
+</template>
+```
+
+:::
+
+## Text Button
+
+Use the `text` attribute to define a text button.
+
+:::demo
+
+<div class="flex gap-4 flex-wrap">
+  <JffButton text>Text</JffButton>
+  <JffButton type="primary" text>Primary</JffButton>
+  <JffButton type="success" text>Success</JffButton>
+  <JffButton type="warning" text>Warning</JffButton>
+  <JffButton type="danger" text>Danger</JffButton>
+</div>
+
+```vue
+<template>
+  <div class="flex gap-4 flex-wrap">
+    <JffButton text>Text</JffButton>
+    <JffButton type="primary" text>Primary</JffButton>
+    <JffButton type="success" text>Success</JffButton>
+    <JffButton type="warning" text>Warning</JffButton>
+    <JffButton type="danger" text>Danger</JffButton>
+  </div>
+</template>
+```
+
+:::
+
+## Icon Button
+
+Use icons to enhance button semantics.
+
+:::demo
+
+<div class="flex flex-col gap-4">
+  <div class="flex gap-4">
+    <JffButton type="primary">
+      <span class="i-ri-edit-line mr-1" />
+      Edit
+    </JffButton>
+    <JffButton type="primary">
+      Share
+      <span class="i-ri-share-line ml-1" />
+    </JffButton>
+    <JffButton type="primary">
+      <span class="i-ri-delete-bin-line mr-1" />
+      Delete
+    </JffButton>
+  </div>
+  <div class="flex gap-4">
+    <JffButton type="primary" circle><span class="i-ri-search" /></JffButton>
+    <JffButton type="success" circle><span class="i-ri-check-line" /></JffButton>
+    <JffButton type="warning" circle><span class="i-ri-star-line" /></JffButton>
+    <JffButton type="danger" circle><span class="i-ri-delete-bin-line" /></JffButton>
+  </div>
+</div>
+
+```vue
+<template>
+  <div class="flex flex-col gap-4">
+    <div class="flex gap-4">
+      <JffButton type="primary">
+        <span class="i-ri-edit-line mr-1" />
+        Edit
+      </JffButton>
+      <JffButton type="primary">
+        Share
+        <span class="i-ri-share-line ml-1" />
+      </JffButton>
+      <JffButton type="primary">
+        <span class="i-ri-delete-bin-line mr-1" />
+        Delete
+      </JffButton>
+    </div>
+    <div class="flex gap-4">
+      <JffButton type="primary" circle><span class="i-ri-search" /></JffButton>
+      <JffButton type="success" circle><span class="i-ri-check-line" /></JffButton>
+      <JffButton type="warning" circle><span class="i-ri-star-line" /></JffButton>
+      <JffButton type="danger" circle><span class="i-ri-delete-bin-line" /></JffButton>
+    </div>
+  </div>
+</template>
+```
+
+:::
+
+## Button Size
+
+Use the `size` attribute to define button size.
+
+:::demo
+
+<div class="flex items-center gap-4 flex-wrap">
+  <JffButton type="primary" size="large">Large</JffButton>
+  <JffButton type="primary">Default</JffButton>
+  <JffButton type="primary" size="small">Small</JffButton>
+</div>
+<div class="flex items-center gap-4 flex-wrap mt-4">
+  <JffButton type="primary" size="large" round>Large</JffButton>
+  <JffButton type="primary" round>Default</JffButton>
+  <JffButton type="primary" size="small" round>Small</JffButton>
+</div>
+
+```vue
+<template>
+  <div class="flex items-center gap-4 flex-wrap">
+    <JffButton type="primary" size="large">Large</JffButton>
+    <JffButton type="primary">Default</JffButton>
+    <JffButton type="primary" size="small">Small</JffButton>
+  </div>
+  <div class="flex items-center gap-4 flex-wrap mt-4">
+    <JffButton type="primary" size="large" round>Large</JffButton>
+    <JffButton type="primary" round>Default</JffButton>
+    <JffButton type="primary" size="small" round>Small</JffButton>
+  </div>
+</template>
+```
+
+:::
+
+## Loading State
+
+Use the `loading` attribute to define the button's loading state.
+
+:::demo
+
+<div class="flex gap-4 flex-wrap">
+  <JffButton type="primary" loading>Loading</JffButton>
+  <JffButton type="primary" loading size="large">Loading</JffButton>
+  <JffButton type="primary" loading size="small">Loading</JffButton>
+  <JffButton type="primary" loading circle><span class="i-ri-loader-4-line animate-spin" /></JffButton>
+</div>
+
+```vue
+<template>
+  <div class="flex gap-4 flex-wrap">
+    <JffButton type="primary" loading>Loading</JffButton>
+    <JffButton type="primary" loading size="large">Loading</JffButton>
+    <JffButton type="primary" loading size="small">Loading</JffButton>
+    <JffButton type="primary" loading circle><span class="i-ri-loader-4-line animate-spin" /></JffButton>
+  </div>
+</template>
+```
+
+:::
+
+## Button API
+
+### Button Attributes
+
+| Attribute | Type | Default | Description |
+|------|------|--------|------|
+| size | string | default | Size (large/default/small) |
+| type | string | default | Type (primary/success/warning/danger/info) |
+| plain | boolean | false | Whether to be plain button |
+| text | boolean | false | Whether to be text button |
+| round | boolean | false | Whether to be round button |
+| circle | boolean | false | Whether to be circle button |
+| loading | boolean | false | Whether to be loading |
+| disabled | boolean | false | Whether to be disabled |
+| icon | string | — | Icon class name |
+| autofocus | boolean | false | Whether to autofocus |
+| native-type | string | button | Native type attribute (button/submit/reset) |
+
+### Button Slots
+
+| Slot Name | Description |
+|--------|------|
+| default | Button content |
+| loading | Custom loading component |
+| icon | Custom icon component |
+
+### Button Events
+
+| Event Name | Parameters | Description |
+|--------|------|------|
+| click | (event: MouseEvent) | Triggered when clicked |

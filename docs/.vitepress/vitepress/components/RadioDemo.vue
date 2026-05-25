@@ -1,14 +1,3 @@
-# Radio
-
-Used for single selection among a group of options.
-
-## Basic Usage
-
-:::demo
-
-<RadioDemo />
-
-```vue
 <template>
   <div class="flex flex-col gap-8">
     <div class="flex flex-col gap-4">
@@ -45,23 +34,3 @@ const radio2 = ref("")
 const radio3 = ref("Checked & Disabled")
 const radioGroup = ref("Option 2")
 </script>
-```
-
-:::
-
-## Radio Attributes
-
-| Attribute | Type | Default | Description |
-|------|------|--------|------|
-| modelValue | string/number/boolean | - | Binding value |
-| label | string/number/boolean | - | Label value |
-| disabled | boolean | false | Whether to disable |
-| name | string | - | Native name attribute |
-| border | boolean | false | Whether to show border |
-
-## RadioGroup Attributes
-
-| Attribute | Type | Default | Description |
-|------|------|--------|------|
-| modelValue | string/number/boolean | - | Binding value |
-| disabled | boolean | false | Whether to disable |

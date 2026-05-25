@@ -1,69 +1,200 @@
-# Card 卡片
+# Card
 
-用于展示信息的容器。
+Aggregate information and display it in a card container.
 
-## 基础用法
+## Basic Usage
 
-<demo-block>
-<template #demo>
-<jff-card>
-  <p>卡片内容</p>
-</jff-card>
-</template>
-<template #code>
+Contains title, content, and actions.
+
+:::demo
+
+<JffCard header="Card Title">
+  <p>This is the content area of the card</p>
+  <p>Any content can be placed here</p>
+</JffCard>
+
 ```vue
-<jff-card>
-  <p>卡片内容</p>
-</jff-card>
+<template>
+  <JffCard header="Card Title">
+    <p>This is the content area of the card</p>
+    <p>Any content can be placed here</p>
+  </JffCard>
+</template>
 ```
-</template>
-</demo-block>
 
-## 带标题的卡片
+:::
 
-<demo-block>
-<template #demo>
-<jff-card header="卡片标题">
-  <p>卡片内容</p>
-</jff-card>
-</template>
-<template #code>
+## Simple Card
+
+Card with only content area.
+
+:::demo
+
+<JffCard>
+  <p>This is a simple card without a title</p>
+  <p>Only content area</p>
+</JffCard>
+
 ```vue
-<jff-card header="卡片标题">
-  <p>卡片内容</p>
-</jff-card>
-```
+<template>
+  <JffCard>
+    <p>This is a simple card without a title</p>
+    <p>Only content area</p>
+  </JffCard>
 </template>
-</demo-block>
+```
 
-## 带页脚的卡片
+:::
 
-<demo-block>
-<template #demo>
-<jff-card header="卡片标题">
-  <p>卡片内容</p>
+## Card with Image
+
+Configurable for richer content display.
+
+:::demo
+
+<JffCard header="Food Recommendation" style="max-width: 300px;">
+  <div style="height: 150px; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); border-radius: 4px; display: flex; align-items: center; justify-content: center; color: white; font-size: 18px;">
+    Delicious Food
+  </div>
+  <p style="margin-top: 12px;">This is a delicious dish with rich taste and balanced nutrition.</p>
+  <div style="margin-top: 12px; display: flex; justify-content: space-between; align-items: center;">
+    <span style="color: #f56c6c; font-size: 18px; font-weight: bold;">$68</span>
+    <JffButton type="primary" size="small">Buy Now</JffButton>
+  </div>
+</JffCard>
+
+```vue
+<template>
+  <JffCard header="Food Recommendation" style="max-width: 300px;">
+    <div style="height: 150px; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); border-radius: 4px; display: flex; align-items: center; justify-content: center; color: white; font-size: 18px;">
+      Delicious Food
+    </div>
+    <p style="margin-top: 12px;">This is a delicious dish with rich taste and balanced nutrition.</p>
+    <div style="margin-top: 12px; display: flex; justify-content: space-between; align-items: center;">
+      <span style="color: #f56c6c; font-size: 18px; font-weight: bold;">$68</span>
+      <JffButton type="primary" size="small">Buy Now</JffButton>
+    </div>
+  </JffCard>
+</template>
+```
+
+:::
+
+## Card with Shadow
+
+Define the shadow effect of the card through the `shadow` attribute.
+
+:::demo
+
+<div class="flex gap-4 flex-wrap">
+  <JffCard header="Always" shadow="always">
+    <p>Shadow always shows</p>
+  </JffCard>
+  <JffCard header="Hover" shadow="hover">
+    <p>Shadow shows on hover</p>
+  </JffCard>
+  <JffCard header="Never" shadow="never">
+    <p>Shadow never shows</p>
+  </JffCard>
+</div>
+
+```vue
+<template>
+  <div class="flex gap-4 flex-wrap">
+    <JffCard header="Always" shadow="always">
+      <p>Shadow always shows</p>
+    </JffCard>
+    <JffCard header="Hover" shadow="hover">
+      <p>Shadow shows on hover</p>
+    </JffCard>
+    <JffCard header="Never" shadow="never">
+      <p>Shadow never shows</p>
+    </JffCard>
+  </div>
+</template>
+```
+
+:::
+
+## Borderless Card
+
+Define whether to show the border through the `bordered` attribute.
+
+:::demo
+
+<div class="flex gap-4 flex-wrap">
+  <JffCard header="With Border" :bordered="true">
+    <p>Card with border</p>
+  </JffCard>
+  <JffCard header="Without Border" :bordered="false">
+    <p>Card without border</p>
+  </JffCard>
+</div>
+
+```vue
+<template>
+  <div class="flex gap-4 flex-wrap">
+    <JffCard header="With Border" :bordered="true">
+      <p>Card with border</p>
+    </JffCard>
+    <JffCard header="Without Border" :bordered="false">
+      <p>Card without border</p>
+    </JffCard>
+  </div>
+</template>
+```
+
+:::
+
+## Card with Actions
+
+Action buttons can be added at the bottom.
+
+:::demo
+
+<JffCard header="Action Card">
+  <p>This is a card with action buttons</p>
+  <p>Action buttons can be placed at the bottom</p>
   <template #footer>
-    <jff-button type="primary">操作按钮</jff-button>
+    <div class="flex gap-2 justify-end">
+      <JffButton>Cancel</JffButton>
+      <JffButton type="primary">Confirm</JffButton>
+    </div>
   </template>
-</jff-card>
-</template>
-<template #code>
+</JffCard>
+
 ```vue
-<jff-card header="卡片标题">
-  <p>卡片内容</p>
-  <template #footer>
-    <jff-button type="primary">操作按钮</jff-button>
-  </template>
-</jff-card>
-```
+<template>
+  <JffCard header="Action Card">
+    <p>This is a card with action buttons</p>
+    <p>Action buttons can be placed at the bottom</p>
+    <template #footer>
+      <div class="flex gap-2 justify-end">
+        <JffButton>Cancel</JffButton>
+        <JffButton type="primary">Confirm</JffButton>
+      </div>
+    </template>
+  </JffCard>
 </template>
-</demo-block>
+```
 
-## Card 属性
+:::
 
-| 属性 | 类型 | 默认值 | 说明 |
+## Card API
+
+### Card Attributes
+
+| Attribute | Type | Default | Description |
 |------|------|--------|------|
-| header | string | - | 标题 |
-| bodyStyle | object | {} | 内容区域样式 |
-| shadow | string | default | 阴影效果（always/hover/never/default） |
-| bordered | boolean | true | 是否显示边框 |
+| header | string | — | Card title |
+| body-style | object | {} | Content area style |
+| shadow | string | default | Shadow effect (always/hover/never/default) |
+| bordered | boolean | true | Whether to show border |
+
+### Card Slots
+
+| Slot Name | Description |
+|--------|------|
+| default | Card content |
+| header | Card header |
+| footer | Card footer action area |

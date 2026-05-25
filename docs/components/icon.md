@@ -1,67 +1,79 @@
-# Icon 图标
+# Icon
 
-提供了一套常用的图标集合。
+Based on the UnoCSS icon system, providing a set of commonly used icons.
 
-## 基础用法
+## Basic Usage
 
-使用 `name` 属性指定图标名称。
+Use inline SVG or UnoCSS icon class names to display icons.
 
 :::demo
+
+<div class="flex gap-4 text-2xl">
+  <svg class="w-6 h-6" viewBox="0 0 24 24" fill="currentColor">
+    <path d="M18.031 16.617l4.283 4.282-1.415 1.415-4.282-4.283A8.96 8.96 0 0 1 11 20c-4.968 0-9-4.032-9-9s4.032-9 9-9 9 4.032 9 9a8.96 8.96 0 0 1-1.969 5.617zm-2.006-.742A6.977 6.977 0 0 0 18 11c0-3.868-3.133-7-7-7-3.868 0-7 3.132-7 7 0 3.867 3.132 7 7 7a6.977 6.977 0 0 0 4.875-1.975l.15-.15z"/>
+  </svg>
+  <svg class="w-6 h-6" viewBox="0 0 24 24" fill="currentColor">
+    <path d="M9.243 19H21v2H3v-4.243l9.9-9.9 2.829 2.828-6.486 6.485zM5.756 17.243l6.486-6.486 1.414 1.414-6.486 6.486-1.414-1.414zM15.728 4.243l1.414 1.414-1.414 1.414-1.414-1.414 1.414-1.414z"/>
+  </svg>
+  <svg class="w-6 h-6" viewBox="0 0 24 24" fill="currentColor">
+    <path d="M10 15.172l9.192-9.193 1.415 1.414L10 18l-6.364-6.364 1.414-1.414z"/>
+  </svg>
+</div>
+
 ```vue
 <template>
-  <div class="icon-list">
-    <JffIcon name="search" />
-    <JffIcon name="edit" />
-    <JffIcon name="check" />
-    <JffIcon name="delete" />
-    <JffIcon name="message" />
+  <div class="flex gap-4 text-2xl">
+    <!-- Method 1: Use UnoCSS class (requires presetIcons configuration) -->
+    <span class="i-ri-search" />
+    <span class="i-ri-edit-line" />
+    <span class="i-ri-check-line" />
+    
+    <!-- Method 2: Use SVG directly -->
+    <svg class="w-6 h-6" viewBox="0 0 24 24" fill="currentColor">
+      <path d="M18.031 16.617l4.283 4.282-1.415 1.415-4.282-4.283A8.96 8.96 0 0 1 11 20c-4.968 0-9-4.032-9-9s4.032-9 9-9 9 4.032 9 9a8.96 8.96 0 0 1-1.969 5.617zm-2.006-.742A6.977 6.977 0 0 0 18 11c0-3.868-3.133-7-7-7-3.868 0-7 3.132-7 7 0 3.867 3.132 7 7 7a6.977 6.977 0 0 0 4.875-1.975l.15-.15z"/>
+    </svg>
   </div>
 </template>
-
-<style scoped>
-.icon-list {
-  display: flex;
-  gap: 16px;
-}
-</style>
 ```
+
 :::
 
-## 图标大小
-
-使用 `size` 属性设置图标大小。
+## Icon Sizes
 
 :::demo
+
+<div class="flex gap-4 items-center">
+  <svg class="w-4 h-4" viewBox="0 0 24 24" fill="currentColor"><path d="M18.031 16.617l4.283 4.282-1.415 1.415-4.282-4.283A8.96 8.96 0 0 1 11 20c-4.968 0-9-4.032-9-9s4.032-9 9-9 9 4.032 9 9a8.96 8.96 0 0 1-1.969 5.617zm-2.006-.742A6.977 6.977 0 0 0 18 11c0-3.868-3.133-7-7-7-3.868 0-7 3.132-7 7 0 3.867 3.132 7 7 7a6.977 6.977 0 0 0 4.875-1.975l.15-.15z"/></svg>
+  <svg class="w-6 h-6" viewBox="0 0 24 24" fill="currentColor"><path d="M18.031 16.617l4.283 4.282-1.415 1.415-4.282-4.283A8.96 8.96 0 0 1 11 20c-4.968 0-9-4.032-9-9s4.032-9 9-9 9 4.032 9 9a8.96 8.96 0 0 1-1.969 5.617zm-2.006-.742A6.977 6.977 0 0 0 18 11c0-3.868-3.133-7-7-7-3.868 0-7 3.132-7 7 0 3.867 3.132 7 7 7a6.977 6.977 0 0 0 4.875-1.975l.15-.15z"/></svg>
+  <svg class="w-8 h-8" viewBox="0 0 24 24" fill="currentColor"><path d="M18.031 16.617l4.283 4.282-1.415 1.415-4.282-4.283A8.96 8.96 0 0 1 11 20c-4.968 0-9-4.032-9-9s4.032-9 9-9 9 4.032 9 9a8.96 8.96 0 0 1-1.969 5.617zm-2.006-.742A6.977 6.977 0 0 0 18 11c0-3.868-3.133-7-7-7-3.868 0-7 3.132-7 7 0 3.867 3.132 7 7 7a6.977 6.977 0 0 0 4.875-1.975l.15-.15z"/></svg>
+</div>
+
 ```vue
 <template>
-  <JffIcon name="search" :size="16" />
-  <JffIcon name="search" :size="24" />
-  <JffIcon name="search" :size="32" />
-  <JffIcon name="search" :size="48" />
+  <div class="flex gap-4 items-center">
+    <svg class="w-4 h-4" viewBox="0 0 24 24" fill="currentColor">
+      <path d="M18.031 16.617l4.283 4.282-1.415 1.415-4.282-4.283A8.96 8.96 0 0 1 11 20c-4.968 0-9-4.032-9-9s4.032-9 9-9 9 4.032 9 9a8.96 8.96 0 0 1-1.969 5.617zm-2.006-.742A6.977 6.977 0 0 0 18 11c0-3.868-3.133-7-7-7-3.868 0-7 3.132-7 7 0 3.867 3.132 7 7 7a6.977 6.977 0 0 0 4.875-1.975l.15-.15z"/>
+    </svg>
+    <svg class="w-6 h-6" viewBox="0 0 24 24" fill="currentColor">
+      <path d="M18.031 16.617l4.283 4.282-1.415 1.415-4.282-4.283A8.96 8.96 0 0 1 11 20c-4.968 0-9-4.032-9-9s4.032-9 9-9 9 4.032 9 9a8.96 8.96 0 0 1-1.969 5.617zm-2.006-.742A6.977 6.977 0 0 0 18 11c0-3.868-3.133-7-7-7-3.868 0-7 3.132-7 7 0 3.867 3.132 7 7 7a6.977 6.977 0 0 0 4.875-1.975l.15-.15z"/>
+    </svg>
+    <svg class="w-8 h-8" viewBox="0 0 24 24" fill="currentColor">
+      <path d="M18.031 16.617l4.283 4.282-1.415 1.415-4.282-4.283A8.96 8.96 0 0 1 11 20c-4.968 0-9-4.032-9-9s4.032-9 9-9 9 4.032 9 9a8.96 8.96 0 0 1-1.969 5.617zm-2.006-.742A6.977 6.977 0 0 0 18 11c0-3.868-3.133-7-7-7-3.868 0-7 3.132-7 7 0 3.867 3.132 7 7 7a6.977 6.977 0 0 0 4.875-1.975l.15-.15z"/>
+    </svg>
+  </div>
 </template>
 ```
+
 :::
 
-## 图标颜色
+## Common Icons
 
-使用 `color` 属性设置图标颜色。
+| Icon Name | Usage | Description |
+|---------|---------|------|
+| search | `i-ri-search` or SVG | Search |
+| edit | `i-ri-edit-line` or SVG | Edit |
+| check | `i-ri-check-line` or SVG | Success/Check |
+| close | `i-ri-close-line` or SVG | Close |
+| delete | `i-ri-delete-bin-line` or SVG | Delete |
 
-:::demo
-```vue
-<template>
-  <JffIcon name="search" color="#845EC2" />
-  <JffIcon name="search" color="#BE93FD" />
-  <JffIcon name="search" color="#4FFBDF" />
-</template>
-```
-:::
-
-## 图标列表
-
-| 图标名称 | 说明 |
-|---------|------|
-| search | 搜索 |
-| edit | 编辑 |
-| check | 成功 |
-| delete | 删除 |
-| message | 消息 |
+For more icons, please refer to [Remix Icon](https://remixicon.com/)

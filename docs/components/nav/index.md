@@ -1,83 +1,156 @@
-# Navigation 导航
+# Navigation
 
-用于页面导航和菜单展示。
+Used for page navigation and menu display.
 
-## Tabs 标签页（敬请期待）
+## Dropdown
 
-<demo-block>
-<template #demo>
-<div class="tabs-coming">
-  <jff-border>
-    <div style="padding: 20px; text-align: center;">
-      <jff-icon name="list" size="48" color="#909399" />
-      <p style="margin-top: 10px; color: #909399;">Tabs 组件开发中...</p>
-    </div>
-  </jff-border>
-</div>
-</template>
-<template #code>
+:::demo
+
+<JffDropdown>
+  <JffButton type="primary">
+    Dropdown
+    <span class="i-ri-arrow-down-s-line" />
+  </JffButton>
+  <template #dropdown>
+    <JffDropdownItem command="1">Option 1</JffDropdownItem>
+    <JffDropdownItem command="2">Option 2</JffDropdownItem>
+    <JffDropdownItem command="3" divided>Option 3</JffDropdownItem>
+  </template>
+</JffDropdown>
+
 ```vue
-<!-- Tabs 组件即将推出，敬请期待 -->
+<template>
+  <JffDropdown>
+    <JffButton type="primary">
+      Dropdown
+      <span class="i-ri-arrow-down-s-line" />
+    </JffButton>
+    <template #dropdown>
+      <JffDropdownItem command="1">Option 1</JffDropdownItem>
+      <JffDropdownItem command="2">Option 2</JffDropdownItem>
+      <JffDropdownItem command="3" divided>Option 3</JffDropdownItem>
+    </template>
+  </JffDropdown>
+</template>
 ```
-</template>
-</demo-block>
 
-## Menu 菜单（敬请期待）
+:::
 
-<demo-block>
-<template #demo>
-<div class="menu-coming">
-  <jff-border>
-    <div style="padding: 20px; text-align: center;">
-      <jff-icon name="menu" size="48" color="#909399" />
-      <p style="margin-top: 10px; color: #909399;">Menu 组件开发中...</p>
-    </div>
-  </jff-border>
-</div>
-</template>
-<template #code>
+## Hover Trigger
+
+:::demo
+
+<JffDropdown trigger="hover">
+  <JffButton>
+    Hover Trigger
+    <span class="i-ri-arrow-down-s-line" />
+  </JffButton>
+  <template #dropdown>
+    <JffDropdownItem command="1">Option 1</JffDropdownItem>
+    <JffDropdownItem command="2">Option 2</JffDropdownItem>
+  </template>
+</JffDropdown>
+
 ```vue
-<!-- Menu 组件即将推出，敬请期待 -->
-```
+<template>
+  <JffDropdown trigger="hover">
+    <JffButton>
+      Hover Trigger
+      <span class="i-ri-arrow-down-s-line" />
+    </JffButton>
+    <template #dropdown>
+      <JffDropdownItem command="1">Option 1</JffDropdownItem>
+      <JffDropdownItem command="2">Option 2</JffDropdownItem>
+    </template>
+  </JffDropdown>
 </template>
-</demo-block>
+```
 
-## Dropdown 下拉菜单（敬请期待）
+:::
 
-<demo-block>
-<template #demo>
-<div class="dropdown-coming">
-  <jff-border>
-    <div style="padding: 20px; text-align: center;">
-      <jff-icon name="chevron-down" size="48" color="#909399" />
-      <p style="margin-top: 10px; color: #909399;">Dropdown 组件开发中...</p>
-    </div>
-  </jff-border>
+## Tabs (Coming Soon)
+
+:::demo
+
+<div style="padding: 20px; text-align: center; color: #909399;">
+  <span class="i-ri-list-check text-4xl" />
+  <p style="margin-top: 10px;">Tabs component under development...</p>
 </div>
-</template>
-<template #code>
+
 ```vue
-<!-- Dropdown 组件即将推出，敬请期待 -->
-```
-</template>
-</demo-block>
-
-## Steps 步骤条（敬请期待）
-
-<demo-block>
-<template #demo>
-<div class="steps-coming">
-  <jff-border>
-    <div style="padding: 20px; text-align: center;">
-      <jff-icon name="check-circle" size="48" color="#909399" />
-      <p style="margin-top: 10px; color: #909399;">Steps 组件开发中...</p>
+<template>
+  <div class="tabs-coming">
+    <div style="padding: 20px; text-align: center; color: #909399;">
+      <span class="i-ri-list-check text-4xl" />
+      <p style="margin-top: 10px;">Tabs component under development...</p>
     </div>
-  </jff-border>
-</div>
+  </div>
 </template>
-<template #code>
-```vue
-<!-- Steps 组件即将推出，敬请期待 -->
 ```
+
+:::
+
+## Menu (Coming Soon)
+
+:::demo
+
+<div style="padding: 20px; text-align: center; color: #909399;">
+  <span class="i-ri-menu-2-line text-4xl" />
+  <p style="margin-top: 10px;">Menu component under development...</p>
+</div>
+
+```vue
+<template>
+  <div class="menu-coming">
+    <div style="padding: 20px; text-align: center; color: #909399;">
+      <span class="i-ri-menu-2-line text-4xl" />
+      <p style="margin-top: 10px;">Menu component under development...</p>
+    </div>
+  </div>
 </template>
-</demo-block>
+```
+
+:::
+
+## Steps (Coming Soon)
+
+:::demo
+
+<div style="padding: 20px; text-align: center; color: #909399;">
+  <span class="i-ri-checkbox-circle-line text-4xl" />
+  <p style="margin-top: 10px;">Steps component under development...</p>
+</div>
+
+```vue
+<template>
+  <div class="steps-coming">
+    <div style="padding: 20px; text-align: center; color: #909399;">
+      <span class="i-ri-checkbox-circle-line text-4xl" />
+      <p style="margin-top: 10px;">Steps component under development...</p>
+    </div>
+  </div>
+</template>
+```
+
+:::
+
+## Dropdown Attributes
+
+| Attribute | Type    | Default | Description                    |
+| --------- | ------- | ------ | ----------------------- |
+| trigger     | string  | click  | Trigger method (click/hover) |
+| hideOnClick | boolean | true   | Whether to hide after click  |
+
+## DropdownItem Attributes
+
+| Attribute | Type                 | Default | Description           |
+| --------- | -------------------- | ------ | -------------- |
+| command  | string/number/object | -      | Command value   |
+| disabled | boolean              | false  | Whether disabled     |
+| divided  | boolean              | false  | Whether to show divider |
+
+## Dropdown Events
+
+| Event Name | Parameter    | Description             |
+| ---------- | ------- | ---------------- |
+| command | command | Triggered when menu item is clicked |

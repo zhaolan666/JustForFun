@@ -1,12 +1,12 @@
-# Color 颜色
+# Color
 
-JustForFun-UI 提供了一套完整的颜色系统，用于保持设计的一致性。
+JustForFun-UI provides a complete color system to maintain design consistency.
 
-## 主题色
+## Theme Colors
 
-### 主色调
+### Primary Colors
 
-主色调是品牌的核心颜色，用于重要的按钮、链接和高亮元素。
+Primary colors are the core brand colors, used for important buttons, links, and highlighted elements.
 
 <div class="color-palette">
   <div class="color-item">
@@ -32,9 +32,9 @@ JustForFun-UI 提供了一套完整的颜色系统，用于保持设计的一致
   </div>
 </div>
 
-### 辅助色
+### Secondary Colors
 
-辅助色用于图表、标签和状态指示等场景。
+Secondary colors are used for charts, tags, and status indicators.
 
 <div class="color-palette">
   <div class="color-item">
@@ -67,48 +67,48 @@ JustForFun-UI 提供了一套完整的颜色系统，用于保持设计的一致
   </div>
 </div>
 
-## 语义化颜色
+## Semantic Colors
 
-### 状态色
+### Status Colors
 
-用于表示不同的操作状态。
+Used to represent different operation states.
 
-| 颜色 | 用途 |
-|------|------|
-| <span class="color-dot" style="background: #6BCB77;"></span> Success | 成功状态、完成操作 |
-| <span class="color-dot" style="background: #FFE66D;"></span> Warning | 警告状态、需要注意 |
-| <span class="color-dot" style="background: #FF6B6B;"></span> Error | 错误状态、失败操作 |
-| <span class="color-dot" style="background: #4D96FF;"></span> Info | 信息提示、说明文字 |
+| Color                                                                | Usage                              |
+| -------------------------------------------------------------------- | ---------------------------------- |
+| <span class="color-dot" style="background: #6BCB77;"></span> Success | Success state, completed operation |
+| <span class="color-dot" style="background: #FFE66D;"></span> Warning | Warning state, needs attention     |
+| <span class="color-dot" style="background: #FF6B6B;"></span> Error   | Error state, failed operation      |
+| <span class="color-dot" style="background: #4D96FF;"></span> Info    | Information, description text      |
 
-### 文字颜色
+### Text Colors
 
-用于不同层级的文字。
+Used for text at different hierarchy levels.
 
-| 颜色 | 用途 |
-|------|------|
-| <span style="color: #1A1A1A;">#1A1A1A</span> | 主标题、重要文字 |
-| <span style="color: #666666;">#666666</span> | 次要文字、正文 |
-| <span style="color: #999999;">#999999</span> | 辅助文字、提示 |
+| Color                                         | Usage                        |
+| --------------------------------------------- | ---------------------------- |
+| <span style="color: #1A1A1A;">#1A1A1A</span> | Main title, important text   |
+| <span style="color: #666666;">#666666</span> | Secondary text, body content |
+| <span style="color: #999999;">#999999</span> | Auxiliary text, hints        |
 
-## CSS 变量
+## CSS Variables
 
-可以通过 CSS 变量自定义主题颜色：
+You can customize theme colors using CSS variables:
 
 ```css
 :root {
-  --jff-color-primary: #845EC2;
-  --jff-color-primary-light: #BE93FD;
+  --jff-color-primary: #845ec2;
+  --jff-color-primary-light: #be93fd;
   --jff-color-primary-dark: #593796;
-  --jff-color-success: #6BCB77;
-  --jff-color-warning: #FFE66D;
-  --jff-color-error: #FF6B6B;
-  --jff-color-info: #4D96FF;
+  --jff-color-success: #6bcb77;
+  --jff-color-warning: #ffe66d;
+  --jff-color-error: #ff6b6b;
+  --jff-color-info: #4d96ff;
 }
 ```
 
-## 使用示例
+## Usage Example
 
-在组件中使用主题色：
+Using theme colors in components:
 
 ```vue
 <template>

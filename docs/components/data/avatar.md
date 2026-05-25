@@ -1,47 +1,150 @@
-# Avatar 头像
+# Avatar
 
-用于展示用户头像。
+Display user or entity information in the form of icons, images, or characters.
 
-## 基础用法
+## Basic Usage
 
-<demo-block>
-<template #demo>
-<jff-avatar>JD</jff-avatar>
-<jff-avatar icon="User" />
-<jff-avatar src="https://example.com/avatar.jpg" />
-</template>
-<template #code>
+Define avatar content via `icon`, `src`, and default slot.
+
+:::demo
+
+<div class="flex gap-4 items-center">
+  <JffAvatar :size="50" icon="User" />
+  <JffAvatar :size="50" src="https://cube.elemecdn.com/0/88/03b0d39583f48206768a7534e55bcpng.png" />
+  <JffAvatar :size="50">user</JffAvatar>
+</div>
+
 ```vue
-<jff-avatar>JD</jff-avatar>
-<jff-avatar icon="User" />
-<jff-avatar src="https://example.com/avatar.jpg" />
+<template>
+  <div class="flex gap-4 items-center">
+    <JffAvatar :size="50" icon="User" />
+    <JffAvatar :size="50" src="https://cube.elemecdn.com/0/88/03b0d39583f48206768a7534e55bcpng.png" />
+    <JffAvatar :size="50">user</JffAvatar>
+  </div>
+</template>
 ```
-</template>
-</demo-block>
 
-## 尺寸大小
+:::
 
-<demo-block>
-<template #demo>
-<jff-avatar size="large">大</jff-avatar>
-<jff-avatar>中</jff-avatar>
-<jff-avatar size="small">小</jff-avatar>
-</template>
-<template #code>
+## Display Types
+
+Three types are supported: icon, image, and character.
+
+:::demo
+
+<div class="flex gap-4 items-center">
+  <JffAvatar :size="50" icon="User" />
+  <JffAvatar :size="50" src="https://cube.elemecdn.com/0/88/03b0d39583f48206768a7534e55bcpng.png" />
+  <JffAvatar :size="50">user</JffAvatar>
+</div>
+
 ```vue
-<jff-avatar size="large">大</jff-avatar>
-<jff-avatar>中</jff-avatar>
-<jff-avatar size="small">小</jff-avatar>
-```
+<template>
+  <div class="flex gap-4 items-center">
+    <JffAvatar :size="50" icon="User" />
+    <JffAvatar :size="50" src="https://cube.elemecdn.com/0/88/03b0d39583f48206768a7534e55bcpng.png" />
+    <JffAvatar :size="50">user</JffAvatar>
+  </div>
 </template>
-</demo-block>
+```
 
-## Avatar 属性
+:::
 
-| 属性 | 类型 | 默认值 | 说明 |
+## Shape
+
+Both circular and square shapes are supported.
+
+:::demo
+
+<div class="flex gap-4 items-center">
+  <JffAvatar shape="circle" src="https://cube.elemecdn.com/0/88/03b0d39583f48206768a7534e55bcpng.png" />
+  <JffAvatar shape="square" src="https://cube.elemecdn.com/0/88/03b0d39583f48206768a7534e55bcpng.png" />
+</div>
+
+```vue
+<template>
+  <div class="flex gap-4 items-center">
+    <JffAvatar shape="circle" src="https://cube.elemecdn.com/0/88/03b0d39583f48206768a7534e55bcpng.png" />
+    <JffAvatar shape="square" src="https://cube.elemecdn.com/0/88/03b0d39583f48206768a7534e55bcpng.png" />
+  </div>
+</template>
+```
+
+:::
+
+## Size
+
+Set the size of the avatar.
+
+:::demo
+
+<div class="flex gap-4 items-center">
+  <JffAvatar size="large" icon="User" />
+  <JffAvatar icon="User" />
+  <JffAvatar size="small" icon="User" />
+</div>
+
+```vue
+<template>
+  <div class="flex gap-4 items-center">
+    <JffAvatar size="large" icon="User" />
+    <JffAvatar icon="User" />
+    <JffAvatar size="small" icon="User" />
+  </div>
+</template>
+```
+
+:::
+
+## Image Load Failure
+
+Fallback behavior when image fails to load.
+
+:::demo
+
+<div class="flex gap-4 items-center">
+  <JffAvatar :size="100" src="https://empty">
+    <img src="https://cube.elemecdn.com/e/fd/0fc7d20532fdaf769a25683617711png.png" />
+  </JffAvatar>
+</div>
+
+```vue
+<template>
+  <div class="flex gap-4 items-center">
+    <JffAvatar :size="100" src="https://empty" @error="errorHandler">
+      <img src="https://cube.elemecdn.com/e/fd/0fc7d20532fdaf769a25683617711png.png" />
+    </JffAvatar>
+  </div>
+</template>
+
+<script setup>
+const errorHandler = () => {
+  console.log('Image load failed')
+}
+</script>
+```
+
+:::
+
+## Avatar Attributes
+
+| Attribute | Type | Default | Description |
 |------|------|--------|------|
-| icon | string | - | 图标名称 |
-| src | string | - | 图片地址 |
-| alt | string | - | 图片替代文本 |
-| size | string/number | default | 尺寸（large/default/small 或像素值） |
-| shape | string | circle | 形状（circle/square） |
+| icon | string | — | Set the icon type of the avatar, refer to Icon component |
+| size | number / string | default | Avatar size, can be a number or string (large/default/small) |
+| shape | string | circle | Avatar shape (circle/square) |
+| src | string | — | Resource address for image avatar |
+| alt | string | — | Alternative text describing the image |
+| fit | string | cover | How the image fits the container when display type is image |
+
+## Avatar Events
+
+| Event Name | Parameters | Description |
+|--------|------|------|
+| error | (e: Event) | Callback when image avatar fails to load, returning false will disable the component's default fallback behavior |
+
+## Avatar Slots
+
+| Slot Name | Description |
+|--------|------|
+| default | Custom avatar content |

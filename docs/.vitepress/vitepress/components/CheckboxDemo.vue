@@ -1,14 +1,3 @@
-# Checkbox
-
-Used for multiple selection among a group of options.
-
-## Basic Usage
-
-:::demo
-
-<CheckboxDemo />
-
-```vue
 <template>
   <div class="flex flex-col gap-8">
     <div class="flex flex-col gap-4">
@@ -44,25 +33,3 @@ const checked2 = ref(false)
 const checked3 = ref(true)
 const groupChecked = ref(["Option 1", "Option 2"])
 </script>
-```
-
-:::
-
-## Checkbox Attributes
-
-| Attribute | Type | Default | Description |
-|------|------|--------|------|
-| modelValue | boolean | false | Binding value |
-| disabled | boolean | false | Whether to disable |
-| checked | boolean | false | Whether checked |
-| indeterminate | boolean | false | Whether in indeterminate state |
-| label | string | - | Label text |
-| border | boolean | false | Whether to show border |
-| name | string | - | Native name attribute |
-
-## CheckboxGroup Attributes
-
-| Attribute | Type | Default | Description |
-|------|------|--------|------|
-| modelValue | array | [] | Binding value |
-| disabled | boolean | false | Whether to disable |

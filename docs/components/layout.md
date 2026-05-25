@@ -1,14 +1,19 @@
-# Layout 布局
+# Layout
 
-提供基础的布局组件，包括 Container、Row 和 Col。
+Provides basic layout components including Container, Row, and Col.
 
-## Container 容器
+## Container
 
-用于包裹页面内容，提供固定宽度或流式布局。
+Used to wrap page content, providing fixed width or fluid layout.
 
-### 基础用法
+### Basic Usage
 
 :::demo
+
+<JffContainer>
+  <div style="padding: 20px; background: var(--jff-fill-color-light); color: var(--jff-text-color-primary);">Container Content</div>
+</JffContainer>
+
 ```vue
 <template>
   <JffContainer>
@@ -20,18 +25,33 @@
 .content {
   padding: 20px;
   background: #f5f5f5;
+  color: #333;
 }
 </style>
 ```
+
 :::
 
-### RTL 布局
+### RTL Layout
+
+RTL (Right-to-Left) layout is used to support languages read from right to left, such as Arabic, Hebrew, etc. By setting the `direction="rtl"` attribute, content inside the container will start from the right side.
 
 :::demo
+
+<JffContainer direction="rtl">
+  <div style="padding: 20px; background: var(--jff-fill-color-light); color: var(--jff-text-color-primary);">
+    <div>مرحبا بالعالم (Hello World in Arabic)</div>
+    <div style="margin-top: 8px;">This is content arranged from right to left</div>
+  </div>
+</JffContainer>
+
 ```vue
 <template>
-  <JffContainer direction="rtl">
-    <div class="content">RTL Container Content</div>
+  <JffContainer dir="rtl">
+    <div class="content">
+      <div>مرحبا بالعالم (Hello World in Arabic)</div>
+      <div>This is content arranged from right to left</div>
+    </div>
   </JffContainer>
 </template>
 
@@ -39,25 +59,45 @@
 .content {
   padding: 20px;
   background: #f5f5f5;
+  color: #333;
 }
 </style>
 ```
+
 :::
 
-### Container 属性
+**RTL Layout Use Cases:**
 
-| 属性 | 说明 | 类型 | 默认值 |
-|------|------|------|--------|
-| tag | 自定义元素标签 | string | div |
-| direction | 文本方向 | ltr / rtl | ltr |
+1. **Multilingual Support** - When the application needs to support RTL languages such as Arabic, Hebrew, Persian, etc.
+2. **Internationalization (i18n)** - Automatically switch layout direction based on user's language
+3. **Mixed Content** - Display LTR and RTL content together on the same page
 
-## Row 行
+**Implementation Principles:**
+- Changes text arrangement direction through CSS `direction: rtl` property
+- Makes text align right by default through `text-align: right`
+- Works with CSS logical properties (e.g., `margin-inline-start`) for adaptive layout
 
-用于创建水平布局的行容器。
+### Container Attributes
 
-### 基础用法
+| Attribute | Description | Type      | Default |
+| --------- | ----------- | --------- | ------ |
+| tag       | Custom element tag | string    | div    |
+| dir       | Text direction | ltr / rtl | ltr    |
+
+## Row
+
+Used to create horizontal layout row containers.
+
+### Basic Usage
 
 :::demo
+
+<JffRow>
+  <JffCol span="8"><div style="padding: 16px; background: var(--jff-fill-color); color: var(--jff-text-color-primary); text-align: center;">Col 1</div></JffCol>
+  <JffCol span="8"><div style="padding: 16px; background: var(--jff-fill-color); color: var(--jff-text-color-primary); text-align: center;">Col 2</div></JffCol>
+  <JffCol span="8"><div style="padding: 16px; background: var(--jff-fill-color); color: var(--jff-text-color-primary); text-align: center;">Col 3</div></JffCol>
+</JffRow>
+
 ```vue
 <template>
   <JffRow>
@@ -71,15 +111,24 @@
 .col-content {
   padding: 16px;
   background: #e8e8e8;
+  color: #333;
   text-align: center;
 }
 </style>
 ```
+
 :::
 
-### 间距
+### Gutter
 
 :::demo
+
+<JffRow :gutter="20">
+  <JffCol span="8"><div style="padding: 16px; background: var(--jff-fill-color); color: var(--jff-text-color-primary); text-align: center;">Col 1</div></JffCol>
+  <JffCol span="8"><div style="padding: 16px; background: var(--jff-fill-color); color: var(--jff-text-color-primary); text-align: center;">Col 2</div></JffCol>
+  <JffCol span="8"><div style="padding: 16px; background: var(--jff-fill-color); color: var(--jff-text-color-primary); text-align: center;">Col 3</div></JffCol>
+</JffRow>
+
 ```vue
 <template>
   <JffRow :gutter="20">
@@ -93,15 +142,26 @@
 .col-content {
   padding: 16px;
   background: #e8e8e8;
+  color: #333;
   text-align: center;
 }
 </style>
 ```
+
 :::
 
-### 对齐方式
+### Justify
 
 :::demo
+
+<div class="flex flex-col gap-4">
+  <JffRow justify="start"><div style="width: 100px; padding: 8px; background: var(--jff-fill-color); color: var(--jff-text-color-primary); text-align: center;">Start</div></JffRow>
+  <JffRow justify="center"><div style="width: 100px; padding: 8px; background: var(--jff-fill-color); color: var(--jff-text-color-primary); text-align: center;">Center</div></JffRow>
+  <JffRow justify="end"><div style="width: 100px; padding: 8px; background: var(--jff-fill-color); color: var(--jff-text-color-primary); text-align: center;">End</div></JffRow>
+  <JffRow justify="space-between"><div style="width: 100px; padding: 8px; background: var(--jff-fill-color); color: var(--jff-text-color-primary); text-align: center;">Space Between</div></JffRow>
+  <JffRow justify="space-around"><div style="width: 100px; padding: 8px; background: var(--jff-fill-color); color: var(--jff-text-color-primary); text-align: center;">Space Around</div></JffRow>
+</div>
+
 ```vue
 <template>
   <div class="demo-row">
@@ -121,28 +181,40 @@
   width: 100px;
   padding: 8px;
   background: #e8e8e8;
+  color: #333;
   text-align: center;
 }
 </style>
 ```
+
 :::
 
-### Row 属性
+### Row Attributes
 
-| 属性 | 说明 | 类型 | 默认值 |
-|------|------|------|--------|
-| tag | 自定义元素标签 | string | div |
-| gutter | 栅格间距 | number | 0 |
-| justify | 水平排列方式 | start / end / center / space-around / space-between | start |
-| align | 垂直对齐方式 | top / middle / bottom | top |
+| Attribute | Description | Type                                                | Default |
+| --------- | ----------- | --------------------------------------------------- | ------ |
+| tag     | Custom element tag | string                                              | div    |
+| gutter  | Grid spacing | number                                              | 0      |
+| justify | Horizontal alignment | start / end / center / space-around / space-between | start  |
+| align   | Vertical alignment | top / middle / bottom                               | top    |
 
-## Col 列
+## Col
 
-用于创建列布局。
+Used to create column layouts.
 
-### 基础用法
+### Basic Usage
 
 :::demo
+
+<JffRow>
+  <JffCol span="24"><div style="padding: 16px; background: var(--jff-fill-color); color: var(--jff-text-color-primary); text-align: center;">span="24"</div></JffCol>
+  <JffCol span="12"><div style="padding: 16px; background: var(--jff-fill-color); color: var(--jff-text-color-primary); text-align: center;">span="12"</div></JffCol>
+  <JffCol span="12"><div style="padding: 16px; background: var(--jff-fill-color); color: var(--jff-text-color-primary); text-align: center;">span="12"</div></JffCol>
+  <JffCol span="8"><div style="padding: 16px; background: var(--jff-fill-color); color: var(--jff-text-color-primary); text-align: center;">span="8"</div></JffCol>
+  <JffCol span="8"><div style="padding: 16px; background: var(--jff-fill-color); color: var(--jff-text-color-primary); text-align: center;">span="8"</div></JffCol>
+  <JffCol span="8"><div style="padding: 16px; background: var(--jff-fill-color); color: var(--jff-text-color-primary); text-align: center;">span="8"</div></JffCol>
+</JffRow>
+
 ```vue
 <template>
   <JffRow>
@@ -159,15 +231,24 @@
 .col-content {
   padding: 16px;
   background: #e8e8e8;
+  color: #333;
   text-align: center;
 }
 </style>
 ```
+
 :::
 
-### 偏移
+### Offset
 
 :::demo
+
+<JffRow>
+  <JffCol span="6"><div style="padding: 16px; background: var(--jff-fill-color); color: var(--jff-text-color-primary); text-align: center;">span="6"</div></JffCol>
+  <JffCol span="6" offset="6"><div style="padding: 16px; background: var(--jff-fill-color); color: var(--jff-text-color-primary); text-align: center;">span="6" offset="6"</div></JffCol>
+  <JffCol span="6" offset="6"><div style="padding: 16px; background: var(--jff-fill-color); color: var(--jff-text-color-primary); text-align: center;">span="6" offset="6"</div></JffCol>
+</JffRow>
+
 ```vue
 <template>
   <JffRow>
@@ -181,18 +262,20 @@
 .col-content {
   padding: 16px;
   background: #e8e8e8;
+  color: #333;
   text-align: center;
 }
 </style>
 ```
+
 :::
 
-### Col 属性
+### Col Attributes
 
-| 属性 | 说明 | 类型 | 默认值 |
-|------|------|------|--------|
-| tag | 自定义元素标签 | string | div |
-| span | 列宽度 | number (1-24) | 24 |
-| offset | 左侧偏移列数 | number | 0 |
-| push | 向右移动列数 | number | 0 |
-| pull | 向左移动列数 | number | 0 |
+| Attribute | Description | Type          | Default |
+| --------- | ----------- | ------------- | ------ |
+| tag    | Custom element tag | string        | div    |
+| span   | Column width | number (1-24) | 24     |
+| offset | Number of offset columns to the left | number        | 0      |
+| push   | Number of columns to move right | number        | 0      |
+| pull   | Number of columns to move left | number        | 0      |

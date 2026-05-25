@@ -1,14 +1,3 @@
-# Switch
-
-Represents the toggle between two mutually exclusive states, often used to trigger "on/off".
-
-## Basic Usage
-
-:::demo
-
-<SwitchDemo />
-
-```vue
 <template>
   <div class="flex flex-col gap-8">
     <div class="flex flex-col gap-4">
@@ -45,23 +34,3 @@ const value1 = ref(true)
 const value2 = ref(false)
 const sizeValue = ref(true)
 </script>
-```
-
-:::
-
-## Switch Attributes
-
-| Attribute | Type | Default | Description |
-|------|------|--------|------|
-| model-value / v-model | boolean / string / number | — | Binding value |
-| disabled | boolean | false | Whether to disable |
-| loading | boolean | false | Whether to show loading |
-| size | string | — | Size |
-| active-text | string | — | Text description when on |
-| inactive-text | string | — | Text description when off |
-
-## Switch Events
-
-| Event Name | Parameters | Description |
-|--------|------|------|
-| change | val | Callback when state changes |
