@@ -1,6 +1,5 @@
 import installer from './defaults'
 
-
 export * from '@justforfun-ui/components'
 export * from '@justforfun-ui/constants'
 export * from '@justforfun-ui/hooks'

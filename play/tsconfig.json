@@ -12,7 +12,9 @@
     "esModuleInterop": true,
     "lib": ["ESNext", "DOM"],
     "skipLibCheck": true,
+    "ignoreDeprecations": "6.0",
     "baseUrl": ".",
+    "types": ["node"],
     "paths": {
       "@justforfun-ui/components/*": ["../packages/components/*"],
       "@justforfun-ui/theme-chalk/*": ["../packages/theme-chalk/*"],
@@ -22,6 +24,6 @@
       "@justforfun-ui/locale/*": ["../packages/locale/*"]
     }
   },
-  "include": ["src/**/*.ts", "src/**/*.d.ts", "src/**/*.tsx", "src/**/*.vue"],
+  "include": ["src/**/*.ts", "src/**/*.d.ts", "src/**/*.tsx", "src/**/*.vue", "env.d.ts", "types/**/*.d.ts"],
   "references": [{ "path": "./tsconfig.node.json" }]
 }

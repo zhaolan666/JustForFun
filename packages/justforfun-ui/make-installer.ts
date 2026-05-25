@@ -18,7 +18,6 @@ export const makeInstaller = (component: Plugin[] = []) => {
 
   return {
     version,
-    install
+    install,
   }
 }
-

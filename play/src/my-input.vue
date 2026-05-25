@@ -3,13 +3,13 @@
 </template>
 
 <script lang="ts" setup>
-import { ref, watch } from 'vue';
+import { ref, watch } from 'vue'
 
 const props = defineProps({
   modelValue: {
     type: String,
-    default: ''
-  }
+    default: '',
+  },
 })
 
 const emit = defineEmits(['onUpdate: modelValue'])
@@ -21,12 +21,11 @@ watch(
   (newValue) => {
     state.value = newValue
   },
-  { immediate: true }
+  { immediate: true },
 )
 
 const changeHandle = (e: any) => {
   state.value = e.target.value
   emit('onUpdate: modelValue', state.value)
 }
-
 </script>

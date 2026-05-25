@@ -14,17 +14,19 @@
     "@types/lodash-es": "^4.17.12",
     "@vueuse/core": "^14.3.0",
     "async-validator": "^4.2.5",
-    "lodash": "^4.17.21",
-    "lodash-es": "^4.17.21",
+    "lodash": "^4.18.1",
+    "lodash-es": "^4.18.1",
     "lodash-unified": "^1.0.3",
-    "vue": "3.5.0"
+    "vue": "3.5.34"
   },
   "devDependencies": {
-    "@vitejs/plugin-vue": "^4.0.0",
-    "sass": "^1.99.0",
-    "typescript": "^4.9.3",
+    "@vitejs/plugin-vue": "^6.0.7",
+    "@vue/runtime-dom": "3.5.34",
+    "sass": "^1.100.0",
+    "typescript": "^6.0.3",
     "unplugin-vue-define-options": "^3.1.2",
-    "vite": "^4.1.0",
-    "vue-tsc": "^1.0.24"
+    "vite": "^8.0.14",
+    "vue": "3.5.34",
+    "vue-tsc": "^3.3.1"
   }
 }

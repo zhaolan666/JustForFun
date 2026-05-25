@@ -1,28 +1,39 @@
 ## justforfun-theme-chalk
+
 > justforfun component chalk theme.
 
 ### Installation
-``` bash
+
+```bash
 npm i justforfun-ui
 ```
+
 ### Usage
+
 Use Sass import
-``` bash
+
+```bash
 @use 'justforfun-ui/lib/theme-chalk/index.scss';
 ```
+
 Or Use vite/webpack
-``` js
+
+```js
 import 'justforfun-ui/lib/theme-chalk/index.css'
 ```
+
 Or
-``` css
+
+```css
 <link
   rel="stylesheet"
   href="https://unpkg.com/justforfun-ui/lib/theme-chalk/index.css"
 />
 ```
+
 ### Import on demand
-``` js
+
+```js
 import 'element-plus/lib/theme-chalk/input.css'
 import 'element-plus/lib/theme-chalk/select.css'
 
