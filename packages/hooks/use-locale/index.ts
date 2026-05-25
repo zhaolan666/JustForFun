@@ -2,8 +2,8 @@ import { computed, inject, isRef, ref, unref } from 'vue'
 import { get } from 'lodash-unified'
 import English from '@justforfun-ui/locale/lang/en'
 
-import type { MaybeRef } from '@vueuse/core'
 import type { InjectionKey, Ref } from 'vue'
+import type { MaybeRef } from 'vue'
 import type { Language } from '@justforfun-ui/locale'
 
 export type TranslatorOption = Record<string, string | number>

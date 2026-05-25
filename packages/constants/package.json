@@ -3,7 +3,9 @@
   "private": true,
   "version": "1.0.0",
   "description": "memory constant",
-  "keywords": ["utils"],
+  "keywords": [
+    "utils"
+  ],
   "license": "MIT",
   "main": "index.ts",
   "author": "mingdu",

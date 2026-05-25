@@ -109,6 +109,7 @@ export const useNamespace = (block: string, namespaceOverrides?: Ref<string | un
         styles[`--${namespace.value}-${block}-${key}`] = object[key]
       }
     }
+    return styles
   }
 
   const cssVarName = (name: string) => `--${namespace.value}-${name}`

@@ -4,7 +4,7 @@ import { debugWarn } from '@justforfun-ui/utils'
 import { useGetDerivedNamespace } from '../use-namespace'
 
 import type { InjectionKey, Ref } from 'vue'
-import type { MaybeRef } from '@vueuse/core'
+import type { MaybeRef } from 'vue'
 
 export type ElIdInjectionContext = {
   prefix: number

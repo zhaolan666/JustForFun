@@ -33,7 +33,7 @@ if (isClient) {
 
 function createDocumentHandler(
   el: HTMLElement,
-  binding: DirectiveBinding
+  binding: DirectiveBinding,
 ): DocumentHandler {
   let excludes: HTMLElement[] = []
   if (Array.isArray(binding.arg)) {
@@ -96,7 +96,7 @@ const ClickOutside: ObjectDirective = {
 
     const handlers = nodeList.get(el)!
     const oldHandlerIndex = handlers.findIndex(
-      (item) => item.bindingFn === binding.oldValue
+      (item) => item.bindingFn === binding.oldValue,
     )
     const newHandler = {
       documentHandler: createDocumentHandler(el, binding),

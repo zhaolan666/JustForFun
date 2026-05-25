@@ -10,7 +10,7 @@ export interface DeprecatedOptions {
 
 export function useDeprecated(
   options: DeprecatedOptions,
-  condition: { value: boolean }
+  condition: { value: boolean },
 ) {
   watch(
     () => condition.value,
@@ -20,18 +20,18 @@ export function useDeprecated(
         let warning = `[JustForFun UI] Deprecated${
           scope ? ` ${scope}` : ''
         }: "${from}" is deprecated in version ${version}.`
-        
+
         if (replacement) {
           warning += ` Please use "${replacement}" instead.`
         }
-        
+
         if (ref) {
           warning += ` See: ${ref}`
         }
-        
+
         console.warn(warning)
       }
     },
-    { immediate: true }
+    { immediate: true },
   )
 }
