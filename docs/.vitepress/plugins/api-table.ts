@@ -4,6 +4,6 @@ export const ApiTableContainer = {}
 
 export default function apiTable(): Plugin {
   return {
-    name: 'api-table'
+    name: 'api-table',
   }
 }

@@ -41,7 +41,7 @@ export function MarkdownTransform(): Plugin {
       return combineMarkdown(
         code,
         [combineScriptSetup(append.scriptSetups), ...append.headers],
-        append.footers
+        append.footers,
       )
     },
   }
@@ -56,7 +56,7 @@ ${codes.join('\n')}
 const combineMarkdown = (
   code: string,
   headers: string[],
-  footers: string[]
+  footers: string[],
 ) => {
   const frontmatterEnds = code.indexOf('---\n\n')
   const firstHeader = code.search(/\n#{1,6}\s.+/)
@@ -91,14 +91,14 @@ const transformComponentMarkdown = (
   id: string,
   componentId: string,
   code: string,
-  append: Append
+  append: Append,
 ) => {
   const lang = getLang(id)
   const docUrl = `${GITHUB_BLOB_URL}/${docsDirName}/en-US/component/${componentId}.md`
   const componentUrl = `${GITHUB_TREE_URL}/packages/components/${componentId}`
   const componentPath = path.resolve(
     projRoot,
-    `packages/components/${componentId}`
+    `packages/components/${componentId}`,
   )
   const isComponent = fs.existsSync(componentPath)
 

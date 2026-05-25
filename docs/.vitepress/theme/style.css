@@ -16,7 +16,9 @@
   right: 0;
   width: 100px;
   height: 100%;
-  box-shadow: 0 0 10px #29d, 0 0 5px #29d;
+  box-shadow:
+    0 0 10px #29d,
+    0 0 5px #29d;
   opacity: 1;
   -webkit-transform: rotate(3deg) translateY(-4px);
   -ms-transform: rotate(3deg) translateY(-4px);
@@ -63,4 +65,66 @@
   to {
     transform: rotate(1turn);
   }
+}
+
+/* 修复普通 markdown 代码块样式 - 使用 ID 选择器和属性选择器覆盖 Shiki 样式 */
+#app .vp-doc div[class*="language-"],
+#app .vp-doc div[class*="language-"][style] {
+  position: relative !important;
+  border-radius: 8px !important;
+  margin: 16px 0 !important;
+  padding: 0 !important;
+  background-color: var(--vp-code-block-bg) !important;
+  overflow: visible !important;
+  min-height: auto !important;
+  height: auto !important;
+}
+
+#app .vp-doc div[class*="language-"] pre,
+#app .vp-doc div[class*="language-"] pre[style],
+#app pre.shiki {
+  margin: 0 !important;
+  padding: 8px 16px 4px 16px !important;
+  background: transparent !important;
+  overflow-x: auto !important;
+  overflow-y: visible !important;
+  min-height: auto !important;
+  height: auto !important;
+}
+
+#app .vp-doc div[class*="language-"] code,
+#app .vp-doc div[class*="language-"] code[style],
+#app code.shiki {
+  display: block !important;
+  padding: 0 !important;
+}
+
+.vp-doc div[class*="language-"] code {
+  font-family: var(--vp-font-family-mono, 'Fira Code', 'Consolas', monospace);
+  font-size: 14px;
+  line-height: 1.7;
+  color: var(--vp-code-color);
+  direction: ltr;
+  text-align: left;
+  white-space: pre;
+  word-spacing: normal;
+  word-break: normal;
+  tab-size: 4;
+  hyphens: none;
+  background-color: transparent;
+}
+
+/* 确保代码块高度正确 */
+.vp-doc div[class*="language-"] pre code {
+  display: block;
+  padding: 0;
+}
+
+/* 暗黑模式下的代码块 */
+html.dark .vp-doc div[class*="language-"] {
+  background-color: var(--vp-code-block-bg);
+}
+
+html.dark .vp-doc div[class*="language-"] code {
+  color: var(--vp-code-color);
 }
