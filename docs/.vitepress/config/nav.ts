@@ -16,7 +16,7 @@ function getNav() {
       }))
 
       return [lang, item]
-    })
+    }),
   )
 }
 

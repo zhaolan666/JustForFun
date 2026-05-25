@@ -11,10 +11,10 @@ hero:
   text: UI component library
   tagline: JustForFun is a simple, quick and easy to use Vue3 combined UI framework.
   image:
-      src: jffTitle.png
-      alt: justforfun-ui
-      
-  actions: 
+    src: jffTitle.png
+    alt: justforfun-ui
+
+  actions:
     - theme: brand
       text: Get Started
       link: guide/install
@@ -23,31 +23,34 @@ hero:
       link: https://github.com/zhaolan666/JustForFun/
 
 features:
-    - icon: 
-        src: vue.svg
-        width: 10
-        height: 10
-      title: Vue3 based
-      details: Popular easy to use and expansibility strong SFC writing
-    - icon: 
-        src: typescript.svg
-        width: 10
-        height: 10
-      title: TypeScript based
-      details: Source code uses Typescript type constraints
-    - icon: 
-        src: tidy.svg
-        width: 10
-        height: 10
-      title: Code simplicity
-      details: The source code for each component is extremely clean and concise
+  - icon:
+      src: vue.svg
+      width: 10
+      height: 10
+    title: Vue3 based
+    details: Popular easy to use and expansibility strong SFC writing
+  - icon:
+      src: typescript.svg
+      width: 10
+      height: 10
+    title: TypeScript based
+    details: Source code uses Typescript type constraints
+  - icon:
+      src: tidy.svg
+      width: 10
+      height: 10
+    title: Code simplicity
+    details: The source code for each component is extremely clean and concise
 
 footer: MIT Licensed | Copyright ©2023-present mingdu
----      
+---
 
-
-<iframe src="https://stackblitz.com/edit/vue-lbh1hk?file=src%2Fmain.js" style="width:100%; margin:50px auto; padding: 10px; height: 700px; border: 0; border-radius: 4px; overflow: hidden;" title="justforfun-ui"></iframe>
-
+<iframe 
+  src="https://stackblitz.com/edit/vue-lbh1hk?file=src%2Fmain.js" 
+  style="width:100%; margin:50px auto; padding: 10px; height: 700px; border: 0; border-radius: 4px; overflow: hidden;" 
+  title="justforfun-ui"
+  sandbox="allow-scripts allow-same-origin allow-forms"
+></iframe>
 
 <style>
   :root {

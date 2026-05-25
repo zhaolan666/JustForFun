@@ -11,7 +11,7 @@ if (!CREDENTIAL) {
   errorAndExit(new Error('Environment variable CROWDIN_TOKEN cannot be empty'))
 }
 
-; (async () => {
+;(async () => {
   consola.debug(chalk.cyan('Fetching Crowdin credential'))
   const configPath = path.resolve(docRoot, 'crowdin.yml')
   try {
@@ -21,7 +21,7 @@ if (!CREDENTIAL) {
     await fs.writeFile(
       configPath,
       // @ts-ignore
-      file.replace(credentialPlaceholder, CREDENTIAL)
+      file.replace(credentialPlaceholder, CREDENTIAL),
     )
     consola.success(chalk.green('Crowdin credential update successfully'))
   } catch (e: any) {

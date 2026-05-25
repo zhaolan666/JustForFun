@@ -7,7 +7,7 @@ function getGuideSidebar() {
     Object.entries(guideLocale).map(([lang, val]) => [
       lang,
       Object.values(val).map((item) => mapPrefix(item, lang)),
-    ])
+    ]),
   )
 }
 
@@ -16,7 +16,7 @@ function getComponentsSideBar() {
     Object.entries(componentLocale).map(([lang, val]) => [
       lang,
       Object.values(val).map((item) => mapPrefix(item, lang, '/component')),
-    ])
+    ]),
   )
 }
 
