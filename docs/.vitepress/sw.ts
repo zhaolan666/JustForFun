@@ -129,7 +129,7 @@ self.addEventListener('install', (event) => {
       if (!cacheEntries.length) await initManifest()
 
       return cache.addAll(cacheEntries)
-    }),
+    })
   )
 })
 
@@ -145,7 +145,7 @@ self.addEventListener('activate', (event: ExtendableEvent) => {
           !cacheManifestURLs.includes(request.url) && cache.delete(request)
         })
       })
-    }),
+    })
   )
 })
 
@@ -176,7 +176,7 @@ self.addEventListener('fetch', (event) => {
         .catch((err) => {
           throw new Error(`Failed to load resource ${requestClone.url}, ${err}`)
         })
-    }),
+    })
   )
 })
 

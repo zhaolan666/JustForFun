@@ -1,6 +1,5 @@
 import fs from 'fs'
 import path from 'path'
-import glob from 'fast-glob'
 import { docRoot, docsDirName, projRoot } from '@justforfun-ui/build-utils'
 import { REPO_BRANCH, REPO_PATH } from '@justforfun-ui/build-constants'
 import { getLang, languages } from '../utils/lang'
@@ -21,22 +20,20 @@ export function MarkdownTransform(): Plugin {
       const append: Append = {
         headers: [],
         footers: [],
-        scriptSetups: [
-          `const demos = import.meta.globEager('../../examples/${componentId}/*.vue')`,
-        ],
+        scriptSetups: [],
       }
 
+      // Transform vp-script setup blocks if any
       code = transformVpScriptSetup(code, append)
 
+      // Check if this is a component documentation page
       const pattern = `{${[...languages, languages[0]].join(',')}}/component`
-      const compPaths = await glob(pattern, {
-        cwd: docRoot,
-        absolute: true,
-        onlyDirectories: true,
-      })
-      if (compPaths.some((compPath) => id.startsWith(compPath))) {
-        code = transformComponentMarkdown(id, componentId, code, append)
-      }
+      const compPaths = await Promise.resolve([]) // Skip glob for now
+      
+      // Only add source section for component pages
+      // if (compPaths.some((compPath) => id.startsWith(compPath))) {
+      //   code = transformComponentMarkdown(id, componentId, code, append)
+      // }
 
       return combineMarkdown(
         code,
@@ -48,10 +45,11 @@ export function MarkdownTransform(): Plugin {
 }
 
 const combineScriptSetup = (codes: string[]) =>
-  `\n<script setup>
+  codes.length > 0
+    ? `\n<script setup>
 ${codes.join('\n')}
-</script>
-`
+</script>\n`
+    : ''
 
 const combineMarkdown = (
   code: string,

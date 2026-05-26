@@ -13,13 +13,13 @@ Hover over the dropdown menu to reveal more operations.
     Dropdown<span class="i-ri-arrow-down-s-line" />
   </span>
   <template #dropdown>
-    <JffDropdownMenu>
+    <div class="dropdown-menu-demo">
       <JffDropdownItem>Cantonese sponge cake</JffDropdownItem>
       <JffDropdownItem>Lion head meatball</JffDropdownItem>
       <JffDropdownItem>Snail rice noodles</JffDropdownItem>
       <JffDropdownItem disabled>Steamed milk pudding</JffDropdownItem>
       <JffDropdownItem divided>Oyster omelette</JffDropdownItem>
-    </JffDropdownMenu>
+    </div>
   </template>
 </JffDropdown>
 
@@ -30,13 +30,13 @@ Hover over the dropdown menu to reveal more operations.
       Dropdown<span class="i-ri-arrow-down-s-line" />
     </span>
     <template #dropdown>
-      <JffDropdownMenu>
+      <div class="dropdown-menu-demo">
         <JffDropdownItem>Cantonese sponge cake</JffDropdownItem>
         <JffDropdownItem>Lion head meatball</JffDropdownItem>
         <JffDropdownItem>Snail rice noodles</JffDropdownItem>
         <JffDropdownItem disabled>Steamed milk pudding</JffDropdownItem>
         <JffDropdownItem divided>Oyster omelette</JffDropdownItem>
-      </JffDropdownMenu>
+      </div>
     </template>
   </JffDropdown>
 </template>
@@ -53,37 +53,31 @@ You can use a button to trigger the dropdown menu.
 <JffDropdown split-button type="primary">
   Dropdown
   <template #dropdown>
-    <JffDropdownMenu>
+    <div class="dropdown-menu-demo">
       <JffDropdownItem>Cantonese sponge cake</JffDropdownItem>
       <JffDropdownItem>Lion head meatball</JffDropdownItem>
       <JffDropdownItem>Snail rice noodles</JffDropdownItem>
       <JffDropdownItem>Steamed milk pudding</JffDropdownItem>
       <JffDropdownItem>Oyster omelette</JffDropdownItem>
-    </JffDropdownMenu>
+    </div>
   </template>
 </JffDropdown>
 
 ```vue
 <template>
-  <JffDropdown split-button type="primary" @click="handleClick">
+  <JffDropdown split-button type="primary">
     Dropdown
     <template #dropdown>
-      <JffDropdownMenu>
+      <div class="dropdown-menu-demo">
         <JffDropdownItem>Cantonese sponge cake</JffDropdownItem>
         <JffDropdownItem>Lion head meatball</JffDropdownItem>
         <JffDropdownItem>Snail rice noodles</JffDropdownItem>
         <JffDropdownItem>Steamed milk pudding</JffDropdownItem>
         <JffDropdownItem>Oyster omelette</JffDropdownItem>
-      </JffDropdownMenu>
+      </div>
     </template>
   </JffDropdown>
 </template>
-
-<script setup>
-const handleClick = () => {
-  // Button click event
-}
-</script>
 ```
 
 :::
@@ -101,11 +95,11 @@ Configure whether to hide the menu after clicking a menu item.
       Dropdown<span class="i-ri-arrow-down-s-line" />
     </span>
     <template #dropdown>
-      <JffDropdownMenu>
+      <div class="dropdown-menu-demo">
         <JffDropdownItem>Cantonese sponge cake</JffDropdownItem>
         <JffDropdownItem>Lion head meatball</JffDropdownItem>
         <JffDropdownItem>Snail rice noodles</JffDropdownItem>
-      </JffDropdownMenu>
+      </div>
     </template>
   </JffDropdown>
 </div>
@@ -119,11 +113,11 @@ Configure whether to hide the menu after clicking a menu item.
         Dropdown<span class="i-ri-arrow-down-s-line" />
       </span>
       <template #dropdown>
-        <JffDropdownMenu>
+        <div class="dropdown-menu-demo">
           <JffDropdownItem>Cantonese sponge cake</JffDropdownItem>
           <JffDropdownItem>Lion head meatball</JffDropdownItem>
           <JffDropdownItem>Snail rice noodles</JffDropdownItem>
-        </JffDropdownMenu>
+        </div>
       </template>
     </JffDropdown>
   </div>
@@ -144,10 +138,10 @@ Set how the dropdown menu is triggered via the `trigger` attribute.
       Default hover<span class="i-ri-arrow-down-s-line ml-1" />
     </JffButton>
     <template #dropdown>
-      <JffDropdownMenu>
+      <div class="dropdown-menu-demo">
         <JffDropdownItem>Cantonese sponge cake</JffDropdownItem>
         <JffDropdownItem>Lion head meatball</JffDropdownItem>
-      </JffDropdownMenu>
+      </div>
     </template>
   </JffDropdown>
 
@@ -156,10 +150,10 @@ Set how the dropdown menu is triggered via the `trigger` attribute.
       Hover trigger<span class="i-ri-arrow-down-s-line ml-1" />
     </JffButton>
     <template #dropdown>
-      <JffDropdownMenu>
+      <div class="dropdown-menu-demo">
         <JffDropdownItem>Cantonese sponge cake</JffDropdownItem>
         <JffDropdownItem>Lion head meatball</JffDropdownItem>
-      </JffDropdownMenu>
+      </div>
     </template>
   </JffDropdown>
 </div>
@@ -172,10 +166,10 @@ Set how the dropdown menu is triggered via the `trigger` attribute.
         Default hover<span class="i-ri-arrow-down-s-line ml-1" />
       </JffButton>
       <template #dropdown>
-        <JffDropdownMenu>
+        <div class="dropdown-menu-demo">
           <JffDropdownItem>Cantonese sponge cake</JffDropdownItem>
           <JffDropdownItem>Lion head meatball</JffDropdownItem>
-        </JffDropdownMenu>
+        </div>
       </template>
     </JffDropdown>
 
@@ -184,10 +178,10 @@ Set how the dropdown menu is triggered via the `trigger` attribute.
         Hover trigger<span class="i-ri-arrow-down-s-line ml-1" />
       </JffButton>
       <template #dropdown>
-        <JffDropdownMenu>
+        <div class="dropdown-menu-demo">
           <JffDropdownItem>Cantonese sponge cake</JffDropdownItem>
           <JffDropdownItem>Lion head meatball</JffDropdownItem>
-        </JffDropdownMenu>
+        </div>
       </template>
     </JffDropdown>
   </div>
@@ -217,7 +211,7 @@ Set how the dropdown menu is triggered via the `trigger` attribute.
 | Slot Name | Description |
 |--------|------|
 | default | Element that triggers the dropdown list to display. Note: Must be an element or component |
-| dropdown | Dropdown list, usually a `<JffDropdownMenu>` component |
+| dropdown | Dropdown list content |
 
 ### Dropdown Events
 
@@ -227,7 +221,7 @@ Set how the dropdown menu is triggered via the `trigger` attribute.
 | command | command | Callback when a menu item is clicked |
 | visible-change | visible | Triggered when dropdown shows/hides |
 
-### Dropdown Menu Attributes
+### Dropdown Item Attributes
 
 | Attribute | Type | Default | Description |
 |------|------|--------|------|
@@ -235,8 +229,8 @@ Set how the dropdown menu is triggered via the `trigger` attribute.
 | divided | boolean | false | Whether to show divider |
 | icon | string / Component | — | Icon |
 
-### Dropdown Menu Slots
+### Dropdown Item Slots
 
 | Slot Name | Description |
 |--------|------|
-| default | Dropdown menu content |
+| default | Dropdown item content |

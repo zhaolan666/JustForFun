@@ -1,4 +1,5 @@
-;(() => {
+;
+(() => {
   const supportedLangs = window.supportedLangs
   const cacheKey = 'preferred_lang'
   const defaultLang = 'en-US'
@@ -11,9 +12,9 @@
   let userPreferredLang = localStorage.getItem(cacheKey) || navigator.language
   const language =
     langAlias[userPreferredLang] ||
-    (supportedLangs.includes(userPreferredLang)
-      ? userPreferredLang
-      : defaultLang)
+    (supportedLangs.includes(userPreferredLang) ?
+      userPreferredLang :
+      defaultLang)
   localStorage.setItem(cacheKey, language)
   userPreferredLang = language
   if (!location.pathname.startsWith(`/${userPreferredLang}`)) {
@@ -21,9 +22,9 @@
       .concat(location.pathname.split('/').slice(2))
       .join('/')
     location.pathname =
-      toPath.endsWith('.html') || toPath.endsWith('/')
-        ? toPath
-        : toPath.concat('/')
+      toPath.endsWith('.html') || toPath.endsWith('/') ?
+      toPath :
+      toPath.concat('/')
   }
   if (navigator && navigator.serviceWorker.controller) {
     navigator.serviceWorker.controller.postMessage({

@@ -105,7 +105,7 @@ export default defineConfig(async ({ mode }) => {
         autoInstall: true,
       }),
       UnoCSS(),
-      // MarkdownTransform(),
+      MarkdownTransform(),
       // Inspect({
       //   build: true,
       // }),

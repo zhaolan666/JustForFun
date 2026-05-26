@@ -17,5 +17,5 @@ export default {
   NotFound,
   Page,
   VPApp,
-  globals,
+  globals
 }

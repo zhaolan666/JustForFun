@@ -1,10 +1,7 @@
 <template>
   <div class="demo-block">
     <div class="demo-block__demo">
-      <slot name="demo" />
-    </div>
-    <div class="demo-block__code">
-      <slot name="code" />
+      <slot />
     </div>
   </div>
 </template>
@@ -17,22 +14,19 @@ defineOptions({
 
 <style scoped>
 .demo-block {
-  border: 1px solid var(--jff-border-color);
-  border-radius: 4px;
   margin: 16px 0;
+  border: 1px solid var(--jff-border-color);
+  border-radius: 8px;
+  overflow: hidden;
 }
 
 .demo-block__demo {
-  padding: 24px;
+  padding: 32px 24px;
+  background: white;
   border-bottom: 1px solid var(--jff-border-color);
 }
 
-.demo-block__code {
-  background-color: var(--jff-fill-color-light);
-  padding: 16px;
-}
-
-.demo-block__code :deep(pre) {
-  margin: 0;
+html.dark .demo-block__demo {
+  background: var(--vp-c-bg-elv);
 }
 </style>

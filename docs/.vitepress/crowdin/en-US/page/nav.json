@@ -11,8 +11,7 @@
   },
   "version": {
     "text": "0.0.1",
-    "items": [
-      {
+    "items": [{
         "text": "中文文档",
         "link": "https://github.com/zhaolan666/JustForFun/blob/dev/README.zh-CN.md"
       },

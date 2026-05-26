@@ -3,8 +3,7 @@
     "text": "Basic",
     "search": true,
     "collapsed": false,
-    "items": [
-      {
+    "items": [{
         "text": "Button",
         "link": "/components/basic/button"
       },
@@ -29,18 +28,15 @@
   "configuration": {
     "text": "Configuration",
     "collapsed": false,
-    "items": [
-      {
-        "text": "Config Provider",
-        "link": "/components/markdown/"
-      }
-    ]
+    "items": [{
+      "text": "Config Provider",
+      "link": "/components/markdown/"
+    }]
   },
   "form": {
     "text": "Form",
     "collapsed": false,
-    "items": [
-      {
+    "items": [{
         "text": "Checkbox",
         "link": "/components/theme-introduction/"
       },
@@ -85,8 +81,7 @@
   "date": {
     "text": "Data",
     "collapsed": false,
-    "items": [
-      {
+    "items": [{
         "text": "Avatar",
         "link": "/components/migration-from-vuepress"
       },
@@ -107,8 +102,7 @@
   "navigation": {
     "text": "Navigation",
     "collapsed": false,
-    "items": [
-      {
+    "items": [{
         "text": "Dropdown",
         "link": "/components/migration-from-vuepress"
       },
@@ -129,8 +123,7 @@
   "feedback": {
     "text": "Feedback",
     "collapsed": false,
-    "items": [
-      {
+    "items": [{
         "text": "Alert",
         "link": "/components/migration-from-vuepress"
       },
@@ -151,11 +144,9 @@
   "other": {
     "text": "Others",
     "collapsed": false,
-    "items": [
-      {
-        "text": "Diver",
-        "link": "/components/migration-from-vuepress"
-      }
-    ]
+    "items": [{
+      "text": "Diver",
+      "link": "/components/migration-from-vuepress"
+    }]
   }
 }

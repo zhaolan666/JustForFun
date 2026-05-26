@@ -1,130 +1,131 @@
 #
 # Your Crowdin credentials
 #
-'project_id': '581551'
-'api_token': 'eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJhdWQiOiJ3UUVxdmhVM3ZMT2EyWGljbVV5VCIsImp0aSI6IjNhZTBiN2NhZTBmNjhmMWFlMTM2MDc1NGUzYTNkMWZiYjA5MTY5ZjJmODUwNDIzNTk3YWZkMTExZDI0YzkxNmQ0MjdlNjdiMzc3NDlhNzY0IiwiaWF0IjoxNjgxNzM4MTI4LjA5MjIzNCwibmJmIjoxNjgxNzM4MTI4LjA5MjIzOSwiZXhwIjoxNjg0MzMwMTI3Ljk2OTAxNCwic3ViIjoiMTU3ODk4MjciLCJzY29wZXMiOlsicHJvamVjdCJdLCJkb21haW4iOm51bGwsImFzc29jaWF0aW9ucyI6WyIqIl0sInNlc3Npb24iOjB9.QNHLdJn3YuD2cSK5rv5A7ScyB2bYQWGUrdatMdLpykaDJLcGOs1uLo1BYHz_0xZH48cL9Yc8wRgaAzkxu0b-aQJhuuYwXjvaVvjAOqP4Mv8kB6Ayt8QHXPkj0W6OxaHm0BsmQyG9JGZbVvxV6HOB08HicPy_iLAwBl5wpN8oxhEOCEmYbE_RYfIpFJwJazCwYxM5sG2ru0ppSBl_qcwYXa8XyL5gZms7Nwny_yt3uanoRMe85whOUjSdNpPERT1hmwq6Q0echK4XhxHWW_nBWWGpJ6yJNEUVVU7T9SL_PjcUWHN5ZZ-ZOcraTPGGTJ62tOSu5bD0aB0H6dv9PcG7Oh5hUbDkJaTpEGJgHgXKtqdnoqPv9iF45eBeyr-_Dp9NCFV7kMQZNLU61SHA5Jy1M-IjkFWIGpOpiau474SZjRuQR3OwOgIsrkr3CW5Grx_WB1BXTfxCIEudFvTrBOHEDJaa_clnWM_DW2yMpU4rxL1kAMfTYDqAec4CNSdjSFUSfviLNSGBf4GShJTXXeon5FTpyG32RJZX9wyGcRr3ffNcye_5TBl3Mfxy8-RxIcurbnWFY3o_fzUwaosJYfmrwAR4cv6MrhdnNPg-NDi3df3S2nrtAS_RwIyq7dYTSxX1Phwvj1ai9iNh--XxpKI-WnI2-Xk3UzmnHG82mi_shmo'
-'base_path': '.'
-'base_url': 'https://api.crowdin.com'
+"project_id" : "581551"
+"api_token" : "eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJhdWQiOiJ3UUVxdmhVM3ZMT2EyWGljbVV5VCIsImp0aSI6IjNhZTBiN2NhZTBmNjhmMWFlMTM2MDc1NGUzYTNkMWZiYjA5MTY5ZjJmODUwNDIzNTk3YWZkMTExZDI0YzkxNmQ0MjdlNjdiMzc3NDlhNzY0IiwiaWF0IjoxNjgxNzM4MTI4LjA5MjIzNCwibmJmIjoxNjgxNzM4MTI4LjA5MjIzOSwiZXhwIjoxNjg0MzMwMTI3Ljk2OTAxNCwic3ViIjoiMTU3ODk4MjciLCJzY29wZXMiOlsicHJvamVjdCJdLCJkb21haW4iOm51bGwsImFzc29jaWF0aW9ucyI6WyIqIl0sInNlc3Npb24iOjB9.QNHLdJn3YuD2cSK5rv5A7ScyB2bYQWGUrdatMdLpykaDJLcGOs1uLo1BYHz_0xZH48cL9Yc8wRgaAzkxu0b-aQJhuuYwXjvaVvjAOqP4Mv8kB6Ayt8QHXPkj0W6OxaHm0BsmQyG9JGZbVvxV6HOB08HicPy_iLAwBl5wpN8oxhEOCEmYbE_RYfIpFJwJazCwYxM5sG2ru0ppSBl_qcwYXa8XyL5gZms7Nwny_yt3uanoRMe85whOUjSdNpPERT1hmwq6Q0echK4XhxHWW_nBWWGpJ6yJNEUVVU7T9SL_PjcUWHN5ZZ-ZOcraTPGGTJ62tOSu5bD0aB0H6dv9PcG7Oh5hUbDkJaTpEGJgHgXKtqdnoqPv9iF45eBeyr-_Dp9NCFV7kMQZNLU61SHA5Jy1M-IjkFWIGpOpiau474SZjRuQR3OwOgIsrkr3CW5Grx_WB1BXTfxCIEudFvTrBOHEDJaa_clnWM_DW2yMpU4rxL1kAMfTYDqAec4CNSdjSFUSfviLNSGBf4GShJTXXeon5FTpyG32RJZX9wyGcRr3ffNcye_5TBl3Mfxy8-RxIcurbnWFY3o_fzUwaosJYfmrwAR4cv6MrhdnNPg-NDi3df3S2nrtAS_RwIyq7dYTSxX1Phwvj1ai9iNh--XxpKI-WnI2-Xk3UzmnHG82mi_shmo"
+"base_path" : "."
+"base_url" : "https://api.crowdin.com"
 
 #
 # Choose file structure in Crowdin
 # e.g. true or false
 #
-'preserve_hierarchy': true
+"preserve_hierarchy": true
 
 #
 # Files configuration
 #
 files: [
-    {
-      #
-      # Source files filter
-      # e.g. "/resources/en/*.json"
-      #
-      'source': '.vitepress/crowdin/en-US/**/*.json',
+ {
+  #
+  # Source files filter
+  # e.g. "/resources/en/*.json"
+  #
+  "source" : ".vitepress/crowdin/en-US/**/*.json",
 
-      #
-      # Where translations will be placed
-      # e.g. "/resources/%two_letters_code%/%original_file_name%"
-      #
-      'translation': '.vitepress/crowdin/%locale%/**/%original_file_name%',
-      #
-      # Files or directories for ignore
-      # e.g. ["/**/?.txt", "/**/[0-9].txt", "/**/*\?*.txt"]
-      #
-      #"ignore" : [],
+  #
+  # Where translations will be placed
+  # e.g. "/resources/%two_letters_code%/%original_file_name%"
+  #
+  "translation" : ".vitepress/crowdin/%locale%/**/%original_file_name%",
 
-      #
-      # The dest allows you to specify a file name in Crowdin
-      # e.g. "/messages.json"
-      #
-      #"dest" : "",
+  #
+  # Files or directories for ignore
+  # e.g. ["/**/?.txt", "/**/[0-9].txt", "/**/*\?*.txt"]
+  #
+  #"ignore" : [],
 
-      #
-      # File type
-      # e.g. "json"
-      #
-      #"type" : "",
+  #
+  # The dest allows you to specify a file name in Crowdin
+  # e.g. "/messages.json"
+  #
+  #"dest" : "",
 
-      #
-      # The parameter "update_option" is optional. If it is not set, after the files update the translations for changed strings will be removed. Use to fix typos and for minor changes in the source strings
-      # e.g. "update_as_unapproved" or "update_without_changes"
-      #
-      #"update_option" : "",
+  #
+  # File type
+  # e.g. "json"
+  #
+  #"type" : "",
 
-      #
-      # Start block (for XML only)
-      #
+  #
+  # The parameter "update_option" is optional. If it is not set, after the files update the translations for changed strings will be removed. Use to fix typos and for minor changes in the source strings
+  # e.g. "update_as_unapproved" or "update_without_changes"
+  #
+  #"update_option" : "",
 
-      #
-      # Defines whether to translate tags attributes.
-      # e.g. 0 or 1  (Default is 1)
-      #
-      # "translate_attributes" : 1,
+  #
+  # Start block (for XML only)
+  #
 
-      #
-      # Defines whether to translate texts placed inside the tags.
-      # e.g. 0 or 1 (Default is 1)
-      #
-      # "translate_content" : 1,
+  #
+  # Defines whether to translate tags attributes.
+  # e.g. 0 or 1  (Default is 1)
+  #
+  # "translate_attributes" : 1,
 
-      #
-      # This is an array of strings, where each item is the XPaths to DOM element that should be imported
-      # e.g. ["/content/text", "/content/text[@value]"]
-      #
-      # "translatable_elements" : [],
+  #
+  # Defines whether to translate texts placed inside the tags.
+  # e.g. 0 or 1 (Default is 1)
+  #
+  # "translate_content" : 1,
 
-      #
-      # Defines whether to split long texts into smaller text segments
-      # e.g. 0 or 1 (Default is 1)
-      #
-      # "content_segmentation" : 1,
+  #
+  # This is an array of strings, where each item is the XPaths to DOM element that should be imported
+  # e.g. ["/content/text", "/content/text[@value]"]
+  #
+  # "translatable_elements" : [],
 
-      #
-      # End block (for XML only)
-      #
+  #
+  # Defines whether to split long texts into smaller text segments
+  # e.g. 0 or 1 (Default is 1)
+  #
+  # "content_segmentation" : 1,
 
-      #
-      # Start .properties block
-      #
+  #
+  # End block (for XML only)
+  #
 
-      #
-      # Defines whether single quote should be escaped by another single quote or backslash in exported translations
-      # e.g. 0 or 1 or 2 or 3 (Default is 3)
-      # 0 - do not escape single quote;
-      # 1 - escape single quote by another single quote;
-      # 2 - escape single quote by backslash;
-      # 3 - escape single quote by another single quote only in strings containing variables ( {0} ).
-      #
-      # "escape_quotes" : 3,
+  #
+  # Start .properties block
+  #
 
-      #
-      # Defines whether any special characters (=, :, ! and #) should be escaped by backslash in exported translations.
-      # e.g. 0 or 1 (Default is 0)
-      # 0 - do not escape special characters
-      # 1 - escape special characters by a backslash
-      #
-      # "escape_special_characters": 0
-      #
+  #
+  # Defines whether single quote should be escaped by another single quote or backslash in exported translations
+  # e.g. 0 or 1 or 2 or 3 (Default is 3)
+  # 0 - do not escape single quote;
+  # 1 - escape single quote by another single quote;
+  # 2 - escape single quote by backslash;
+  # 3 - escape single quote by another single quote only in strings containing variables ( {0} ).
+  #
+  # "escape_quotes" : 3,
 
-      #
-      # End .properties block
-      #
+  #
+  # Defines whether any special characters (=, :, ! and #) should be escaped by backslash in exported translations.
+  # e.g. 0 or 1 (Default is 0)
+  # 0 - do not escape special characters
+  # 1 - escape special characters by a backslash
+  #
+  # "escape_special_characters": 0
+  #
 
-      #
-      # Does the first line contain header?
-      # e.g. true or false
-      #
-      #"first_line_contains_header" : true,
+  #
+  # End .properties block
+  #
 
-      #
-      # for spreadsheets
-      # e.g. "identifier,source_phrase,context,uk,ru,fr"
-      #
-      # "scheme" : "",
-    },
-    {
+  #
+  # Does the first line contain header?
+  # e.g. true or false
+  #
+  #"first_line_contains_header" : true,
+
+  #
+  # for spreadsheets
+  # e.g. "identifier,source_phrase,context,uk,ru,fr"
+  #
+  # "scheme" : "",
+ },
+ {
       'source': 'en-US/**/*.md',
       'translation': '%locale%/**/%original_file_name%',
-    },
-  ]
+},
+]
