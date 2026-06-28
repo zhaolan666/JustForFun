@@ -1,318 +1,266 @@
 # Select
 
-When there are too many options, use a dropdown menu to display and select content.
+Select component for selecting one option from a set.
 
 ## Basic Usage
 
-Suitable for basic single selection scenarios.
+::: demo select/basic :::
 
-:::demo
+## Enhanced Examples
 
-<JffSelect placeholder="Please select" style="width: 240px;">
-  <JffOption label="Cantonese sponge cake" value="option1" />
-  <JffOption label="Steamed milk pudding" value="option2" />
-  <JffOption label="Oyster omelette" value="option3" />
-  <JffOption label="Dragon beard noodles" value="option4" />
-  <JffOption label="Peking duck" value="option5" />
-</JffSelect>
+::: demo select/enhanced :::
 
-```vue
-<template>
-  <JffSelect v-model="selected" placeholder="Please select" style="width: 240px;">
-    <JffOption
-      v-for="item in options"
-      :key="item.value"
-      :label="item.label"
-      :value="item.value"
-    />
-  </JffSelect>
-</template>
+## API
+
+<ComponentDoc
+  component-name="Select"
+  description="Select component for selecting one option from a set"
+  :attributes="selectAttributes"
+  :events="selectEvents"
+  :slots="selectSlots"
+/>
 
 <script setup>
-import { ref } from 'vue'
-const selected = ref('')
-const options = [
-  { value: 'option1', label: 'Cantonese sponge cake' },
-  { value: 'option2', label: 'Steamed milk pudding' },
-  { value: 'option3', label: 'Oyster omelette' },
-  { value: 'option4', label: 'Dragon beard noodles' },
-  { value: 'option5', label: 'Peking duck' },
+const selectAttributes = [
+  {
+    name: 'model-value / v-model',
+    description: 'Binding value',
+    type: 'string / number / boolean / object / array',
+    default: "''"
+  },
+  {
+    name: 'multiple',
+    description: 'Whether multiple-select is enabled',
+    type: 'boolean',
+    default: 'false'
+  },
+  {
+    name: 'disabled',
+    description: 'Whether Select is disabled',
+    type: 'boolean',
+    default: 'false'
+  },
+  {
+    name: 'value-key',
+    description: 'Unique identity key name for value, required when value is an object',
+    type: 'string',
+    default: "'value'"
+  },
+  {
+    name: 'size',
+    description: 'Size of Input',
+    type: "'large' | 'default' | 'small'",
+    value: "'default'"
+  },
+  {
+    name: 'clearable',
+    description: 'Whether single select can be cleared',
+    type: 'boolean',
+    default: 'false'
+  },
+  {
+    name: 'collapse-tags',
+    description: 'Whether to collapse tags to a text when selecting multiple',
+    type: 'boolean',
+    default: 'false'
+  },
+  {
+    name: 'collapse-tags-tooltip',
+    description: 'When collapse-tags enabled, use tooltip to display the remaining selected values when hover over the collapsed text',
+    type: 'boolean',
+    default: 'false'
+  },
+  {
+    name: 'multiple-limit',
+    description: 'Limitation of maximum options user can select when multiple is true. No limitation when set to 0',
+    type: 'number',
+    default: '0'
+  },
+  {
+    name: 'name',
+    description: 'Name attribute for native input element',
+    type: 'string',
+    default: "''"
+  },
+  {
+    name: 'effect',
+    description: 'Tooltip theme, built-in theme: dark/light',
+    type: 'string',
+    default: "'light'"
+  },
+  {
+    name: 'autocomplete',
+    description: 'Same as autocomplete attribute for native input',
+    type: 'string',
+    default: "'off'"
+  },
+  {
+    name: 'placeholder',
+    description: 'Placeholder text',
+    type: 'string',
+    default: "'Please select'"
+  },
+  {
+    name: 'filterable',
+    description: 'Whether Select is filterable',
+    type: 'boolean',
+    default: 'false'
+  },
+  {
+    name: 'allow-create',
+    description: 'Whether creating new items is allowed. To use this, filterable must be true',
+    type: 'boolean',
+    default: 'false'
+  },
+  {
+    name: 'filter-method',
+    description: 'Custom filtering method',
+    type: 'function',
+    default: '—'
+  },
+  {
+    name: 'remote',
+    description: 'Whether data is fetched from server',
+    type: 'boolean',
+    default: 'false'
+  },
+  {
+    name: 'remote-method',
+    description: 'Custom remote search method',
+    type: 'function',
+    default: '—'
+  },
+  {
+    name: 'loading',
+    description: 'Whether Select is loading data from server',
+    type: 'boolean',
+    default: 'false'
+  },
+  {
+    name: 'loading-text',
+    description: 'Displayed text when loading data from server',
+    type: 'string',
+    default: "'Loading...'"
+  },
+  {
+    name: 'no-match-text',
+    description: 'Displayed text when no data matches the filtering query',
+    type: 'string',
+    default: "'No matching data'"
+  },
+  {
+    name: 'no-data-text',
+    description: 'Displayed text when no data',
+    type: 'string',
+    default: "'No data'"
+  },
+  {
+    name: 'popper-class',
+    description: 'Custom class name for Select dropdown',
+    type: 'string',
+    default: "''"
+  },
+  {
+    name: 'reserve-keyword',
+    description: 'Whether to reserve keyword after selecting an option when filterable is true',
+    type: 'boolean',
+    default: 'true'
+  },
+  {
+    name: 'default-first-option',
+    description: 'Input the first matching option on enter key when using filterable and remote-search',
+    type: 'boolean',
+    default: 'false'
+  },
+  {
+    name: 'popper-append-to-body',
+    description: 'Whether to append popper menu to body. If the positioning of the popup is wrong, try setting this prop to false',
+    type: 'boolean',
+    default: 'true (under SSR is false)'
+  },
+  {
+    name: 'automatic-dropdown',
+    description: 'For non-filterable Select, this prop decides if the option menu pops up when the input is focused or the arrow icon is clicked',
+    type: 'boolean',
+    default: 'false'
+  },
+  {
+    name: 'clear-icon',
+    description: 'Custom clear icon component',
+    type: 'string / Component',
+    default: "'CircleClose'"
+  },
+  {
+    name: 'fit-input-width',
+    description: 'Whether the width of the dropdown is the same as the input',
+    type: 'boolean',
+    default: 'false'
+  },
+  {
+    name: 'tag-type',
+    description: 'Tag type when in multiple mode, fails if tag is not assigned',
+    type: 'string',
+    default: "'info'"
+  },
+  {
+    name: 'validate-event',
+    description: 'Whether to trigger form validation after selecting a value',
+    type: 'boolean',
+    default: 'true'
+  },
+  {
+    name: 'persistent',
+    description: 'When select dropdown exists and it does not hide after clicking elsewhere',
+    type: 'boolean',
+    default: 'true'
+  }
+]
+
+const selectEvents = [
+  {
+    name: 'change',
+    description: 'Triggers when the selected value changes',
+    parameters: '(val: string | number | boolean | object)'
+  },
+  {
+    name: 'visible-change',
+    description: 'Triggers when the dropdown appears/disappears',
+    parameters: '(val: boolean)'
+  },
+  {
+    name: 'remove-tag',
+    description: 'Triggers when a tag is removed in multiple mode',
+    parameters: '(val: string | number | boolean | object)'
+  },
+  {
+    name: 'clear',
+    description: 'Triggers when the clear icon is clicked',
+    parameters: '—'
+  },
+  {
+    name: 'blur',
+    description: 'Triggers when Input blurs',
+    parameters: '(event: FocusEvent)'
+  },
+  {
+    name: 'focus',
+    description: 'Triggers when Input focuses',
+    parameters: '(event: FocusEvent)'
+  }
+]
+
+const selectSlots = [
+  {
+    name: 'default',
+    description: 'Options content of Select'
+  },
+  {
+    name: 'prefix',
+    description: 'Prefix content of Input'
+  },
+  {
+    name: 'empty',
+    description: 'Content when there is no options'
+  }
 ]
 </script>
-```
-
-:::
-
-## Disabled Option
-
-Set `disabled` to true in `JffOption` to disable that option.
-
-:::demo
-
-<JffSelect placeholder="Please select" style="width: 240px;">
-  <JffOption label="Cantonese sponge cake" value="option1" />
-  <JffOption label="Steamed milk pudding" value="option2" disabled />
-  <JffOption label="Oyster omelette" value="option3" />
-  <JffOption label="Dragon beard noodles" value="option4" />
-  <JffOption label="Peking duck" value="option5" />
-</JffSelect>
-
-```vue
-<template>
-  <JffSelect v-model="selected" placeholder="Please select" style="width: 240px;">
-    <JffOption
-      v-for="item in options"
-      :key="item.value"
-      :label="item.label"
-      :value="item.value"
-      :disabled="item.disabled"
-    />
-  </JffSelect>
-</template>
-
-<script setup>
-import { ref } from 'vue'
-const selected = ref('')
-const options = [
-  { value: 'option1', label: 'Cantonese sponge cake' },
-  { value: 'option2', label: 'Steamed milk pudding', disabled: true },
-  { value: 'option3', label: 'Oyster omelette' },
-  { value: 'option4', label: 'Dragon beard noodles' },
-  { value: 'option5', label: 'Peking duck' },
-]
-</script>
-```
-
-:::
-
-## Disabled State
-
-Select is in a disabled state.
-
-:::demo
-
-<JffSelect disabled placeholder="Please select" style="width: 240px;">
-  <JffOption label="Cantonese sponge cake" value="option1" />
-  <JffOption label="Steamed milk pudding" value="option2" />
-  <JffOption label="Oyster omelette" value="option3" />
-</JffSelect>
-
-```vue
-<template>
-  <JffSelect v-model="selected" disabled placeholder="Please select" style="width: 240px;">
-    <JffOption
-      v-for="item in options"
-      :key="item.value"
-      :label="item.label"
-      :value="item.value"
-    />
-  </JffSelect>
-</template>
-
-<script setup>
-import { ref } from 'vue'
-const selected = ref('')
-const options = [
-  { value: 'option1', label: 'Cantonese sponge cake' },
-  { value: 'option2', label: 'Steamed milk pudding' },
-  { value: 'option3', label: 'Oyster omelette' },
-]
-</script>
-```
-
-:::
-
-## Clearable Single Selection
-
-Includes a clear button to reset the selection to its initial state.
-
-:::demo
-
-<JffSelect clearable model-value="option1" placeholder="Please select" style="width: 240px;">
-  <JffOption label="Cantonese sponge cake" value="option1" />
-  <JffOption label="Steamed milk pudding" value="option2" />
-  <JffOption label="Oyster omelette" value="option3" />
-</JffSelect>
-
-```vue
-<template>
-  <JffSelect v-model="selected" clearable placeholder="Please select" style="width: 240px;">
-    <JffOption
-      v-for="item in options"
-      :key="item.value"
-      :label="item.label"
-      :value="item.value"
-    />
-  </JffSelect>
-</template>
-
-<script setup>
-import { ref } from 'vue'
-const selected = ref('option1')
-const options = [
-  { value: 'option1', label: 'Cantonese sponge cake' },
-  { value: 'option2', label: 'Steamed milk pudding' },
-  { value: 'option3', label: 'Oyster omelette' },
-]
-</script>
-```
-
-:::
-
-## Basic Multiple Selection
-
-Suitable for basic multi-selection scenarios, displaying selected items as Tags.
-
-:::demo Multi-select functionality requires using array-type values with `v-model`
-
-<JffSelect multiple placeholder="Please select" style="width: 240px;">
-  <JffOption label="Cantonese sponge cake" value="option1" />
-  <JffOption label="Steamed milk pudding" value="option2" />
-  <JffOption label="Oyster omelette" value="option3" />
-  <JffOption label="Dragon beard noodles" value="option4" />
-  <JffOption label="Peking duck" value="option5" />
-</JffSelect>
-
-```vue
-<template>
-  <JffSelect
-    v-model="selected"
-    multiple
-    placeholder="Please select"
-    style="width: 240px;"
-  >
-    <JffOption
-      v-for="item in options"
-      :key="item.value"
-      :label="item.label"
-      :value="item.value"
-    />
-  </JffSelect>
-</template>
-
-<script setup>
-import { ref } from 'vue'
-const selected = ref([])
-const options = [
-  { value: 'option1', label: 'Cantonese sponge cake' },
-  { value: 'option2', label: 'Steamed milk pudding' },
-  { value: 'option3', label: 'Oyster omelette' },
-  { value: 'option4', label: 'Dragon beard noodles' },
-  { value: 'option5', label: 'Peking duck' },
-]
-</script>
-```
-
-:::
-
-## Custom Template
-
-You can customize how each option is rendered.
-
-:::demo
-
-<JffSelect placeholder="Please select" style="width: 240px;">
-  <JffOption label="Cantonese sponge cake" value="option1">
-    <span style="float: left">Cantonese sponge cake</span>
-    <span style="float: right; color: #8492a6; font-size: 13px">option1</span>
-  </JffOption>
-  <JffOption label="Steamed milk pudding" value="option2">
-    <span style="float: left">Steamed milk pudding</span>
-    <span style="float: right; color: #8492a6; font-size: 13px">option2</span>
-  </JffOption>
-  <JffOption label="Oyster omelette" value="option3">
-    <span style="float: left">Oyster omelette</span>
-    <span style="float: right; color: #8492a6; font-size: 13px">option3</span>
-  </JffOption>
-</JffSelect>
-
-```vue
-<template>
-  <JffSelect v-model="selected" placeholder="Please select" style="width: 240px;">
-    <JffOption
-      v-for="item in options"
-      :key="item.value"
-      :label="item.label"
-      :value="item.value"
-    >
-      <span style="float: left">{{ item.label }}</span>
-      <span style="float: right; color: #8492a6; font-size: 13px">{{ item.value }}</span>
-    </JffOption>
-  </JffSelect>
-</template>
-
-<script setup>
-import { ref } from 'vue'
-const selected = ref('')
-const options = [
-  { value: 'option1', label: 'Cantonese sponge cake' },
-  { value: 'option2', label: 'Steamed milk pudding' },
-  { value: 'option3', label: 'Oyster omelette' },
-  { value: 'option4', label: 'Dragon beard noodles' },
-  { value: 'option5', label: 'Peking duck' },
-]
-</script>
-```
-
-:::
-
-## Select API
-
-### Select Attributes
-
-| Attribute | Type | Default | Description |
-|------|------|--------|------|
-| model-value / v-model | string / number / boolean / object | — | Binding value of selected option |
-| multiple | boolean | false | Whether to support multiple selection |
-| disabled | boolean | false | Whether to be disabled |
-| value-key | string | value | Property name used as unique identifier for value, required when binding value is an object |
-| size | string | default | Input box size (large/default/small) |
-| clearable | boolean | false | Whether to be clearable |
-| placeholder | string | Select | Placeholder |
-| filterable | boolean | false | Whether to be searchable |
-| allow-create | boolean | false | Whether to allow user to create new entries, must be used with `filterable` |
-| remote | boolean | false | Whether to use remote search |
-| loading | boolean | false | Whether data is being loaded remotely |
-| loading-text | string | Loading | Text to display during remote loading |
-| no-match-text | string | No matching data | Text to display when search has no matches |
-| no-data-text | string | No data | Text to display when there are no options |
-| popper-class | string | — | Class name for the dropdown |
-| reserve-keyword | boolean | true | When in multiple selection and searchable mode, whether to keep the current search keyword after selecting an option |
-| default-first-option | boolean | false | When pressing Enter in the input box, select the first matching option |
-| popper-options | object | — | Custom popper options |
-| automatic-dropdown | boolean | false | For non-searchable Select, whether to automatically show the dropdown menu when the input box gets focus |
-
-### Select Events
-
-| Event Name | Parameters | Description |
-|--------|------|------|
-| change | val, current selected value | Triggered when the selected value changes |
-| visible-change | val, true when visible, false when hidden | Triggered when dropdown shows/hides |
-| remove-tag | val, tag value removed | Triggered when tag is removed in multiple selection mode |
-| clear | — | Triggered when user clicks the clear button in clearable single selection mode |
-| blur | (event: FocusEvent) | Triggered when input loses focus |
-| focus | (event: FocusEvent) | Triggered when input gains focus |
-
-### Select Slots
-
-| Slot Name | Description |
-|--------|------|
-| default | Option component list |
-| prefix | Select component header content |
-| empty | List when there are no options |
-| loading | List during remote loading |
-
-### Option Group Attributes
-
-| Attribute | Type | Default | Description |
-|------|------|--------|------|
-| label | string | — | Group name |
-| disabled | boolean | false | Whether to disable all options in this group |
-
-### Option Attributes
-
-| Attribute | Type | Default | Description |
-|------|------|--------|------|
-| value | string / number / boolean / object | — | Option value |
-| label | string / number | — | Option label, defaults to `value` if not set |
-| disabled | boolean | false | Whether to disable this option |

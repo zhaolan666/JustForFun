@@ -1,5 +1,10 @@
 import { defineConfig } from 'vitepress'
 import { mdPlugin } from './config/plugins'
+import { MarkdownTransform } from './plugins/markdown-transform'
+import { resolve } from 'path'
+
+const docsRoot = resolve(__dirname, '..')
+const projRoot = resolve(docsRoot, '..')
 
 export default defineConfig({
   lang: 'en-US',
@@ -8,11 +13,27 @@ export default defineConfig({
   description: 'JustForFun UI Component Library Documentation',
 
   vite: {
+    plugins: [MarkdownTransform()],
+    resolve: {
+      alias: [
+        { find: '@jff', replacement: docsRoot },
+        { find: '@jff/components', replacement: resolve(docsRoot, 'examples') },
+        { find: '@jff/examples', replacement: resolve(docsRoot, 'examples') },
+        { find: '@jff/utils', replacement: resolve(docsRoot, 'utils') },
+
+        // 组件库完整路径映射
+        { find: '@justforfun-ui/components', replacement: resolve(projRoot, 'packages/components') },
+        { find: '@justforfun-ui/theme-chalk', replacement: resolve(projRoot, 'packages/theme-chalk') },
+        { find: '@justforfun-ui/hooks', replacement: resolve(projRoot, 'packages/hooks') },
+        { find: '@justforfun-ui/utils', replacement: resolve(projRoot, 'packages/utils') },
+        { find: '@justforfun-ui/constants', replacement: resolve(projRoot, 'packages/constants') },
+        { find: '@justforfun-ui/locale', replacement: resolve(projRoot, 'packages/locale') },
+        { find: '@justforfun-ui', replacement: resolve(projRoot, 'packages/justforfun-ui') },
+      ],
+    },
     css: {
       preprocessorOptions: {
-        scss: {
-          api: 'modern',
-        },
+        scss: {},
       },
     },
   },
@@ -122,6 +143,7 @@ export default defineConfig({
             },
           ],
         },
+        socialLinks: [{ icon: 'github', link: 'https://github.com/zhaolan666/JustForFun' }],
         editLink: {
           pattern: 'https://github.com/zhaolan666/JustForFun/issues',
           text: 'Edit this page on GitHub',
@@ -150,79 +172,67 @@ export default defineConfig({
                 { text: '介绍', link: '/zh-CN/guide/introduction' },
                 { text: '安装', link: '/zh-CN/guide/install' },
                 { text: '快速开始', link: '/zh-CN/guide/quickstart' },
-                { text: '按需导入', link: '/zh-CN/guide/import' },
+                { text: '按需引入', link: '/zh-CN/guide/import' },
               ],
             },
           ],
           '/zh-CN/components/': [
             {
-              text: '基础组件',
+              text: 'Basic Components',
               items: [
-                { text: 'Button 按钮', link: '/zh-CN/components/basic/button' },
-                { text: 'Border 边框', link: '/zh-CN/components/border' },
-                { text: 'Color 色彩', link: '/zh-CN/components/color' },
-                { text: 'Icon 图标', link: '/zh-CN/components/icon' },
-                { text: 'Layout 布局', link: '/zh-CN/components/layout' },
+                { text: 'Button', link: '/zh-CN/components/basic/button' },
+                { text: 'Border', link: '/zh-CN/components/border' },
+                { text: 'Color', link: '/zh-CN/components/color' },
+                { text: 'Icon', link: '/zh-CN/components/icon' },
+                { text: 'Layout', link: '/zh-CN/components/layout' },
               ],
             },
             {
-              text: '表单组件',
+              text: 'Form Components',
               items: [
-                { text: 'Form 表单', link: '/zh-CN/components/form/' },
-                { text: 'Checkbox 复选框', link: '/zh-CN/components/form/checkbox' },
-                { text: 'Radio 单选框', link: '/zh-CN/components/form/radio' },
-                { text: 'Select 选择器', link: '/zh-CN/components/form/select' },
-                { text: 'Switch 开关', link: '/zh-CN/components/form/switch' },
+                { text: 'Form', link: '/zh-CN/components/form/' },
+                { text: 'Checkbox', link: '/zh-CN/components/form/checkbox' },
+                { text: 'Radio', link: '/zh-CN/components/form/radio' },
+                { text: 'Select', link: '/zh-CN/components/form/select' },
+                { text: 'Switch', link: '/zh-CN/components/form/switch' },
               ],
             },
             {
-              text: '数据展示',
+              text: 'Data Display',
               items: [
-                { text: 'Badge 徽章', link: '/zh-CN/components/data/' },
-                { text: 'Avatar 头像', link: '/zh-CN/components/data/avatar' },
-                { text: 'Card 卡片', link: '/zh-CN/components/data/card' },
-                { text: 'Tag 标签', link: '/zh-CN/components/data/tag' },
+                { text: 'Badge', link: '/zh-CN/components/data/' },
+                { text: 'Avatar', link: '/zh-CN/components/data/avatar' },
+                { text: 'Card', link: '/zh-CN/components/data/card' },
+                { text: 'Tag', link: '/zh-CN/components/data/tag' },
               ],
             },
             {
-              text: '导航组件',
+              text: 'Navigation',
               items: [
-                { text: 'Tabs 标签页', link: '/zh-CN/components/nav/' },
-                { text: 'Dropdown 下拉菜单', link: '/zh-CN/components/nav/dropdown' },
+                { text: 'Tabs', link: '/zh-CN/components/nav/' },
+                { text: 'Dropdown', link: '/zh-CN/components/nav/dropdown' },
               ],
             },
             {
-              text: '反馈组件',
+              text: 'Feedback Components',
               items: [
-                { text: 'Message 消息提示', link: '/zh-CN/components/feedback/' },
-                { text: 'Dialog 对话框', link: '/zh-CN/components/feedback/dialog' },
-                { text: 'Alert 警告', link: '/zh-CN/components/feedback/alert' },
+                { text: 'Message', link: '/zh-CN/components/feedback/' },
+                { text: 'Dialog', link: '/zh-CN/components/feedback/dialog' },
+                { text: 'Alert', link: '/zh-CN/components/feedback/alert' },
               ],
             },
           ],
         },
+        socialLinks: [{ icon: 'github', link: 'https://github.com/zhaolan666/JustForFun' }],
         editLink: {
           pattern: 'https://github.com/zhaolan666/JustForFun/issues',
-          text: '在 GitHub 上编辑此页面',
+          text: '在 GitHub 上编辑此页',
         },
         footer: {
-          message: '基于 MIT 许可证发布。',
-          copyright: '版权所有 © 2023-present mingdu',
+          message: '基于 MIT 许可发布',
+          copyright: '版权所有 © 2023-至今 mingdu',
         },
       },
     },
-  },
-
-  themeConfig: {
-    logo: '/jffLogo.png',
-    siteTitle: 'JustForFun',
-    outline: 3,
-
-    socialLinks: [
-      {
-        icon: 'github',
-        link: 'https://github.com/zhaolan666/JustForFun/tree/dev',
-      },
-    ],
   },
 })

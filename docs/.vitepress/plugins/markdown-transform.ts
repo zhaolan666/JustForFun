@@ -1,22 +1,14 @@
-import fs from 'fs'
-import path from 'path'
-import { docRoot, docsDirName, projRoot } from '@justforfun-ui/build-utils'
-import { REPO_BRANCH, REPO_PATH } from '@justforfun-ui/build-constants'
-import { getLang, languages } from '../utils/lang'
-import footerLocale from '../i18n/component/footer.json'
-
 import type { Plugin } from 'vite'
 
 type Append = Record<'headers' | 'footers' | 'scriptSetups', string[]>
 
 export function MarkdownTransform(): Plugin {
   return {
-    name: 'element-plus-md-transform',
+    name: 'jff-md-transform',
     enforce: 'pre',
     async transform(code, id) {
       if (!id.endsWith('.md')) return
 
-      const componentId = path.basename(id, '.md')
       const append: Append = {
         headers: [],
         footers: [],
@@ -26,33 +18,22 @@ export function MarkdownTransform(): Plugin {
       // Transform vp-script setup blocks if any
       code = transformVpScriptSetup(code, append)
 
-      // Check if this is a component documentation page
-      const pattern = `{${[...languages, languages[0]].join(',')}}/component`
-      const compPaths = await Promise.resolve([]) // Skip glob for now
-      
-      // Only add source section for component pages
-      // if (compPaths.some((compPath) => id.startsWith(compPath))) {
-      //   code = transformComponentMarkdown(id, componentId, code, append)
-      // }
-
       return combineMarkdown(
         code,
-        [combineScriptSetup(append.scriptSetups), ...append.headers],
+        append.scriptSetups,
+        append.headers,
         append.footers,
       )
     },
   }
 }
 
-const combineScriptSetup = (codes: string[]) =>
-  codes.length > 0
-    ? `\n<script setup>
-${codes.join('\n')}
-</script>\n`
-    : ''
+// Matches existing <script setup> blocks (with optional attributes like lang="ts")
+const scriptSetupRE = /<script\s+setup(?:\s+[^>]*)?>([\s\S]*?)<\/script>/
 
 const combineMarkdown = (
   code: string,
+  scriptSetups: string[],
   headers: string[],
   footers: string[],
 ) => {
@@ -65,9 +46,25 @@ const combineMarkdown = (
         : frontmatterEnds + 4
       : firstHeader
 
+  if (scriptSetups.length > 0) {
+    const existing = code.match(scriptSetupRE)
+    if (existing) {
+      // Merge into existing <script setup>
+      const existingContent = existing[1]
+      const newContent = existingContent + '\n' + scriptSetups.join('\n')
+      code = code.replace(
+        scriptSetupRE,
+        `<script setup>\n${newContent}\n</script>`
+      )
+    } else {
+      // Insert a new <script setup> before first header / frontmatter
+      const scriptBlock = `\n<script setup>\n${scriptSetups.join('\n')}\n</script>\n`
+      code = code.slice(0, sliceIndex) + scriptBlock + code.slice(sliceIndex)
+    }
+  }
+
   if (headers.length > 0)
-    code =
-      code.slice(0, sliceIndex) + headers.join('\n') + code.slice(sliceIndex)
+    code = code.slice(0, sliceIndex) + headers.join('\n') + code.slice(sliceIndex)
   code += footers.join('\n')
 
   return `${code}\n`
@@ -80,44 +77,5 @@ const transformVpScriptSetup = (code: string, append: Append) => {
   if (matches) code = code.replace(matches[0], '')
   const scriptSetup = matches?.[3] ?? ''
   if (scriptSetup) append.scriptSetups.push(scriptSetup)
-  return code
-}
-
-const GITHUB_BLOB_URL = `https://github.com/${REPO_PATH}/blob/${REPO_BRANCH}`
-const GITHUB_TREE_URL = `https://github.com/${REPO_PATH}/tree/${REPO_BRANCH}`
-const transformComponentMarkdown = (
-  id: string,
-  componentId: string,
-  code: string,
-  append: Append,
-) => {
-  const lang = getLang(id)
-  const docUrl = `${GITHUB_BLOB_URL}/${docsDirName}/en-US/component/${componentId}.md`
-  const componentUrl = `${GITHUB_TREE_URL}/packages/components/${componentId}`
-  const componentPath = path.resolve(
-    projRoot,
-    `packages/components/${componentId}`,
-  )
-  const isComponent = fs.existsSync(componentPath)
-
-  const links = [[footerLocale[lang].docs, docUrl]]
-  if (isComponent) links.unshift([footerLocale[lang].component, componentUrl])
-  const linksText = links
-    .filter((i) => i)
-    .map(([text, link]) => `[${text}](${link})`)
-    .join(' • ')
-
-  const sourceSection = `
-## ${footerLocale[lang].source}
-${linksText}
-`
-
-  const contributorsSection = `
-## ${footerLocale[lang].contributors}
-<Contributors id="${componentId}" />
-`
-
-  append.footers.push(sourceSection, isComponent ? contributorsSection : '')
-
   return code
 }

@@ -1,3 +1,14 @@
+/* Prism.js syntax highlighting theme */
+@import 'prismjs/themes/prism-tomorrow.css';
+
+/* 测试 CSS 变量 */
+:root {
+  --jff-color-primary: #845EC2;
+  --jff-button-bg-color: #ffffff;
+  --jff-button-text-color: #333333;
+  --jff-border-color: #dcdfe6;
+}
+
 #nprogress {
   pointer-events: none;
 }
@@ -75,21 +86,27 @@
   margin: 16px 0 !important;
   padding: 0 !important;
   background-color: var(--vp-code-block-bg) !important;
-  overflow: visible !important;
+  overflow-x: auto !important;              /* 允许水平滚动 */
+  overflow-y: visible !important;
   min-height: auto !important;
   height: auto !important;
+  max-width: 100% !important;               /* 限制最大宽度 */
+  width: 100% !important;                   /* 确保宽度100% */
 }
 
 #app .vp-doc div[class*="language-"] pre,
 #app .vp-doc div[class*="language-"] pre[style],
 #app pre.shiki {
   margin: 0 !important;
-  padding: 8px 16px 4px 16px !important;
+  padding: 16px 20px !important;            /* 增加内边距 */
   background: transparent !important;
   overflow-x: auto !important;
   overflow-y: visible !important;
   min-height: auto !important;
   height: auto !important;
+  max-width: 100% !important;
+  width: fit-content !important;            /* 内容自适应宽度 */
+  min-width: 0 !important;
 }
 
 #app .vp-doc div[class*="language-"] code,
@@ -106,12 +123,17 @@
   color: var(--vp-code-color);
   direction: ltr;
   text-align: left;
-  white-space: pre;
+  white-space: pre-wrap !important;        /* 允许换行 */
   word-spacing: normal;
-  word-break: normal;
+  word-break: break-all !important;       /* 强制长单词/URL换行 */
+  overflow-wrap: break-word !important;   /* 兼容性更好的换行 */
   tab-size: 4;
   hyphens: none;
   background-color: transparent;
+  display: block !important;
+  width: 100% !important;
+  max-width: 100% !important;
+  min-width: 0 !important;
 }
 
 /* 确保代码块高度正确 */
@@ -127,4 +149,57 @@ html.dark .vp-doc div[class*="language-"] {
 
 html.dark .vp-doc div[class*="language-"] code {
   color: var(--vp-code-color);
+}
+
+/* Demo Block 样式 - 用于组件演示区域 */
+.demo-block {
+  margin: 16px 0;
+  border: 1px solid var(--jff-border-color, #e4e7ed);
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+html.dark .demo-block {
+  border-color: var(--jff-border-color, #4c4d4f);
+}
+
+/* 修复 Demo 组件容器显示问题 */
+.vp-doc > div[class]:not([class*="language-"]):not([class*="custom-container"]),
+.vp-doc > section,
+.vp-doc .jff-component-doc,
+.vp-doc [class*="demo"],
+.vp-doc [class*="Demo"] {
+  display: block !important;
+  width: 100% !important;
+  max-width: 100% !important;
+  overflow: visible !important;
+  min-height: auto !important;
+  height: auto !important;
+  visibility: visible !important;
+  opacity: 1 !important;
+  position: relative !important;
+}
+
+/* 确保 Demo 组件内容可见 */
+.vp-demo-container,
+[class*="-demo"],
+[class*="Demo"] {
+  display: block !important;
+  width: 100% !important;
+  min-height: auto !important;
+  height: auto !important;
+  max-height: none !important;
+  overflow: visible !important;
+}
+
+/* 修复表格和 API 文档区域 */
+.jff-api-table-container,
+.jff-component-doc,
+.jff-doc-section {
+  display: block !important;
+  width: 100% !important;
+  min-width: 0 !important;
+  max-width: 100% !important;
+  overflow-x: auto !important;
+  overflow-y: visible !important;
 }

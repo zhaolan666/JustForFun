@@ -1,67 +1,82 @@
 # Radio
 
-Used for single selection among a group of options.
+Set of radio controls for selecting one option from a set.
 
 ## Basic Usage
 
-:::demo
+::: demo radio/basic :::
 
-<RadioDemo />
+## Enhanced Examples
 
-```vue
-<template>
-  <div class="flex flex-col gap-8">
-    <div class="flex flex-col gap-4">
-      <h4 class="text-sm text-gray-500 font-medium">Basic Usage</h4>
-      <JffRadioGroup v-model="radio1">
-        <JffRadio label="Option 1" />
-        <JffRadio label="Option 2" />
-      </JffRadioGroup>
-      <div class="text-sm text-gray-400">Selected: {{ radio1 }}</div>
-    </div>
-    <div class="flex flex-col gap-4">
-      <h4 class="text-sm text-gray-500 font-medium">Disabled State</h4>
-      <div class="flex gap-4 items-center">
-        <JffRadio v-model="radio2" label="Disabled" disabled>Disabled</JffRadio>
-        <JffRadio v-model="radio3" label="Checked & Disabled" disabled>Checked & Disabled</JffRadio>
-      </div>
-    </div>
-    <div class="flex flex-col gap-4">
-      <h4 class="text-sm text-gray-500 font-medium">Radio Group</h4>
-      <JffRadioGroup v-model="radioGroup">
-        <JffRadio label="Option 1" />
-        <JffRadio label="Option 2" />
-        <JffRadio label="Option 3" />
-      </JffRadioGroup>
-      <div class="text-sm text-gray-400">Selected: {{ radioGroup }}</div>
-    </div>
-  </div>
-</template>
+::: demo radio/enhanced :::
 
-<script setup lang="ts">
-import { ref } from "vue"
-const radio1 = ref("Option 1")
-const radio2 = ref("")
-const radio3 = ref("Checked & Disabled")
-const radioGroup = ref("Option 2")
+## API
+
+<ComponentDoc
+  component-name="Radio"
+  description="Set of radio controls for selecting one option from a set"
+  :attributes="radioAttributes"
+  :events="radioEvents"
+  :slots="radioSlots"
+/>
+
+<script setup>
+const radioAttributes = [
+  {
+    name: 'model-value / v-model',
+    description: 'Binding value',
+    type: 'string / number / boolean',
+    default: "''"
+  },
+  {
+    name: 'label',
+    description: 'Value of Radio when used inside RadioGroup',
+    type: 'string / number / boolean',
+    default: "''"
+  },
+  {
+    name: 'disabled',
+    description: 'Whether Radio is disabled',
+    type: 'boolean',
+    default: 'false'
+  },
+  {
+    name: 'border',
+    description: 'Whether Radio shows with border',
+    type: 'boolean',
+    default: 'false'
+  },
+  {
+    name: 'size',
+    description: 'Size of Radio, only works when border is true',
+    type: "'large' | 'default' | 'small'",
+    value: "'default'"
+  },
+  {
+    name: 'name',
+    description: 'Native \'name\' attribute',
+    type: 'string',
+    default: "''"
+  }
+]
+
+const radioEvents = [
+  {
+    name: 'change',
+    description: 'Triggers when the binding value changes',
+    parameters: '(value: string | number | boolean)'
+  },
+  {
+    name: 'input',
+    description: 'Triggers when the input value changes (deprecated, use change instead)',
+    parameters: '(value: string | number | boolean)'
+  }
+]
+
+const radioSlots = [
+  {
+    name: 'default',
+    description: 'Custom content'
+  }
+]
 </script>
-```
-
-:::
-
-## Radio Attributes
-
-| Attribute | Type | Default | Description |
-|------|------|--------|------|
-| modelValue | string/number/boolean | - | Binding value |
-| label | string/number/boolean | - | Label value |
-| disabled | boolean | false | Whether to disable |
-| name | string | - | Native name attribute |
-| border | boolean | false | Whether to show border |
-
-## RadioGroup Attributes
-
-| Attribute | Type | Default | Description |
-|------|------|--------|------|
-| modelValue | string/number/boolean | - | Binding value |
-| disabled | boolean | false | Whether to disable |

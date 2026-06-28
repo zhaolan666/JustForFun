@@ -1,5 +1,5 @@
 
-import pkg from '../config'
+import pkg from '../../../package.json'
 export default function nav() {
   return [{
     text: 'Guide',

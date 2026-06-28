@@ -2,6 +2,10 @@
 
 JustForFun-UI provides a complete color system to maintain design consistency.
 
+## Basic Usage
+
+::: demo color/basic :::
+
 ## Theme Colors
 
 ### Primary Colors

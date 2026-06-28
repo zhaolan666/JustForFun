@@ -3,35 +3,27 @@ import container from 'markdown-it-container'
 
 /**
  * VitePress Demo Plugin
- * 
- * Registers the :::demo container for markdown-it.
- * Wraps content in ClientOnly to prevent SSR issues.
+ *
+ * 使用 markdown-it-container 注册 :::demo 容器
+ * 将内容转换为 <DemoBlock> 组件
+ *
+ * 源码加载由 DemoBlock 组件自身负责（通过 PathConfig）
  */
 export const mdPlugin = (md: MarkdownIt) => {
   md.use(container, 'demo', {
     validate(params: string) {
-      return params.trim().match(/^demo\s*(.*)$/) !== null
+      return !!params.trim().match(/^demo\s*(.*)$/)
     },
-    render(tokens: any[], idx: number) {
-      const token = tokens[idx]
+    render(tokens: Token[], idx: number) {
+      const m = tokens[idx].info.trim().match(/^demo\s+(.*)$/)
 
-      if (token.nesting === 1) {
-        // Opening tag - wrap in ClientOnly to prevent SSR issues
-        // Use v-pre to prevent markdown from processing the content
-        return `<ClientOnly><div v-pre class="demo-block"><div class="demo-block__demo">\n`
+      if (tokens[idx].nesting === 1) {
+        let demoPath = m && m.length > 1 ? m[1] : ''
+        demoPath = demoPath.replace(/:::/g, '').trim()
+        return `<DemoBlock path="${demoPath}">\n`
       } else {
-        // Closing tag
-        return `</div></div></ClientOnly>\n`
+        return `</DemoBlock>\n`
       }
     },
   })
-}
-
-/**
- * VitePress Tip/Warning/Danger containers
- * These are built into VitePress but we can configure them here
- */
-export const containerPlugin = (md: MarkdownIt) => {
-  // tip, warning, danger, info, details are built into VitePress markdown
-  // No custom configuration needed
 }

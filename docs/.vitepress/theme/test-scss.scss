@@ -1,0 +1,8 @@
+/* 测试文件 - 验证 SCSS 编译 */
+.test-scss {
+  color: red;
+  
+  /* 测试 CSS 变量 */
+  --test-var: blue;
+  color: var(--test-var);
+}

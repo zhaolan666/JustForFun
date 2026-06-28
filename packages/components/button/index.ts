@@ -1,14 +1,21 @@
-import { withInstall, withNoopInstall } from '@justforfun-ui/utils'
+import { withNoopInstall } from '@justforfun-ui/utils'
 import Button from './src/button.vue'
 import ButtonGroup from './src/button-group.vue'
 
-// 通过 withInstall 方法给 Button 添加了一个 install 方法
-export const JffButton = withInstall(Button, { ButtonGroup })
+// 导出原始 Button 组件（这是标准的 Vue SFC）
+// Button 组件已经有 defineOptions({ name: 'JffButton' })
+export const JffButton = withNoopInstall(Button)
 
-// 导出 ButtonGroup 组件
+// 导出 ButtonGroup
 export const JffButtonGroup = withNoopInstall(ButtonGroup)
-// 可以通过 app.use 来使用，也可以通过 import 方式单独使用
-export default JffButton
+
+// 默认导出（兼容 app.use()）
+export default {
+  install(app: any) {
+    app.component('JffButton', Button)
+    app.component('JffButtonGroup', ButtonGroup)
+  }
+}
 
 export * from './src/button'
 export * from './src/constants'

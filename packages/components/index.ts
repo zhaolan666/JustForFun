@@ -7,6 +7,10 @@ export * as JffBorder from './border'
 
 // Layout Components
 export * as JffContainer from './layout'
+export * as JffHeader from './layout'
+export * as JffMain from './layout'
+export * as JffFooter from './layout'
+export * as JffAside from './layout'
 export * as JffRow from './layout'
 export * as JffCol from './layout'
 

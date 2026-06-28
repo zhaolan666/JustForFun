@@ -1,7 +1,12 @@
 <template>
   <div
     v-show="active"
-    :class="[ns.b('tab-pane')]"
+    :class="[
+      ns.b('tab-pane'),
+      {
+        [ns.m('active')]: active,
+      },
+    ]"
   >
     <slot />
   </div>

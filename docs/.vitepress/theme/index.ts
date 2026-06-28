@@ -4,6 +4,9 @@ import type { Theme } from 'vitepress'
 // Import custom styles
 import './style.css'
 
+// 测试 SCSS 编译
+import './test-scss.scss'
+
 // Import UnoCSS styles
 import 'uno.css'
 
@@ -12,34 +15,35 @@ import '@justforfun-ui/theme-chalk/src/index.scss'
 // Import dark mode styles
 import '@justforfun-ui/theme-chalk/src/dark/css-vars.scss'
 
-// Import components
-import JffIcon from '@justforfun-ui/components/icon'
-import JffButton from '@justforfun-ui/components/button'
-import JffInput from '@justforfun-ui/components/input'
-import JffCheckbox, {
-  JffCheckboxGroup,
-} from '@justforfun-ui/components/checkbox'
-import JffRadio, { JffRadioGroup } from '@justforfun-ui/components/radio'
-import JffSelect, { JffOption } from '@justforfun-ui/components/select'
-import JffSwitch from '@justforfun-ui/components/switch'
-import JffBadge from '@justforfun-ui/components/badge'
-import JffTag from '@justforfun-ui/components/tag'
-import JffAvatar from '@justforfun-ui/components/avatar'
-import JffCard from '@justforfun-ui/components/card'
-import JffDialog from '@justforfun-ui/components/dialog'
-import JffAlert from '@justforfun-ui/components/alert'
-import { JffMessage } from '@justforfun-ui/components/message'
-import { JffDropdown, JffDropdownItem } from '@justforfun-ui/components/dropdown'
-import JffBorder from '@justforfun-ui/components/border'
-import {
-  JffContainer,
-  JffHeader,
-  JffAside,
-  JffMain,
-  JffFooter,
-  JffRow,
-  JffCol,
-} from '@justforfun-ui/components/layout'
+// Import components - 直接导入原始 .vue 文件，避免包装函数导致的渲染问题
+import JffIcon from '@justforfun-ui/components/icon/src/icon.vue'
+import JffButton from '@justforfun-ui/components/button/src/button.vue'
+import JffInput from '@justforfun-ui/components/input/src/input.vue'
+import JffCheckbox from '@justforfun-ui/components/checkbox/src/checkbox.vue'
+import JffCheckboxGroup from '@justforfun-ui/components/checkbox/src/checkbox-group.vue'
+import JffRadio from '@justforfun-ui/components/radio/src/radio.vue'
+import JffRadioGroup from '@justforfun-ui/components/radio/src/radio-group.vue'
+import JffSelect from '@justforfun-ui/components/select/src/select.vue'
+import JffOption from '@justforfun-ui/components/select/src/option.vue'
+import JffSwitch from '@justforfun-ui/components/switch/src/switch.vue'
+import JffBadge from '@justforfun-ui/components/badge/src/badge.vue'
+import JffTag from '@justforfun-ui/components/tag/src/tag.vue'
+import JffAvatar from '@justforfun-ui/components/avatar/src/avatar.vue'
+import JffCard from '@justforfun-ui/components/card/src/card.vue'
+import JffDialog from '@justforfun-ui/components/dialog/src/dialog.vue'
+import JffAlert from '@justforfun-ui/components/alert/src/alert.vue'
+import JffDropdown from '@justforfun-ui/components/dropdown/src/dropdown.vue'
+import JffDropdownItem from '@justforfun-ui/components/dropdown/src/dropdown-item.vue'
+import JffTabs from '@justforfun-ui/components/tabs/src/tabs.vue'
+import JffTabPane from '@justforfun-ui/components/tabs/src/tab-pane.vue'
+import JffBorder from '@justforfun-ui/components/border/src/border.vue'
+import JffContainer from '@justforfun-ui/components/layout/src/container.vue'
+import JffHeader from '@justforfun-ui/components/layout/src/header.vue'
+import JffAside from '@justforfun-ui/components/layout/src/aside.vue'
+import JffMain from '@justforfun-ui/components/layout/src/main.vue'
+import JffFooter from '@justforfun-ui/components/layout/src/footer.vue'
+import JffRow from '@justforfun-ui/components/layout/src/row.vue'
+import JffCol from '@justforfun-ui/components/layout/src/col.vue'
 
 // Import vitepress API table components
 import { globals } from '../vitepress'
@@ -48,7 +52,7 @@ export default {
   extends: DefaultTheme,
   Layout: DefaultTheme.Layout,
   enhanceApp({ app }) {
-    // Register Jff UI components
+    // Register Jff UI components - 直接注册原始组件对象
     app.component("JffIcon", JffIcon)
     app.component("JffButton", JffButton)
     app.component("JffInput", JffInput)
@@ -65,10 +69,10 @@ export default {
     app.component("JffCard", JffCard)
     app.component("JffDialog", JffDialog)
     app.component("JffAlert", JffAlert)
-    app.config.globalProperties.$message = JffMessage
-    app.provide('JffMessage', JffMessage)
     app.component("JffDropdown", JffDropdown)
     app.component("JffDropdownItem", JffDropdownItem)
+    app.component("JffTabs", JffTabs)
+    app.component("JffTabPane", JffTabPane)
     app.component("JffBorder", JffBorder)
     app.component("JffContainer", JffContainer)
     app.component("JffHeader", JffHeader)

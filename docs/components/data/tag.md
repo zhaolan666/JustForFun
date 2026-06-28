@@ -1,102 +1,94 @@
 # Tag
 
-Used for marking and selection.
+Tag component for categorizing and markup.
 
 ## Basic Usage
 
-:::demo
+::: demo tag/basic :::
 
-<div class="flex gap-2">
-  <span class="jff-tag">Tag 1</span>
-  <span class="jff-tag jff-tag--success">Tag 2</span>
-  <span class="jff-tag jff-tag--info">Tag 3</span>
-  <span class="jff-tag jff-tag--warning">Tag 4</span>
-  <span class="jff-tag jff-tag--danger">Tag 5</span>
-</div>
+## Enhanced Examples
 
-```vue
-<template>
-  <div class="flex gap-2">
-    <JffTag>Tag 1</JffTag>
-    <JffTag type="success">Tag 2</JffTag>
-    <JffTag type="info">Tag 3</JffTag>
-    <JffTag type="warning">Tag 4</JffTag>
-    <JffTag type="danger">Tag 5</JffTag>
-  </div>
-</template>
-```
-:::
+::: demo tag/enhanced :::
 
-## Closable Tag
+## API
 
-:::demo
+<ComponentDoc
+  component-name="Tag"
+  description="Tag component for categorizing and markup"
+  :attributes="tagAttributes"
+  :events="tagEvents"
+  :slots="tagSlots"
+/>
 
-<div class="flex gap-2">
-  <span class="jff-tag jff-tag--closable">Tag 1 ✕</span>
-  <span class="jff-tag jff-tag--success jff-tag--closable">Tag 2 ✕</span>
-  <span class="jff-tag jff-tag--info jff-tag--closable">Tag 3 ✕</span>
-</div>
+<script setup>
+const tagAttributes = [
+  {
+    name: 'type',
+    description: 'Tag type',
+    type: "'success' | 'warning' | 'danger' | 'info' | 'primary'",
+    default: "'primary'"
+  },
+  {
+    name: 'closable',
+    description: 'Whether Tag can be removed',
+    type: 'boolean',
+    default: 'false'
+  },
+  {
+    name: 'disable-transitions',
+    description: 'Whether to disable animations',
+    type: 'boolean',
+    default: 'false'
+  },
+  {
+    name: 'hit',
+    description: 'Whether Tag has a highlighted border',
+    type: 'boolean',
+    default: 'false'
+  },
+  {
+    name: 'color',
+    description: 'Background color of the Tag',
+    type: 'string',
+    default: "''"
+  },
+  {
+    name: 'size',
+    description: 'Size of Tag',
+    type: "'large' | 'default' | 'small'",
+    value: "'default'"
+  },
+  {
+    name: 'effect',
+    description: 'Theme of Tag',
+    type: "'dark' | 'light' | 'plain'",
+    default: "'light'"
+  },
+  {
+    name: 'round',
+    description: 'Whether border is round',
+    type: 'boolean',
+    default: 'false'
+  }
+]
 
-```vue
-<template>
-  <div class="flex gap-2">
-    <JffTag closable>Tag 1</JffTag>
-    <JffTag closable type="success">Tag 2</JffTag>
-    <JffTag closable type="info">Tag 3</JffTag>
-  </div>
-</template>
-```
-:::
+const tagEvents = [
+  {
+    name: 'close',
+    description: 'Triggers when Tag is closed',
+    parameters: '(event: MouseEvent)'
+  },
+  {
+    name: 'click',
+    description: 'Triggers when Tag is clicked',
+    parameters: '(event: MouseEvent)'
+  }
+]
 
-## Different Sizes
-
-:::demo
-
-<div class="flex gap-2 items-center">
-  <span class="jff-tag jff-tag--large">Large</span>
-  <span class="jff-tag">Default</span>
-  <span class="jff-tag jff-tag--small">Small</span>
-</div>
-
-```vue
-<template>
-  <div class="flex gap-2 items-center">
-    <JffTag size="large">Large</JffTag>
-    <JffTag>Default</JffTag>
-    <JffTag size="small">Small</JffTag>
-  </div>
-</template>
-```
-:::
-
-## Round Tag
-
-:::demo
-
-<div class="flex gap-2">
-  <span class="jff-tag jff-tag--round">Round Tag</span>
-  <span class="jff-tag jff-tag--success jff-tag--round">Success Round</span>
-  <span class="jff-tag jff-tag--info jff-tag--round">Info Round</span>
-</div>
-
-```vue
-<template>
-  <div class="flex gap-2">
-    <JffTag round>Round Tag</JffTag>
-    <JffTag round type="success">Success Round</JffTag>
-    <JffTag round type="info">Info Round</JffTag>
-  </div>
-</template>
-```
-:::
-
-## Tag API
-
-### Tag Attributes
-
-| Attribute | Type | Default | Description |
-|------|------|--------|------|
-| type | string | — | Type |
-| closable | boolean | false | Whether to be closable |
-| round | boolean | false | Whether to be round |
-| size | string | — | Size |
+const tagSlots = [
+  {
+    name: 'default',
+    description: 'Custom default content'
+  }
+]
+</script>

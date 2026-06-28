@@ -18,7 +18,11 @@
     "rootDir": ".",
     "types": ["@vue/runtime-dom"],
     "paths": {
-      "@justforfun-ui/*": ["package/*"]
+      "@justforfun-ui/*": ["package/*"],
+      "@jff/*": ["./*"],
+      "@jff/components": ["components/*"],
+      "@jff/examples": ["docs/examples/*"],
+      "@jff/utils": ["utils/*"]
     },
     "jsx": "preserve",
     "jsxImportSource": "vue",

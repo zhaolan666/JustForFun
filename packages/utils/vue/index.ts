@@ -1,6 +1,7 @@
 export * from './global-node'
 export * from './icon'
 export * from './install'
+export * from './make-installer'
 export * from './props'
 export * from './refs'
 export * from './size'

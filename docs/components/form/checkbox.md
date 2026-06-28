@@ -1,68 +1,118 @@
 # Checkbox
 
-Used for multiple selection among a group of options.
+Set of checkable controls for selecting options.
 
 ## Basic Usage
 
-:::demo
+::: demo checkbox/basic :::
 
-<CheckboxDemo />
+## Enhanced Examples
 
-```vue
-<template>
-  <div class="flex flex-col gap-8">
-    <div class="flex flex-col gap-4">
-      <h4 class="text-sm text-gray-500 font-medium">Basic Usage</h4>
-      <div class="flex gap-4 items-center">
-        <JffCheckbox v-model="checked1">Checkbox</JffCheckbox>
-        <span class="text-sm text-gray-400">Value: {{ checked1 }}</span>
-      </div>
-    </div>
-    <div class="flex flex-col gap-4">
-      <h4 class="text-sm text-gray-500 font-medium">Disabled State</h4>
-      <div class="flex gap-4 items-center">
-        <JffCheckbox v-model="checked2" disabled>Disabled Unchecked</JffCheckbox>
-        <JffCheckbox v-model="checked3" disabled>Disabled Checked</JffCheckbox>
-      </div>
-    </div>
-    <div class="flex flex-col gap-4">
-      <h4 class="text-sm text-gray-500 font-medium">Checkbox Group</h4>
-      <JffCheckboxGroup v-model="groupChecked">
-        <JffCheckbox label="Option 1" />
-        <JffCheckbox label="Option 2" />
-        <JffCheckbox label="Option 3" />
-      </JffCheckboxGroup>
-      <div class="text-sm text-gray-400">Selected: {{ groupChecked.join(", ") || "None" }}</div>
-    </div>
-  </div>
-</template>
+::: demo checkbox/enhanced :::
 
-<script setup lang="ts">
-import { ref } from "vue"
-const checked1 = ref(true)
-const checked2 = ref(false)
-const checked3 = ref(true)
-const groupChecked = ref(["Option 1", "Option 2"])
+## API
+
+<ComponentDoc
+  component-name="Checkbox"
+  description="Set of checkable controls for selecting options"
+  :attributes="checkboxAttributes"
+  :events="checkboxEvents"
+  :slots="checkboxSlots"
+/>
+
+<script setup>
+const checkboxAttributes = [
+  {
+    name: 'model-value / v-model',
+    description: 'Binding value when used inside CheckboxGroup',
+    type: 'string / number / boolean / array',
+    default: "''"
+  },
+  {
+    name: 'label',
+    description: 'Value of the checkbox when used inside a CheckboxGroup',
+    type: 'string / number / boolean',
+    default: "''"
+  },
+  {
+    name: 'true-label',
+    description: 'Value if the checkbox is checked (only works when model is string or number)',
+    type: 'string / number',
+    default: "''"
+  },
+  {
+    name: 'false-label',
+    description: 'Value if the checkbox is unchecked (only works when model is string or number)',
+    type: 'string / number',
+    default: "''"
+  },
+  {
+    name: 'disabled',
+    description: 'Whether the checkbox is disabled',
+    type: 'boolean',
+    default: 'false'
+  },
+  {
+    name: 'border',
+    description: 'Whether Checkbox shows with border',
+    type: 'boolean',
+    default: 'false'
+  },
+  {
+    name: 'size',
+    description: 'Size of the Checkbox, only works when border is true',
+    type: "'large' | 'default' | 'small'",
+    value: "'default'"
+  },
+  {
+    name: 'name',
+    description: 'Native \'name\' attribute',
+    type: 'string',
+    default: "''"
+  },
+  {
+    name: 'checked',
+    description: 'If the checkbox is checked (non-controlled mode)',
+    type: 'boolean',
+    default: 'false'
+  },
+  {
+    name: 'indeterminate',
+    description: 'Same as indeterminate attribute in native checkbox, which determines whether the checkbox is displayed in indeterminate state, which overrides the value of checked property in visual display',
+    type: 'boolean',
+    default: 'false'
+  },
+  {
+    name: 'validate-event',
+    description: 'Whether to trigger form validation after value change',
+    type: 'boolean',
+    default: 'true'
+  },
+  {
+    name: 'id',
+    description: 'Same as \'id\' in native input',
+    type: 'string',
+    default: "''"
+  }
+]
+
+const checkboxEvents = [
+  {
+    name: 'change',
+    description: 'Triggers when the binding value changes',
+    parameters: '(value: string | number | boolean)'
+  },
+  {
+    name: 'input',
+    description: 'Triggers when the input value changes (deprecated, use change instead)',
+    parameters: '(value: string | number | boolean)'
+  }
+]
+
+const checkboxSlots = [
+  {
+    name: 'default',
+    description: 'Custom content'
+  }
+]
 </script>
-```
-
-:::
-
-## Checkbox Attributes
-
-| Attribute | Type | Default | Description |
-|------|------|--------|------|
-| modelValue | boolean | false | Binding value |
-| disabled | boolean | false | Whether to disable |
-| checked | boolean | false | Whether checked |
-| indeterminate | boolean | false | Whether in indeterminate state |
-| label | string | - | Label text |
-| border | boolean | false | Whether to show border |
-| name | string | - | Native name attribute |
-
-## CheckboxGroup Attributes
-
-| Attribute | Type | Default | Description |
-|------|------|--------|------|
-| modelValue | array | [] | Binding value |
-| disabled | boolean | false | Whether to disable |

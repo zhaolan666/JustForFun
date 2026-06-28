@@ -21,7 +21,9 @@
         :class="[ns.e('menu')]"
         @click.stop
       >
-        <slot />
+        <slot name="dropdown">
+          <slot />
+        </slot>
       </div>
     </Transition>
   </div>
