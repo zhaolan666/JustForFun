@@ -1,11 +1,12 @@
 import { defineConfig } from 'vitest/config'
 import vue from '@vitejs/plugin-vue'
+import vueJsx from '@vitejs/plugin-vue-jsx'
 import dts from 'vite-plugin-dts'
 import path from 'path'
 
 export default defineConfig({
   build: {
-    target: 'modules',
+    target: 'es2015',
     outDir: 'es',
     minify: false,
     rollupOptions: {
@@ -36,6 +37,7 @@ export default defineConfig({
   },
   plugins: [
     vue(),
+    vueJsx(),
     dts({
       entryRoot: 'components',
       outputDir: [
