@@ -1,7 +1,7 @@
 import path from 'path'
-// import Inspect from 'vite-plugin-inspect'
+import Inspect from 'vite-plugin-inspect'
 import { defineConfig, loadEnv } from 'vite'
-import VueMacros from 'unplugin-vue-macros/vite'
+import VueMacros from 'unplugin-vue-macros/dist/vite'
 import UnoCSS from 'unocss/vite'
 import mkcert from 'vite-plugin-mkcert'
 import glob from 'fast-glob'
@@ -9,7 +9,6 @@ import vueJsx from '@vitejs/plugin-vue-jsx'
 import Components from 'unplugin-vue-components/vite'
 import Icons from 'unplugin-icons/vite'
 import IconsResolver from 'unplugin-icons/resolver'
-import { JustForFunResolver } from '../packages/justforfun-ui/resolver'
 import {
   docPackage,
   epPackage,
@@ -89,11 +88,6 @@ export default defineConfig(async ({ mode }) => {
           // auto import icons
           // https://github.com/antfu/unplugin-icons
           IconsResolver(),
-          // auto import JustForFun UI components
-          JustForFunResolver({
-            importStyle: false, // 文档中手动控制样式导入
-            prefix: 'Jff',
-          }),
         ],
 
         // allow auto import and register components used in markdown
@@ -106,13 +100,11 @@ export default defineConfig(async ({ mode }) => {
       }),
       UnoCSS(),
       MarkdownTransform(),
-      // Inspect({
-      //   build: true,
-      // }),
+      Inspect(),
       mkcert(),
     ],
-    // optimizeDeps: {
-    //   include: optimizeDeps,
-    // },
+    optimizeDeps: {
+      include: optimizeDeps,
+    },
   }
 })
