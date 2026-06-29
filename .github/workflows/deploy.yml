@@ -16,11 +16,14 @@ jobs:
       - uses: actions/setup-node@v3
         with:
           node-version: 16
-          cache: npm
-      - run: npm install --frozen-lockfile
+          cache: pnpm
+      - uses: pnpm/action-setup@v2
+        with:
+          version: 11.1.2
+      - run: pnpm install --frozen-lockfile
 
       - name: Build
-        run: npm run docs:build
+        run: pnpm run docs:build
 
       - name:
           Deploy
